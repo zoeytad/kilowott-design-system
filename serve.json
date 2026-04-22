@@ -1,17 +1,13 @@
 {
   "cleanUrls": false,
-  "trailingSlash": true,
   "redirects": [
     { "source": "/", "destination": "/project/", "type": 302 }
   ],
+  "rewrites": [
+    { "source": "/project", "destination": "/project/index.html" },
+    { "source": "/project/", "destination": "/project/index.html" }
+  ],
   "headers": [
-    {
-      "source": "**",
-      "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
-      ]
-    },
     {
       "source": "llms.txt",
       "headers": [
@@ -35,14 +31,6 @@
         { "key": "Access-Control-Allow-Origin", "value": "*" },
         { "key": "Cache-Control", "value": "public, max-age=300" }
       ]
-    },
-    {
-      "source": "**/*.@(jpg|jpeg|png|webp|svg)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }]
-    },
-    {
-      "source": "**/*.@(css|js)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=3600" }]
     }
   ]
 }
