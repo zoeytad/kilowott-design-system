@@ -1,0 +1,131 @@
+{
+  "name": "Kilowott Design System",
+  "version": "0.6",
+  "description": "Component catalog. Machine-readable pointer for AI agents — each component lists its class, file, and the rule that governs it.",
+
+  "pages": [
+    { "id": "overview",    "tab": "Overview",    "file": "project/pages/overview.js",    "url-fragment": "#overview",    "role": "intro · principles · direction" },
+    { "id": "logo",        "tab": "Logo",        "file": "project/pages/logo.js",        "url-fragment": "#logo",        "role": "wordmark · clear space · placements" },
+    { "id": "color",       "tab": "Color",       "file": "project/pages/color.js",       "url-fragment": "#color",       "role": "palette · ratios · recipes · a11y" },
+    { "id": "type",        "tab": "Type",        "file": "project/pages/type.js",        "url-fragment": "#type",        "role": "pairing · scale · patterns" },
+    { "id": "foundations", "tab": "Foundations", "file": "project/pages/foundations.js", "url-fragment": "#foundations", "role": "spacing · grid · radii · motion · full token dump" },
+    { "id": "icons",       "tab": "Icons",       "file": "project/pages/icons.js",       "url-fragment": "#icons",       "role": "line icon set · 5 sizes · click-to-copy" },
+    { "id": "components",  "tab": "Components",  "file": "project/pages/components.js",  "url-fragment": "#components",  "role": "buttons · forms · cards · tabs · badges · UI states" },
+    { "id": "dashboards",  "tab": "Dashboards",  "file": "project/pages/dashboards.js",  "url-fragment": "#dashboards",  "role": "KPI · tables · spreadsheet · charts · shells" },
+    { "id": "deck",        "tab": "Deck",        "file": "project/pages/deck.js",        "url-fragment": "#deck",        "role": "7 slide layouts · specs" },
+    { "id": "email",       "tab": "Email",       "file": "project/pages/email.js",       "url-fragment": "#email",       "role": "transactional + newsletter templates · 600px canvas" },
+    { "id": "case-study",  "tab": "Case study",  "file": "project/pages/case-study.js",  "url-fragment": "#case-study",  "role": "full case-study template · situation → decision → result" },
+    { "id": "imagery",     "tab": "Imagery",     "file": "project/pages/imagery.js",     "url-fragment": "#imagery",     "role": "photo treatments · crop · sourcing" },
+    { "id": "voice",       "tab": "Voice",       "file": "project/pages/voice.js",       "url-fragment": "#voice",       "role": "principles · tone · vocab · mechanics" },
+    { "id": "social",      "tab": "Social",      "file": "project/pages/social.js",      "url-fragment": "#social",      "role": "feed · carousels · stories" }
+  ],
+
+  "primitives": {
+    "button":      { "class": ".k-btn",      "variants": ["--primary","--accent","--secondary","--ghost","--sm","--lg"], "rule": "One accent per view. Accent reserved for conversion-critical." },
+    "badge":       { "class": ".k-badge",    "variants": ["--solid","--accent","--soft","--outline","--no-dot"], "rule": "Dot shown by default for status; strip for taxonomy tags." },
+    "eyebrow":     { "class": ".eyebrow",    "variants": ["--accent"], "rule": "ALL CAPS · 0.18em tracked · 24px rule prefix · max 4 words." },
+    "card":        { "class": ".k-card",     "variants": ["--hover"], "rule": "Paper bg · 1px rule · r-3 · s-6 padding." },
+    "stat":        { "class": ".k-stat",     "rule": "One number serif + one line + source line mono." },
+    "case-card":   { "class": ".k-case",     "rule": "4/3 photo · gradient scrim · meta pills · case title with em accent." },
+    "input":       { "class": ".k-input",    "rule": "Label above (uppercase), focus = accent border + 3px ring @ 12%." },
+    "select":      { "class": ".k-select" },
+    "textarea":    { "class": ".k-textarea" },
+    "checkbox":    { "class": ".k-check",    "rule": "Paper tick on ink · 18px hit area." },
+    "switch":      { "class": ".k-switch",   "rule": "Instant-apply only. Form submits use checkbox." },
+    "tabs-pill":   { "class": ".k-tabs",     "rule": "View switching · max 5." },
+    "tabs-underline": { "class": ".k-tabs.k-tabs--underline", "rule": "Long-list filtering · accent underline on active." },
+    "breadcrumb":  { "class": ".k-breadcrumb", "rule": "Deep pages only (3+ levels). Soft slash separator." },
+    "state-empty": { "class": ".k-state",     "rule": "One italic accent word in headline · one primary action · never sad-face illustrations." },
+    "state-error": { "class": ".k-state.k-state--error", "rule": "Name the failure plainly · include a reference code · retry is always first action." },
+    "skeleton":    { "class": ".k-skel",      "rule": "Shape matches loading content · 1.4s pulse · respects prefers-reduced-motion." },
+    "spinner":     { "class": ".k-spinner",   "variants": ["--sm","--lg"], "rule": "Rule border + accent top arc. Use sparingly — skeletons are the default." },
+    "404":         { "class": ".k-404",       "rule": "Italic 0 is the accent moment. Plain and useful." }
+  },
+
+  "icon-set": {
+    "library": "Lucide",
+    "homepage": "https://lucide.dev",
+    "catalogue": "https://lucide.dev/icons",
+    "license": "ISC — free for commercial use",
+    "canonical-count": "1500+",
+    "house-curated-count": 63,
+    "canvas": "24x24",
+    "stroke": "1.5px",
+    "stroke-at-48+": "1.25px",
+    "caps": "round",
+    "color": "currentColor — never hardcode a hex",
+    "categories": ["nav","action","status","fin","social","misc"],
+    "sizes": [16, 20, 24, 32, 48],
+    "cdn": "https://unpkg.com/lucide@latest/dist/umd/lucide.min.js",
+    "html-pattern": "<i data-lucide=\"<icon-name>\"></i>",
+    "hydrate": "lucide.createIcons({ root: myContainer });",
+    "css-override": ".lucide { width: 24px; height: 24px; stroke-width: 1.5; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; fill: none; }",
+    "rules": [
+      "Lucide first. If the icon exists in Lucide, use it — never hand-draw a one-off.",
+      "stroke-width: 1.5 and currentColor always. Never override to a hex.",
+      "Accent color is state-only — hover, active, alert. Resting icons inherit var(--fg).",
+      "Hit area min 36x36 on interactive icons. Icon button padding 6–8px around a 20–24px glyph."
+    ]
+  },
+
+  "dashboard-primitives": {
+    "kpi-tile":       { "class": ".kpi",        "variants": ["--compact","--row"], "rule": "Serif only on headline number; everything else sans or mono." },
+    "delta-chip":     { "class": ".delta",      "variants": ["--down","--flat","--plain"], "rule": "Up = ink. Down = red. Flat = muted em-dash." },
+    "sparkline":      { "class": ".sparkline",  "variants": ["--accent"], "rule": "32px tall · 1.25px stroke · end-point dot." },
+    "data-table":     { "class": ".db-table",   "variants": ["--zebra"], "rule": "Right-aligned numerals, mono font, tabular-nums." },
+    "meter":          { "class": ".meter",      "variants": ["__fill--accent","--vs","--thin"], "rule": "4px default. Target = 2px ink tick at 100%." },
+    "status-dot":     { "class": ".dot",        "variants": ["--live","--alert","--idle","--paused"], "rule": "6px · alert pulses." },
+    "alert":          { "class": ".db-alert",   "rule": "Red banner = breach/miss/outage. Muted = notice." },
+    "toolbar":        { "class": ".db-bar",     "rule": "Search left · scope center · view toggles right-center · primary action far right." },
+    "segmented":      { "class": ".db-seg",     "rule": "Single-choice view switcher." },
+    "icon-button":    { "class": ".db-iconbtn", "variants": ["--accent"] },
+    "spreadsheet":    { "class": ".ss-wrap",    "rule": "Toolbar · formula bar · chips · grid · tabs. Sticky row-nums + col-headers + first data col." },
+    "sheet-tabs":     { "class": ".ss-tabsbar", "variants": ["--top","--status-only"], "rule": "Top for application-style workbooks; bottom for document-style." },
+    "candlestick":    { "class": ".ohlc",       "rule": "Up = ink, down = accent. Hover for OHLC tooltip." },
+    "tree-grid":      { "class": ".tree",       "rule": "Chevron expand/collapse. Depth = indent only, no vertical rules." },
+    "waterfall":      { "class": ".waterfall",  "rule": "Start/end ink-muted. Gains ink. Losses accent. Dashed connectors." },
+    "heatmap":        { "class": ".heatmap",    "rule": "Red scale is the ONLY place red fills large areas — severity is the point." },
+    "forecast":       { "class": ".fc",         "rule": "Actuals solid line. Divider = today. Scenario buttons morph line + KPIs." },
+    "dashboard-shell":{ "class": ".db-shell",   "rule": "Paper sidebar, ink accent tick for active page, paper body, crumb topbar." }
+  },
+
+  "deck-layouts": [
+    "01 · Title",
+    "02 · Section divider (ink)",
+    "03 · Content 2-col",
+    "04 · Stat-led",
+    "05 · Quote",
+    "06 · Full-bleed image",
+    "07 · Closing / CTA"
+  ],
+
+  "tweaks": {
+    "theme":    ["light", "dark"],
+    "accent":   ["#E4022D", "#C8102E", "#F05A28", "#1F3CFF", "#0B0F14"],
+    "font-pair": ["newsreader", "editorial", "playfair", "cormorant", "ebgaramond", "librecaslon", "instrument", "technical"],
+    "density":  ["compact", "comfortable", "spacious"]
+  },
+
+  "voice": {
+    "positioning": "Scale faster. Deliver better. Create impact.",
+    "principles": ["Outcome-driven", "Strategic & specific", "Confident, not loud", "Human, not corporate"],
+    "use-vocab":   ["partner", "deliver / ship", "measurable", "outcome / ROI", "ownership", "team / specialists", "build", "help / support", "use"],
+    "avoid-vocab": ["leverage", "empower", "unlock", "synergy", "best-in-class", "cutting-edge", "at scale", "seamless", "end-to-end", "tailored solutions", "excited to announce", "revolutionary"],
+    "length-ladder": {
+      "hero":         "4–9 words",
+      "deck-headline":"10–14 words",
+      "subhead":      "25–40 words",
+      "social":       "60–120 words",
+      "service":      "250–400 words",
+      "case-study":   "600–900 words",
+      "pov":          "1,200–1,800 words"
+    },
+    "mechanics": {
+      "oxford-comma": true,
+      "em-dash": "unspaced",
+      "semicolon": "almost never",
+      "exclamation": "never",
+      "curly-quotes": "always"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+.DS_Store
+*.log
+node_modules/
+.vercel/
+.netlify/
+.railway/
+.env
+.env.local
+*.original.md
+upload_server.py
+Kilowott Design System-handoff.zip
+kilowott-design-system/

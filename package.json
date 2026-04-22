@@ -1,0 +1,16 @@
+{
+  "name": "kilowott-design-system",
+  "version": "0.6.0",
+  "private": true,
+  "description": "Kilowott Design System — editorial brand system (logo, color, type, components, dashboards, decks, templates) served as a static site.",
+  "scripts": {
+    "start": "serve -l tcp://0.0.0.0:${PORT:-3000} --config serve.json .",
+    "dev": "python3 -m http.server 8723 --directory project"
+  },
+  "dependencies": {
+    "serve": "^14.2.4"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

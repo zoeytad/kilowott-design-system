@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kilowott — Design System v0.6</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Core pairing families — split into multiple requests so long URLs don't truncate. -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Libre+Caslon+Text:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=DM+Sans:wght@400;500&family=Manrope:wght@400;500;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/shell.css?v=2">
+
+<script>
+  // Edit-mode-available protocol registered FIRST
+  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "accent": "#E4022D",
+    "theme": "light",
+    "fontPair": "newsreader",
+    "density": "spacious"
+  }/*EDITMODE-END*/;
+  window.__tweaks = { ...TWEAK_DEFAULTS };
+</script>
+</head>
+
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<header class="topbar">
+  <div class="topbar__inner">
+    <a class="topbar__brand" href="#overview" aria-label="Kilowott"></a>
+
+    <span class="topbar__here" id="topbar-here" aria-live="polite"></span>
+
+    <button class="topbar__menu" id="topbar-menu" aria-label="Open menu" aria-expanded="false">
+      <span class="topbar__menu-label">Index</span>
+      <i data-lucide="menu"></i>
+    </button>
+  </div>
+</header>
+
+<!-- ============ NAV DRAWER ============ -->
+<aside class="drawer" id="drawer" hidden aria-label="Navigation">
+  <div class="drawer__scrim" id="drawer-scrim"></div>
+  <div class="drawer__panel">
+    <div class="drawer__head">
+      <div class="drawer__title">
+        <span class="eyebrow eyebrow--accent">Kilowott Design System &middot; v0.6</span>
+        <h2 class="drawer__h">Pick a <em>surface</em>.</h2>
+      </div>
+      <button class="drawer__close" id="drawer-close" aria-label="Close menu">
+        <i data-lucide="x"></i>
+      </button>
+    </div>
+
+    <nav class="drawer__nav" id="tabs" aria-label="Sections">
+      <div class="drawer__col">
+        <div class="drawer__cat">Brand</div>
+        <a class="tab drawer__link" href="#overview"   data-tab="overview">Overview<span>Principles · direction</span></a>
+        <a class="tab drawer__link" href="#logo"       data-tab="logo">Logo<span>Mark · clear space</span></a>
+        <a class="tab drawer__link" href="#color"      data-tab="color">Color<span>Palette · ratios · a11y</span></a>
+        <a class="tab drawer__link" href="#type"       data-tab="type">Type<span>Newsreader + DM Sans</span></a>
+        <a class="tab drawer__link" href="#voice"      data-tab="voice">Voice<span>Tone · vocab · mechanics</span></a>
+        <a class="tab drawer__link" href="#imagery"    data-tab="imagery">Imagery<span>Photography · treatments</span></a>
+      </div>
+
+      <div class="drawer__col">
+        <div class="drawer__cat">System</div>
+        <a class="tab drawer__link" href="#foundations" data-tab="foundations">Foundations<span>Spacing · grid · motion · tokens</span></a>
+        <a class="tab drawer__link" href="#icons"       data-tab="icons">Icons<span>Lucide · 1,500+ glyphs</span></a>
+        <a class="tab drawer__link" href="#components"  data-tab="components">Components<span>Parts bin · UI states</span></a>
+        <a class="tab drawer__link" href="#dashboards"  data-tab="dashboards">Dashboards<span>KPI · tables · charts · shells</span></a>
+      </div>
+
+      <div class="drawer__col">
+        <div class="drawer__cat">Templates</div>
+        <a class="tab drawer__link" href="#landing"    data-tab="landing">Landing<span>6 hero patterns + sections</span></a>
+        <a class="tab drawer__link" href="#deck"       data-tab="deck">Deck<span>15 canonical slide layouts</span></a>
+        <a class="tab drawer__link" href="#email"      data-tab="email">Email<span>Transactional + newsletter</span></a>
+        <a class="tab drawer__link" href="#case-study" data-tab="case-study">Case study<span>Situation → decision → result</span></a>
+        <a class="tab drawer__link" href="#social"     data-tab="social">Social<span>Feed · carousels · stories</span></a>
+      </div>
+    </nav>
+
+    <div class="drawer__foot">
+      <span>Press <kbd>Esc</kbd> or tap outside to close</span>
+      <span>v0.6 &middot; Editorial register &middot; <a href="../KILOWOTT_BRAND.md" target="_blank" rel="noopener">Brand reference →</a></span>
+    </div>
+  </div>
+</aside>
+
+<!-- Swap in the real logo as IMG to avoid SVG use issues -->
+<style>
+  .topbar__brand svg { display: none; }
+  .topbar__brand::before {
+    content: "";
+    width: 110px; height: 18px;
+    background: currentColor;
+    -webkit-mask: url(assets/kilowott-logo.svg) no-repeat center/contain;
+            mask: url(assets/kilowott-logo.svg) no-repeat center/contain;
+  }
+</style>
+
+<!-- ============ MAIN ============ -->
+<main id="main">
+  <div id="page-overview" class="page"></div>
+  <div id="page-logo" class="page" hidden></div>
+  <div id="page-color" class="page" hidden></div>
+  <div id="page-type" class="page" hidden></div>
+  <div id="page-foundations" class="page" hidden></div>
+  <div id="page-icons" class="page" hidden></div>
+  <div id="page-components" class="page" hidden></div>
+  <div id="page-landing" class="page" hidden></div>
+  <div id="page-dashboards" class="page" hidden></div>
+  <div id="page-deck" class="page" hidden></div>
+  <div id="page-email" class="page" hidden></div>
+  <div id="page-case-study" class="page" hidden></div>
+  <div id="page-imagery" class="page" hidden></div>
+  <div id="page-voice" class="page" hidden></div>
+  <div id="page-social" class="page" hidden></div>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <span>Kilowott · Design System</span>
+    <span>Last updated — Draft</span>
+  </div>
+</footer>
+
+<!-- ============ TWEAKS PANEL ============ -->
+<div class="tweaks" id="tweaks" hidden>
+  <div class="tweaks__head">
+    <span>Tweaks</span>
+    <button class="tweak-btn" id="tweaks-close" style="max-width:60px">Close</button>
+  </div>
+  <div class="tweaks__body">
+
+    <div class="tweaks__group">
+      <span class="tweaks__label">Theme</span>
+      <div class="tweaks__row" data-tweak-group="theme">
+        <button class="tweak-btn" data-value="light">Light</button>
+        <button class="tweak-btn" data-value="dark">Dark</button>
+      </div>
+    </div>
+
+    <div class="tweaks__group">
+      <span class="tweaks__label">Accent color</span>
+      <div class="tweaks__row" data-tweak-group="accent">
+        <button class="tweak-swatch" data-value="#E4022D" style="background:#E4022D" title="Kilowott Red (default)"></button>
+        <button class="tweak-swatch" data-value="#C8102E" style="background:#C8102E" title="Deeper red"></button>
+        <button class="tweak-swatch" data-value="#F05A28" style="background:#F05A28" title="Signal orange"></button>
+        <button class="tweak-swatch" data-value="#1F3CFF" style="background:#1F3CFF" title="Electric blue"></button>
+        <button class="tweak-swatch" data-value="#0B0F14" style="background:#0B0F14" title="Ink (monochrome)"></button>
+      </div>
+    </div>
+
+    <div class="tweaks__group">
+      <span class="tweaks__label">Font pairing · locked default</span>
+      <div class="tweaks__col" data-tweak-group="fontPair">
+        <button class="tweak-pair" data-value="newsreader">
+          <span class="tweak-pair__preview" style="font-family:'Newsreader',serif;">Aa<em style="font-style:italic;">Bb</em></span>
+          <span class="tweak-pair__meta">
+            <b>Newsroom (default)</b>
+            <span>Newsreader + DM Sans</span>
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <div class="tweaks__group">
+      <span class="tweaks__label">Density</span>
+      <div class="tweaks__row" data-tweak-group="density">
+        <button class="tweak-btn" data-value="compact">Compact</button>
+        <button class="tweak-btn" data-value="comfortable">Comfortable</button>
+        <button class="tweak-btn" data-value="spacious">Spacious</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<button class="tweaks-toggle-hint" id="tweaks-hint">Open Tweaks ✳</button>
+
+<!-- ============ ICON LIBRARY — Lucide ============ -->
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+<!-- ============ PAGE MODULES ============ -->
+<script src="pages/overview.js?v=4"></script>
+<script src="pages/logo.js?v=2"></script>
+<script src="pages/color.js?v=2"></script>
+<script src="pages/type.js?v=2"></script>
+<script src="pages/foundations.js?v=3"></script>
+<script src="pages/icons.js?v=3"></script>
+<script src="pages/components.js?v=3"></script>
+<script src="pages/landing.js?v=1"></script>
+<script src="pages/dashboards.js?v=6"></script>
+<script src="pages/deck.js?v=7"></script>
+<script src="pages/email.js?v=1"></script>
+<script src="pages/case-study.js?v=1"></script>
+<script src="pages/imagery.js?v=9"></script>
+<script src="pages/voice.js?v=2"></script>
+<script src="pages/social.js?v=1"></script>
+
+<!-- ============ APP LOGIC ============ -->
+<script src="app.js?v=3"></script>
+
+</body>
+</html>

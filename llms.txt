@@ -1,0 +1,48 @@
+# Kilowott Design System
+
+> Editorial brand system for Kilowott — calm by default, one hit of red, Newsreader + DM Sans. Covers logo, color, type, spacing, components, dashboards, decks, imagery, voice, and social. This file is the entry point for AI agents (Claude Code, Claude Design, Cowork) that want to build something on-brand without scanning every source file.
+
+## Canonical URL
+
+Local dev: http://localhost:8723/
+Public: _set this when deployed_
+
+## Start here
+
+- [Brand reference (compact)](KILOWOTT_BRAND.md): one-page summary — hex, fonts, scale, voice principles, vocab, length ladder
+- [Tokens (JSON)](tokens.json): machine-readable color / type / spacing / radii / shadow tokens
+- [Component manifest (JSON)](manifest.json): every component with class name, HTML snippet, usage rule
+
+## Pages (source)
+
+- [Overview](project/pages/overview.js): principles, primary direction, what's shipped
+- [Logo](project/pages/logo.js): wordmark, clear space, placements, don'ts
+- [Color](project/pages/color.js): 60/30/5/5 ratio, 5 red rules, recipes, accessibility
+- [Type](project/pages/type.js): Newsreader + DM Sans, 9-size scale, headline patterns
+- [Foundations](project/pages/foundations.js): 8pt spacing, grid, radii, motion, full token dump
+- [Icons](project/pages/icons.js): 43 line icons, 5 sizes, 6 categories, click-to-copy
+- [Components](project/pages/components.js): buttons, forms, cards, tabs, badges, eyebrows, UI states (empty/error/loading/404)
+- [Dashboards](project/pages/dashboards.js): KPI tiles, tables, spreadsheet, OHLC, tree, waterfall, heatmap, forecast
+- [Deck](project/pages/deck.js): 7 canonical slide layouts
+- [Email](project/pages/email.js): transactional + newsletter templates (600px)
+- [Case study](project/pages/case-study.js): full case-study template — situation → decision → result
+- [Imagery](project/pages/imagery.js): photo treatments, crop ratios, sourcing
+- [Voice](project/pages/voice.js): principles, tone dial, register shifts, vocab
+- [Social](project/pages/social.js): feed posts, carousels, stories, reels
+
+## Agent-specific prompts
+
+- [Claude Code prompt](prompts/claude-code.md): how to generate on-brand code from this system
+- [Claude Design prompt](prompts/claude-design.md): how to generate on-brand designs
+- [Cowork prompt](prompts/cowork.md): how to integrate the system into Cowork workflows
+
+## Core rules (always)
+
+1. **Calm by default.** Whitespace over noise. Narrow palette. Type does the heavy lifting.
+2. **Red earns its place.** One accent moment per surface. Never decoration.
+3. **Editorial over ornamental.** Serif display + clean sans. Italic emphasis. No gradients, glows, or filler icons.
+4. **Technical & human.** Enterprise rigor, written like people. Precise, never sterile.
+
+## Optional
+
+- [Full system dump](llms-full.txt): every page compiled to markdown for one-shot loading
