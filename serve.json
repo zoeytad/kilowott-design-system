@@ -1,9 +1,8 @@
 {
   "cleanUrls": false,
-  "trailingSlash": false,
-  "rewrites": [
-    { "source": "/", "destination": "/project/index.html" },
-    { "source": "/project", "destination": "/project/index.html" }
+  "trailingSlash": true,
+  "redirects": [
+    { "source": "/", "destination": "/project/", "type": 302 }
   ],
   "headers": [
     {
