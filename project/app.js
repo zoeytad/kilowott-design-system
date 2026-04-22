@@ -37,6 +37,12 @@
     'case-study': 'Templates', social: 'Templates',
   };
 
+  // ---------- DRAWER refs (declared early — closeDrawer runs inside showTab below) ----------
+  const drawer = document.getElementById('drawer');
+  const drawerScrim = document.getElementById('drawer-scrim');
+  const drawerClose = document.getElementById('drawer-close');
+  const menuBtn = document.getElementById('topbar-menu');
+
   // ---------- TAB ROUTING ----------
   function currentTab() {
     const h = location.hash.replace('#','');
@@ -69,11 +75,6 @@
   showTab(currentTab());
 
   // ---------- DRAWER ----------
-  const drawer = document.getElementById('drawer');
-  const drawerScrim = document.getElementById('drawer-scrim');
-  const drawerClose = document.getElementById('drawer-close');
-  const menuBtn = document.getElementById('topbar-menu');
-
   function openDrawer() {
     if (!drawer) return;
     drawer.hidden = false;
