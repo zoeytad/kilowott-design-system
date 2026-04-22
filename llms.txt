@@ -4,8 +4,9 @@
 
 ## Canonical URL
 
-Local dev: http://localhost:8723/
-Public: _set this when deployed_
+**Public:** https://kilowott-design-system-production.up.railway.app/
+**Local dev:** http://localhost:8723/
+**Source:** https://github.com/zoeytad/kilowott-design-system
 
 ## Start here
 
