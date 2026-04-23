@@ -10,7 +10,7 @@ window.renderDeck = function (root) {
   <style>
     /* -------- DECK PAGE SCOPED STYLES -------- */
     .dk-hero {
-      padding: calc(var(--s-9) * var(--density)) 0 calc(var(--s-7) * var(--density));
+      padding: var(--s-9) 0 var(--s-7);
       border-bottom: 1px solid var(--rule);
     }
     .dk-hero h1 {
@@ -184,40 +184,40 @@ window.renderDeck = function (root) {
        SLIDE 03 · CONTENT (2-COL)
        ===================================================== */
     .dk-03 .dk-03-grid {
-      position: absolute; left: 56px; right: 56px; top: 160px; bottom: 120px;
+      position: absolute; left: 56px; right: 56px; top: 128px; bottom: 88px;
       display: grid; grid-template-columns: 1.1fr 1fr;
-      gap: 80px;
+      gap: 64px;
     }
     .dk-03 h2 {
       font-family: var(--font-display);
       font-weight: 400;
-      font-size: 72px; line-height: 1.02; letter-spacing: -0.02em;
-      margin: 28px 0 0; max-width: 14ch;
+      font-size: 64px; line-height: 1.02; letter-spacing: -0.02em;
+      margin: 22px 0 0; max-width: 14ch;
     }
     .dk-03 h2 em { font-style: italic; color: #E4022D; }
     .dk-03 .dk-03-lede {
-      font-size: 18px; line-height: 1.5; color: rgba(11,15,20,0.62);
-      margin-top: 28px; max-width: 40ch;
+      font-size: 17px; line-height: 1.5; color: rgba(11,15,20,0.62);
+      margin-top: 22px; max-width: 40ch;
     }
-    .dk-03 .dk-03-points { display: flex; flex-direction: column; gap: 28px; }
+    .dk-03 .dk-03-points { display: flex; flex-direction: column; gap: 14px; }
     .dk-03 .dk-03-point {
-      display: grid; grid-template-columns: 44px 1fr; gap: 18px;
-      padding: 20px 0; border-top: 1px solid rgba(11,15,20,0.14);
+      display: grid; grid-template-columns: 40px 1fr; gap: 16px;
+      padding: 14px 0; border-top: 1px solid rgba(11,15,20,0.14);
     }
     .dk-03 .dk-03-point:last-child { border-bottom: 1px solid rgba(11,15,20,0.14); }
     .dk-03 .dk-03-point__n {
       font-family: var(--font-mono);
-      font-size: 13px; color: rgba(11,15,20,0.5);
+      font-size: 12px; color: rgba(11,15,20,0.5);
       letter-spacing: 0.1em; padding-top: 4px;
     }
     .dk-03 .dk-03-point__body b {
       font-family: var(--font-display);
-      font-weight: 400; font-size: 26px; letter-spacing: -0.01em;
+      font-weight: 400; font-size: 22px; letter-spacing: -0.01em;
       line-height: 1.15; display: block;
     }
     .dk-03 .dk-03-point__body p {
-      font-size: 15px; line-height: 1.55; color: rgba(11,15,20,0.62);
-      margin: 8px 0 0; max-width: 44ch;
+      font-size: 14px; line-height: 1.45; color: rgba(11,15,20,0.62);
+      margin: 6px 0 0; max-width: 42ch;
     }
 
     /* =====================================================
@@ -519,25 +519,25 @@ window.renderDeck = function (root) {
        SLIDE 11 · PRICING TIERS
        ===================================================== */
     .dk-11 .dk-11-head {
-      position: absolute; left: 56px; right: 56px; top: 120px;
+      position: absolute; left: 56px; right: 56px; top: 108px;
     }
     .dk-11 h2 {
       font-family: var(--font-display);
       font-weight: 400;
-      font-size: 54px; line-height: 1.02; letter-spacing: -0.02em;
-      margin: 16px 0 0; max-width: 24ch;
+      font-size: 46px; line-height: 1.02; letter-spacing: -0.02em;
+      margin: 14px 0 0; max-width: 24ch;
     }
     .dk-11 h2 em { font-style: italic; color: #E4022D; }
     .dk-11 .dk-11-tiers {
-      position: absolute; left: 56px; right: 56px; top: 290px; bottom: 110px;
+      position: absolute; left: 56px; right: 56px; top: 252px; bottom: 92px;
       display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      gap: 20px;
     }
     .dk-11 .dk-11-tier {
       position: relative;
       border: 1px solid rgba(11,15,20,0.14);
       border-radius: 12px;
-      padding: 28px 28px 24px;
+      padding: 22px 22px 18px;
       background: #FFFFFF;
       display: flex; flex-direction: column;
     }
@@ -546,7 +546,7 @@ window.renderDeck = function (root) {
       box-shadow: 0 8px 30px rgba(228,2,45,0.08);
     }
     .dk-11 .dk-11-pill {
-      position: absolute; top: -12px; left: 24px;
+      position: absolute; top: -12px; left: 20px;
       background: #E4022D; color: #fff;
       font-family: var(--font-mono);
       font-size: 10px; letter-spacing: 0.18em;
@@ -555,21 +555,21 @@ window.renderDeck = function (root) {
     }
     .dk-11 .dk-11-tier__name {
       font-family: var(--font-display);
-      font-weight: 400; font-size: 24px;
+      font-weight: 400; font-size: 22px;
       letter-spacing: -0.01em; line-height: 1;
     }
     .dk-11 .dk-11-tier__price {
       font-family: var(--font-display);
-      font-weight: 400; font-size: 60px;
+      font-weight: 400; font-size: 50px;
       letter-spacing: -0.025em; line-height: 1;
-      margin-top: 20px;
+      margin-top: 14px;
     }
     .dk-11 .dk-11-tier__price sup {
       font-family: var(--font-sans);
-      font-size: 13px; color: rgba(11,15,20,0.5);
+      font-size: 12px; color: rgba(11,15,20,0.5);
       letter-spacing: 0.06em;
       vertical-align: top;
-      top: 12px; position: relative;
+      top: 10px; position: relative;
       margin-left: 4px;
     }
     .dk-11 .dk-11-tier__price-note {
@@ -577,12 +577,12 @@ window.renderDeck = function (root) {
       letter-spacing: 0.04em; margin-top: 4px;
     }
     .dk-11 .dk-11-tier__features {
-      list-style: none; padding: 0; margin: 20px 0 0;
-      display: flex; flex-direction: column; gap: 10px;
-      font-size: 13px; line-height: 1.45;
+      list-style: none; padding: 0; margin: 14px 0 0;
+      display: flex; flex-direction: column; gap: 7px;
+      font-size: 12.5px; line-height: 1.4;
       color: rgba(11,15,20,0.72);
       border-top: 1px solid rgba(11,15,20,0.12);
-      padding-top: 18px;
+      padding-top: 14px;
     }
     .dk-11 .dk-11-tier__features li {
       display: grid; grid-template-columns: 14px 1fr;
@@ -595,7 +595,7 @@ window.renderDeck = function (root) {
     }
     .dk-11 .dk-11-tier__cta {
       margin-top: auto;
-      padding: 12px 14px;
+      padding: 10px 14px;
       border: 1px solid rgba(11,15,20,0.18);
       border-radius: 8px;
       text-align: center;
@@ -614,25 +614,25 @@ window.renderDeck = function (root) {
        SLIDE 12 · COMPARISON
        ===================================================== */
     .dk-12 .dk-12-head {
-      position: absolute; left: 56px; right: 56px; top: 120px;
+      position: absolute; left: 56px; right: 56px; top: 108px;
     }
     .dk-12 h2 {
       font-family: var(--font-display);
       font-weight: 400;
-      font-size: 60px; line-height: 1.02; letter-spacing: -0.02em;
-      margin: 18px 0 0; max-width: 22ch;
+      font-size: 48px; line-height: 1.02; letter-spacing: -0.02em;
+      margin: 14px 0 0; max-width: 22ch;
     }
     .dk-12 h2 em { font-style: italic; color: #E4022D; }
     .dk-12 .dk-12-table {
-      position: absolute; left: 56px; right: 56px; top: 300px; bottom: 110px;
-      display: grid; grid-template-columns: 160px 1fr 1fr;
+      position: absolute; left: 56px; right: 56px; top: 246px; bottom: 88px;
+      display: grid; grid-template-columns: 150px 1fr 1fr;
     }
     .dk-12 .dk-12-col-head {
       font-family: var(--font-mono);
       font-size: 11px; letter-spacing: 0.18em;
       text-transform: uppercase;
       color: rgba(11,15,20,0.5);
-      padding: 0 20px 14px;
+      padding: 0 18px 10px;
       border-bottom: 1px solid rgba(11,15,20,0.14);
     }
     .dk-12 .dk-12-col-head--kw {
@@ -641,9 +641,9 @@ window.renderDeck = function (root) {
     }
     .dk-12 .dk-12-row-label,
     .dk-12 .dk-12-cell {
-      padding: 18px 20px;
+      padding: 12px 18px;
       border-bottom: 1px solid rgba(11,15,20,0.08);
-      font-size: 15px; line-height: 1.45;
+      font-size: 14px; line-height: 1.4;
     }
     .dk-12 .dk-12-row-label {
       font-family: var(--font-mono);
@@ -661,7 +661,7 @@ window.renderDeck = function (root) {
     }
     .dk-12 .dk-12-cell--kw b {
       font-family: var(--font-display);
-      font-weight: 400; font-size: 17px;
+      font-weight: 400; font-size: 16px;
       color: #0B0F14;
       display: inline;
     }
@@ -874,7 +874,7 @@ window.renderDeck = function (root) {
     .dk-rules-band {
       border: 1px solid var(--rule);
       border-radius: var(--r-3);
-      padding: calc(var(--s-7) * var(--density));
+      padding: var(--s-7);
       background: var(--bg);
       margin-top: var(--s-8);
     }
