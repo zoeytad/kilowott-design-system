@@ -412,4 +412,6 @@ body.drawer-open { overflow: hidden; }
   border: 0; box-shadow: var(--shadow-2);
   display: none;
 }
-.tweaks-toggle-hint.is-visible { display: inline-flex; }
+.tweaks-toggle-hint.is-visible { display: inline-flex; align-items: center; gap: 8px; }
+.tweaks-toggle-hint .lucide { width: 14px; height: 14px; stroke-width: 1.75; }
+.drawer__foot a .lucide { width: 12px; height: 12px; stroke-width: 1.75; vertical-align: middle; margin-left: 4px; }

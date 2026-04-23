@@ -5,6 +5,9 @@
 window.renderLogo = function (root) {
   root.innerHTML = `
   <style>
+    .btn__arrow { display: inline-flex; align-items: center; }
+    .btn__arrow .lucide { width: 16px; height: 16px; stroke-width: 1.75; }
+    .lg-var__cap .lucide { width: 14px; height: 14px; stroke-width: 1.75; vertical-align: middle; }
     .lg-hero {
       display: grid; grid-template-columns: 1fr 1fr; gap: 0;
       border-bottom: 1px solid var(--rule);
@@ -182,7 +185,7 @@ window.renderLogo = function (root) {
       <h1 class="page-header__title" style="padding:0; border:0; margin-top:16px">The wordmark is the brand.</h1>
       <p class="page-header__lede">Kilowott is carried almost entirely by a single wordmark. That means every placement, every crop, every color is load-bearing. These rules keep it behaving consistently across decks, the site, social posts and partner collateral.</p>
       <div style="display:flex; gap:12px; margin-top: 32px;">
-        <a class="btn btn--primary" href="assets/kilowott-logo.svg" download>Download SVG<span class="btn__arrow">→</span></a>
+        <a class="btn btn--primary" href="assets/kilowott-logo.svg" download>Download SVG<span class="btn__arrow"><i data-lucide="arrow-right"></i></span></a>
         <a class="btn" href="#color">Color rules</a>
       </div>
     </div>
@@ -271,10 +274,10 @@ window.renderLogo = function (root) {
         <p class="section-head__body">The most common violations we&rsquo;ve seen across decks and social templates. If you catch one, fix it.</p>
       </div>
       <div class="grid grid-4">
-        <div class="lg-var lg-dont lg-dont--stretch"><div class="lg-var__logo"></div><span class="lg-var__cap accent-text">✕ Stretch</span></div>
-        <div class="lg-var lg-dont lg-dont--rotate"><div class="lg-var__logo"></div><span class="lg-var__cap accent-text">✕ Rotate</span></div>
-        <div class="lg-var lg-dont lg-dont--noise"><div class="lg-var__logo"></div><span class="lg-var__cap accent-text">✕ Busy bg</span></div>
-        <div class="lg-var lg-dont lg-dont--shadow"><div class="lg-var__logo"></div><span class="lg-var__cap accent-text">✕ Drop shadow</span></div>
+        <div class="lg-var lg-dont lg-dont--stretch"><div class="lg-var__logo"></div><span class="lg-var__cap accent-text"><i data-lucide="x"></i> Stretch</span></div>
+        <div class="lg-var lg-dont lg-dont--rotate"><div class="lg-var__logo"></div><span class="lg-var__cap accent-text"><i data-lucide="x"></i> Rotate</span></div>
+        <div class="lg-var lg-dont lg-dont--noise"><div class="lg-var__logo"></div><span class="lg-var__cap accent-text"><i data-lucide="x"></i> Busy bg</span></div>
+        <div class="lg-var lg-dont lg-dont--shadow"><div class="lg-var__logo"></div><span class="lg-var__cap accent-text"><i data-lucide="x"></i> Drop shadow</span></div>
       </div>
     </div>
   </section>

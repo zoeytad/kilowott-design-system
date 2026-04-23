@@ -945,11 +945,14 @@ window.renderDeck = function (root) {
       font-size: 32px; font-family: var(--font-display);
       color: var(--accent);
       transition: transform .2s ease;
+      display: inline-flex; align-items: center;
     }
+    .dk-cta__arrow .lucide { width: 32px; height: 32px; stroke-width: 1.5; }
     .dk-cta:hover .dk-cta__arrow { transform: translateX(6px); }
     .dk-cta.is-requested { background: var(--accent); }
     .dk-cta.is-requested:hover { background: #B40224; }
     .dk-cta.is-requested .dk-cta__arrow { color: #fff; transform: none; font-size: 26px; }
+    .dk-cta.is-requested .dk-cta__arrow .lucide { width: 26px; height: 26px; }
   </style>
 
   <!-- HERO -->
@@ -1364,7 +1367,7 @@ window.renderDeck = function (root) {
                     <span class="dk-08-item__n">02</span>
                     <div class="dk-08-item__body">
                       <b>The partnership model</b>
-                      <p>Four practices, one accountable team &mdash; how an engagement actually runs.</p>
+                      <p>Four practices, one accountable team &mdash; how an engagement runs.</p>
                     </div>
                   </div>
                   <div class="dk-08-item">
@@ -1947,7 +1950,7 @@ window.renderDeck = function (root) {
           <h3>Want this as an <em>editable</em> starter deck?</h3>
           <p>v0.4 ships the same fifteen layouts as a Keynote + PowerPoint template with real content presets.</p>
         </div>
-        <div class="dk-cta__arrow">&rarr;</div>
+        <div class="dk-cta__arrow"><i data-lucide="arrow-right"></i></div>
       </button>
     </div>
   </section>
@@ -1980,7 +1983,12 @@ window.renderDeck = function (root) {
       const arrow = cta.querySelector('.dk-cta__arrow');
       if (h3) h3.innerHTML = 'Requested &mdash; <em>you&rsquo;re on the list.</em>';
       if (p)  p.textContent = 'We\u2019ll ping you when v0.4 lands. Meanwhile, every prototype above is yours to lift.';
-      if (arrow) arrow.innerHTML = '&check;';
+      if (arrow) {
+        arrow.innerHTML = '<i data-lucide="check"></i>';
+        if (window.lucide && typeof window.lucide.createIcons === 'function') {
+          try { window.lucide.createIcons({ root: arrow }); } catch (e) {}
+        }
+      }
     });
   }
 };

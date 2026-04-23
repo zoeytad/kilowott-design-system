@@ -43,7 +43,7 @@ window.renderComponents = function (root) {
       min-height: 140px;
     }
     .cp-spec__stage--dark {
-      background: #0B0F14;
+      background: var(--k-ink);
       color: #fff;
     }
     .cp-spec__stage--warm {
@@ -74,7 +74,8 @@ window.renderComponents = function (root) {
       text-decoration: none;
       white-space: nowrap;
     }
-    .k-btn__arrow { transition: transform .18s ease; }
+    .k-btn__arrow { transition: transform .18s ease; display: inline-flex; align-items: center; }
+    .k-btn__arrow .lucide { width: 16px; height: 16px; stroke-width: 1.75; }
     .k-btn:hover .k-btn__arrow { transform: translateX(3px); }
     .k-btn:focus-visible {
       outline: 2px solid var(--accent);
@@ -83,7 +84,7 @@ window.renderComponents = function (root) {
 
     /* Primary — ink */
     .k-btn--primary {
-      background: #0B0F14; color: #fff; border-color: #0B0F14;
+      background: var(--k-ink); color: #fff; border-color: var(--k-ink);
     }
     .k-btn--primary:hover { background: var(--accent); border-color: var(--accent); }
 
@@ -95,22 +96,22 @@ window.renderComponents = function (root) {
 
     /* Secondary — outline */
     .k-btn--secondary {
-      background: transparent; color: #0B0F14; border-color: #0B0F14;
+      background: transparent; color: var(--k-ink); border-color: var(--k-ink);
     }
-    .k-btn--secondary:hover { background: #0B0F14; color: #fff; }
+    .k-btn--secondary:hover { background: var(--k-ink); color: #fff; }
 
     /* Ghost — no border */
     .k-btn--ghost {
-      background: transparent; color: #0B0F14; border-color: transparent;
+      background: transparent; color: var(--k-ink); border-color: transparent;
       padding: 12px 12px;
     }
     .k-btn--ghost:hover { color: var(--accent); }
 
     /* On-dark variants */
-    .cp-spec__stage--dark .k-btn--primary { background: #fff; color: #0B0F14; border-color: #fff; }
+    .cp-spec__stage--dark .k-btn--primary { background: #fff; color: var(--k-ink); border-color: #fff; }
     .cp-spec__stage--dark .k-btn--primary:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
     .cp-spec__stage--dark .k-btn--secondary { color: #fff; border-color: #fff; }
-    .cp-spec__stage--dark .k-btn--secondary:hover { background: #fff; color: #0B0F14; }
+    .cp-spec__stage--dark .k-btn--secondary:hover { background: #fff; color: var(--k-ink); }
     .cp-spec__stage--dark .k-btn--ghost { color: #fff; }
 
     /* Sizes */
@@ -132,7 +133,7 @@ window.renderComponents = function (root) {
       letter-spacing: 0.12em; text-transform: uppercase;
       border: 1px solid var(--rule-strong);
     }
-    .k-badge--solid { background: #0B0F14; color: #fff; border-color: #0B0F14; }
+    .k-badge--solid { background: var(--k-ink); color: #fff; border-color: var(--k-ink); }
     .k-badge--accent { background: var(--accent); color: #fff; border-color: var(--accent); }
     .k-badge--soft { background: #FCE5EA; color: #8A021B; border-color: transparent; }
     .k-badge--outline { background: transparent; color: var(--fg); }
@@ -206,8 +207,8 @@ window.renderComponents = function (root) {
     }
     .k-check input[type="radio"] { border-radius: 50%; }
     .k-check input:checked {
-      background: #0B0F14;
-      border-color: #0B0F14;
+      background: var(--k-ink);
+      border-color: var(--k-ink);
     }
     .k-check input:checked::after {
       content: "";
@@ -242,7 +243,7 @@ window.renderComponents = function (root) {
       box-shadow: 0 1px 2px rgba(0,0,0,0.2);
     }
     .k-switch input:checked + .k-switch__track {
-      background: #0B0F14;
+      background: var(--k-ink);
     }
     .k-switch input:checked + .k-switch__track::after {
       transform: translateX(16px);
@@ -258,7 +259,7 @@ window.renderComponents = function (root) {
       transition: border-color .2s ease, transform .2s ease;
     }
     .k-card:hover { border-color: var(--rule-strong); }
-    .k-card--hover:hover { transform: translateY(-2px); border-color: #0B0F14; }
+    .k-card--hover:hover { transform: translateY(-2px); border-color: var(--k-ink); }
 
     .k-card__eyebrow {
       font-family: var(--font-sans);
@@ -316,7 +317,7 @@ window.renderComponents = function (root) {
     }
     .k-case__img {
       aspect-ratio: 4/3;
-      background: #0B0F14 center/cover no-repeat;
+      background: var(--k-ink) center/cover no-repeat;
       position: relative;
     }
     .k-case__img::after {
@@ -336,7 +337,11 @@ window.renderComponents = function (root) {
       margin-top: 10px;
       font-size: 13px; font-weight: 500;
       color: var(--fg);
+      display: inline-flex; align-items: center; gap: 6px;
     }
+    .k-case__cta .lucide { width: 14px; height: 14px; stroke-width: 1.75; }
+    .k-card__foot span .lucide { width: 14px; height: 14px; stroke-width: 1.75; vertical-align: middle; }
+    .lp-s7__more .lucide { width: 14px; height: 14px; stroke-width: 1.75; }
 
     /* ---------- TABS ---------- */
     .k-tabs {
@@ -357,7 +362,7 @@ window.renderComponents = function (root) {
     }
     .k-tab:hover { color: var(--fg); }
     .k-tab[aria-current="page"], .k-tab.is-active {
-      background: #0B0F14; color: #fff;
+      background: var(--k-ink); color: #fff;
     }
     /* Underline variant */
     .k-tabs--underline {
@@ -622,7 +627,7 @@ window.renderComponents = function (root) {
       cursor: pointer; padding: 0; line-height: 1;
       font-size: 16px;
     }
-    .k-toast--info     { border-left-color: #0B0F14; }
+    .k-toast--info     { border-left-color: var(--k-ink); }
     .k-toast--success  { border-left-color: #1f8a3b; }
     .k-toast--success .k-toast__icon { color: #1f8a3b; }
     .k-toast--warning  { border-left-color: #B67B02; }
@@ -636,7 +641,7 @@ window.renderComponents = function (root) {
     }
     .k-tip {
       position: absolute;
-      background: #0B0F14; color: #fff;
+      background: var(--k-ink); color: #fff;
       font-family: var(--font-sans);
       font-size: 12px; font-weight: 500;
       letter-spacing: 0.01em;
@@ -660,28 +665,28 @@ window.renderComponents = function (root) {
     }
     .k-tip--top::after {
       top: 100%; left: 50%; transform: translateX(-50%);
-      border-top-color: #0B0F14;
+      border-top-color: var(--k-ink);
     }
     .k-tip--bottom {
       top: calc(100% + 8px); left: 50%; transform: translate(-50%, -4px);
     }
     .k-tip--bottom::after {
       bottom: 100%; left: 50%; transform: translateX(-50%);
-      border-bottom-color: #0B0F14;
+      border-bottom-color: var(--k-ink);
     }
     .k-tip--left {
       right: calc(100% + 8px); top: 50%; transform: translate(4px, -50%);
     }
     .k-tip--left::after {
       left: 100%; top: 50%; transform: translateY(-50%);
-      border-left-color: #0B0F14;
+      border-left-color: var(--k-ink);
     }
     .k-tip--right {
       left: calc(100% + 8px); top: 50%; transform: translate(-4px, -50%);
     }
     .k-tip--right::after {
       right: 100%; top: 50%; transform: translateY(-50%);
-      border-right-color: #0B0F14;
+      border-right-color: var(--k-ink);
     }
     .k-tip-wrap:hover .k-tip,
     .k-tip-wrap:focus-within .k-tip {
@@ -823,7 +828,7 @@ window.renderComponents = function (root) {
     }
     .k-avatar-group .k-avatar + .k-avatar { margin-left: -10px; }
     .k-avatar-group .k-avatar--more {
-      background: #0B0F14; color: #fff;
+      background: var(--k-ink); color: #fff;
       font-variant-numeric: tabular-nums;
       font-size: 12px;
     }
@@ -856,8 +861,8 @@ window.renderComponents = function (root) {
       border-radius: 4px;
     }
     .k-alert__close:hover { color: var(--fg); }
-    .k-alert--info    { border-left-color: #0B0F14; }
-    .k-alert--info .k-alert__icon { color: #0B0F14; }
+    .k-alert--info    { border-left-color: var(--k-ink); }
+    .k-alert--info .k-alert__icon { color: var(--k-ink); }
     .k-alert--warning { border-left-color: #B67B02; background: #FFF8E6; }
     .k-alert--warning .k-alert__icon { color: #B67B02; }
     .k-alert--danger  { border-left-color: var(--accent); background: #FCE5EA; }
@@ -884,7 +889,7 @@ window.renderComponents = function (root) {
     .k-page:hover { border-color: var(--rule-strong); }
     .k-page:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     .k-page.is-active {
-      background: #0B0F14; color: #fff; border-color: #0B0F14;
+      background: var(--k-ink); color: #fff; border-color: var(--k-ink);
       font-weight: 500;
     }
     .k-page.is-disabled { opacity: 0.4; pointer-events: none; }
@@ -1159,10 +1164,10 @@ window.renderComponents = function (root) {
         <div class="cp-spec">
           <div class="cp-spec__head"><span>Variants · on paper</span><span>.k-btn</span></div>
           <div class="cp-spec__stage">
-            <button class="k-btn k-btn--primary">Primary <span class="k-btn__arrow">→</span></button>
-            <button class="k-btn k-btn--accent">Get in touch <span class="k-btn__arrow">→</span></button>
+            <button class="k-btn k-btn--primary">Primary <span class="k-btn__arrow"><i data-lucide="arrow-right"></i></span></button>
+            <button class="k-btn k-btn--accent">Get in touch <span class="k-btn__arrow"><i data-lucide="arrow-right"></i></span></button>
             <button class="k-btn k-btn--secondary">Secondary</button>
-            <button class="k-btn k-btn--ghost">Ghost <span class="k-btn__arrow">→</span></button>
+            <button class="k-btn k-btn--ghost">Ghost <span class="k-btn__arrow"><i data-lucide="arrow-right"></i></span></button>
           </div>
           <div class="cp-spec__foot"><b>Use —</b> Primary for default actions. Accent for the single most important CTA. Secondary for alternates. Ghost inside dense UI.</div>
         </div>
@@ -1170,10 +1175,10 @@ window.renderComponents = function (root) {
         <div class="cp-spec">
           <div class="cp-spec__head"><span>Variants · on ink</span><span>--stage-dark</span></div>
           <div class="cp-spec__stage cp-spec__stage--dark">
-            <button class="k-btn k-btn--primary">Primary <span class="k-btn__arrow">→</span></button>
-            <button class="k-btn k-btn--accent">Get in touch <span class="k-btn__arrow">→</span></button>
+            <button class="k-btn k-btn--primary">Primary <span class="k-btn__arrow"><i data-lucide="arrow-right"></i></span></button>
+            <button class="k-btn k-btn--accent">Get in touch <span class="k-btn__arrow"><i data-lucide="arrow-right"></i></span></button>
             <button class="k-btn k-btn--secondary">Secondary</button>
-            <button class="k-btn k-btn--ghost">Ghost <span class="k-btn__arrow">→</span></button>
+            <button class="k-btn k-btn--ghost">Ghost <span class="k-btn__arrow"><i data-lucide="arrow-right"></i></span></button>
           </div>
           <div class="cp-spec__foot"><b>On dark —</b> Primary flips to paper/white. Accent stays red for recognition.</div>
         </div>
@@ -1183,7 +1188,7 @@ window.renderComponents = function (root) {
           <div class="cp-spec__stage">
             <button class="k-btn k-btn--primary k-btn--sm">Small</button>
             <button class="k-btn k-btn--primary">Medium</button>
-            <button class="k-btn k-btn--primary k-btn--lg">Large <span class="k-btn__arrow">→</span></button>
+            <button class="k-btn k-btn--primary k-btn--lg">Large <span class="k-btn__arrow"><i data-lucide="arrow-right"></i></span></button>
           </div>
           <div class="cp-spec__foot"><b>Rule —</b> Medium is the default. Small for dense UI &amp; inline. Large for hero CTAs only.</div>
         </div>
@@ -1317,10 +1322,10 @@ window.renderComponents = function (root) {
         <div class="k-card k-card--hover">
           <span class="k-card__eyebrow">Service</span>
           <h3 class="k-card__title">Product <em>engineering</em> at scale.</h3>
-          <p class="k-card__body">Embedded pods that ship from week one. From prototype to production, one team end-to-end.</p>
+          <p class="k-card__body">Embedded pods that ship from week one. From prototype to production, one team.</p>
           <div class="k-card__foot">
             <span>12 case studies</span>
-            <span>Learn more →</span>
+            <span>Learn more <i data-lucide="arrow-right"></i></span>
           </div>
         </div>
 
@@ -1330,7 +1335,7 @@ window.renderComponents = function (root) {
           <p class="k-card__body">We build the plumbing behind your product&rsquo;s intelligence &mdash; data pipelines, model infra, safe deployments.</p>
           <div class="k-card__foot">
             <span>8 case studies</span>
-            <span>Learn more →</span>
+            <span>Learn more <i data-lucide="arrow-right"></i></span>
           </div>
         </div>
 
@@ -1340,7 +1345,7 @@ window.renderComponents = function (root) {
           <p class="k-card__body">HIPAA-ready patient platforms, clinical tools, and telehealth experiences built by a team that has been here before.</p>
           <div class="k-card__foot">
             <span>5 case studies</span>
-            <span>Learn more →</span>
+            <span>Learn more <i data-lucide="arrow-right"></i></span>
           </div>
         </div>
       </div>
@@ -1382,7 +1387,7 @@ window.renderComponents = function (root) {
               <span class="k-badge k-badge--outline k-badge--no-dot">AI</span>
             </div>
             <h3 class="k-case__title">Rebuilding a clinical platform in <em>six months</em>.</h3>
-            <a class="k-case__cta">Read the case &rarr;</a>
+            <a class="k-case__cta">Read the case <i data-lucide="arrow-right"></i></a>
           </div>
         </article>
         <article class="k-case">
@@ -1393,7 +1398,7 @@ window.renderComponents = function (root) {
               <span class="k-badge k-badge--outline k-badge--no-dot">Web</span>
             </div>
             <h3 class="k-case__title">Shipping <em>bravely</em> inside a regulated stack.</h3>
-            <a class="k-case__cta">Read the case &rarr;</a>
+            <a class="k-case__cta">Read the case <i data-lucide="arrow-right"></i></a>
           </div>
         </article>
         <article class="k-case">
@@ -1404,7 +1409,7 @@ window.renderComponents = function (root) {
               <span class="k-badge k-badge--outline k-badge--no-dot">IoT</span>
             </div>
             <h3 class="k-case__title">A grid-scale dashboard, read by <em>plant managers</em>.</h3>
-            <a class="k-case__cta">Read the case &rarr;</a>
+            <a class="k-case__cta">Read the case <i data-lucide="arrow-right"></i></a>
           </div>
         </article>
       </div>
@@ -1479,12 +1484,12 @@ window.renderComponents = function (root) {
           <div class="cp-spec__stage" style="min-height: 320px;">
             <div class="k-state" style="width: 100%;">
               <div class="k-state__icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+                <i data-lucide="calendar"></i>
               </div>
               <h3 class="k-state__title">No invoices <em>yet</em>.</h3>
               <p class="k-state__body">You haven&rsquo;t raised one this quarter. When you do, it lands here &mdash; grouped by status and sortable by due.</p>
               <div class="k-state__actions">
-                <button class="k-btn k-btn--primary k-btn--sm">Raise an invoice <span class="k-btn__arrow">→</span></button>
+                <button class="k-btn k-btn--primary k-btn--sm">Raise an invoice <span class="k-btn__arrow"><i data-lucide="arrow-right"></i></span></button>
                 <button class="k-btn k-btn--ghost k-btn--sm">Import CSV</button>
               </div>
             </div>
@@ -1498,7 +1503,7 @@ window.renderComponents = function (root) {
           <div class="cp-spec__stage" style="min-height: 320px;">
             <div class="k-state k-state--error" style="width: 100%;">
               <div class="k-state__icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l10 17H2L12 3z"/><path d="M12 10v5M12 18v.5"/></svg>
+                <i data-lucide="triangle-alert"></i>
               </div>
               <h3 class="k-state__title">We <em>couldn&rsquo;t</em> load the ledger.</h3>
               <p class="k-state__body">The finance API is returning a 503 &mdash; it&rsquo;s usually back within two minutes. <b>Reference · TRC-4812.</b></p>
@@ -1556,7 +1561,7 @@ window.renderComponents = function (root) {
           <div class="cp-spec__stage" style="min-height: 320px;">
             <div class="k-state" style="width: 100%;">
               <div class="k-state__icon" style="color: #1f8a3b; border-color: #1f8a3b; background: rgba(31,138,59,0.08);">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>
+                <i data-lucide="circle-check"></i>
               </div>
               <h3 class="k-state__title">Engagement <em>live</em>.</h3>
               <p class="k-state__body">Kickoff confirmed with Priya. The team has Slack access and the first milestone lands Thursday.</p>
@@ -1577,7 +1582,7 @@ window.renderComponents = function (root) {
               <h3 class="k-404__title">That page isn&rsquo;t here.</h3>
               <p class="k-404__body">We might&rsquo;ve moved it, archived it, or it never existed. You&rsquo;re best off starting from the work page or talking to a human.</p>
               <div style="display:flex; justify-content:center; gap:10px;">
-                <button class="k-btn k-btn--primary k-btn--sm">Back to work <span class="k-btn__arrow">→</span></button>
+                <button class="k-btn k-btn--primary k-btn--sm">Back to work <span class="k-btn__arrow"><i data-lucide="arrow-right"></i></span></button>
                 <button class="k-btn k-btn--ghost k-btn--sm">Talk to someone</button>
               </div>
             </div>
@@ -1607,7 +1612,7 @@ window.renderComponents = function (root) {
                   <div class="k-modal__head">
                     <h3 class="k-modal__title" id="km-c-t">Publish the <em>engagement</em>?</h3>
                     <button class="k-modal__close" aria-label="Close" data-k-modal-close="confirm">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M6 6l12 12M18 6l-12 12"/></svg>
+                      <i data-lucide="x"></i>
                     </button>
                   </div>
                   <div class="k-modal__body">This will notify the client team and trigger the kickoff email. You can still edit details after publishing.</div>
@@ -1632,7 +1637,7 @@ window.renderComponents = function (root) {
                   <div class="k-modal__head">
                     <h3 class="k-modal__title" id="km-d-t">Delete <em>this engagement</em>?</h3>
                     <button class="k-modal__close" aria-label="Close" data-k-modal-close="destructive">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M6 6l12 12M18 6l-12 12"/></svg>
+                      <i data-lucide="x"></i>
                     </button>
                   </div>
                   <div class="k-modal__body">All timesheets, invoices and attachments tied to it will be permanently removed. <b>This cannot be undone.</b></div>
@@ -1657,7 +1662,7 @@ window.renderComponents = function (root) {
                   <div class="k-modal__head">
                     <h3 class="k-modal__title" id="km-i-t">What changes <em>here</em>?</h3>
                     <button class="k-modal__close" aria-label="Close" data-k-modal-close="info">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M6 6l12 12M18 6l-12 12"/></svg>
+                      <i data-lucide="x"></i>
                     </button>
                   </div>
                   <div class="k-modal__body">Engagements are the top-level container &mdash; every milestone, invoice and team roster hangs off one. Create one per client contract, not per project.</div>
@@ -1703,24 +1708,24 @@ window.renderComponents = function (root) {
           <div class="cp-spec__head"><span>Variants</span><span>info · success · warning · danger</span></div>
           <div class="cp-spec__stage cp-spec__stage--col" style="min-height: 320px;">
             <div class="k-toast k-toast--info">
-              <svg class="k-toast__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16v.5"/></svg>
+              <i class="k-toast__icon" data-lucide="circle-alert"></i>
               <div class="k-toast__body"><b>Saved.</b> Draft synced to the workspace.</div>
-              <button class="k-toast__close" aria-label="Close">&times;</button>
+              <button class="k-toast__close" aria-label="Close"><i data-lucide="x"></i></button>
             </div>
             <div class="k-toast k-toast--success">
-              <svg class="k-toast__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>
+              <i class="k-toast__icon" data-lucide="circle-check"></i>
               <div class="k-toast__body"><b>Published.</b> The client team has been notified.</div>
-              <button class="k-toast__close" aria-label="Close">&times;</button>
+              <button class="k-toast__close" aria-label="Close"><i data-lucide="x"></i></button>
             </div>
             <div class="k-toast k-toast--warning">
-              <svg class="k-toast__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l10 17H2L12 3z"/><path d="M12 10v5M12 18v.5"/></svg>
+              <i class="k-toast__icon" data-lucide="triangle-alert"></i>
               <div class="k-toast__body"><b>Heads up.</b> Two invoices are overdue by 7+ days.</div>
-              <button class="k-toast__close" aria-label="Close">&times;</button>
+              <button class="k-toast__close" aria-label="Close"><i data-lucide="x"></i></button>
             </div>
             <div class="k-toast k-toast--danger">
-              <svg class="k-toast__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 8l8 8M16 8l-8 8"/></svg>
+              <i class="k-toast__icon" data-lucide="circle-x"></i>
               <div class="k-toast__body"><b>Failed to save.</b> Check connection and retry.</div>
-              <button class="k-toast__close" aria-label="Close">&times;</button>
+              <button class="k-toast__close" aria-label="Close"><i data-lucide="x"></i></button>
             </div>
           </div>
           <div class="cp-spec__foot"><b>Rule &mdash;</b> 3px coloured rail, single line body, close affordance. Bold the status, plain the detail.</div>
@@ -1766,19 +1771,19 @@ window.renderComponents = function (root) {
           <div class="cp-spec__stage" style="min-height: 280px; gap: 28px; justify-content: center;">
             <span class="k-tip-wrap" tabindex="0">
               <button class="k-btn k-btn--ghost k-btn--sm" aria-label="Share" style="padding:8px;">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8h16v-8M12 3v12M8 7l4-4 4 4"/></svg>
+                <i data-lucide="share" style="width:16px;height:16px;"></i>
               </button>
               <span class="k-tip k-tip--top">Share</span>
             </span>
             <span class="k-tip-wrap" tabindex="0">
               <button class="k-btn k-btn--ghost k-btn--sm" aria-label="Duplicate" style="padding:8px;">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>
+                <i data-lucide="copy" style="width:16px;height:16px;"></i>
               </button>
               <span class="k-tip k-tip--top">Duplicate</span>
             </span>
             <span class="k-tip-wrap" tabindex="0">
               <button class="k-btn k-btn--ghost k-btn--sm" aria-label="Archive" style="padding:8px;">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="4" rx="1"/><path d="M5 9v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9M10 13h4"/></svg>
+                <i data-lucide="archive" style="width:16px;height:16px;"></i>
               </button>
               <span class="k-tip k-tip--top">Archive</span>
             </span>
@@ -1805,7 +1810,7 @@ window.renderComponents = function (root) {
               <div class="k-accordion__item is-open">
                 <button class="k-accordion__trigger" aria-expanded="true">
                   How does the discovery sprint work?
-                  <svg class="k-accordion__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                  <i class="k-accordion__chev" data-lucide="chevron-down"></i>
                 </button>
                 <div class="k-accordion__panel">
                   <div class="k-accordion__body">Two weeks, fixed fee. We sit with your team, audit the codebase, write a <b>shape-of-work</b> doc, and leave you with a prioritised backlog whether you engage us further or not.</div>
@@ -1814,7 +1819,7 @@ window.renderComponents = function (root) {
               <div class="k-accordion__item">
                 <button class="k-accordion__trigger" aria-expanded="false">
                   What stack do you default to?
-                  <svg class="k-accordion__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                  <i class="k-accordion__chev" data-lucide="chevron-down"></i>
                 </button>
                 <div class="k-accordion__panel">
                   <div class="k-accordion__body">TypeScript end-to-end, Next.js on the front, Postgres + a thin API. We&rsquo;ll happily use your stack when that&rsquo;s the right call.</div>
@@ -1823,7 +1828,7 @@ window.renderComponents = function (root) {
               <div class="k-accordion__item">
                 <button class="k-accordion__trigger" aria-expanded="false">
                   Do you work fixed-price or retainer?
-                  <svg class="k-accordion__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                  <i class="k-accordion__chev" data-lucide="chevron-down"></i>
                 </button>
                 <div class="k-accordion__panel">
                   <div class="k-accordion__body">Either. Most long engagements are monthly retainer by named team. Fixed-price works best for scoped builds under twelve weeks.</div>
@@ -1841,7 +1846,7 @@ window.renderComponents = function (root) {
               <div class="k-accordion__item is-open">
                 <button class="k-accordion__trigger" aria-expanded="true">
                   Team composition
-                  <svg class="k-accordion__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                  <i class="k-accordion__chev" data-lucide="chevron-down"></i>
                 </button>
                 <div class="k-accordion__panel">
                   <div class="k-accordion__body">Tech lead, two engineers, a designer, a PM. Named humans from day one.</div>
@@ -1850,7 +1855,7 @@ window.renderComponents = function (root) {
               <div class="k-accordion__item is-open">
                 <button class="k-accordion__trigger" aria-expanded="true">
                   Working hours &amp; overlap
-                  <svg class="k-accordion__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                  <i class="k-accordion__chev" data-lucide="chevron-down"></i>
                 </button>
                 <div class="k-accordion__panel">
                   <div class="k-accordion__body">Minimum four-hour overlap with your timezone. Daily async standup plus a weekly 30-min video.</div>
@@ -1859,7 +1864,7 @@ window.renderComponents = function (root) {
               <div class="k-accordion__item">
                 <button class="k-accordion__trigger" aria-expanded="false">
                   Handover &amp; documentation
-                  <svg class="k-accordion__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                  <i class="k-accordion__chev" data-lucide="chevron-down"></i>
                 </button>
                 <div class="k-accordion__panel">
                   <div class="k-accordion__body">A live architecture doc, ADRs for every big decision, and a runbook. Your code stays yours.</div>
@@ -1888,7 +1893,7 @@ window.renderComponents = function (root) {
             <div class="k-dropdown" data-k-dropdown>
               <button class="k-dropdown__trigger" data-k-dropdown-trigger>
                 Actions
-                <svg class="k-dropdown__trigger-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                <i class="k-dropdown__trigger-chev" data-lucide="chevron-down"></i>
               </button>
               <div class="k-dropdown__menu" role="menu">
                 <a class="k-dropdown__item" href="#" data-cp-nav role="menuitem">Open engagement</a>
@@ -1909,7 +1914,7 @@ window.renderComponents = function (root) {
             <div class="k-dropdown" data-k-dropdown>
               <button class="k-dropdown__trigger" data-k-dropdown-trigger>
                 Industry: Health
-                <svg class="k-dropdown__trigger-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                <i class="k-dropdown__trigger-chev" data-lucide="chevron-down"></i>
               </button>
               <div class="k-dropdown__menu" role="menu">
                 <a class="k-dropdown__item" href="#" data-cp-nav role="menuitem">All industries</a>
@@ -1942,7 +1947,7 @@ window.renderComponents = function (root) {
             <span class="k-avatar" aria-label="Priya Nair">PN</span>
             <span class="k-avatar k-avatar--photo" style="background-image:url(assets/photos/pair-working-warm.jpg)" aria-label="Team photo"></span>
             <span class="k-avatar k-avatar--placeholder" aria-label="No avatar">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>
+              <i data-lucide="user" style="width:18px;height:18px;"></i>
             </span>
           </div>
           <div class="cp-spec__foot"><b>Initials &mdash;</b> Two letters, from given + family. <b>Photo &mdash;</b> square crop to circle. <b>Placeholder &mdash;</b> for unknowns.</div>
@@ -1999,22 +2004,22 @@ window.renderComponents = function (root) {
           <div class="cp-spec__head"><span>Info · with action</span><span>.k-alert--info</span></div>
           <div class="cp-spec__stage cp-spec__stage--col" style="align-items: stretch; gap: 14px;">
             <div class="k-alert k-alert--info" data-k-alert>
-              <svg class="k-alert__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16v.5"/></svg>
+              <i class="k-alert__icon" data-lucide="circle-alert"></i>
               <div class="k-alert__body"><b>Read-only view.</b> You&rsquo;re looking at this engagement as a client observer.</div>
               <a class="k-alert__action" href="#" data-cp-nav>Request edit access</a>
-              <button class="k-alert__close" aria-label="Dismiss" data-k-alert-close>&times;</button>
+              <button class="k-alert__close" aria-label="Dismiss" data-k-alert-close><i data-lucide="x"></i></button>
             </div>
             <div class="k-alert k-alert--warning" data-k-alert>
-              <svg class="k-alert__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l10 17H2L12 3z"/><path d="M12 10v5M12 18v.5"/></svg>
+              <i class="k-alert__icon" data-lucide="triangle-alert"></i>
               <div class="k-alert__body"><b>Two invoices overdue.</b> Client payment is past due by more than seven days.</div>
               <a class="k-alert__action" href="#" data-cp-nav>Open invoices</a>
-              <button class="k-alert__close" aria-label="Dismiss" data-k-alert-close>&times;</button>
+              <button class="k-alert__close" aria-label="Dismiss" data-k-alert-close><i data-lucide="x"></i></button>
             </div>
             <div class="k-alert k-alert--danger" data-k-alert>
-              <svg class="k-alert__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 8l8 8M16 8l-8 8"/></svg>
+              <i class="k-alert__icon" data-lucide="circle-x"></i>
               <div class="k-alert__body"><b>Sync failed.</b> We haven&rsquo;t reached the finance API since 09:14 &mdash; data may be stale.</div>
               <a class="k-alert__action" href="#" data-cp-nav>Retry now</a>
-              <button class="k-alert__close" aria-label="Dismiss" data-k-alert-close>&times;</button>
+              <button class="k-alert__close" aria-label="Dismiss" data-k-alert-close><i data-lucide="x"></i></button>
             </div>
           </div>
           <div class="cp-spec__foot"><b>Rule &mdash;</b> One banner visible at a time. Always state the <b>consequence</b>, not the cause. Action link right-aligned before close.</div>
@@ -2174,12 +2179,12 @@ window.renderComponents = function (root) {
                   <li><a href="#" data-cp-nav>Journal</a></li>
                 </ul>
                 <div class="k-nav__right">
-                  <button class="k-btn k-btn--accent k-btn--sm">Get in touch <span class="k-btn__arrow">→</span></button>
+                  <button class="k-btn k-btn--accent k-btn--sm">Get in touch <span class="k-btn__arrow"><i data-lucide="arrow-right"></i></span></button>
                 </div>
               </nav>
             </div>
 
-            <div style="border: 1px dashed var(--rule); border-radius: var(--r-2); overflow: hidden; background: #0B0F14; padding-bottom: 60px;">
+            <div style="border: 1px dashed var(--rule); border-radius: var(--r-2); overflow: hidden; background: var(--k-ink); padding-bottom: 60px;">
               <nav class="k-nav k-nav--transparent" style="color:#fff;">
                 <a class="k-nav__logo" href="#" data-cp-nav style="color:#fff;">Kilo<em>wott</em></a>
                 <ul class="k-nav__links">
@@ -2207,7 +2212,7 @@ window.renderComponents = function (root) {
                   <li><a href="#" data-cp-nav>Journal</a></li>
                 </ul>
                 <div class="k-nav__right">
-                  <button class="k-btn k-btn--accent k-btn--sm">Get in touch <span class="k-btn__arrow">→</span></button>
+                  <button class="k-btn k-btn--accent k-btn--sm">Get in touch <span class="k-btn__arrow"><i data-lucide="arrow-right"></i></span></button>
                 </div>
               </nav>
             </div>
@@ -2287,7 +2292,7 @@ window.renderComponents = function (root) {
           <div class="cp-spec__stage" style="min-height: 340px; align-items: flex-start; padding: 28px;">
             <div class="k-search" data-k-search>
               <div class="k-search__input-wrap">
-                <svg class="k-search__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+                <i class="k-search__icon" data-lucide="search"></i>
                 <input class="k-search__input" type="search" placeholder="Search engagements, people, notes…" data-k-search-input>
               </div>
               <div class="k-search__results" data-k-search-results></div>
@@ -2372,10 +2377,10 @@ window.renderComponents = function (root) {
     danger:  { b: 'Failed.',      rest: ' Check your connection and retry.' },
   };
   const toastIcons = {
-    info:    '<svg class="k-toast__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16v.5"/></svg>',
-    success: '<svg class="k-toast__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>',
-    warning: '<svg class="k-toast__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l10 17H2L12 3z"/><path d="M12 10v5M12 18v.5"/></svg>',
-    danger:  '<svg class="k-toast__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 8l8 8M16 8l-8 8"/></svg>',
+    info:    '<i class="k-toast__icon" data-lucide="circle-alert"></i>',
+    success: '<i class="k-toast__icon" data-lucide="circle-check"></i>',
+    warning: '<i class="k-toast__icon" data-lucide="triangle-alert"></i>',
+    danger:  '<i class="k-toast__icon" data-lucide="circle-x"></i>',
   };
   const toastStack = root.querySelector('[data-k-toast-stack]');
   const dismissToast = (el) => {
@@ -2391,8 +2396,11 @@ window.renderComponents = function (root) {
       const meta = toastCopy[kind] || toastCopy.info;
       const el = document.createElement('div');
       el.className = 'k-toast k-toast--' + kind;
-      el.innerHTML = toastIcons[kind] + '<div class="k-toast__body"><b>' + meta.b + '</b>' + meta.rest + '</div><button class="k-toast__close" aria-label="Close">&times;</button>';
+      el.innerHTML = toastIcons[kind] + '<div class="k-toast__body"><b>' + meta.b + '</b>' + meta.rest + '</div><button class="k-toast__close" aria-label="Close"><i data-lucide="x"></i></button>';
       toastStack.appendChild(el);
+      if (window.lucide && typeof window.lucide.createIcons === 'function') {
+        try { window.lucide.createIcons({ root: el }); } catch (e) {}
+      }
       while (toastStack.children.length > 3) {
         dismissToast(toastStack.firstElementChild);
       }

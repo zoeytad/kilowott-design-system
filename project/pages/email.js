@@ -115,7 +115,8 @@ window.renderEmail = function (root) {
       margin-top: 12px;
     }
     .em-btn--accent { background: #E4022D; }
-    .em-btn__arrow { margin-left: 8px; }
+    .em-btn__arrow { margin-left: 8px; display: inline-flex; align-items: center; }
+    .em-btn__arrow .lucide { width: 16px; height: 16px; stroke-width: 1.75; }
 
     .em-divider { height: 1px; background: #E2DED6; margin: 32px 0; border: 0; }
 
@@ -187,7 +188,9 @@ window.renderEmail = function (root) {
       font-size: 13px; font-weight: 500;
       color: #0B0F14; text-decoration: none;
       border-bottom: 1px solid #0B0F14;
+      display: inline-flex; align-items: center; gap: 6px;
     }
+    .em-story__link .lucide { width: 14px; height: 14px; stroke-width: 1.75; }
     .em-story__stat {
       font-family: "Newsreader", Georgia, serif;
       font-size: 28px; color: #E4022D; letter-spacing: -0.02em;
@@ -268,7 +271,7 @@ window.renderEmail = function (root) {
                 <div class="em-data__row em-data__total"><span>Total</span><span>$284,500</span></div>
               </div>
 
-              <a class="em-btn" href="#" target="_blank" rel="noopener">View receipt<span class="em-btn__arrow">&rarr;</span></a>
+              <a class="em-btn" href="#" target="_blank" rel="noopener">View receipt<span class="em-btn__arrow"><i data-lucide="arrow-right"></i></span></a>
 
               <hr class="em-divider">
 
@@ -320,7 +323,7 @@ window.renderEmail = function (root) {
                 is below &mdash; the three decisions we need from you are on slide 4.
               </p>
 
-              <a class="em-btn em-btn--accent" href="#" target="_blank" rel="noopener">Open the kickoff deck<span class="em-btn__arrow">&rarr;</span></a>
+              <a class="em-btn em-btn--accent" href="#" target="_blank" rel="noopener">Open the kickoff deck<span class="em-btn__arrow"><i data-lucide="arrow-right"></i></span></a>
 
               <hr class="em-divider">
 
@@ -378,7 +381,7 @@ window.renderEmail = function (root) {
                   Brand refresh, paid search, and a rebuilt DTC funnel &mdash; one engagement,
                   three levers, measurable result. The write-up names every decision.
                 </p>
-                <a class="em-story__link" href="#">Read the case &rarr;</a>
+                <a class="em-story__link" href="#">Read the case <i data-lucide="arrow-right"></i></a>
               </div>
 
               <div class="em-story">
@@ -388,7 +391,7 @@ window.renderEmail = function (root) {
                   After nine months with four design partners, Intelligence is generally available
                   &mdash; AI systems paired with human oversight, measured in real outcomes.
                 </p>
-                <a class="em-story__link" href="#">See what shipped &rarr;</a>
+                <a class="em-story__link" href="#">See what shipped <i data-lucide="arrow-right"></i></a>
               </div>
 
               <div class="em-story">
@@ -398,7 +401,7 @@ window.renderEmail = function (root) {
                   We added seven engineers, a senior PM, and one brand lead in Oslo this quarter.
                   If you&rsquo;re hiring in the Nordics, we can swap notes.
                 </p>
-                <a class="em-story__link" href="#">Read the hiring note &rarr;</a>
+                <a class="em-story__link" href="#">Read the hiring note <i data-lucide="arrow-right"></i></a>
               </div>
 
               <div class="em-story">
@@ -408,7 +411,7 @@ window.renderEmail = function (root) {
                   A short essay on why every abstraction in B2B writing earns a concrete next to it
                   &mdash; and what that costs when you miss it.
                 </p>
-                <a class="em-story__link" href="#">Read the essay &rarr;</a>
+                <a class="em-story__link" href="#">Read the essay <i data-lucide="arrow-right"></i></a>
               </div>
 
               <hr class="em-divider">

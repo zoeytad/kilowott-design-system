@@ -98,7 +98,7 @@ window.renderCaseStudy = function (root) {
     /* Hero image */
     .cs-hero-img {
       height: 420px;
-      background: #0B0F14 center/cover no-repeat;
+      background: var(--k-ink) center/cover no-repeat;
       position: relative;
     }
     .cs-hero-img::after {
@@ -319,6 +319,7 @@ window.renderCaseStudy = function (root) {
       font-size: 14px; font-weight: 500; letter-spacing: 0.02em;
       display: inline-flex; align-items: center; gap: 8px;
     }
+    .cs-cta a .lucide { width: 16px; height: 16px; stroke-width: 1.75; }
     .cs-cta a:hover { background: #B40224; }
   </style>
 
@@ -359,7 +360,7 @@ window.renderCaseStudy = function (root) {
     <div class="container">
       <div class="section-head">
         <h2 class="section-head__title">The template, fully rendered</h2>
-        <p class="section-head__body">An end-to-end case study using the Kilowott stack. Fork it &mdash; the structure is the point, the content is the placeholder.</p>
+        <p class="section-head__body">A complete case study using the Kilowott stack. Fork it &mdash; the structure is the point, the content is the placeholder.</p>
       </div>
 
       <div class="cs-spec">
@@ -525,7 +526,7 @@ window.renderCaseStudy = function (root) {
               <h3>Thinking about a similar <em>rebuild</em>?</h3>
               <p>We run a 30-minute diagnostic with founders and heads of growth &mdash; no deck, no pitch, just the three questions.</p>
             </div>
-            <a href="#">Book the diagnostic &rarr;</a>
+            <a href="#">Book the diagnostic <i data-lucide="arrow-right"></i></a>
           </div>
         </div>
 

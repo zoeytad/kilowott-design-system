@@ -110,7 +110,9 @@ window.renderColor = function (root) {
       align-self: flex-start;
       padding: 10px 18px; border-radius: var(--r-pill);
       font-size: 13px; font-weight: 500;
+      display: inline-flex; align-items: center; gap: 6px;
     }
+    .cl-recipe__btn .lucide { width: 14px; height: 14px; stroke-width: 1.75; }
     .cl-recipe--paper .cl-recipe__btn { background: #E4022D; color: #fff; }
     .cl-recipe--ink .cl-recipe__btn   { background: #E4022D; color: #fff; }
     .cl-recipe--warm .cl-recipe__btn  { background: #0B0F14; color: #F6F4F0; }
@@ -137,8 +139,9 @@ window.renderColor = function (root) {
       vertical-align: middle; margin-right: 8px;
       border: 1px solid rgba(0,0,0,0.1);
     }
-    .pass { color: #0B7E3E; font-weight: 500; }
-    .fail { color: #E4022D; font-weight: 500; }
+    .pass { color: #0B7E3E; font-weight: 500; display: inline-flex; align-items: center; gap: 6px; }
+    .fail { color: #E4022D; font-weight: 500; display: inline-flex; align-items: center; gap: 6px; }
+    .pass .lucide, .fail .lucide { width: 14px; height: 14px; }
   </style>
 
   <!-- HERO -->
@@ -248,7 +251,7 @@ window.renderColor = function (root) {
             <span class="cl-recipe__eyebrow">Case study</span>
             <h3 class="cl-recipe__h">Engineering <em>brave</em> products.</h3>
             <p style="color:#5B6573; font-size:14px; line-height:1.6; max-width:32ch;">Calm canvas. Ink for type. One flash of red for the verb or CTA.</p>
-            <a class="cl-recipe__btn">Read the story →</a>
+            <a class="cl-recipe__btn">Read the story <i data-lucide="arrow-right"></i></a>
           </div>
           <div class="cl-recipe__meta"><span>Recipe 01 · Paper</span><span>60·30·5·5</span></div>
         </div>
@@ -258,7 +261,7 @@ window.renderColor = function (root) {
             <span class="cl-recipe__eyebrow" style="color:#E4022D">Product hero</span>
             <h3 class="cl-recipe__h">Signal, not <em>noise</em>.</h3>
             <p style="color:#8A95A5; font-size:14px; line-height:1.6; max-width:32ch;">Dark canvas, white type, red as spotlight. Use for launches and headline moments.</p>
-            <a class="cl-recipe__btn">See the product →</a>
+            <a class="cl-recipe__btn">See the product <i data-lucide="arrow-right"></i></a>
           </div>
           <div class="cl-recipe__meta"><span>Recipe 02 · Ink</span><span>Hero moments</span></div>
         </div>
@@ -268,7 +271,7 @@ window.renderColor = function (root) {
             <span class="cl-recipe__eyebrow">Essay</span>
             <h3 class="cl-recipe__h">The <em>long</em> view.</h3>
             <p style="color:#5B6573; font-size:14px; line-height:1.6; max-width:32ch;">Warm paper reduces contrast for long reading. Red becomes even more precious here.</p>
-            <a class="cl-recipe__btn">Continue reading →</a>
+            <a class="cl-recipe__btn">Continue reading <i data-lucide="arrow-right"></i></a>
           </div>
           <div class="cl-recipe__meta"><span>Recipe 03 · Warm</span><span>Long-form</span></div>
         </div>
@@ -315,37 +318,37 @@ window.renderColor = function (root) {
           <div><span class="cl-a11y-chip" style="background:#0B0F14"></span>Ink</div>
           <div><span class="cl-a11y-chip" style="background:#fff"></span>Paper</div>
           <div class="mono">17.7 : 1</div>
-          <div class="pass">✓ Pass</div><div class="pass">✓ Pass</div>
+          <div class="pass"><i data-lucide="check"></i> Pass</div><div class="pass"><i data-lucide="check"></i> Pass</div>
         </div>
         <div class="cl-a11y-row">
           <div><span class="cl-a11y-chip" style="background:#5B6573"></span>Muted</div>
           <div><span class="cl-a11y-chip" style="background:#fff"></span>Paper</div>
           <div class="mono">5.8 : 1</div>
-          <div class="pass">✓ Pass</div><div class="pass">✓ Pass</div>
+          <div class="pass"><i data-lucide="check"></i> Pass</div><div class="pass"><i data-lucide="check"></i> Pass</div>
         </div>
         <div class="cl-a11y-row">
           <div><span class="cl-a11y-chip" style="background:#E4022D"></span>Red</div>
           <div><span class="cl-a11y-chip" style="background:#fff"></span>Paper</div>
           <div class="mono">5.4 : 1</div>
-          <div class="pass">✓ Pass</div><div class="pass">✓ Pass</div>
+          <div class="pass"><i data-lucide="check"></i> Pass</div><div class="pass"><i data-lucide="check"></i> Pass</div>
         </div>
         <div class="cl-a11y-row">
           <div><span class="cl-a11y-chip" style="background:#fff"></span>Paper</div>
           <div><span class="cl-a11y-chip" style="background:#E4022D"></span>Red</div>
           <div class="mono">5.4 : 1</div>
-          <div class="pass">✓ Pass</div><div class="pass">✓ Pass</div>
+          <div class="pass"><i data-lucide="check"></i> Pass</div><div class="pass"><i data-lucide="check"></i> Pass</div>
         </div>
         <div class="cl-a11y-row">
           <div><span class="cl-a11y-chip" style="background:#E4022D"></span>Red</div>
           <div><span class="cl-a11y-chip" style="background:#F6F4F0"></span>Warm</div>
           <div class="mono">5.1 : 1</div>
-          <div class="pass">✓ Pass</div><div class="pass">✓ Pass</div>
+          <div class="pass"><i data-lucide="check"></i> Pass</div><div class="pass"><i data-lucide="check"></i> Pass</div>
         </div>
         <div class="cl-a11y-row">
           <div><span class="cl-a11y-chip" style="background:#E4022D"></span>Red</div>
           <div><span class="cl-a11y-chip" style="background:#0B0F14"></span>Ink</div>
           <div class="mono">3.3 : 1</div>
-          <div class="fail">✕ Fail</div><div class="pass">✓ Pass large</div>
+          <div class="fail"><i data-lucide="x"></i> Fail</div><div class="pass"><i data-lucide="check"></i> Pass large</div>
         </div>
       </div>
     </div>

@@ -43,18 +43,27 @@
   const drawerClose = document.getElementById('drawer-close');
   const menuBtn = document.getElementById('topbar-menu');
 
+  // ---------- LUCIDE HYDRATE helper (hoisted up for showTab) ----------
+  function hydrateLucide(root) {
+    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+      try { window.lucide.createIcons({ root: root || document.body }); } catch (e) {}
+    }
+  }
+
   // ---------- TAB ROUTING ----------
   function currentTab() {
     const h = location.hash.replace('#','');
     return pages.includes(h) ? h : 'overview';
   }
   function showTab(name) {
+    let justRenderedEl = null;
     pages.forEach(p => {
       const el = document.getElementById('page-' + p);
       el.hidden = (p !== name);
       if (p === name && !el.dataset.rendered) {
         if (renderers[p]) renderers[p](el);
         el.dataset.rendered = '1';
+        justRenderedEl = el;
       }
     });
     document.querySelectorAll('.tab').forEach(t => {
@@ -67,6 +76,8 @@
       const cat = CATEGORIES[name] || '';
       here.innerHTML = cat ? (cat + '<b>' + label + '</b>') : ('<b>' + label + '</b>');
     }
+    // Hydrate any Lucide icons the renderer just injected
+    if (justRenderedEl) hydrateLucide(justRenderedEl);
     // Close drawer if open
     closeDrawer();
     window.scrollTo(0, 0);
@@ -100,12 +111,7 @@
     if (e.key === 'Escape' && drawer && drawer.classList.contains('is-open')) closeDrawer();
   });
 
-  // ---------- LUCIDE HYDRATE (topbar + drawer chrome) ----------
-  function hydrateLucide() {
-    if (window.lucide && typeof window.lucide.createIcons === 'function') {
-      try { window.lucide.createIcons({ root: document.body }); } catch (e) {}
-    }
-  }
+  // ---------- LUCIDE HYDRATE (topbar + drawer chrome + any rendered page) ----------
   hydrateLucide();
   // Retry if Lucide hasn't loaded yet
   if (!window.lucide) {

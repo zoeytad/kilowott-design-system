@@ -711,6 +711,7 @@ window.renderDashboards = function (root) {
       font-family: var(--font-mono); font-size: 13px;
       cursor: pointer;
     }
+    .db-iconbtn .lucide { width: 14px; height: 14px; stroke-width: 1.75; }
     .db-iconbtn:hover { background: var(--bg-2); }
     .db-iconbtn--accent { background: var(--accent); color: #fff; border-color: var(--accent); }
 
@@ -895,6 +896,9 @@ window.renderDashboards = function (root) {
     .ss-tb-btn.is-on { background: var(--bg-2); border-color: var(--fg); }
     .ss-tb-btn--accent { background: var(--accent); color: #fff; border-color: var(--accent); }
     .ss-tb-btn--accent:hover { background: #B40224; }
+    .ss-tb-btn .lucide, .ss-seg button .lucide { width: 13px; height: 13px; stroke-width: 1.75; }
+    .db-alert__dismiss .lucide { width: 14px; height: 14px; stroke-width: 1.75; }
+    .ss-chip button .lucide { width: 10px; height: 10px; stroke-width: 2; }
     .ss-tb-count {
       font-family: var(--font-mono); font-size: 10px;
       background: var(--accent); color: #fff;
@@ -2146,12 +2150,12 @@ window.renderDashboards = function (root) {
               <div class="db-alert">
                 <span class="dot dot--alert" style="margin-right:0"></span>
                 <span><b>Runway breach risk.</b> Current burn puts reserves under policy floor in 11 weeks.</span>
-                <button class="db-alert__dismiss" aria-label="Dismiss">×</button>
+                <button class="db-alert__dismiss" aria-label="Dismiss"><i data-lucide="x"></i></button>
               </div>
               <div class="db-alert" style="background:var(--bg-2); color:var(--fg); border-color:var(--rule-strong);">
                 <span class="dot dot--idle" style="margin-right:0"></span>
                 <span><b>Notice.</b> Q3 close pending 2 approvals &mdash; finance ops lead.</span>
-                <button class="db-alert__dismiss" aria-label="Dismiss" style="color:var(--fg-2)">×</button>
+                <button class="db-alert__dismiss" aria-label="Dismiss" style="color:var(--fg-2)"><i data-lucide="x"></i></button>
               </div>
             </div>
           </div>
@@ -2192,9 +2196,9 @@ window.renderDashboards = function (root) {
               <button>Chart</button>
             </div>
             <div style="margin-left:auto; display:flex; gap:6px;">
-              <button class="db-iconbtn" title="Refresh">↻</button>
-              <button class="db-iconbtn" title="Export">↓</button>
-              <button class="db-iconbtn db-iconbtn--accent" title="Add">+</button>
+              <button class="db-iconbtn" title="Refresh"><i data-lucide="rotate-cw"></i></button>
+              <button class="db-iconbtn" title="Export"><i data-lucide="download"></i></button>
+              <button class="db-iconbtn db-iconbtn--accent" title="Add"><i data-lucide="plus"></i></button>
             </div>
           </div>
         </div>
@@ -2225,27 +2229,27 @@ window.renderDashboards = function (root) {
             <!-- Toolbar -->
             <div class="ss-toolbar">
               <div class="ss-seg">
-                <button title="Cut">✂</button>
-                <button title="Copy">⎘</button>
-                <button title="Paste">⎗</button>
+                <button title="Cut"><i data-lucide="scissors"></i></button>
+                <button title="Copy"><i data-lucide="copy"></i></button>
+                <button title="Paste"><i data-lucide="clipboard"></i></button>
               </div>
               <div class="ss-tb-sep"></div>
               <div class="ss-seg">
-                <button title="Bold"><b>B</b></button>
-                <button title="Italic"><i>I</i></button>
-                <button title="Underline" style="text-decoration:underline">U</button>
+                <button title="Bold"><i data-lucide="bold"></i></button>
+                <button title="Italic"><i data-lucide="italic"></i></button>
+                <button title="Underline"><i data-lucide="underline"></i></button>
               </div>
               <div class="ss-tb-sep"></div>
-              <button class="ss-tb-btn" title="Sort">⇅ Sort</button>
-              <button class="ss-tb-btn is-on" title="Filter">⧩ Filter <span class="ss-tb-count">3</span></button>
-              <button class="ss-tb-btn" title="Freeze">❄ Freeze</button>
-              <button class="ss-tb-btn" title="Group">☰ Group</button>
+              <button class="ss-tb-btn" title="Sort"><i data-lucide="arrow-up-down"></i> Sort</button>
+              <button class="ss-tb-btn is-on" title="Filter"><i data-lucide="filter"></i> Filter <span class="ss-tb-count">3</span></button>
+              <button class="ss-tb-btn" title="Freeze"><i data-lucide="snowflake"></i> Freeze</button>
+              <button class="ss-tb-btn" title="Group"><i data-lucide="menu"></i> Group</button>
               <div class="ss-tb-sep"></div>
               <input class="ss-tb-search" placeholder="Search vendor, memo, ID…">
               <div style="margin-left:auto; display:flex; gap:6px;">
-                <button class="ss-tb-btn" title="Share">↗ Share</button>
-                <button class="ss-tb-btn" title="Export">↓ CSV</button>
-                <button class="ss-tb-btn ss-tb-btn--accent" title="New row">+ Row</button>
+                <button class="ss-tb-btn" title="Share"><i data-lucide="share-2"></i> Share</button>
+                <button class="ss-tb-btn" title="Export"><i data-lucide="download"></i> CSV</button>
+                <button class="ss-tb-btn ss-tb-btn--accent" title="New row"><i data-lucide="plus"></i> Row</button>
               </div>
             </div>
 
@@ -2260,9 +2264,9 @@ window.renderDashboards = function (root) {
             <!-- Filter chips -->
             <div class="ss-chips">
               <span class="ss-chips__label">Active filters</span>
-              <span class="ss-chip">Period <b>Q4</b> <button aria-label="remove">×</button></span>
-              <span class="ss-chip">Status <b>Open, Overdue</b> <button aria-label="remove">×</button></span>
-              <span class="ss-chip">Amount <b>&gt; $5,000</b> <button aria-label="remove">×</button></span>
+              <span class="ss-chip">Period <b>Q4</b> <button aria-label="remove"><i data-lucide="x"></i></button></span>
+              <span class="ss-chip">Status <b>Open, Overdue</b> <button aria-label="remove"><i data-lucide="x"></i></button></span>
+              <span class="ss-chip">Amount <b>&gt; $5,000</b> <button aria-label="remove"><i data-lucide="x"></i></button></span>
               <button class="ss-chip ss-chip--add">+ Add filter</button>
               <span class="ss-chips__count">Showing <b>${ssRowCount}</b> of 812 rows</span>
             </div>
@@ -2385,14 +2389,14 @@ window.renderDashboards = function (root) {
 
             <!-- Toolbar (condensed) -->
             <div class="ss-toolbar">
-              <button class="ss-tb-btn" title="Sort">⇅ Sort</button>
-              <button class="ss-tb-btn is-on" title="Filter">⧩ Filter <span class="ss-tb-count">2</span></button>
-              <button class="ss-tb-btn" title="Freeze">❄ Freeze</button>
+              <button class="ss-tb-btn" title="Sort"><i data-lucide="arrow-up-down"></i> Sort</button>
+              <button class="ss-tb-btn is-on" title="Filter"><i data-lucide="filter"></i> Filter <span class="ss-tb-count">2</span></button>
+              <button class="ss-tb-btn" title="Freeze"><i data-lucide="snowflake"></i> Freeze</button>
               <div class="ss-tb-sep"></div>
               <input class="ss-tb-search" placeholder="Search…">
               <div style="margin-left:auto; display:flex; gap:6px;">
-                <button class="ss-tb-btn" title="Export">↓ CSV</button>
-                <button class="ss-tb-btn ss-tb-btn--accent" title="New row">+ Row</button>
+                <button class="ss-tb-btn" title="Export"><i data-lucide="download"></i> CSV</button>
+                <button class="ss-tb-btn ss-tb-btn--accent" title="New row"><i data-lucide="plus"></i> Row</button>
               </div>
             </div>
 
@@ -2407,8 +2411,8 @@ window.renderDashboards = function (root) {
             <!-- Filter chips -->
             <div class="ss-chips">
               <span class="ss-chips__label">Active filters</span>
-              <span class="ss-chip">Status <b>Open, Overdue</b> <button aria-label="remove">×</button></span>
-              <span class="ss-chip">Owner <b>Aaron</b> <button aria-label="remove">×</button></span>
+              <span class="ss-chip">Status <b>Open, Overdue</b> <button aria-label="remove"><i data-lucide="x"></i></button></span>
+              <span class="ss-chip">Owner <b>Aaron</b> <button aria-label="remove"><i data-lucide="x"></i></button></span>
               <button class="ss-chip ss-chip--add">+ Add filter</button>
               <span class="ss-chips__count">Showing <b>8</b> of 812 rows</span>
             </div>
@@ -2714,15 +2718,15 @@ window.renderDashboards = function (root) {
                     <button>QTD</button>
                     <button>YTD</button>
                   </div>
-                  <button class="db-iconbtn" title="Refresh">↻</button>
-                  <button class="db-iconbtn" title="Export">↓</button>
+                  <button class="db-iconbtn" title="Refresh"><i data-lucide="rotate-cw"></i></button>
+                  <button class="db-iconbtn" title="Export"><i data-lucide="download"></i></button>
                 </div>
               </div>
               <div class="db-body">
                 <div class="db-alert">
                   <span class="dot dot--alert" style="margin-right:0"></span>
                   <span><b>Runway breach risk.</b> 11 weeks to policy floor at current burn &mdash; review with ops Thursday.</span>
-                  <button class="db-alert__dismiss">×</button>
+                  <button class="db-alert__dismiss"><i data-lucide="x"></i></button>
                 </div>
                 <div class="db-grid-4">
                   <div class="kpi">
@@ -2998,8 +3002,11 @@ window.renderDashboards = function (root) {
         const f = demoFilters[nextDemo % demoFilters.length]; nextDemo++;
         const chip = document.createElement('span');
         chip.className = 'ss-chip';
-        chip.innerHTML = f.field + ' <b>' + f.val + '</b> <button aria-label="remove">×</button>';
+        chip.innerHTML = f.field + ' <b>' + f.val + '</b> <button aria-label="remove"><i data-lucide="x"></i></button>';
         addChipBtn.parentNode.insertBefore(chip, addChipBtn);
+        if (window.lucide && typeof window.lucide.createIcons === 'function') {
+          try { window.lucide.createIcons({ root: chip }); } catch (e) {}
+        }
         chip.querySelector('button').addEventListener('click', () => {
           chip.remove(); syncFilterCount();
         });

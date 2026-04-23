@@ -63,12 +63,12 @@ window.renderSocial = function (root) {
     .so-frame {
       position: relative;
       margin: 0 auto;
-      background: #0B0F14;
+      background: var(--k-ink);
       color: #fff;
       overflow: hidden;
       box-shadow: 0 2px 0 var(--rule), 0 20px 60px -30px rgba(0,0,0,0.35);
     }
-    .so-frame--light { background: #F5F2EC; color: #0B0F14; }
+    .so-frame--light { background: #F5F2EC; color: var(--k-ink); }
     .so-frame--red   { background: var(--accent); color: #fff; }
 
     /* Card wrapper w/ caption */
@@ -170,7 +170,7 @@ window.renderSocial = function (root) {
     .so-sq__foot { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.7; }
 
     /* Square: pull-quote variant */
-    .so-sq--quote { background: #F5F2EC; color: #0B0F14; }
+    .so-sq--quote { background: #F5F2EC; color: var(--k-ink); }
     .so-sq--quote .so-sq__h { font-size: 28px; line-height: 1.25; font-family: var(--font-display); font-style: italic; font-weight: 400; align-self: center; padding-left: 18px; border-left: 2px solid var(--accent); }
     .so-sq--quote .so-sq__top { color: #6B6762; }
     .so-sq--quote .so-sq__foot { opacity: 0.6; }
@@ -232,7 +232,8 @@ window.renderSocial = function (root) {
     .so-cc__i { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; opacity: 0.55; }
     .so-cc__h { font-family: var(--font-display); font-weight: 400; font-size: 22px; line-height: 1.14; letter-spacing: -0.01em; align-self: end; }
     .so-cc__h em { font-style: italic; color: var(--accent); }
-    .so-cc__foot { font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.22em; text-transform: uppercase; opacity: 0.5; }
+    .so-cc__foot { font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.22em; text-transform: uppercase; opacity: 0.5; display: inline-flex; align-items: center; gap: 4px; }
+    .so-cc__foot .lucide, .so-cc__h .lucide, .so-sq__top .lucide { width: 10px; height: 10px; stroke-width: 2; }
 
     /* ---- RULES CARD ---- */
     .so-rules {
@@ -268,7 +269,7 @@ window.renderSocial = function (root) {
         A small set of frames &mdash; covers, posts, quotes, carousels, stories &mdash; that let
         anyone at Kilowott publish something that reads as Kilowott in the three seconds a
         feed gives them. Each template inherits the type ladder, colour rules, and voice from
-        the rest of the system. Nothing new invented here; just a stage for the parts.
+        the rest of the system. Nothing new invented here &mdash; a stage for the parts.
       </p>
 
       <div class="so-hero__meta">
@@ -419,7 +420,7 @@ window.renderSocial = function (root) {
             <div class="so-frame so-sq so-sq--quote">
               <div class="so-sq__top">
                 <span>From the blog</span>
-                <span>&bull;&bull;&bull;</span>
+                <span><i data-lucide="more-horizontal"></i></span>
               </div>
               <div class="so-sq__h">&ldquo;Most rebuilds fail because the old thing still works &mdash; that&rsquo;s the trap.&rdquo;</div>
               <div class="so-sq__foot">
@@ -476,45 +477,45 @@ window.renderSocial = function (root) {
       <div class="so-strip">
         <div class="so-strip__rail">
           <!-- 01 Hook -->
-          <div class="so-frame so-cc" style="background:#0B0F14;">
+          <div class="so-frame so-cc" style="background:var(--k-ink);">
             <div class="so-cc__i">01 &middot; The claim</div>
             <div class="so-cc__h">Most rebuilds fail. <em>Here&rsquo;s why they don&rsquo;t have to.</em></div>
-            <div class="so-cc__foot">Kilowott &middot; swipe &rarr;</div>
+            <div class="so-cc__foot">Kilowott &middot; swipe <i data-lucide="arrow-right"></i></div>
           </div>
           <!-- 02 -->
-          <div class="so-frame so-cc" style="background:#F5F2EC; color:#0B0F14;">
+          <div class="so-frame so-cc" style="background:#F5F2EC; color:var(--k-ink);">
             <div class="so-cc__i">02 &middot; Why they fail</div>
             <div class="so-cc__h">The old thing still works. The new thing is <em>almost</em> working.</div>
-            <div class="so-cc__foot">&rarr;</div>
+            <div class="so-cc__foot"><i data-lucide="arrow-right"></i></div>
           </div>
           <!-- 03 -->
-          <div class="so-frame so-cc" style="background:#F5F2EC; color:#0B0F14;">
+          <div class="so-frame so-cc" style="background:#F5F2EC; color:var(--k-ink);">
             <div class="so-cc__i">03 &middot; The fork</div>
             <div class="so-cc__h">Do you migrate, run parallel, or <em>cut over?</em></div>
-            <div class="so-cc__foot">&rarr;</div>
+            <div class="so-cc__foot"><i data-lucide="arrow-right"></i></div>
           </div>
           <!-- 04 -->
-          <div class="so-frame so-cc" style="background:#0B0F14;">
+          <div class="so-frame so-cc" style="background:var(--k-ink);">
             <div class="so-cc__i">04 &middot; Rule</div>
             <div class="so-cc__h">Migrate only <em>what gets used weekly.</em></div>
-            <div class="so-cc__foot">&rarr;</div>
+            <div class="so-cc__foot"><i data-lucide="arrow-right"></i></div>
           </div>
           <!-- 05 -->
-          <div class="so-frame so-cc" style="background:#F5F2EC; color:#0B0F14;">
+          <div class="so-frame so-cc" style="background:#F5F2EC; color:var(--k-ink);">
             <div class="so-cc__i">05 &middot; Evidence</div>
             <div class="so-cc__h">62% of the pages had <em>zero weekly reads.</em></div>
-            <div class="so-cc__foot">&rarr;</div>
+            <div class="so-cc__foot"><i data-lucide="arrow-right"></i></div>
           </div>
           <!-- 06 -->
-          <div class="so-frame so-cc" style="background:#0B0F14;">
+          <div class="so-frame so-cc" style="background:var(--k-ink);">
             <div class="so-cc__i">06 &middot; Result</div>
             <div class="so-cc__h">Cut-over in <em>11 days</em>. Zero rollback.</div>
-            <div class="so-cc__foot">&rarr;</div>
+            <div class="so-cc__foot"><i data-lucide="arrow-right"></i></div>
           </div>
           <!-- 07 End -->
           <div class="so-frame so-cc" style="background:var(--accent); color:#fff;">
             <div class="so-cc__i">07 &middot; End</div>
-            <div class="so-cc__h">We do this for a living. <em>Kilowott &rarr;</em></div>
+            <div class="so-cc__h">We do this for a living. <em>Kilowott <i data-lucide="arrow-right" style="display:inline-block;vertical-align:middle;"></i></em></div>
             <div class="so-cc__foot">kilowott.com &middot; follow</div>
           </div>
         </div>
@@ -554,7 +555,7 @@ window.renderSocial = function (root) {
 
         <div class="so-card">
           <div class="so-card__stage">
-            <div class="so-frame so-st" style="background:#F5F2EC; color:#0B0F14;">
+            <div class="so-frame so-st" style="background:#F5F2EC; color:var(--k-ink);">
               <div class="so-st__top">Numbers we like</div>
               <div class="so-st__h" style="font-family:var(--font-display); font-size:60px; line-height:0.95; letter-spacing:-0.03em; color:var(--accent);">62<sup style="font-size:26px;">%</sup></div>
               <div class="so-st__foot" style="color:#6B6762;">Drop in support queue after the rebuild</div>

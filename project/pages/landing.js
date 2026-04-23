@@ -66,7 +66,7 @@ window.renderLanding = function (root) {
       position: relative;
     }
     .lp-spec__stage--flush { padding: 0; }
-    .lp-spec__stage--ink { background: #0B0F14; color: #F7F5EF; }
+    .lp-spec__stage--ink { background: var(--k-ink); color: #F7F5EF; }
     .lp-spec__stage--warm { background: var(--bg-2); }
     .lp-spec__foot {
       padding: 14px 20px;
@@ -90,20 +90,21 @@ window.renderLanding = function (root) {
       cursor: pointer;
       transition: all .18s ease;
     }
-    .lp-btn__arrow { transition: transform .18s ease; }
+    .lp-btn__arrow { transition: transform .18s ease; display: inline-flex; align-items: center; }
+    .lp-btn__arrow .lucide { width: 16px; height: 16px; stroke-width: 1.75; }
     .lp-btn:hover .lp-btn__arrow { transform: translateX(3px); }
-    .lp-btn--primary { background: #0B0F14; color: #fff; border-color: #0B0F14; }
+    .lp-btn--primary { background: var(--k-ink); color: #fff; border-color: var(--k-ink); }
     .lp-btn--primary:hover { background: var(--accent); border-color: var(--accent); }
     .lp-btn--accent { background: var(--accent); color: #fff; border-color: var(--accent); }
     .lp-btn--accent:hover { background: #B40224; border-color: #B40224; }
     .lp-btn--ghost {
-      background: transparent; color: #0B0F14; border-color: transparent;
+      background: transparent; color: var(--k-ink); border-color: transparent;
       padding: 14px 6px;
     }
     .lp-btn--ghost:hover { color: var(--accent); }
     /* On-ink variants */
     .lp-spec__stage--ink .lp-btn--primary,
-    .lp-hero--ink .lp-btn--primary { background: #F7F5EF; color: #0B0F14; border-color: #F7F5EF; }
+    .lp-hero--ink .lp-btn--primary { background: #F7F5EF; color: var(--k-ink); border-color: #F7F5EF; }
     .lp-spec__stage--ink .lp-btn--primary:hover,
     .lp-hero--ink .lp-btn--primary:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
     .lp-spec__stage--ink .lp-btn--ghost,
@@ -241,7 +242,7 @@ window.renderLanding = function (root) {
     }
 
     /* Video-poster hero (pattern 6) */
-    .lp-h6 { position: relative; min-height: 560px; overflow: hidden; color: #F7F5EF; background: #0B0F14; }
+    .lp-h6 { position: relative; min-height: 560px; overflow: hidden; color: #F7F5EF; background: var(--k-ink); }
     .lp-h6__photo {
       position: absolute; inset: 0; width: 100%; height: 100%;
       object-fit: cover; display: block; opacity: 0.45;
@@ -334,6 +335,7 @@ window.renderLanding = function (root) {
       padding-top: 8px;
     }
     .lp-s7__more:hover { color: var(--accent); }
+    .lp-s7__more .lucide { width: 14px; height: 14px; stroke-width: 1.75; }
 
     /* Feature split (section 8) */
     .lp-s8 {
@@ -435,7 +437,7 @@ window.renderLanding = function (root) {
 
     /* Stat strip band (section 9) */
     .lp-s9 {
-      background: #0B0F14;
+      background: var(--k-ink);
       color: #F7F5EF;
       padding: calc(var(--s-8) * var(--density)) 0;
       border-radius: var(--r-3);
@@ -572,8 +574,8 @@ window.renderLanding = function (root) {
             economy. Weeks to ship, not quarters. Proof in the first release.
           </p>
           <div class="lp-ctas">
-            <a href="#" class="lp-btn lp-btn--primary">Book a walkthrough <span class="lp-btn__arrow">→</span></a>
-            <a href="#" class="lp-btn lp-btn--ghost">Read the case study <span class="lp-btn__arrow">→</span></a>
+            <a href="#" class="lp-btn lp-btn--primary">Book a walkthrough <span class="lp-btn__arrow"><i data-lucide="arrow-right"></i></span></a>
+            <a href="#" class="lp-btn lp-btn--ghost">Read the case study <span class="lp-btn__arrow"><i data-lucide="arrow-right"></i></span></a>
           </div>
           <p class="lp-h1__kicker"><b>44% faster</b> &mdash; average cycle-time reduction across 18 shipped platforms since 2019.</p>
         </div>
@@ -609,8 +611,8 @@ window.renderLanding = function (root) {
                 engineers, ten weeks, and a 14&times; improvement on the metric that pays the bills.
               </p>
               <div class="lp-ctas">
-                <a href="#" class="lp-btn lp-btn--primary">Read the build <span class="lp-btn__arrow">→</span></a>
-                <a href="#" class="lp-btn lp-btn--ghost">See all case studies <span class="lp-btn__arrow">→</span></a>
+                <a href="#" class="lp-btn lp-btn--primary">Read the build <span class="lp-btn__arrow"><i data-lucide="arrow-right"></i></span></a>
+                <a href="#" class="lp-btn lp-btn--ghost">See all case studies <span class="lp-btn__arrow"><i data-lucide="arrow-right"></i></span></a>
               </div>
             </div>
           </div>
@@ -643,7 +645,7 @@ window.renderLanding = function (root) {
                 iterate in public from week four.
               </p>
               <div class="lp-ctas">
-                <a href="#" class="lp-btn lp-btn--primary">Start a project <span class="lp-btn__arrow">→</span></a>
+                <a href="#" class="lp-btn lp-btn--primary">Start a project <span class="lp-btn__arrow"><i data-lucide="arrow-right"></i></span></a>
                 <a href="#" class="lp-btn lp-btn--ghost">How we work</a>
               </div>
             </div>
@@ -682,8 +684,8 @@ window.renderLanding = function (root) {
                 honest parts survived. That&rsquo;s the whole method.
               </p>
               <div class="lp-ctas">
-                <a href="#" class="lp-btn lp-btn--primary">Read the manifesto <span class="lp-btn__arrow">→</span></a>
-                <a href="#" class="lp-btn lp-btn--ghost">Work with us <span class="lp-btn__arrow">→</span></a>
+                <a href="#" class="lp-btn lp-btn--primary">Read the manifesto <span class="lp-btn__arrow"><i data-lucide="arrow-right"></i></span></a>
+                <a href="#" class="lp-btn lp-btn--ghost">Work with us <span class="lp-btn__arrow"><i data-lucide="arrow-right"></i></span></a>
               </div>
             </div>
           </div>
@@ -714,8 +716,8 @@ window.renderLanding = function (root) {
             we&rsquo;ve probably shipped something close.
           </p>
           <div class="lp-ctas">
-            <a href="#" class="lp-btn lp-btn--primary">Book a demo <span class="lp-btn__arrow">→</span></a>
-            <a href="#" class="lp-btn lp-btn--ghost">Customer stories <span class="lp-btn__arrow">→</span></a>
+            <a href="#" class="lp-btn lp-btn--primary">Book a demo <span class="lp-btn__arrow"><i data-lucide="arrow-right"></i></span></a>
+            <a href="#" class="lp-btn lp-btn--ghost">Customer stories <span class="lp-btn__arrow"><i data-lucide="arrow-right"></i></span></a>
           </div>
 
           <div class="lp-h5__logos">
@@ -780,19 +782,19 @@ window.renderLanding = function (root) {
           <span class="lp-s7__num">01</span>
           <h3 class="lp-s7__title">Ship in <em>weeks</em>, not quarters.</h3>
           <p class="lp-s7__body">Working software in three weeks, not a deck and a Gantt chart. We size the first slice to ship, then iterate with the team in the room.</p>
-          <a href="#" class="lp-s7__more">Learn more <span aria-hidden="true">→</span></a>
+          <a href="#" class="lp-s7__more">Learn more <i data-lucide="arrow-right" aria-hidden="true"></i></a>
         </div>
         <div class="lp-s7__col">
           <span class="lp-s7__num">02</span>
           <h3 class="lp-s7__title">One team, whole <em>stack</em>.</h3>
           <p class="lp-s7__body">Product, design, engineering and data science under the same roof. No hand-offs, no blame pass-throughs. The name on the work is the name that builds it.</p>
-          <a href="#" class="lp-s7__more">Learn more <span aria-hidden="true">→</span></a>
+          <a href="#" class="lp-s7__more">Learn more <i data-lucide="arrow-right" aria-hidden="true"></i></a>
         </div>
         <div class="lp-s7__col">
           <span class="lp-s7__num">03</span>
           <h3 class="lp-s7__title">Own it from <em>day one</em>.</h3>
           <p class="lp-s7__body">Codebase, repos, docs and runbooks live in your tenancy from the first commit. When we hand over, there&rsquo;s nothing to hand over.</p>
-          <a href="#" class="lp-s7__more">Learn more <span aria-hidden="true">→</span></a>
+          <a href="#" class="lp-s7__more">Learn more <i data-lucide="arrow-right" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
@@ -820,7 +822,7 @@ window.renderLanding = function (root) {
             <li><b>Built on your stack</b> &mdash; SAP, NetSuite, Snowflake, or whatever actually runs finance.</li>
           </ul>
           <div class="lp-s8__cta">
-            <a href="#" class="lp-btn lp-btn--primary">See the control tower <span class="lp-btn__arrow">→</span></a>
+            <a href="#" class="lp-btn lp-btn--primary">See the control tower <span class="lp-btn__arrow"><i data-lucide="arrow-right"></i></span></a>
           </div>
         </div>
         <div class="lp-s8__media">
@@ -861,7 +863,7 @@ window.renderLanding = function (root) {
             <li><b>Share on a link</b> &mdash; CFO and board see the same numbers you do.</li>
           </ul>
           <div class="lp-s8__cta">
-            <a href="#" class="lp-btn lp-btn--primary">Open a scenario <span class="lp-btn__arrow">→</span></a>
+            <a href="#" class="lp-btn lp-btn--primary">Open a scenario <span class="lp-btn__arrow"><i data-lucide="arrow-right"></i></span></a>
           </div>
         </div>
         <div class="lp-s8__media">
@@ -945,8 +947,8 @@ window.renderLanding = function (root) {
       <div class="lp-s10">
         <h3 class="lp-s10__head">Let&rsquo;s build something that <em>ships</em>.</h3>
         <div class="lp-s10__ctas">
-          <a href="#" class="lp-btn lp-btn--accent">Start a project <span class="lp-btn__arrow">→</span></a>
-          <a href="#" class="lp-btn lp-btn--ghost">Read the case <span class="lp-btn__arrow">→</span></a>
+          <a href="#" class="lp-btn lp-btn--accent">Start a project <span class="lp-btn__arrow"><i data-lucide="arrow-right"></i></span></a>
+          <a href="#" class="lp-btn lp-btn--ghost">Read the case <span class="lp-btn__arrow"><i data-lucide="arrow-right"></i></span></a>
         </div>
       </div>
     </div>

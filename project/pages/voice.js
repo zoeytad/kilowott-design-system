@@ -182,9 +182,9 @@ window.renderVoice = function (root) {
     .vc-copy__tag {
       font-family: var(--font-sans); font-size: 10px;
       letter-spacing: 0.22em; text-transform: uppercase;
-      font-weight: 500; color: #fff;
+      font-weight: 500; color: var(--bg);
       padding: 5px 10px; align-self: flex-start;
-      background: #0B0F14; border-radius: 2px;
+      background: var(--k-ink); border-radius: 2px;
     }
     .vc-copy__card--dont .vc-copy__tag { background: var(--accent); }
     .vc-copy__quote {

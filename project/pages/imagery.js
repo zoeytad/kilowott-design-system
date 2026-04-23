@@ -437,7 +437,7 @@ window.renderImagery = function (root) {
             <li><b>Light</b><span>Window light or soft daylight. No ring lights, no harsh studio strobes.</span></li>
             <li><b>Crop</b><span>Tight on the face + shoulders, or medium with environmental context.</span></li>
             <li><b>Background</b><span>Real office, real street, real desk. Never seamless white.</span></li>
-            <li><b>Wardrobe</b><span>What the person actually wears. No styled shoots.</span></li>
+            <li><b>Wardrobe</b><span>What the person wears day to day. No styled shoots.</span></li>
           </ul>
         </div>
       </div>
@@ -451,7 +451,7 @@ window.renderImagery = function (root) {
         <div class="im-cat__body">
           <span class="im-cat__eyebrow">B &middot; Environmental &amp; culture</span>
           <h3>The <em>place</em> where the work happens.</h3>
-          <p class="im-cat__lede">Desks mid-project. Whiteboards covered in marker. A meeting that&rsquo;s actually happening. These slides carry the &ldquo;how we work&rdquo; argument.</p>
+          <p class="im-cat__lede">Desks mid-project. Whiteboards covered in marker. A meeting in session. These slides carry the &ldquo;how we work&rdquo; argument.</p>
           <ul class="im-cat__rules">
             <li><b>Focus</b><span>An activity, not a pose. Hands on keyboards, markers on boards, faces in conversation.</span></li>
             <li><b>Angle</b><span>Slightly above or at eye level. Never from below.</span></li>
@@ -620,7 +620,7 @@ window.renderImagery = function (root) {
     <div class="container">
       <div class="section-head">
         <h2 class="section-head__title">Crop ratios</h2>
-        <p class="section-head__body">Decide the crop at export, not mid-design. These are the six you&rsquo;ll actually need.</p>
+        <p class="section-head__body">Decide the crop at export, not mid-design. These are the six you&rsquo;ll need.</p>
       </div>
 
       <div class="im-ratios">
@@ -696,7 +696,7 @@ window.renderImagery = function (root) {
           <div class="im-dd__vis" data-tag="Do">
             <img src="assets/photos/pair-working-warm.jpg" alt="Real work, mid-project" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
           </div>
-          <div class="im-dd__cap"><b>Caught mid-work</b>Two people actually doing the thing &mdash; warm paper tones, natural depth, nobody looking at the lens.</div>
+          <div class="im-dd__cap"><b>Caught mid-work</b>Two people in the middle of the work &mdash; warm paper tones, natural depth, nobody looking at the lens.</div>
         </div>
 
         <div class="im-dd im-dd--do">
