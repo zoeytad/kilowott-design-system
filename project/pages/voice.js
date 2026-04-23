@@ -9,7 +9,7 @@ window.renderVoice = function (root) {
   <style>
     /* ---------- HERO ---------- */
     .vc-hero {
-      padding: calc(var(--s-9) * var(--density)) 0 calc(var(--s-7) * var(--density));
+      padding: var(--s-9) 0 var(--s-7);
       border-bottom: 1px solid var(--rule);
     }
     .vc-hero h1 {
@@ -79,7 +79,7 @@ window.renderVoice = function (root) {
     @media (max-width: 900px) { .vc-slider { grid-template-columns: 1fr; } }
 
     .vc-slider__meta {
-      padding: calc(var(--s-6) * var(--density));
+      padding: var(--s-6);
       border-right: 1px solid var(--rule);
     }
     @media (max-width: 900px) {
@@ -108,7 +108,7 @@ window.renderVoice = function (root) {
       margin-top: 18px; max-width: 44ch;
     }
     .vc-slider__gloss {
-      padding: calc(var(--s-6) * var(--density));
+      padding: var(--s-6);
       background: var(--bg-2);
       display: flex; align-items: center;
     }
@@ -175,7 +175,7 @@ window.renderVoice = function (root) {
     @media (max-width: 900px) { .vc-copy { grid-template-columns: 1fr; } }
     .vc-copy__card {
       border: 1px solid var(--rule); border-radius: var(--r-3);
-      padding: calc(var(--s-6) * var(--density));
+      padding: var(--s-6);
       display: flex; flex-direction: column; gap: 18px;
       position: relative;
     }
@@ -251,7 +251,7 @@ window.renderVoice = function (root) {
     }
     @media (max-width: 900px) { .vc-mech { grid-template-columns: 1fr; } }
     .vc-mech__cell {
-      padding: calc(var(--s-6) * var(--density));
+      padding: var(--s-6);
       border-right: 1px solid var(--rule);
     }
     .vc-mech__cell:last-child { border-right: 0; }
@@ -370,6 +370,63 @@ window.renderVoice = function (root) {
           <b>Human, not corporate</b>
           <p>We write to a person, not &ldquo;the market.&rdquo; Contractions are fine; first person is fine. The tone is a senior partner explaining the work &mdash; precise, never sterile.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICE LINES ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-head__title">The four service lines</h2>
+        <p class="section-head__body">Kilowott ships under four named offerings. Always name the service &mdash; never &ldquo;our digital transformation practice&rdquo; or &ldquo;our AI services.&rdquo; Each line has its own angle on the same voice.</p>
+      </div>
+
+      <div class="vc-prin" style="margin-top: var(--s-6);">
+        <div>
+          <span class="vc-prin__n" style="color: var(--accent);">01 / Service</span>
+          <b>Kilowott for <em style="font-style: italic; color: var(--accent);">Brands</em></b>
+          <p style="margin: 0 0 12px;">Full operational ownership &mdash; brand, growth, digital, measured in ROI. Not &ldquo;end-to-end digital transformation.&rdquo;</p>
+          <p style="margin: 0; font-family: var(--font-mono); font-size: 12px; color: var(--fg-2);">
+            <b style="color: var(--fg)">Write like:</b> Named client. Named sector. Named number.<br>
+            <b style="color: var(--fg)">Avoid:</b> &ldquo;brand consulting,&rdquo; &ldquo;brand services.&rdquo;
+          </p>
+        </div>
+        <div>
+          <span class="vc-prin__n" style="color: var(--accent);">02 / Service</span>
+          <b>Kilowott for <em style="font-style: italic; color: var(--accent);">Agencies</em></b>
+          <p style="margin: 0 0 12px;">Embedded delivery partner for agencies &mdash; their brand forward, our specialists behind. Not &ldquo;white-label.&rdquo;</p>
+          <p style="margin: 0; font-family: var(--font-mono); font-size: 12px; color: var(--fg-2);">
+            <b style="color: var(--fg)">Write like:</b> Partnership language. Shared wins. Named disciplines.<br>
+            <b style="color: var(--fg)">Avoid:</b> &ldquo;agency partnership program,&rdquo; &ldquo;resource augmentation.&rdquo;
+          </p>
+        </div>
+        <div>
+          <span class="vc-prin__n" style="color: var(--accent);">03 / Service</span>
+          <b>Kilowott <em style="font-style: italic; color: var(--accent);">Intelligence</em></b>
+          <p style="margin: 0 0 12px;">AI with human oversight &mdash; smart systems where the outcome stays accountable. Not &ldquo;GenAI&rdquo; or &ldquo;our AI practice.&rdquo;</p>
+          <p style="margin: 0; font-family: var(--font-mono); font-size: 12px; color: var(--fg-2);">
+            <b style="color: var(--fg)">Write like:</b> Workflow + oversight. Measurable lift. Named model class.<br>
+            <b style="color: var(--fg)">Avoid:</b> &ldquo;cutting-edge AI,&rdquo; &ldquo;transformative GenAI.&rdquo;
+          </p>
+        </div>
+        <div>
+          <span class="vc-prin__n" style="color: var(--accent);">04 / Service</span>
+          <b>Kilowott <em style="font-style: italic; color: var(--accent);">Workforce</em></b>
+          <p style="margin: 0 0 12px;">Cross-functional teams that stand up inside a client&rsquo;s stack and ship. Not &ldquo;staff augmentation&rdquo; or &ldquo;nearshore resourcing.&rdquo;</p>
+          <p style="margin: 0; font-family: var(--font-mono); font-size: 12px; color: var(--fg-2);">
+            <b style="color: var(--fg)">Write like:</b> Team composition. First release date. Named sector.<br>
+            <b style="color: var(--fg)">Avoid:</b> &ldquo;FTEs,&rdquo; &ldquo;resources,&rdquo; &ldquo;headcount.&rdquo;
+          </p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top: var(--s-6); padding: var(--s-6); background: var(--bg-2);">
+        <span class="eyebrow eyebrow--accent">The one rule</span>
+        <p style="margin-top: 12px; font-family: var(--font-display); font-size: 1.375rem; line-height: 1.3; max-width: 52ch;">
+          Name the service, every time. &ldquo;Kilowott Intelligence&rdquo; &mdash; not &ldquo;our AI work.&rdquo; &ldquo;Kilowott for Brands&rdquo; &mdash; not &ldquo;our brand practice.&rdquo;
+        </p>
+        <p style="margin-top: 12px; color: var(--fg-2); font-size: var(--fs-sm);">The four names are the brand&rsquo;s load-bearing nouns. Generic equivalents erase the difference between Kilowott and the next consultancy.</p>
       </div>
     </div>
   </section>

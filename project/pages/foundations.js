@@ -6,7 +6,7 @@ window.renderFoundations = function (root) {
   root.innerHTML = `
   <style>
     .fd-hero {
-      padding: calc(var(--s-9) * var(--density)) 0 calc(var(--s-7) * var(--density));
+      padding: var(--s-9) 0 var(--s-7);
       border-bottom: 1px solid var(--rule);
     }
     .fd-hero h1 {
@@ -146,7 +146,7 @@ window.renderFoundations = function (root) {
     <div class="container">
       <div class="section-head">
         <h2 class="section-head__title">Spacing scale</h2>
-        <p class="section-head__body">Based on a 4-point unit, doubling up as it grows. Only use these values &mdash; never arbitrary pixels. Density scales the whole system in Tweaks.</p>
+        <p class="section-head__body">Based on a 4-point unit, doubling up as it grows. Only use these values &mdash; never arbitrary pixels.</p>
       </div>
       <div style="border: 1px solid var(--rule); border-radius: var(--r-3); padding: 24px;">
         <div class="fd-space">
@@ -205,12 +205,13 @@ window.renderFoundations = function (root) {
     <div class="container">
       <div class="section-head">
         <h2 class="section-head__title">Elevation</h2>
-        <p class="section-head__body">Three levels of elevation. Use rarely &mdash; Kilowott prefers borders and whitespace to separate surfaces, not shadow.</p>
+        <p class="section-head__body">Four levels of elevation. Use rarely &mdash; Kilowott prefers borders and whitespace to separate surfaces, not shadow. Reserve <span class="mono">shadow-3</span> for modals and detached overlays only.</p>
       </div>
-      <div class="grid grid-3">
+      <div class="grid grid-4">
         <div class="fd-shadow"><div class="fd-shadow__demo"></div><span class="fd-shadow__name">Flat · shadow-0</span><span class="fd-shadow__val">Default · 1px border</span></div>
         <div class="fd-shadow"><div class="fd-shadow__demo" style="box-shadow: 0 1px 0 rgba(11,15,20,0.06), 0 1px 2px rgba(11,15,20,0.04);"></div><span class="fd-shadow__name">Soft · shadow-1</span><span class="fd-shadow__val">Cards on hover</span></div>
         <div class="fd-shadow"><div class="fd-shadow__demo" style="box-shadow: 0 2px 4px rgba(11,15,20,0.06), 0 8px 16px rgba(11,15,20,0.06);"></div><span class="fd-shadow__name">Lift · shadow-2</span><span class="fd-shadow__val">Tooltips, popovers</span></div>
+        <div class="fd-shadow"><div class="fd-shadow__demo" style="box-shadow: 0 4px 8px rgba(11,15,20,0.08), 0 24px 48px rgba(11,15,20,0.10);"></div><span class="fd-shadow__name">Float · shadow-3</span><span class="fd-shadow__val">Modals, overlays</span></div>
       </div>
     </div>
   </section>
@@ -309,7 +310,6 @@ window.renderFoundations = function (root) {
   <span class="prop">--s-0</span>:  0;     <span class="prop">--s-1</span>:  4px;   <span class="prop">--s-2</span>:  8px;   <span class="prop">--s-3</span>:  12px;
   <span class="prop">--s-4</span>:  16px;  <span class="prop">--s-5</span>:  24px;  <span class="prop">--s-6</span>:  32px;  <span class="prop">--s-7</span>:  48px;
   <span class="prop">--s-8</span>:  64px;  <span class="prop">--s-9</span>:  96px;  <span class="prop">--s-10</span>: 128px;
-  <span class="prop">--density</span>: 1;  <span class="comment">/* 0.7 compact · 1 comfortable · 1.3 spacious */</span>
 
   <span class="comment">/* ---------- RADII ---------- */</span>
   <span class="prop">--r-0</span>: 0;   <span class="prop">--r-1</span>: 2px;  <span class="prop">--r-2</span>: 4px;

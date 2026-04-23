@@ -163,8 +163,53 @@ lucide.createIcons({ root: myContainer });
 - Master: `project/assets/kilowott-logo.svg`
 - Viewbox: `0 0 313 41`
 - Used via CSS mask → recolors with `currentColor`
-- Topbar rendering: 110×18px
+- Topbar rendering: **110×18px** (aspect `313:41` preserved via `aspect-ratio`)
 - Minimum size, clear space → see `pages/logo.js` (load if needed)
+
+### Topbar snippet
+```css
+.topbar__logo {
+  width: 110px; height: 18px;
+  aspect-ratio: 313 / 41;
+  background: currentColor;
+  -webkit-mask: url(assets/kilowott-logo.svg) no-repeat center/contain;
+          mask: url(assets/kilowott-logo.svg) no-repeat center/contain;
+}
+```
+Parent sets `color` — no asset swap per theme. Full technique + placements: `pages/logo.js`.
+
+---
+
+## 8b. Imagery
+
+Imagery does what the type doesn't — it puts the work in a room. Editorial, not stock. The rules below keep it calm even when the subject isn't.
+
+### Principles
+1. **Human, not corporate.** Real hands, real screens, real sites. No handshake clip-art, no stock "diverse team laughing at laptop."
+2. **Crop tight.** One subject, one idea. Work shown from the operator's POV — not the pitch deck's.
+3. **Restrained color.** Desaturated base. Brand red only when it's already there (a jacket, a sign, a UI state) — never added in post.
+4. **Negative space matters.** Imagery leaves room for type. Never bleed subjects to all four edges.
+
+### Treatment
+- **Duotone reserved for hero.** Ink + paper duotone only at the top of case studies or section covers. Not a global default.
+- **Warm paper over photos.** When paired with body copy, sit photography in a Warm Paper section (`--k-paper-2`) — reduces visual temperature against editorial serif.
+- **Grain OK, filters not.** 1–3% film grain texture acceptable. No gradient overlays, vignettes, or Instagram-style presets.
+- **Ratios:** `16:9` (hero / case study) · `4:5` (portrait, social) · `1:1` (grid only).
+
+### Do / Don't
+| Do | Don't |
+|---|---|
+| Shot of hands on a keyboard, screen visible | Suited team posed in a boardroom |
+| Close-up of a production rig, real signage | Glowing abstract "AI" renders, blue grids |
+| Editorial portrait with ambient light | Stock smile, studio backdrop |
+| On-location client work, ambient color | Gradient-heavy hero illustrations |
+
+### Tokens
+- `--shadow-2` for framed images on paper (tooltips/card elevation)
+- `--r-3` (8px) default image radius · `--r-0` edge-to-edge hero only
+- `--rule` 1px border when image sits on same tone as the surrounding surface
+
+Full patterns + canonical treatments: see [project/pages/imagery.js](project/pages/imagery.js).
 
 ---
 

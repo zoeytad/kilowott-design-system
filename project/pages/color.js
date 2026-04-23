@@ -11,7 +11,7 @@ window.renderColor = function (root) {
     }
     @media (max-width: 900px) { .cl-hero { grid-template-columns: 1fr; } }
     .cl-hero__text {
-      padding: calc(var(--s-9) * var(--density)) var(--s-7) calc(var(--s-8) * var(--density));
+      padding: var(--s-9) var(--s-7) var(--s-8);
       border-right: 1px solid var(--rule);
     }
     @media (max-width: 900px) { .cl-hero__text { border-right: 0; } }
@@ -233,6 +233,51 @@ window.renderColor = function (root) {
             <div class="cl-sw__meta"><div class="cl-sw__name">Red Soft</div><div class="cl-sw__hex">#FCE5EA</div><div class="cl-sw__token">accent tint bg</div></div>
           </div>
         </div>
+      </div>
+
+      <!-- Alt Accents (Tweaks Panel) -->
+      <div style="margin-top: 40px;">
+        <span class="eyebrow">Alt accents &middot; tweaks panel</span>
+        <p style="margin-top:12px; color:var(--fg-2); max-width: 68ch; font-size: var(--fs-sm);">
+          Four alternates are exposed in the tweaks panel for campaign-specific or sub-brand work. They replace Kilowott Red <em>as the single accent</em> &mdash; never used alongside it. The 60&middot;30&middot;5&middot;5 ratio and &ldquo;red is a spotlight&rdquo; rules below apply identically to whichever alt is active.
+        </p>
+        <div class="cl-row" style="margin-top: 16px;">
+          <div class="cl-sw">
+            <div class="cl-sw__color" style="background:#C8102E"><span style="color:#fff">Deeper Red</span></div>
+            <div class="cl-sw__meta">
+              <div class="cl-sw__name">Deeper Red</div>
+              <div class="cl-sw__hex">#C8102E &middot; RGB 200 16 46</div>
+              <div class="cl-sw__token">alt &middot; editorial, print</div>
+            </div>
+          </div>
+          <div class="cl-sw">
+            <div class="cl-sw__color" style="background:#F05A28"><span style="color:#fff">Signal Orange</span></div>
+            <div class="cl-sw__meta">
+              <div class="cl-sw__name">Signal Orange</div>
+              <div class="cl-sw__hex">#F05A28 &middot; RGB 240 90 40</div>
+              <div class="cl-sw__token">alt &middot; Workforce, energy</div>
+            </div>
+          </div>
+          <div class="cl-sw">
+            <div class="cl-sw__color" style="background:#1F3CFF"><span style="color:#fff">Electric Blue</span></div>
+            <div class="cl-sw__meta">
+              <div class="cl-sw__name">Electric Blue</div>
+              <div class="cl-sw__hex">#1F3CFF &middot; RGB 31 60 255</div>
+              <div class="cl-sw__token">alt &middot; Intelligence, product</div>
+            </div>
+          </div>
+          <div class="cl-sw">
+            <div class="cl-sw__color" style="background:#0B0F14"><span style="color:#fff">Ink Mono</span></div>
+            <div class="cl-sw__meta">
+              <div class="cl-sw__name">Ink Mono</div>
+              <div class="cl-sw__hex">#0B0F14 &middot; RGB 11 15 20</div>
+              <div class="cl-sw__token">alt &middot; mono, restraint</div>
+            </div>
+          </div>
+        </div>
+        <p style="margin-top:16px; color:var(--fg-2); font-size: 13px; font-family: var(--font-mono);">
+          Source: <span style="color:var(--fg)">tokens.json &rarr; color.alt-accents</span> &middot; Exposed: <span style="color:var(--fg)">manifest.json &rarr; tweaks.accent</span>
+        </p>
       </div>
     </div>
   </section>

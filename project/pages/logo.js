@@ -14,7 +14,7 @@ window.renderLogo = function (root) {
     }
     @media (max-width: 900px) { .lg-hero { grid-template-columns: 1fr; } }
     .lg-hero__text {
-      padding: calc(var(--s-9) * var(--density)) var(--s-7) calc(var(--s-8) * var(--density));
+      padding: var(--s-9) var(--s-7) var(--s-8);
       border-right: 1px solid var(--rule);
     }
     @media (max-width: 900px) { .lg-hero__text { border-right: 0; border-bottom: 1px solid var(--rule); } }
@@ -262,6 +262,59 @@ window.renderLogo = function (root) {
         <div class="lg-var lg-var--ink"><div class="lg-var__logo"></div><span class="lg-var__cap">02 · Ink</span></div>
         <div class="lg-var lg-var--red"><div class="lg-var__logo"></div><span class="lg-var__cap">03 · Red (rare)</span></div>
         <div class="lg-var lg-var--warm"><div class="lg-var__logo"></div><span class="lg-var__cap">04 · Warm paper</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPLEMENTATION -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-head__title">Implementation &mdash; topbar &amp; surfaces</h2>
+        <p class="section-head__body">The mark is shipped as a single SVG and recolored via CSS mask + <span class="mono">currentColor</span>. One asset, every surface. No PNG sprites, no inline SVG duplication, no theme-specific files.</p>
+      </div>
+
+      <div class="grid grid-2" style="gap: var(--s-7);">
+        <div>
+          <span class="eyebrow">Topbar spec</span>
+          <div style="margin-top: 16px; padding: var(--s-6); background: var(--bg-2); border: 1px solid var(--rule); border-radius: var(--r-3);">
+            <div style="display:flex; align-items:center; gap:16px; padding:12px 20px; background: var(--bg); border:1px solid var(--rule); border-radius: var(--r-2);">
+              <div style="width: 110px; height: 18px; background: currentColor; color: var(--fg); -webkit-mask: url(assets/kilowott-logo.svg) no-repeat center/contain; mask: url(assets/kilowott-logo.svg) no-repeat center/contain;"></div>
+              <span class="mono" style="margin-left:auto; font-size:11px; color: var(--fg-2); letter-spacing: 0.08em; text-transform: uppercase;">110 &times; 18</span>
+            </div>
+            <ul style="list-style:none; padding:0; margin: 20px 0 0; display:grid; gap:8px; font-size: var(--fs-sm); color: var(--fg-2);">
+              <li><b style="color:var(--fg)">Size:</b> 110&nbsp;&times;&nbsp;18&nbsp;px (aspect 313:41 preserved via <span class="mono">aspect-ratio</span>)</li>
+              <li><b style="color:var(--fg)">Color:</b> inherits <span class="mono">currentColor</span> &mdash; set <span class="mono">color</span> on parent, not the mark</li>
+              <li><b style="color:var(--fg)">Clear space:</b> min 16&nbsp;px left/right, vertically centered in 56&nbsp;px topbar</li>
+              <li><b style="color:var(--fg)">Dark mode:</b> no asset swap &mdash; parent flips <span class="mono">color: var(--fg)</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <span class="eyebrow">Technique</span>
+          <p style="margin-top: 12px; color: var(--fg-2); font-size: var(--fs-sm); max-width: 60ch;">
+            The logo is a CSS mask, not an <span class="mono">&lt;img&gt;</span>. Background defaults to <span class="mono">currentColor</span>, so the mark takes the parent&rsquo;s text color. Switch theme, switch section, switch mood &mdash; the logo follows. One SVG, zero duplication.
+          </p>
+          <pre style="margin-top: 16px; padding: var(--s-6); background: var(--bg-2); border: 1px solid var(--rule); border-radius: var(--r-3); font-family: var(--font-mono); font-size: 12px; line-height: 1.6; color: var(--fg); overflow-x: auto; white-space: pre;"><span style="color: var(--fg-2);">/* Topbar logo &mdash; 110&times;18, any color */</span>
+.topbar__logo {
+  width: 110px;
+  height: 18px;
+  aspect-ratio: 313 / 41;
+  background: currentColor;
+  -webkit-mask: url(assets/kilowott-logo.svg)
+                no-repeat center / contain;
+          mask: url(assets/kilowott-logo.svg)
+                no-repeat center / contain;
+}
+<span style="color: var(--fg-2);">/* parent sets the color */</span>
+.topbar        { color: var(--fg); }
+.topbar--ink   { color: #FFFFFF; }
+.topbar--red   { color: var(--accent); }</pre>
+          <p style="margin-top: 16px; font-size: 13px; color: var(--fg-2);">
+            <b style="color: var(--fg)">Why not <span class="mono">&lt;img&gt;</span>?</b> Image tags need per-theme asset swaps and can&rsquo;t inherit color. Mask + <span class="mono">currentColor</span> = one file, any context, no JS.
+          </p>
+        </div>
       </div>
     </div>
   </section>
