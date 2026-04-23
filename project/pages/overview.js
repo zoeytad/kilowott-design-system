@@ -176,6 +176,11 @@ window.renderOverview = function (root) {
       font-family: var(--font-display); font-size: 3rem; line-height: 1;
       color: #E4022D; letter-spacing: -0.03em;
     }
+    .dirA .ov-dir__stat-num .x {
+      font-family: var(--font-sans); font-weight: 400;
+      font-size: 0.55em; vertical-align: 0.18em; margin-left: 0.04em;
+      letter-spacing: 0;
+    }
     .dirA .ov-dir__stat-cap {
       font-family: var(--font-sans); font-size: 12px;
       color: #5B6573; max-width: 14ch; line-height: 1.4;
@@ -279,7 +284,7 @@ window.renderOverview = function (root) {
               <p class="ov-dir__body" style="margin-top:16px; max-width: 36ch;">Serif display for the idea, clean sans for the argument, and red reserved for the one thing that matters most on the page.</p>
             </div>
             <div class="ov-dir__stat">
-              <div class="ov-dir__stat-num">14&times;</div>
+              <div class="ov-dir__stat-num">14<span class="x">&times;</span></div>
               <div class="ov-dir__stat-cap">Faster delivery vs. in-house benchmark</div>
             </div>
           </div>
