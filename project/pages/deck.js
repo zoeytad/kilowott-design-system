@@ -5,6 +5,12 @@
    plus rules + do/don't guidance.
    ============================================================ */
 
+// When the hosted Google Slides template link is live, set this to the
+// /copy URL (e.g. "https://docs.google.com/presentation/d/XXX/copy").
+// Leaving it empty hides the Slides button and shows upload instructions instead.
+const DECK_SLIDES_URL = '';
+const DECK_PPTX_URL   = 'downloads/kilowott-deck-template.pptx';
+
 window.renderDeck = function (root) {
   root.innerHTML = `
   <style>
@@ -36,6 +42,52 @@ window.renderDeck = function (root) {
       text-transform: none; font-size: var(--fs-sm);
     }
     @media (max-width: 800px) { .dk-hero__meta { grid-template-columns: repeat(2, auto); } }
+
+    /* -------- DOWNLOAD BLOCK -------- */
+    .dk-downloads {
+      margin-top: var(--s-7);
+      padding: var(--s-6);
+      border: 1px solid var(--rule);
+      border-radius: var(--r-3);
+      background: var(--bg-2);
+    }
+    .dk-downloads__row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    @media (max-width: 700px) { .dk-downloads__row { grid-template-columns: 1fr; } }
+    .dk-dl {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 20px; padding: 20px 24px;
+      background: var(--bg); border: 1px solid var(--rule);
+      border-radius: var(--r-3);
+      text-decoration: none;
+      transition: border-color 120ms var(--ease-standard, ease), transform 120ms var(--ease-standard, ease);
+    }
+    .dk-dl:hover { border-color: var(--fg); transform: translateY(-1px); }
+    .dk-dl--primary { background: var(--fg); border-color: var(--fg); }
+    .dk-dl--primary:hover { background: var(--accent); border-color: var(--accent); transform: translateY(-1px); }
+    .dk-dl--primary .dk-dl__eyebrow,
+    .dk-dl--primary .dk-dl__title,
+    .dk-dl--primary .dk-dl__meta,
+    .dk-dl--primary .dk-dl__icon { color: var(--bg); }
+    .dk-dl--pending {
+      border-style: dashed; opacity: 0.78; cursor: not-allowed;
+    }
+    .dk-dl__label { display: grid; gap: 2px; }
+    .dk-dl__eyebrow {
+      font-family: var(--font-mono); font-size: 11px;
+      color: var(--fg-2); letter-spacing: 0.16em; text-transform: uppercase;
+    }
+    .dk-dl__title {
+      font-family: var(--font-display); font-weight: 400;
+      font-size: 22px; color: var(--fg); letter-spacing: -0.01em;
+    }
+    .dk-dl__meta { font-size: 12px; color: var(--fg-2); margin-top: 2px; }
+    .dk-dl__icon { width: 28px; height: 28px; stroke-width: 1.5; color: var(--fg); flex-shrink: 0; }
+    .dk-downloads__note {
+      margin: 16px 0 0; font-size: 13px;
+      color: var(--fg-2); line-height: 1.55;
+    }
 
     /* -------- SLIDE FRAME -------- */
     /* Each slide is drawn at a fixed 1280x720 coordinate space, then scaled to fit its container */
@@ -971,6 +1023,42 @@ window.renderDeck = function (root) {
         <div>Safe margin<b>56px outer</b></div>
         <div>Type<b>Newsreader + DM Sans</b></div>
         <div>Accent<b>Kilowott Red · one per slide</b></div>
+      </div>
+
+      <!-- Template downloads -->
+      <div class="dk-downloads" role="group" aria-label="Download deck template">
+        <div class="dk-downloads__row">
+          <a class="dk-dl dk-dl--primary" href="${DECK_PPTX_URL}" download="Kilowott — Partnership Deck Template.pptx">
+            <span class="dk-dl__label">
+              <span class="dk-dl__eyebrow">Download</span>
+              <span class="dk-dl__title">Deck template · .pptx</span>
+              <span class="dk-dl__meta">634 KB · 15 slides · 1920 × 1080</span>
+            </span>
+            <i data-lucide="download" class="dk-dl__icon"></i>
+          </a>
+          ${DECK_SLIDES_URL ? `
+          <a class="dk-dl" href="${DECK_SLIDES_URL}" target="_blank" rel="noopener">
+            <span class="dk-dl__label">
+              <span class="dk-dl__eyebrow">Open in</span>
+              <span class="dk-dl__title">Google Slides</span>
+              <span class="dk-dl__meta">Forces a copy &mdash; edit your own</span>
+            </span>
+            <i data-lucide="external-link" class="dk-dl__icon"></i>
+          </a>
+          ` : `
+          <div class="dk-dl dk-dl--pending" aria-disabled="true">
+            <span class="dk-dl__label">
+              <span class="dk-dl__eyebrow">Coming</span>
+              <span class="dk-dl__title">Google Slides copy</span>
+              <span class="dk-dl__meta">Upload .pptx to Drive &rarr; Open with Slides &rarr; share</span>
+            </span>
+            <i data-lucide="upload-cloud" class="dk-dl__icon"></i>
+          </div>
+          `}
+        </div>
+        <p class="dk-downloads__note">
+          The <b>.pptx</b> opens natively in Keynote, PowerPoint, and &mdash; once uploaded to Drive &mdash; Google Slides. Fonts <span class="mono">Newsreader</span> and <span class="mono">DM Sans</span> are Google Fonts, so Slides renders without substitution.
+        </p>
       </div>
 
       <nav class="dk-index" aria-label="Slide index">
