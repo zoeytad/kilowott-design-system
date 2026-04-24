@@ -6,7 +6,7 @@ window.renderType = function (root) {
   root.innerHTML = `
   <style>
     .ty-hero {
-      padding: calc(var(--s-9) * var(--density)) 0 calc(var(--s-7) * var(--density));
+      padding: var(--s-9) 0 var(--s-7);
       border-bottom: 1px solid var(--rule);
     }
     .ty-hero__headline {
@@ -17,7 +17,6 @@ window.renderType = function (root) {
     }
     .ty-hero__headline em {
       font-style: italic; color: var(--accent);
-      font-variation-settings: "SOFT" 100, "WONK" 1;
     }
     .ty-hero__caption {
       display: flex; justify-content: space-between;
@@ -47,7 +46,7 @@ window.renderType = function (root) {
       font-size: 4.5rem; line-height: 1; letter-spacing: -0.02em;
       margin-top: var(--s-6);
     }
-    .ty-pair__sample-display em { font-style: italic; color: var(--accent); font-variation-settings: "SOFT" 100, "WONK" 1; }
+    .ty-pair__sample-display em { font-style: italic; color: var(--accent); }
     .ty-pair__alpha {
       margin-top: 24px;
       font-family: var(--font-display); font-size: 24px; line-height: 1.2;
@@ -113,7 +112,7 @@ window.renderType = function (root) {
       font-family: var(--font-display); font-weight: 400;
       font-size: 2rem; line-height: 1.1; letter-spacing: -0.02em;
     }
-    .ty-pat h3 em { font-style: italic; color: var(--accent); font-variation-settings: "SOFT" 100, "WONK" 1; }
+    .ty-pat h3 em { font-style: italic; color: var(--accent); }
     .ty-pat p { margin-top: 14px; color: var(--fg-2); font-size: 14px; line-height: 1.55; }
 
     /* Rules table */
@@ -290,7 +289,6 @@ window.renderType = function (root) {
     }
     .ty-mono__relation-line em {
       font-style: italic; color: var(--accent);
-      font-variation-settings: "SOFT" 100, "WONK" 1;
     }
   </style>
 
@@ -340,7 +338,7 @@ window.renderType = function (root) {
         </div>
       </div>
 
-      <p class="muted" style="margin-top: 24px; font-size: 14px;">Both families are free and open-source on Google Fonts — the same source we load in this doc. Alternate pairings (Technical, Classic) are available via the Tweaks panel.</p>
+      <p class="muted" style="margin-top: 24px; font-size: 14px;">Both families are free and open-source on Google Fonts — the same source we load in this doc.</p>
     </div>
   </section>
 

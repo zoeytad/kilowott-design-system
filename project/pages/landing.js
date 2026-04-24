@@ -8,7 +8,7 @@ window.renderLanding = function (root) {
     /* -- scoped to the landing page -- */
 
     .lp-hero {
-      padding: calc(var(--s-9) * var(--density)) 0 calc(var(--s-7) * var(--density));
+      padding: var(--s-9) 0 var(--s-7);
       border-bottom: 1px solid var(--rule);
     }
     .lp-hero h1 {
@@ -51,7 +51,7 @@ window.renderLanding = function (root) {
       border-radius: var(--r-3);
       overflow: hidden;
       background: var(--bg);
-      margin-bottom: calc(var(--s-6) * var(--density));
+      margin-bottom: var(--s-6);
     }
     .lp-spec__head {
       display: flex; justify-content: space-between; align-items: center;
@@ -61,7 +61,7 @@ window.renderLanding = function (root) {
       color: var(--fg-2); letter-spacing: 0.08em; text-transform: uppercase;
     }
     .lp-spec__stage {
-      padding: calc(var(--s-8) * var(--density)) calc(var(--s-7) * var(--density));
+      padding: var(--s-8) var(--s-7);
       background: var(--bg);
       position: relative;
     }
@@ -123,7 +123,7 @@ window.renderLanding = function (root) {
       max-width: 18ch;
       margin: 14px 0 0;
     }
-    .lp-h1__display em { font-style: italic; color: var(--accent); font-variation-settings: "SOFT" 100, "WONK" 1; }
+    .lp-h1__display em { font-style: italic; color: var(--accent); }
     .lp-h1__lede {
       margin-top: 22px; max-width: 58ch;
       font-size: 1.1rem; line-height: 1.6; color: var(--fg-2);
@@ -138,7 +138,7 @@ window.renderLanding = function (root) {
     .lp-h1__kicker b { color: var(--fg); font-weight: 500; }
 
     /* Stat-led hero (pattern 2) */
-    .lp-h2 { display: grid; grid-template-columns: 2fr 3fr; gap: calc(var(--s-8) * var(--density)); align-items: start; }
+    .lp-h2 { display: grid; grid-template-columns: 2fr 3fr; gap: var(--s-8); align-items: start; }
     @media (max-width: 900px) { .lp-h2 { grid-template-columns: 1fr; gap: var(--s-6); } }
     .lp-h2__stat {
       font-family: var(--font-display);
@@ -168,7 +168,7 @@ window.renderLanding = function (root) {
     .lp-h3 { display: grid; grid-template-columns: 55fr 45fr; gap: 0; min-height: 520px; }
     @media (max-width: 900px) { .lp-h3 { grid-template-columns: 1fr; } }
     .lp-h3__text {
-      padding: calc(var(--s-8) * var(--density)) calc(var(--s-7) * var(--density));
+      padding: var(--s-8) var(--s-7);
       display: flex; flex-direction: column; justify-content: center;
     }
     .lp-h3__head {
@@ -196,7 +196,7 @@ window.renderLanding = function (root) {
     }
     .lp-h4__content {
       position: relative; z-index: 2;
-      padding: calc(var(--s-9) * var(--density)) calc(var(--s-7) * var(--density));
+      padding: var(--s-9) var(--s-7);
       min-height: 560px;
       display: flex; flex-direction: column; justify-content: flex-end;
     }
@@ -214,7 +214,7 @@ window.renderLanding = function (root) {
 
     /* Proof hero (pattern 5) */
     .lp-h5__logos {
-      margin-top: calc(var(--s-7) * var(--density));
+      margin-top: var(--s-7);
       padding-top: var(--s-6);
       border-top: 1px solid var(--rule);
     }
@@ -253,7 +253,7 @@ window.renderLanding = function (root) {
     }
     .lp-h6__content {
       position: relative; z-index: 2;
-      padding: calc(var(--s-9) * var(--density)) calc(var(--s-7) * var(--density));
+      padding: var(--s-9) var(--s-7);
       min-height: 560px;
       display: flex; flex-direction: column; justify-content: center; align-items: center;
       text-align: center;
@@ -302,7 +302,7 @@ window.renderLanding = function (root) {
     }
     @media (max-width: 900px) { .lp-s7 { grid-template-columns: 1fr; } }
     .lp-s7__col {
-      padding: calc(var(--s-7) * var(--density)) var(--s-6);
+      padding: var(--s-7) var(--s-6);
       border-left: 1px solid var(--rule);
       display: flex; flex-direction: column; gap: 14px;
     }
@@ -344,7 +344,7 @@ window.renderLanding = function (root) {
       border: 1px solid var(--rule);
       border-radius: var(--r-3);
       overflow: hidden;
-      margin-bottom: calc(var(--s-6) * var(--density));
+      margin-bottom: var(--s-6);
     }
     @media (max-width: 900px) { .lp-s8 { grid-template-columns: 1fr; } }
     .lp-s8--flip .lp-s8__text  { order: 2; }
@@ -354,7 +354,7 @@ window.renderLanding = function (root) {
       .lp-s8--flip .lp-s8__media { order: 2; }
     }
     .lp-s8__text {
-      padding: calc(var(--s-7) * var(--density)) calc(var(--s-7) * var(--density));
+      padding: var(--s-7) var(--s-7);
       display: flex; flex-direction: column; justify-content: center;
       border-right: 1px solid var(--rule);
     }
@@ -386,7 +386,7 @@ window.renderLanding = function (root) {
     .lp-s8__cta { margin-top: 28px; }
     .lp-s8__media {
       background: var(--bg-2);
-      padding: calc(var(--s-7) * var(--density)) calc(var(--s-7) * var(--density));
+      padding: var(--s-7) var(--s-7);
       display: flex; align-items: center; justify-content: center;
       min-height: 360px;
     }
@@ -439,7 +439,7 @@ window.renderLanding = function (root) {
     .lp-s9 {
       background: var(--k-ink);
       color: #F7F5EF;
-      padding: calc(var(--s-8) * var(--density)) 0;
+      padding: var(--s-8) 0;
       border-radius: var(--r-3);
     }
     .lp-s9__grid {
@@ -448,7 +448,7 @@ window.renderLanding = function (root) {
     }
     @media (max-width: 900px) { .lp-s9__grid { grid-template-columns: 1fr 1fr; gap: var(--s-5); } }
     .lp-s9__tile {
-      padding: 12px calc(var(--s-6) * var(--density));
+      padding: 12px var(--s-6);
       border-left: 1px solid rgba(247,245,239,0.12);
       display: flex; flex-direction: column; gap: 10px;
     }
@@ -478,7 +478,7 @@ window.renderLanding = function (root) {
     /* Final CTA block (section 10) */
     .lp-s10 {
       text-align: center;
-      padding: calc(var(--s-9) * var(--density)) var(--s-6);
+      padding: var(--s-9) var(--s-6);
       border: 1px solid var(--rule);
       border-radius: var(--r-3);
       background: var(--bg);
@@ -493,13 +493,13 @@ window.renderLanding = function (root) {
     }
     .lp-s10__head em { font-style: italic; color: var(--accent); }
     .lp-s10__ctas {
-      margin-top: calc(var(--s-6) * var(--density));
+      margin-top: var(--s-6);
       display: inline-flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: center;
     }
 
     /* Shared stage padding reduction on narrow */
     @media (max-width: 640px) {
-      .lp-spec__stage { padding: calc(var(--s-6) * var(--density)) var(--s-5); }
+      .lp-spec__stage { padding: var(--s-6) var(--s-5); }
       .lp-h3__text, .lp-s8__text, .lp-s8__media,
       .lp-h4__content, .lp-h6__content { padding: var(--s-6) var(--s-5); }
     }
@@ -513,7 +513,7 @@ window.renderLanding = function (root) {
       <p class="lp-hero__lede">
         Six hero patterns and four marketing sections &mdash; the bricks for any landing page we put in the world. Fork
         the frame, keep the rules, let the claim do the work. Every block here uses the same tokens as the rest of the
-        system, so theme, density, font-pair and accent all follow the Tweaks panel.
+        system.
       </p>
 
       <nav class="lp-index" aria-label="Landing page index">

@@ -46,12 +46,14 @@ Deeper red `#C8102E` · Signal orange `#F05A28` · Electric blue `#1F3CFF` · In
 ## 3. Typography
 
 ### Families
-- **Display (serif):** `Newsreader` (primary) — fallback `Fraunces`, `ui-serif`, `Georgia`
-- **Sans (UI/body):** `DM Sans` — fallback `Inter Tight`, `ui-sans-serif`, `system-ui`
+Exactly three webfonts. System fallbacks only — no secondary webfont families.
+
+- **Display (serif):** `Newsreader` — roman + italic — fallback `ui-serif`, `Georgia`
+- **Sans (UI/body):** `DM Sans` — fallback `ui-sans-serif`, `system-ui`
 - **Mono:** `JetBrains Mono` — fallback `ui-monospace`, `SF Mono`, `Menlo`
 
 ### Display italics
-Italic emphasis words in headlines carry accent color `#E4022D`. Variation: `font-variation-settings: "SOFT" 100, "WONK" 1;` (Fraunces/Newsreader wonk axis).
+Italic emphasis words in headlines carry accent color `#E4022D`. Rendered with Newsreader's built-in italic — no variation-axis tricks.
 
 ### Scale
 **Display** (editorial, fluid):

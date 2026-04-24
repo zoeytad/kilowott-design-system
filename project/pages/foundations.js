@@ -14,7 +14,7 @@ window.renderFoundations = function (root) {
       font-size: var(--fs-d2); line-height: 1.04; letter-spacing: -0.02em;
       max-width: 22ch; margin-top: 24px;
     }
-    .fd-hero h1 em { font-style: italic; color: var(--accent); font-variation-settings: "SOFT" 100, "WONK" 1; }
+    .fd-hero h1 em { font-style: italic; color: var(--accent); }
     .fd-hero__lede { margin-top: 24px; max-width: 60ch; color: var(--fg-2); font-size: 1.0625rem; line-height: 1.6; }
 
     /* Spacing viz */
@@ -285,8 +285,8 @@ window.renderFoundations = function (root) {
   <span class="prop">--rule-strong</span>:  var(--k-rule);
 
   <span class="comment">/* ---------- TYPE ---------- */</span>
-  <span class="prop">--font-display</span>: "Newsreader", "Fraunces", ui-serif, Georgia, serif;
-  <span class="prop">--font-sans</span>:    "DM Sans", "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+  <span class="prop">--font-display</span>: "Newsreader", ui-serif, Georgia, serif;
+  <span class="prop">--font-sans</span>:    "DM Sans", ui-sans-serif, system-ui, sans-serif;
   <span class="prop">--font-mono</span>:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
   <span class="prop">--fs-d1</span>:   clamp(3.5rem, 7vw, 6.25rem);   <span class="comment">/* 56–100 */</span>

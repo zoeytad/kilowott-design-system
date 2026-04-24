@@ -7,7 +7,7 @@ window.renderOverview = function (root) {
   <style>
     /* ===== HERO ===== */
     .ov-hero {
-      padding: calc(var(--s-9) * var(--density)) 0 calc(var(--s-8) * var(--density));
+      padding: var(--s-9) 0 var(--s-8);
       border-bottom: 1px solid var(--rule);
     }
     .ov-hero__grid {
@@ -26,7 +26,6 @@ window.renderOverview = function (root) {
     .ov-hero__headline em {
       font-style: italic;
       color: var(--accent);
-      font-variation-settings: "SOFT" 100, "WONK" 1;
     }
     .ov-hero__meta {
       display: grid; grid-template-columns: repeat(2, 1fr);
@@ -70,7 +69,7 @@ window.renderOverview = function (root) {
       border-bottom: 1px solid var(--rule);
     }
     .ov-principle {
-      padding: calc(var(--s-7) * var(--density)) var(--s-5);
+      padding: var(--s-7) var(--s-5);
       border-right: 1px solid var(--rule);
     }
     .ov-principle:last-child { border-right: 0; }
@@ -92,7 +91,7 @@ window.renderOverview = function (root) {
 
     /* ===== DIRECTIONS ===== */
     .ov-dir-head {
-      padding: calc(var(--s-8) * var(--density)) 0 calc(var(--s-6) * var(--density));
+      padding: var(--s-8) 0 var(--s-6);
     }
     .ov-dir-head h2 {
       font-family: var(--font-display);
@@ -156,7 +155,6 @@ window.renderOverview = function (root) {
     }
     .dirA .ov-dir__headline em {
       font-style: italic; color: #E4022D;
-      font-variation-settings: "SOFT" 100, "WONK" 1;
     }
     .dirA .ov-dir__eyebrow {
       font-family: var(--font-sans);

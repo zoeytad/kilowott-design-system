@@ -34,8 +34,8 @@
   --rule-strong:  var(--k-rule);
 
   /* ---------- TYPE ---------- */
-  --font-display: "Newsreader", "Fraunces", ui-serif, Georgia, serif;
-  --font-sans:    "DM Sans", "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Newsreader", ui-serif, Georgia, serif;
+  --font-sans:    "DM Sans", ui-sans-serif, system-ui, sans-serif;
   --font-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
   /* Display scale (editorial, large) */
@@ -139,7 +139,6 @@ button { font: inherit; cursor: pointer; }
 }
 .display em {
   font-style: italic;
-  font-variation-settings: "SOFT" 100, "WONK" 1;
 }
 
 /* Eyebrow label */
