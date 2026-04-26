@@ -3,7 +3,7 @@
    ============================================================ */
 
 (function () {
-  const pages = ['overview','logo','color','type','foundations','icons','components','landing','dashboards','deck','email','case-study','imagery','voice','social'];
+  const pages = ['overview','logo','color','type','foundations','icons','components','landing','dashboards','deck','email','signature','case-study','imagery','voice','social'];
   const renderers = {
     overview:      window.renderOverview,
     logo:          window.renderLogo,
@@ -16,6 +16,7 @@
     dashboards:    window.renderDashboards,
     deck:          window.renderDeck,
     email:         window.renderEmail,
+    signature:     window.renderSignature,
     'case-study':  window.renderCaseStudy,
     imagery:       window.renderImagery,
     voice:         window.renderVoice,
@@ -26,14 +27,14 @@
     overview: 'Overview', logo: 'Logo', color: 'Color', type: 'Type',
     foundations: 'Foundations', icons: 'Icons', components: 'Components',
     landing: 'Landing', dashboards: 'Dashboards', deck: 'Deck',
-    email: 'Email', 'case-study': 'Case study', imagery: 'Imagery',
+    email: 'Email', signature: 'Signature', 'case-study': 'Case study', imagery: 'Imagery',
     voice: 'Voice', social: 'Social',
   };
   const CATEGORIES = {
     overview: 'Brand', logo: 'Brand', color: 'Brand', type: 'Brand',
     voice: 'Brand', imagery: 'Brand',
     foundations: 'System', icons: 'System', components: 'System', dashboards: 'System',
-    landing: 'Templates', deck: 'Templates', email: 'Templates',
+    landing: 'Templates', deck: 'Templates', email: 'Templates', signature: 'Templates',
     'case-study': 'Templates', social: 'Templates',
   };
 
