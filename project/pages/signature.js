@@ -9,25 +9,26 @@ window.renderSignature = function (root) {
   // ----------- DEFAULT FIELDS -----------
   const STATE = {
     template: 'classic',
-    firstName:  'Aaron',
-    lastName:   'Bisht',
-    pronouns:   '',
-    title:      'Founder & CEO',
+    firstName:  'Ola',
+    lastName:   'Nordmann',
+    pronouns:   'he/him',
+    title:      'Senior Brand Strategist',
     department: 'Kilowott',
-    email:      'aaron@kilowott.com',
-    phone:      '+1 (212) 555-0142',
-    mobile:     '',
+    email:      'ola.nordmann@kilowott.com',
+    phone:      '+47 22 12 34 56',
+    mobile:     '+47 480 12 345',
     website:    'kilowott.com',
     websiteUrl: 'https://kilowott.com',
-    address:    'Panaji · Oslo · New York',
-    photo:      '',
-    linkedin:   'https://www.linkedin.com/company/kilowott',
-    twitter:    '',
+    address:    'Oslo · Panaji · New York',
+    photo:      'https://i.pravatar.cc/200?u=ola.nordmann',
+    linkedin:   'https://www.linkedin.com/in/olanordmann',
+    twitter:    'https://x.com/kilowott',
     instagram:  '',
     youtube:    '',
     cta:        'Book a working session',
     ctaUrl:     'https://kilowott.com/contact',
     quote:      'Partnership — not a vendor at the door.',
+    legal:      'This message and any attachments are confidential and intended solely for the named recipient. If you received this in error, please notify the sender and delete all copies. Kilowott AS · Org. nr. 925 884 102.',
     accent:     '#E4022D',
   };
 
@@ -108,6 +109,21 @@ window.renderSignature = function (root) {
       outline: none;
       border-color: var(--fg);
     }
+    .sig-field textarea {
+      width: 100%;
+      border: 1px solid var(--rule);
+      border-radius: var(--r-2);
+      padding: 9px 12px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      line-height: 1.5;
+      background: var(--bg);
+      color: var(--fg);
+      resize: vertical;
+      min-height: 70px;
+      transition: border-color 0.15s ease;
+    }
+    .sig-field textarea:focus { outline: none; border-color: var(--fg); }
     .sig-field--row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 
     /* Template chooser pills */
@@ -323,6 +339,11 @@ window.renderSignature = function (root) {
               <div class="sig-field"><label>Tagline / quote (Editorial only)</label><input data-k="quote" type="text"></div>
             </div>
 
+            <div class="sig-group">
+              <div class="sig-group__h">Legal disclaimer</div>
+              <div class="sig-field"><label>Confidentiality / company registration</label><textarea data-k="legal" rows="3"></textarea></div>
+            </div>
+
           </div>
         </aside>
 
@@ -382,7 +403,7 @@ window.renderSignature = function (root) {
   const stage     = root.querySelector('#sig-render');
   const tplName   = root.querySelector('#sig-tplName');
   const tplBtns   = root.querySelectorAll('.sig-tpl');
-  const inputs    = root.querySelectorAll('input[data-k]');
+  const inputs    = root.querySelectorAll('[data-k]');
   const copyBtn   = root.querySelector('#sig-copy');
   const copyHtml  = root.querySelector('#sig-copyHtml');
   const resetBtn  = root.querySelector('#sig-reset');
@@ -421,7 +442,7 @@ window.renderSignature = function (root) {
       firstName:'', lastName:'', pronouns:'', title:'', department:'',
       email:'', phone:'', mobile:'', website:'', websiteUrl:'', address:'',
       photo:'', linkedin:'', twitter:'', instagram:'', youtube:'',
-      cta:'', ctaUrl:'', quote:'',
+      cta:'', ctaUrl:'', quote:'', legal:'',
     });
     hydrateInputs();
     render();
@@ -512,6 +533,13 @@ window.renderSignature = function (root) {
     ).join('');
   }
 
+  // Legal disclaimer block — bottom of every signature
+  function legalHtml(s) {
+    if (!s.legal) return '';
+    const lines = String(s.legal).split(/\n+/).map(l => esc(l.trim())).filter(Boolean).join('<br>');
+    return `<div style="margin-top:16px;padding-top:10px;border-top:1px solid #E2DED6;font-family:'DM Sans',Arial,sans-serif;font-size:10.5px;color:#8A95A5;line-height:1.5;max-width:520px;">${lines}</div>`;
+  }
+
   // ---------- CLASSIC ----------
   function tplClassic(s) {
     const fullName = [s.firstName, s.lastName].filter(Boolean).join(' ');
@@ -545,6 +573,7 @@ window.renderSignature = function (root) {
       ${webRow}
       ${ctaEl}
       ${socialRowEl}
+      ${legalHtml(s)}
     </td>
   </tr>
 </table>`.trim();
@@ -563,14 +592,25 @@ window.renderSignature = function (root) {
       ? `<div style="font-family:'DM Sans',Arial,sans-serif;font-size:13px;color:#1A2230;margin-top:2px;line-height:1.6;">${contactBits.join(' &nbsp;·&nbsp; ')}</div>`
       : '';
     const social = socialRow(s);
+    const photoCell = s.photo
+      ? `<td style="padding:0 14px 0 0;vertical-align:top;width:56px;"><img src="${esc(s.photo)}" width="56" height="56" alt="${esc(fullName)}" style="display:block;width:56px;height:56px;border-radius:50%;object-fit:cover;border:1px solid #E2DED6;"></td>`
+      : '';
+    const content = `
+      <div style="font-family:'Newsreader',Georgia,serif;font-size:18px;font-weight:500;color:#0B0F14;letter-spacing:-0.01em;line-height:1.2;">${esc(fullName) || '&nbsp;'}${pron}${ifEl(titleLine, `<span style="font-family:'DM Sans',Arial,sans-serif;font-size:13px;font-weight:400;color:#5B6573;">&nbsp; — &nbsp;${esc(titleLine)}</span>`)}</div>
+      ${contactLine}
+      ${ifEl(s.address, `<div style="font-family:'DM Sans',Arial,sans-serif;font-size:12px;color:#5B6573;margin-top:2px;">${esc(s.address)}</div>`)}
+      ${ifEl(social, `<div style="margin-top:10px;">${social}</div>`)}`;
     return `
 <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;font-family:'DM Sans',Arial,sans-serif;color:#0B0F14;">
   <tr>
     <td style="padding:0;border-top:2px solid ${esc(s.accent)};padding-top:10px;">
-      <div style="font-family:'Newsreader',Georgia,serif;font-size:18px;font-weight:500;color:#0B0F14;letter-spacing:-0.01em;line-height:1.2;">${esc(fullName) || '&nbsp;'}${pron}${ifEl(titleLine, `<span style="font-family:'DM Sans',Arial,sans-serif;font-size:13px;font-weight:400;color:#5B6573;">&nbsp; — &nbsp;${esc(titleLine)}</span>`)}</div>
-      ${contactLine}
-      ${ifEl(s.address, `<div style="font-family:'DM Sans',Arial,sans-serif;font-size:12px;color:#5B6573;margin-top:2px;">${esc(s.address)}</div>`)}
-      ${ifEl(social, `<div style="margin-top:10px;">${social}</div>`)}
+      <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">
+        <tr>
+          ${photoCell}
+          <td style="vertical-align:top;">${content}</td>
+        </tr>
+      </table>
+      ${legalHtml(s)}
     </td>
   </tr>
 </table>`.trim();
@@ -587,21 +627,32 @@ window.renderSignature = function (root) {
     if (s.website) contactBits.push(`<a href="${esc(urlOk(s.websiteUrl||s.website))}" style="color:#1A2230;text-decoration:none;">${esc(s.website)}</a>`);
     const meta = contactBits.join(' &nbsp;·&nbsp; ');
     const social = socialRow(s);
-    return `
-<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;font-family:'DM Sans',Arial,sans-serif;color:#0B0F14;max-width:520px;">
-  <tr>
-    <td style="padding:0 0 14px;">
-      <div style="font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:15px;color:${esc(s.accent)};letter-spacing:0.01em;">&mdash; ${esc(s.quote || '')}</div>
-    </td>
-  </tr>
-  <tr>
-    <td style="padding:14px 0 0;border-top:1px solid #1A2230;">
+    const nameBlock = `
       <div style="font-family:'Newsreader',Georgia,serif;font-size:24px;font-weight:500;color:#0B0F14;letter-spacing:-0.015em;line-height:1.15;">${esc(fullName) || '&nbsp;'}${ifEl(s.pronouns, ` <span style="font-style:italic;font-size:14px;color:#5B6573;">(${esc(s.pronouns)})</span>`)}</div>
       ${ifEl(titleLine, `<div style="font-family:'DM Sans',Arial,sans-serif;font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#5B6573;margin-top:6px;">${esc(titleLine)}</div>`)}
       ${ifEl(meta, `<div style="font-family:'DM Sans',Arial,sans-serif;font-size:13px;color:#1A2230;margin-top:12px;line-height:1.6;">${meta}</div>`)}
       ${ifEl(s.address, `<div style="font-family:'DM Sans',Arial,sans-serif;font-size:12px;color:#5B6573;margin-top:2px;">${esc(s.address)}</div>`)}
       ${ifEl((s.cta && s.ctaUrl), `<div style="margin-top:14px;"><a href="${esc(urlOk(s.ctaUrl))}" style="display:inline-block;background:${esc(s.accent)};color:#FFFFFF;text-decoration:none;font-family:'DM Sans',Arial,sans-serif;font-size:12px;font-weight:500;letter-spacing:0.04em;padding:9px 18px;border-radius:999px;">${esc(s.cta)} &rarr;</a></div>`)}
-      ${ifEl(social, `<div style="margin-top:14px;">${social}</div>`)}
+      ${ifEl(social, `<div style="margin-top:14px;">${social}</div>`)}`;
+    const photoCell = s.photo
+      ? `<td style="padding:0 0 0 18px;vertical-align:top;width:64px;"><img src="${esc(s.photo)}" width="64" height="64" alt="${esc(fullName)}" style="display:block;width:64px;height:64px;border-radius:50%;object-fit:cover;border:1px solid #E2DED6;"></td>`
+      : '';
+    return `
+<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;font-family:'DM Sans',Arial,sans-serif;color:#0B0F14;max-width:520px;">
+  ${ifEl(s.quote, `<tr>
+    <td style="padding:0 0 14px;">
+      <div style="font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:15px;color:${esc(s.accent)};letter-spacing:0.01em;">&mdash; ${esc(s.quote || '')}</div>
+    </td>
+  </tr>`)}
+  <tr>
+    <td style="padding:14px 0 0;border-top:1px solid #1A2230;">
+      <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;width:100%;">
+        <tr>
+          <td style="vertical-align:top;">${nameBlock}</td>
+          ${photoCell}
+        </tr>
+      </table>
+      ${legalHtml(s)}
     </td>
   </tr>
 </table>`.trim();
