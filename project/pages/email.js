@@ -276,13 +276,13 @@ window.renderEmail = function (root) {
               <hr class="em-divider">
 
               <p class="em-p em-p--muted">
-                Questions on this invoice go to Aaron Bisht &mdash; aaron@kilowott.com.
+                Questions on this invoice go to Ola Nordmann &mdash; ola.nordmann@kilowott.com.
                 For engagement delivery, your partner lead Priya is copied.
               </p>
             </div>
             <div class="em-footer">
               <div class="em-footer__brand">Kilowott</div>
-              <div>Panaji, India &middot; Oslo, Norway &middot; New York, US</div>
+              <div>Fredrikstad &middot; Sandnes &middot; Goa &middot; Dubai</div>
               <div style="margin-top:10px;">You&rsquo;re receiving this because you&rsquo;re a named contact on an active engagement. <a href="#">Manage notifications</a>.</div>
             </div>
           </div>
@@ -305,7 +305,7 @@ window.renderEmail = function (root) {
         <div class="em-frame">
           <div class="em-canvas">
             <div class="em-from">
-              <div><b>Kilowott</b> &middot; aaron@kilowott.com</div>
+              <div><b>Kilowott</b> &middot; ola.nordmann@kilowott.com</div>
               <div>to priya@nordicdata.example</div>
             </div>
             <div class="em-body">
@@ -423,7 +423,7 @@ window.renderEmail = function (root) {
             </div>
             <div class="em-footer">
               <div class="em-footer__brand">Kilowott</div>
-              <div>Panaji &middot; Oslo &middot; New York</div>
+              <div>Fredrikstad &middot; Sandnes &middot; Goa &middot; Dubai</div>
               <div style="margin-top:10px;">
                 You&rsquo;re getting this because you opted in at kilowott.com or a partner event.
                 <a href="#">Update preferences</a> &middot; <a href="#">Unsubscribe</a>.
