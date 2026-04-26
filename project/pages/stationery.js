@@ -531,16 +531,14 @@ window.renderStationery = function (root) {
                   ${OFFICES.norway2.line3}, ${OFFICES.norway2.country}
                 </div>
               </div>
-              <div class="st-letter__date">26 April 2026 · Sandnes</div>
-              <div class="st-letter__greet">Dear Priya,</div>
+              <div class="st-letter__date">[Date] · Sandnes</div>
+              <div class="st-letter__greet">Dear [Recipient],</div>
               <div class="st-letter__body">
-                <p>Following our conversation last week, I wanted to put a few things in writing — both as a
-                summary and as the start of the engagement note we'll keep updated through Q2.</p>
-                <p>The scope as we understood it: a brand audit running parallel to the SEO and content work
-                already in flight. Two senior leads on our side, your team contributing one product reviewer
-                per week, weekly read-outs every Thursday at 10:00 CET.</p>
-                <p>If anything in the above doesn't match your read of it, send a note back before Friday and
-                we'll redraft. Otherwise we'll consider this confirmation and start Monday.</p>
+                <p>[Opening paragraph — set the context and reference the prior conversation. Keep it short and
+                specific. The first sentence does the work.]</p>
+                <p>[Middle paragraph — the substance. Scope, dates, decisions, who-does-what. Numbered or
+                bulleted lists are fine if they keep it tighter than prose.]</p>
+                <p>[Closing paragraph — what you need from the recipient and by when. Sign off.]</p>
               </div>
               <div class="st-letter__sign">Ola Nordmann,</div>
               <div class="st-letter__sign-meta">Senior Brand Strategist · Kilowott</div>
@@ -601,10 +599,10 @@ window.renderStationery = function (root) {
             <div></div>
             <div></div>
             <div class="st-env__to">
-              Priya Mehta<br>
-              Nordic Data Holdings AS<br>
-              Karenslyst Allé 8<br>
-              0278 Oslo, Norway
+              [Recipient name]<br>
+              [Organisation]<br>
+              [Street address]<br>
+              [Postal code, City, Country]
               <div class="st-env__to-meta">priority · do not bend</div>
             </div>
             <div class="st-env__rule"></div>

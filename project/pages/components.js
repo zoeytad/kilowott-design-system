@@ -2260,7 +2260,7 @@ window.renderComponents = function (root) {
               <div class="k-footer__col">
                 <h4>Find us</h4>
                 <ul>
-                  <li>2F, Cidade de Goa House<br/>Panjim · Goa · India</li>
+                  <li>Nordic Intent, Lane 4, PDA Colony<br/>Porvorim · Goa · India</li>
                   <li><a href="#" data-cp-nav>hello@kilowott.com</a></li>
                   <li><a href="#" data-cp-nav>Privacy</a></li>
                   <li><a href="#" data-cp-nav>Terms</a></li>
@@ -2496,10 +2496,10 @@ window.renderComponents = function (root) {
       { title: 'Retail ops overhaul', meta: 'Retail · 08wk' },
     ]},
     { cat: 'People', items: [
-      { title: 'Priya Nair', meta: 'Product · Panjim' },
-      { title: 'Ravi Kumar', meta: 'Engineering · Panjim' },
-      { title: 'Meera Shah', meta: 'Design · Mumbai' },
-      { title: 'Lena Fernandes', meta: 'PM · Panjim' },
+      { title: 'Ola Nordmann', meta: 'Product · Porvorim' },
+      { title: 'Sample Person', meta: 'Engineering · Porvorim' },
+      { title: 'Sample Person', meta: 'Design · Sandnes' },
+      { title: 'Sample Person', meta: 'PM · Porvorim' },
     ]},
     { cat: 'Notes', items: [
       { title: 'Grid dashboard architecture ADR', meta: 'Mar · 2025' },

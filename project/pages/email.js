@@ -247,28 +247,28 @@ window.renderEmail = function (root) {
       </div>
 
       <div class="em-spec">
-        <div class="em-spec__head"><span>Q4 engagement invoice &middot; paid</span><span>.em-canvas</span></div>
+        <div class="em-spec__head"><span>Engagement invoice &middot; paid</span><span>.em-canvas</span></div>
         <div class="em-frame">
           <div class="em-canvas">
             <div class="em-from">
               <div><b>Kilowott</b> &middot; billing@kilowott.com</div>
-              <div>to priya@nordicdata.example</div>
+              <div>to [recipient@example.com]</div>
             </div>
             <div class="em-body">
               <div class="em-logo" aria-label="Kilowott"></div>
               <div class="em-eyebrow">Payment &middot; received</div>
-              <h1 class="em-h1">Q4 engagement &mdash; <em>paid in full</em>.</h1>
+              <h1 class="em-h1">[Engagement] &mdash; <em>paid in full</em>.</h1>
               <p class="em-p">
-                We&rsquo;ve received $284,500 for the Q4 engagement (INV-4834).
+                We&rsquo;ve received [amount] for [engagement name] ([invoice number]).
                 The receipt is below and a signed PDF is attached to this email.
               </p>
 
               <div class="em-data">
-                <div class="em-data__row"><span>Invoice</span><span>INV-4834</span></div>
-                <div class="em-data__row"><span>Date paid</span><span>22 Apr 2026</span></div>
-                <div class="em-data__row"><span>Method</span><span>ACH &middot; Holvi</span></div>
-                <div class="em-data__row"><span>Engagement</span><span>Brand + Intelligence</span></div>
-                <div class="em-data__row em-data__total"><span>Total</span><span>$284,500</span></div>
+                <div class="em-data__row"><span>Invoice</span><span>[INV-####]</span></div>
+                <div class="em-data__row"><span>Date paid</span><span>[DD Mon YYYY]</span></div>
+                <div class="em-data__row"><span>Method</span><span>[Bank / method]</span></div>
+                <div class="em-data__row"><span>Engagement</span><span>[Engagement type]</span></div>
+                <div class="em-data__row em-data__total"><span>Total</span><span>[Total]</span></div>
               </div>
 
               <a class="em-btn" href="#" target="_blank" rel="noopener">View receipt<span class="em-btn__arrow"><i data-lucide="arrow-right"></i></span></a>
@@ -276,8 +276,8 @@ window.renderEmail = function (root) {
               <hr class="em-divider">
 
               <p class="em-p em-p--muted">
-                Questions on this invoice go to Ola Nordmann &mdash; ola.nordmann@kilowott.com.
-                For engagement delivery, your partner lead Priya is copied.
+                Questions on this invoice go to [Account lead] &mdash; [email@kilowott.com].
+                For engagement delivery, your partner lead is copied.
               </p>
             </div>
             <div class="em-footer">
@@ -287,7 +287,7 @@ window.renderEmail = function (root) {
             </div>
           </div>
         </div>
-        <div class="em-spec__foot"><b>Subject &mdash;</b> &ldquo;Q4 engagement &middot; paid in full (INV-4834)&rdquo;. &nbsp; <b>Preheader &mdash;</b> &ldquo;Receipt + signed PDF attached. Open for the data row.&rdquo;</div>
+        <div class="em-spec__foot"><b>Subject &mdash;</b> &ldquo;[Engagement] &middot; paid in full ([invoice number])&rdquo;. &nbsp; <b>Preheader &mdash;</b> &ldquo;Receipt + signed PDF attached. Open for the data row.&rdquo;</div>
       </div>
     </div>
   </section>
@@ -306,20 +306,20 @@ window.renderEmail = function (root) {
           <div class="em-canvas">
             <div class="em-from">
               <div><b>Kilowott</b> &middot; ola.nordmann@kilowott.com</div>
-              <div>to priya@nordicdata.example</div>
+              <div>to [recipient@example.com]</div>
             </div>
             <div class="em-body">
               <div class="em-logo" aria-label="Kilowott"></div>
-              <div class="em-eyebrow">Kickoff &middot; Q2 2026</div>
+              <div class="em-eyebrow">Kickoff &middot; [Quarter / Year]</div>
               <h1 class="em-h1">Let&rsquo;s get to <em>work</em>.</h1>
               <p class="em-p">
                 The paperwork&rsquo;s done and the team&rsquo;s stood up &mdash;
-                Priya on engineering, Mira on brand, Jonas on delivery ops.
-                We&rsquo;re kicking off Thursday at 10:00 CET.
+                [lead 1] on engineering, [lead 2] on brand, [lead 3] on delivery ops.
+                We&rsquo;re kicking off [day, time, timezone].
               </p>
               <p class="em-p">
                 Before then, we&rsquo;d love fifteen minutes with your ops lead to
-                walk through access and the Q2 milestone map. The kickoff deck
+                walk through access and the milestone map. The kickoff deck
                 is below &mdash; the three decisions we need from you are on slide 4.
               </p>
 
@@ -328,13 +328,13 @@ window.renderEmail = function (root) {
               <hr class="em-divider">
 
               <p class="em-p em-p--muted">
-                Calendar links for Thursday &mdash; <a href="#">Add to Google</a> &middot; <a href="#">Add to Outlook</a>. <br>
+                Calendar links for the kickoff &mdash; <a href="#">Add to Google</a> &middot; <a href="#">Add to Outlook</a>. <br>
                 Reply here or ping Slack &mdash; whichever&rsquo;s faster.
               </p>
             </div>
             <div class="em-footer">
               <div class="em-footer__brand">Kilowott</div>
-              <div>Partnership &mdash; not a vendor at the door.</div>
+              <div>Built for what comes next.</div>
               <div style="margin-top:10px;"><a href="#">Update preferences</a> &middot; <a href="#">View in browser</a></div>
             </div>
           </div>

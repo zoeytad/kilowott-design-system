@@ -512,10 +512,10 @@ window.renderCaseStudy = function (root) {
 
               <!-- Team strip -->
               <div class="cs-team">
-                <div class="cs-team__person"><b>Ola Nordmann</b><span>Partnership lead</span></div>
-                <div class="cs-team__person"><b>Mira Lindqvist</b><span>Brand + voice</span></div>
-                <div class="cs-team__person"><b>Priya Rao</b><span>Growth engineering</span></div>
-                <div class="cs-team__person"><b>Jonas Kielland</b><span>Delivery ops</span></div>
+                <div class="cs-team__person"><b>[Lead name]</b><span>Partnership lead</span></div>
+                <div class="cs-team__person"><b>[Lead name]</b><span>Brand + voice</span></div>
+                <div class="cs-team__person"><b>[Lead name]</b><span>Growth engineering</span></div>
+                <div class="cs-team__person"><b>[Lead name]</b><span>Delivery ops</span></div>
               </div>
             </article>
           </div>

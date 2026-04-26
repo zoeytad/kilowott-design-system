@@ -1307,13 +1307,13 @@ window.renderDeck = function (root) {
               <div class="dk-chrome-logo" aria-label="Kilowott"></div>
               <div class="dk-05-mark">&ldquo;</div>
               <div class="dk-05-body">
-                <blockquote>Kilowott consistently <em>exceeds expectations</em> &mdash; seamless communication, unwavering commitment to quality.</blockquote>
+                <blockquote>[Pull quote — replace with a real client testimonial. <em>Italicise the accent word</em>. Two lines max.]</blockquote>
               </div>
               <div class="dk-05-cite">
-                <div class="dk-05-avatar">H</div>
+                <div class="dk-05-avatar">—</div>
                 <div>
-                  <b>Hartvig Reinfjord</b>
-                  <span>CEO · Mindset Corporate AS · Multi-year partnership</span>
+                  <b>[Client name]</b>
+                  <span>[Title · Company · Engagement context]</span>
                 </div>
               </div>
               <div class="dk-chrome-footer">
@@ -1812,17 +1812,18 @@ window.renderDeck = function (root) {
                 <div class="dk-eyebrow dk-eyebrow--accent">Working with</div>
                 <h2>Some of the partnerships <em>behind</em> the work.</h2>
               </div>
+              <!-- Real Kilowott clients per kilowott.com -->
               <div class="dk-13-wall">
-                <div class="dk-13-logo">Mindset</div>
-                <div class="dk-13-logo dk-13-logo--caps">Nordvik</div>
-                <div class="dk-13-logo">Saga &amp; Co</div>
-                <div class="dk-13-logo dk-13-logo--mono">ARC/LINE</div>
-                <div class="dk-13-logo">Fjordfolk</div>
-                <div class="dk-13-logo dk-13-logo--caps">Kraft</div>
-                <div class="dk-13-logo">Bergen Labs</div>
-                <div class="dk-13-logo dk-13-logo--mono">HAVSTR&Oslash;M</div>
-                <div class="dk-13-logo">Nordic Grain</div>
-                <div class="dk-13-logo dk-13-logo--caps">Element</div>
+                <div class="dk-13-logo">Marriott</div>
+                <div class="dk-13-logo dk-13-logo--caps">Bosch</div>
+                <div class="dk-13-logo">Pepe Jeans</div>
+                <div class="dk-13-logo dk-13-logo--mono">NETFLIX</div>
+                <div class="dk-13-logo">Radisson</div>
+                <div class="dk-13-logo dk-13-logo--caps">Mazda</div>
+                <div class="dk-13-logo">Nissan</div>
+                <div class="dk-13-logo dk-13-logo--mono">STIHL</div>
+                <div class="dk-13-logo">Craft</div>
+                <div class="dk-13-logo dk-13-logo--caps">Showcar</div>
               </div>
               <div class="dk-chrome-footer">
                 <span>Kilowott &middot; Clients</span>
