@@ -216,7 +216,7 @@ window.renderOverview = function (root) {
           <h3 style="margin-top:16px">Foundations, parts bin, and applied surfaces</h3>
           <p>Every layer is live. Foundations lock the rules, components hold the parts bin, and applied surfaces &mdash; dashboards, decks, social &mdash; show the system doing real work.</p>
           <ul>
-            <li><span>Logo &amp; brand marks</span><span>Ready</span></li>
+            <li><span>Logo · wordmark + bolt mark</span><span>Ready</span></li>
             <li><span>Color system</span><span>Ready</span></li>
             <li><span>Typography</span><span>Ready</span></li>
             <li><span>Spacing · grid · radii</span><span>Ready</span></li>
@@ -225,7 +225,11 @@ window.renderOverview = function (root) {
             <li><span>Deck templates</span><span>Ready</span></li>
             <li><span>Imagery &amp; photo treatments</span><span>Ready</span></li>
             <li><span>Voice &amp; tone</span><span>Ready</span></li>
-            <li><span>Social templates</span><span>Ready</span></li>
+            <li><span>Social platform simulations</span><span>Ready</span></li>
+            <li><span>Email signature generator</span><span>Ready</span></li>
+            <li><span>Newsletter block composer</span><span>Ready</span></li>
+            <li><span>Stationery print kit</span><span>Ready</span></li>
+            <li><span>Case-study template</span><span>Ready</span></li>
           </ul>
         </aside>
       </div>
@@ -282,8 +286,8 @@ window.renderOverview = function (root) {
               <p class="ov-dir__body" style="margin-top:16px; max-width: 36ch;">Serif display for the idea, clean sans for the argument, and red reserved for the one thing that matters most on the page.</p>
             </div>
             <div class="ov-dir__stat">
-              <div class="ov-dir__stat-num">14<span class="x">&times;</span></div>
-              <div class="ov-dir__stat-cap">Faster delivery vs. in-house benchmark</div>
+              <div class="ov-dir__stat-num">3.5<span class="x">&times;</span></div>
+              <div class="ov-dir__stat-cap">Organic traffic for Paul John Caffeine &mdash; SEO + Meta ads</div>
             </div>
           </div>
           <div class="ov-dir__meta">
@@ -338,7 +342,7 @@ window.renderOverview = function (root) {
             <li class="token-row"><span class="token-row__label">Color usage rules (60/30/5/5)</span><span class="token-row__meta">New</span></li>
             <li class="token-row"><span class="token-row__label">Logo clear space &amp; minimum size</span><span class="token-row__meta">New</span></li>
             <li class="token-row"><span class="token-row__label">8-pt spacing scale, named steps</span><span class="token-row__meta">New</span></li>
-            <li class="token-row"><span class="token-row__label">Density, theme &amp; pairing controls</span><span class="token-row__meta">System-level</span></li>
+            <li class="token-row"><span class="token-row__label">Bolt mark &mdash; secondary square companion</span><span class="token-row__meta">New</span></li>
           </ul>
         </div>
       </div>

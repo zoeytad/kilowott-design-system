@@ -35,9 +35,11 @@
   const CATEGORIES = {
     overview: 'Brand', logo: 'Brand', color: 'Brand', type: 'Brand',
     voice: 'Brand', imagery: 'Brand',
-    foundations: 'System', icons: 'System', components: 'System', dashboards: 'System',
-    landing: 'Templates', deck: 'Templates', email: 'Templates', signature: 'Templates',
-    newsletter: 'Templates', stationery: 'Templates', 'case-study': 'Templates', social: 'Templates',
+    foundations: 'System', icons: 'System', components: 'System',
+    landing: 'Surfaces', dashboards: 'Surfaces', deck: 'Surfaces',
+    'case-study': 'Surfaces', social: 'Surfaces',
+    email: 'Communications', signature: 'Communications',
+    newsletter: 'Communications', stationery: 'Communications',
   };
 
   // ---------- DRAWER refs (declared early — closeDrawer runs inside showTab below) ----------
