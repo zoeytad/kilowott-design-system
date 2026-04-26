@@ -32,8 +32,9 @@ window.renderSocial = function (root) {
     atmoCool:     'assets/photos/textural-atmosphere-cool.jpg',
   };
 
-  // Avatar = Kilowott "K" mark on red — built inline
-  const AVATAR = `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;"><rect width="64" height="64" fill="#E4022D"/><text x="32" y="42" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="34" font-style="italic" font-weight="500" fill="#fff">K</text></svg>`;
+  // Avatar = Kilowott bolt mark (white bolt on red rounded square)
+  // Source: https://kilowott.com favicon (the bolt is the canonical profile mark)
+  const AVATAR = `<img src="assets/kilowott-bolt.png" alt="Kilowott" style="width:100%;height:100%;display:block;object-fit:cover;">`;
 
   root.innerHTML = `
   <style>
@@ -108,8 +109,8 @@ window.renderSocial = function (root) {
       font-size: 14px; line-height: 1.5;
       box-shadow: 0 0 0 1px rgba(0,0,0,0.08);
     }
-    .li-post__head { display: flex; align-items: flex-start; gap: 8px; padding: 12px 16px 0; }
-    .li-post__avatar { width: 48px; height: 48px; border-radius: 50%; overflow: hidden; flex-shrink: 0; background: #E4022D; }
+    .li-post__head { display: flex; align-items: flex-start; gap: 8px; padding: 12px 16px; }
+    .li-post__avatar { width: 48px; height: 48px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
     .li-post__author { flex: 1; min-width: 0; }
     .li-post__name {
       font-weight: 600; color: rgba(0,0,0,0.9); font-size: 14px;
@@ -127,7 +128,7 @@ window.renderSocial = function (root) {
     .li-post__meta { color: rgba(0,0,0,0.6); font-size: 12px; margin-top: 2px; display: flex; align-items: center; gap: 4px; }
     .li-post__meta svg { width: 12px; height: 12px; }
     .li-post__more { padding: 6px; border-radius: 50%; color: rgba(0,0,0,0.6); cursor: default; }
-    .li-post__body { padding: 12px 16px 4px; color: rgba(0,0,0,0.9); white-space: pre-line; word-wrap: break-word; }
+    .li-post__body { padding: 0 16px 12px; color: rgba(0,0,0,0.9); white-space: pre-line; word-wrap: break-word; }
     .li-post__body b { font-weight: 600; }
     .li-post__more-link { color: rgba(0,0,0,0.6); font-weight: 600; cursor: default; }
     .li-post__media { width: 100%; display: block; }
@@ -221,7 +222,7 @@ window.renderSocial = function (root) {
     }
     .x-post--dark { background: #000; color: #E7E9EA; border-color: #2F3336; }
     .x-post__head { display: flex; align-items: flex-start; gap: 12px; }
-    .x-post__avatar { width: 40px; height: 40px; border-radius: 50%; overflow: hidden; flex-shrink: 0; background: #E4022D; }
+    .x-post__avatar { width: 40px; height: 40px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
     .x-post__id { flex: 1; min-width: 0; }
     .x-post__line {
       display: flex; align-items: center; gap: 4px; font-size: 15px;
@@ -345,7 +346,7 @@ window.renderSocial = function (root) {
     }
     .ig-post__avatar > div {
       width: 100%; height: 100%; border-radius: 50%; overflow: hidden;
-      border: 2px solid #fff; background: #E4022D;
+      border: 2px solid #fff;
     }
     .ig-post__user { flex: 1; }
     .ig-post__name {
@@ -426,7 +427,7 @@ window.renderSocial = function (root) {
     .ig-reel__user { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
     .ig-reel__user-avatar {
       width: 28px; height: 28px; border-radius: 50%;
-      border: 1.5px solid #fff; overflow: hidden; background: #E4022D;
+      border: 1.5px solid #fff; overflow: hidden;
     }
     .ig-reel__user-name { font-weight: 600; font-size: 14px; display: inline-flex; align-items: center; gap: 6px; }
     .ig-reel__follow {
@@ -474,7 +475,7 @@ window.renderSocial = function (root) {
     }
     .ig-story__avatar {
       width: 32px; height: 32px; border-radius: 50%; overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.4); background: #E4022D;
+      border: 1px solid rgba(255,255,255,0.4);
     }
     .ig-story__user { font-weight: 600; font-size: 14px; display: flex; align-items: center; gap: 4px; }
     .ig-story__time { font-weight: 400; opacity: 0.8; font-size: 13px; margin-left: 4px; }
