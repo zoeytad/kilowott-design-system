@@ -63,6 +63,103 @@ window.renderLogo = function (root) {
     }
     .lg-anatomy__note b { color: var(--fg); display: block; font-weight: 500; margin-bottom: 6px; }
 
+    /* Bolt mark — square companion to the wordmark */
+    .lg-bolt {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--s-5);
+    }
+    @media (max-width: 1100px) { .lg-bolt { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px)  { .lg-bolt { grid-template-columns: 1fr; } }
+    .lg-bolt__use {
+      border: 1px solid var(--rule);
+      border-radius: var(--r-3);
+      overflow: hidden;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+    }
+    .lg-bolt__sample {
+      aspect-ratio: 4/3;
+      background: var(--bg-2);
+      display: grid;
+      place-items: center;
+      padding: var(--s-6);
+      border-bottom: 1px solid var(--rule);
+    }
+    .lg-bolt__sample img {
+      display: block;
+      max-width: 50%;
+      width: 92px;
+      height: 92px;
+      object-fit: contain;
+      background: #fff;
+      box-shadow: 0 1px 0 rgba(11,15,20,0.04), 0 4px 12px rgba(11,15,20,0.06);
+    }
+    .lg-bolt__sample--circle img { border-radius: 50%; padding: 8px; }
+    .lg-bolt__sample--rounded img { border-radius: 22%; padding: 10px; }
+    .lg-bolt__sample--inverse {
+      background: var(--k-ink);
+    }
+    .lg-bolt__sample--inverse img {
+      background: var(--k-ink);
+      filter: invert(1);
+      border-radius: 22%;
+      padding: 10px;
+    }
+    .lg-bolt__sample--watermark {
+      background: var(--k-ink);
+      background-image: url(assets/photos/textural-atmosphere-cool.jpg);
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .lg-bolt__sample--watermark::after {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(11,15,20,0.55), rgba(11,15,20,0.25));
+    }
+    .lg-bolt__sample--watermark img {
+      position: absolute;
+      bottom: 18px;
+      right: 18px;
+      width: 56px; height: 56px;
+      max-width: none;
+      box-shadow: none;
+      background: transparent;
+      filter: invert(1) drop-shadow(0 2px 8px rgba(0,0,0,0.4));
+      opacity: 0.95;
+      z-index: 1;
+    }
+    .lg-bolt__cap {
+      padding: 16px 20px 18px;
+      font-size: 13px;
+      color: var(--fg-2);
+      line-height: 1.55;
+    }
+    .lg-bolt__cap b {
+      display: block;
+      color: var(--fg);
+      font-weight: 500;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+    .lg-bolt__rules {
+      margin-top: var(--s-6);
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--s-4) var(--s-5);
+      padding-top: var(--s-5);
+      border-top: 1px solid var(--rule);
+    }
+    @media (max-width: 720px) { .lg-bolt__rules { grid-template-columns: 1fr; } }
+    .lg-bolt__rule {
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--fg-2);
+    }
+    .lg-bolt__rule b { font-weight: 500; }
+
     /* Clear space */
     .lg-clear {
       padding: var(--s-8);
@@ -213,6 +310,57 @@ window.renderLogo = function (root) {
             The dotted &ldquo;i&rdquo; and the cap-height ratio are fixed. Always use the supplied vector file &mdash; never redraw.
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOLT MARK -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-head__title">The bolt mark</h2>
+        <p class="section-head__body">A square companion to the wordmark. The bolt is what shows up where the wordmark won&rsquo;t fit &mdash; profile avatars, favicons, app icons, watermarks, anywhere a 1:1 ratio is forced. Black bolt on white is the canonical version (used on the Kilowott LinkedIn page). The wordmark stays primary &mdash; the bolt is the secondary mark, not a replacement.</p>
+      </div>
+
+      <div class="lg-bolt">
+        <div class="lg-bolt__use lg-bolt__use--avatar">
+          <div class="lg-bolt__sample lg-bolt__sample--circle"><img src="assets/kilowott-bolt.jpg" alt="Kilowott bolt"></div>
+          <div class="lg-bolt__cap">
+            <b>Profile avatar</b>
+            LinkedIn, X, Facebook, Instagram. Circular crop. The bolt sits centered on white with a touch of breathing room &mdash; the round mask hides nothing important.
+          </div>
+        </div>
+
+        <div class="lg-bolt__use lg-bolt__use--favicon">
+          <div class="lg-bolt__sample lg-bolt__sample--rounded"><img src="assets/kilowott-bolt.jpg" alt="Kilowott bolt"></div>
+          <div class="lg-bolt__cap">
+            <b>Favicon &amp; app icon</b>
+            16&times;16 up to 1024&times;1024. Rounded-square mask on iOS / Android, square on browser tabs. Same bolt, no separate file.
+          </div>
+        </div>
+
+        <div class="lg-bolt__use lg-bolt__use--inverse">
+          <div class="lg-bolt__sample lg-bolt__sample--inverse"><img src="assets/kilowott-bolt.jpg" alt="Kilowott bolt inverted"></div>
+          <div class="lg-bolt__cap">
+            <b>On dark surfaces</b>
+            Switch to white-on-ink when sitting on a dark background. Use the inverted bolt asset (or invert via CSS <span class="mono">filter: invert(1)</span>) &mdash; never punch the black bolt directly onto a dark color.
+          </div>
+        </div>
+
+        <div class="lg-bolt__use lg-bolt__use--watermark">
+          <div class="lg-bolt__sample lg-bolt__sample--watermark"><img src="assets/kilowott-bolt.jpg" alt="Kilowott bolt watermark"></div>
+          <div class="lg-bolt__cap">
+            <b>Watermark / corner mark</b>
+            On photos, decks, deliverable corners. 24&ndash;48&nbsp;px in print, never larger than the cap-height of any nearby headline. Sits at 60&ndash;80% opacity on busy imagery.
+          </div>
+        </div>
+      </div>
+
+      <div class="lg-bolt__rules">
+        <div class="lg-bolt__rule"><b style="color:var(--fg)">Use the bolt when</b> the surface is square, the wordmark won&rsquo;t read at the size, or the brand needs to register at a glance &mdash; profile pic, app icon, favicon, watermark.</div>
+        <div class="lg-bolt__rule"><b style="color:var(--fg)">Don&rsquo;t replace the wordmark</b> with the bolt on letterheads, decks, websites, signage or anywhere the full mark fits comfortably. The bolt is a companion, not a shortcut.</div>
+        <div class="lg-bolt__rule"><b style="color:var(--fg)">Don&rsquo;t recolor.</b> Black on white, or white on ink. No red bolt, no gradient bolt, no two-tone bolt. The wordmark already carries the color story.</div>
+        <div class="lg-bolt__rule"><b style="color:var(--fg)">File:</b> <span class="mono">assets/kilowott-bolt.jpg</span> &middot; 100&times;100 source &middot; canonical version sourced from the Kilowott LinkedIn company logo.</div>
       </div>
     </div>
   </section>
