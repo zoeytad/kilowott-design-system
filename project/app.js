@@ -3,7 +3,7 @@
    ============================================================ */
 
 (function () {
-  const pages = ['overview','logo','color','type','foundations','icons','components','landing','dashboards','deck','email','signature','case-study','imagery','voice','social'];
+  const pages = ['overview','logo','color','type','foundations','icons','components','landing','dashboards','deck','email','signature','newsletter','case-study','imagery','voice','social'];
   const renderers = {
     overview:      window.renderOverview,
     logo:          window.renderLogo,
@@ -17,6 +17,7 @@
     deck:          window.renderDeck,
     email:         window.renderEmail,
     signature:     window.renderSignature,
+    newsletter:    window.renderNewsletter,
     'case-study':  window.renderCaseStudy,
     imagery:       window.renderImagery,
     voice:         window.renderVoice,
@@ -27,7 +28,7 @@
     overview: 'Overview', logo: 'Logo', color: 'Color', type: 'Type',
     foundations: 'Foundations', icons: 'Icons', components: 'Components',
     landing: 'Landing', dashboards: 'Dashboards', deck: 'Deck',
-    email: 'Email', signature: 'Signature', 'case-study': 'Case study', imagery: 'Imagery',
+    email: 'Email', signature: 'Signature', newsletter: 'Newsletter', 'case-study': 'Case study', imagery: 'Imagery',
     voice: 'Voice', social: 'Social',
   };
   const CATEGORIES = {
@@ -35,7 +36,7 @@
     voice: 'Brand', imagery: 'Brand',
     foundations: 'System', icons: 'System', components: 'System', dashboards: 'System',
     landing: 'Templates', deck: 'Templates', email: 'Templates', signature: 'Templates',
-    'case-study': 'Templates', social: 'Templates',
+    newsletter: 'Templates', 'case-study': 'Templates', social: 'Templates',
   };
 
   // ---------- DRAWER refs (declared early — closeDrawer runs inside showTab below) ----------
