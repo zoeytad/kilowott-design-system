@@ -32,9 +32,9 @@ window.renderSocial = function (root) {
     atmoCool:     'assets/photos/textural-atmosphere-cool.jpg',
   };
 
-  // Avatar = Kilowott bolt mark (white bolt on red rounded square)
-  // Source: https://kilowott.com favicon (the bolt is the canonical profile mark)
-  const AVATAR = `<img src="assets/kilowott-bolt.png" alt="Kilowott" style="width:100%;height:100%;display:block;object-fit:cover;">`;
+  // Avatar = Kilowott bolt mark (black bolt on white) — the canonical profile
+  // logo used on LinkedIn / company social pages. Source: Kilowott LinkedIn CDN.
+  const AVATAR = `<img src="assets/kilowott-bolt.jpg" alt="Kilowott" style="width:100%;height:100%;display:block;object-fit:cover;background:#fff;">`;
 
   root.innerHTML = `
   <style>
