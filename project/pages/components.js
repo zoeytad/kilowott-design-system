@@ -1564,7 +1564,7 @@ window.renderComponents = function (root) {
                 <i data-lucide="circle-check"></i>
               </div>
               <h3 class="k-state__title">Engagement <em>live</em>.</h3>
-              <p class="k-state__body">Kickoff confirmed with Priya. The team has Slack access and the first milestone lands Thursday.</p>
+              <p class="k-state__body">Kickoff confirmed. The team has Slack access and the first milestone lands Thursday.</p>
               <div class="k-state__actions">
                 <button class="k-btn k-btn--primary k-btn--sm">Open kickoff deck</button>
               </div>
@@ -1944,7 +1944,7 @@ window.renderComponents = function (root) {
         <div class="cp-spec">
           <div class="cp-spec__head"><span>Variants</span><span>.k-avatar</span></div>
           <div class="cp-spec__stage" style="gap: 18px;">
-            <span class="k-avatar" aria-label="Priya Nair">PN</span>
+            <span class="k-avatar" aria-label="Sample Person">SP</span>
             <span class="k-avatar k-avatar--photo" style="background-image:url(assets/photos/pair-working-warm.jpg)" aria-label="Team photo"></span>
             <span class="k-avatar k-avatar--placeholder" aria-label="No avatar">
               <i data-lucide="user" style="width:18px;height:18px;"></i>
@@ -1956,9 +1956,9 @@ window.renderComponents = function (root) {
         <div class="cp-spec">
           <div class="cp-spec__head"><span>Sizes</span><span>sm · md · lg</span></div>
           <div class="cp-spec__stage" style="gap: 18px;">
-            <span class="k-avatar k-avatar--sm">PN</span>
-            <span class="k-avatar">PN</span>
-            <span class="k-avatar k-avatar--lg">PN</span>
+            <span class="k-avatar k-avatar--sm">SP</span>
+            <span class="k-avatar">SP</span>
+            <span class="k-avatar k-avatar--lg">SP</span>
           </div>
           <div class="cp-spec__foot"><b>Rule &mdash;</b> 28 / 40 / 56 px. Medium is default. Small for inline. Large for profile cards.</div>
         </div>
@@ -1968,16 +1968,16 @@ window.renderComponents = function (root) {
           <div class="cp-spec__stage" style="gap: 24px;">
             <div class="k-avatar-group" data-k-avatar-group>
               <span class="k-avatar-wrap">
-                <span class="k-avatar" data-name="Priya Nair">PN</span>
-                <span class="k-tip k-tip--top">Priya Nair</span>
+                <span class="k-avatar" data-name="Sample Person">SP</span>
+                <span class="k-tip k-tip--top">Sample Person</span>
               </span>
               <span class="k-avatar-wrap">
-                <span class="k-avatar" data-name="Ravi Kumar">RK</span>
-                <span class="k-tip k-tip--top">Ravi Kumar</span>
+                <span class="k-avatar" data-name="Sample Person">SP</span>
+                <span class="k-tip k-tip--top">Sample Person</span>
               </span>
               <span class="k-avatar-wrap">
-                <span class="k-avatar" data-name="Meera Shah">MS</span>
-                <span class="k-tip k-tip--top">Meera Shah</span>
+                <span class="k-avatar" data-name="Sample Person">SP</span>
+                <span class="k-tip k-tip--top">Sample Person</span>
               </span>
               <span class="k-avatar-wrap">
                 <span class="k-avatar k-avatar--more" data-name="+4 more">+4</span>
@@ -2138,14 +2138,14 @@ window.renderComponents = function (root) {
                   <tr><th>Milestone</th><th>Owner</th><th class="num">Due</th></tr>
                 </thead>
                 <tbody>
-                  <tr><td>Discovery readout</td><td>Priya</td><td class="num">Wk 02</td></tr>
-                  <tr><td>Architecture decision</td><td>Ravi</td><td class="num">Wk 03</td></tr>
-                  <tr><td>First build</td><td>Meera</td><td class="num">Wk 05</td></tr>
-                  <tr><td>Design review</td><td>Lena</td><td class="num">Wk 06</td></tr>
-                  <tr><td>Beta in staging</td><td>Ravi</td><td class="num">Wk 09</td></tr>
-                  <tr><td>Client UAT</td><td>Priya</td><td class="num">Wk 11</td></tr>
+                  <tr><td>Discovery readout</td><td>Strategy</td><td class="num">Wk 02</td></tr>
+                  <tr><td>Architecture decision</td><td>Engineering</td><td class="num">Wk 03</td></tr>
+                  <tr><td>First build</td><td>Engineering</td><td class="num">Wk 05</td></tr>
+                  <tr><td>Design review</td><td>Design</td><td class="num">Wk 06</td></tr>
+                  <tr><td>Beta in staging</td><td>Engineering</td><td class="num">Wk 09</td></tr>
+                  <tr><td>Client UAT</td><td>Strategy</td><td class="num">Wk 11</td></tr>
                   <tr><td>Production go-live</td><td>Team</td><td class="num">Wk 12</td></tr>
-                  <tr><td>Retrospective</td><td>Meera</td><td class="num">Wk 13</td></tr>
+                  <tr><td>Retrospective</td><td>Strategy</td><td class="num">Wk 13</td></tr>
                 </tbody>
               </table>
             </div>

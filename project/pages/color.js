@@ -235,11 +235,11 @@ window.renderColor = function (root) {
         </div>
       </div>
 
-      <!-- Alt Accents (Tweaks Panel) -->
+      <!-- Alt Accents -->
       <div style="margin-top: 40px;">
-        <span class="eyebrow">Alt accents &middot; tweaks panel</span>
+        <span class="eyebrow">Alt accents &middot; sub-brand &amp; campaign</span>
         <p style="margin-top:12px; color:var(--fg-2); max-width: 68ch; font-size: var(--fs-sm);">
-          Four alternates are exposed in the tweaks panel for campaign-specific or sub-brand work. They replace Kilowott Red <em>as the single accent</em> &mdash; never used alongside it. The 60&middot;30&middot;5&middot;5 ratio and &ldquo;red is a spotlight&rdquo; rules below apply identically to whichever alt is active.
+          Four alternates are available for campaign-specific or sub-brand work &mdash; swapped via the <code style="font-family:var(--font-mono);font-size:13px;">--accent</code> CSS variable in <code style="font-family:var(--font-mono);font-size:13px;">tokens.css</code>. They replace Kilowott Red <em>as the single accent</em> &mdash; never used alongside it. The 60&middot;30&middot;5&middot;5 ratio and &ldquo;red is a spotlight&rdquo; rules below apply identically to whichever alt is active.
         </p>
         <div class="cl-row" style="margin-top: 16px;">
           <div class="cl-sw">
@@ -276,7 +276,7 @@ window.renderColor = function (root) {
           </div>
         </div>
         <p style="margin-top:16px; color:var(--fg-2); font-size: 13px; font-family: var(--font-mono);">
-          Source: <span style="color:var(--fg)">tokens.json &rarr; color.alt-accents</span> &middot; Exposed: <span style="color:var(--fg)">manifest.json &rarr; tweaks.accent</span>
+          Source: <span style="color:var(--fg)">tokens.css &rarr; --accent</span> &middot; Override per surface in CSS or via <span style="color:var(--fg)">data-theme</span> attribute.
         </p>
       </div>
     </div>

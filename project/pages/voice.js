@@ -697,7 +697,7 @@ window.renderVoice = function (root) {
         </div>
         <div class="vc-copy__card">
           <div class="vc-copy__tag">Kilowott</div>
-          <p class="vc-copy__quote">Need a call on the Sandnes rollout by Thursday &mdash; Priya owns the decision.</p>
+          <p class="vc-copy__quote">Need a call on the Sandnes rollout by Thursday &mdash; [decider] owns the decision.</p>
           <p class="vc-copy__why"><b>Why it works.</b> The ask, the deadline, the decider, in one line. The reader knows within seconds what&rsquo;s expected of them.</p>
         </div>
       </div>

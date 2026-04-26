@@ -1520,30 +1520,31 @@ window.renderDeck = function (root) {
                 <div class="dk-eyebrow dk-eyebrow--accent">The team on this</div>
                 <h2>The people <em>accountable</em> for the outcome.</h2>
               </div>
+              <!-- Replace placeholders with real engagement team when forking -->
               <div class="dk-09-grid">
                 <div class="dk-09-card">
-                  <div class="dk-09-avatar">A</div>
-                  <b>Aaron Holm</b>
-                  <span class="dk-09-role">Partnership Lead</span>
-                  <p>Fifteen years shaping brand and growth programs for Nordic and US enterprises.</p>
+                  <div class="dk-09-avatar">—</div>
+                  <b>[Lead name]</b>
+                  <span class="dk-09-role">[Role · e.g. Partnership Lead]</span>
+                  <p>[One-sentence bio — fifteen words max, what they own on this engagement.]</p>
                 </div>
                 <div class="dk-09-card dk-09-card--accent">
-                  <div class="dk-09-avatar">M</div>
-                  <b>Maya Ravn</b>
-                  <span class="dk-09-role">Strategy Director</span>
-                  <p>Turns messy business problems into shippable plans &mdash; and then ships them.</p>
+                  <div class="dk-09-avatar">—</div>
+                  <b>[Lead name]</b>
+                  <span class="dk-09-role">[Role · e.g. Strategy Director]</span>
+                  <p>[One-sentence bio — fifteen words max, what they own on this engagement.]</p>
                 </div>
                 <div class="dk-09-card">
-                  <div class="dk-09-avatar">J</div>
-                  <b>Jonas Kleiva</b>
-                  <span class="dk-09-role">Engineering Principal</span>
-                  <p>Builds the systems underneath the brand &mdash; data, platforms, and AI pipelines.</p>
+                  <div class="dk-09-avatar">—</div>
+                  <b>[Lead name]</b>
+                  <span class="dk-09-role">[Role · e.g. Engineering Principal]</span>
+                  <p>[One-sentence bio — fifteen words max, what they own on this engagement.]</p>
                 </div>
                 <div class="dk-09-card">
-                  <div class="dk-09-avatar">S</div>
-                  <b>Sara Lindgren</b>
-                  <span class="dk-09-role">Design Principal</span>
-                  <p>Holds the editorial craft bar across every surface the partnership ships.</p>
+                  <div class="dk-09-avatar">—</div>
+                  <b>[Lead name]</b>
+                  <span class="dk-09-role">[Role · e.g. Design Principal]</span>
+                  <p>[One-sentence bio — fifteen words max, what they own on this engagement.]</p>
                 </div>
               </div>
               <div class="dk-chrome-footer">
