@@ -9,26 +9,29 @@ window.renderSignature = function (root) {
   // ----------- DEFAULT FIELDS -----------
   const STATE = {
     template: 'classic',
+    // Ola Nordmann is a fictional placeholder persona (the Norwegian "John Doe").
+    // Replace with your own details. All Kilowott facts (offices, URLs, socials)
+    // are real — pulled from kilowott.com.
     firstName:  'Ola',
     lastName:   'Nordmann',
     pronouns:   'he/him',
     title:      'Senior Brand Strategist',
     department: 'Kilowott',
     email:      'ola.nordmann@kilowott.com',
-    phone:      '+47 22 12 34 56',
-    mobile:     '+47 480 12 345',
+    phone:      '+47 925 11 386',
+    mobile:     '',
     website:    'kilowott.com',
     websiteUrl: 'https://kilowott.com',
-    address:    'Oslo · Panaji · New York',
+    address:    'Fredrikstad · Sandnes · Goa · Dubai',
     photo:      'https://i.pravatar.cc/200?u=ola.nordmann',
-    linkedin:   'https://www.linkedin.com/in/olanordmann',
-    twitter:    'https://x.com/kilowott',
-    instagram:  '',
+    linkedin:   '',
+    twitter:    '',
+    instagram:  'https://www.instagram.com/kilowott/',
     youtube:    '',
-    cta:        'Book a working session',
-    ctaUrl:     'https://kilowott.com/contact',
-    quote:      'Partnership — not a vendor at the door.',
-    legal:      'This message and any attachments are confidential and intended solely for the named recipient. If you received this in error, please notify the sender and delete all copies. Kilowott AS · Org. nr. 925 884 102.',
+    cta:        'Book a meeting',
+    ctaUrl:     'https://meetings.hubspot.com/pphadtare',
+    quote:      'Built for what comes next.',
+    legal:      'This message and any attachments are confidential and intended solely for the named recipient. If you received this in error, please notify the sender and delete all copies.',
     accent:     '#E4022D',
   };
 

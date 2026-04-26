@@ -27,26 +27,31 @@ window.renderNewsletter = function (root) {
   const uid = () => 'b' + (nextId++);
 
   // ----------- DEFAULT STATE -----------
+  // All sample content uses real Kilowott facts (offices, case studies, URLs)
+  // pulled from kilowott.com. Edit freely — these are just defaults.
   const STATE = {
-    subject:   'Four stories from the field — Q2 ’26',
-    preheader: 'Brand work shipped. Intelligence out of beta. Hiring in Oslo. One short POV.',
-    issue:     'The quarterly note · Q2 ’26',
+    subject:   'Stories from the field — recent client work',
+    preheader: 'Paul John Caffeine 3.5× organic traffic. Plus a few notes from the team.',
+    issue:     'Field notes',
     fromName:  'Kilowott',
-    fromEmail: 'notes@kilowott.com',
-    address:   'Panaji · Oslo · New York',
+    fromEmail: 'sales@kilowott.com',
+    address:   'Fredrikstad · Sandnes · Goa · Dubai',
     accent:    '#E4022D',
     blocks: [
-      { id: uid(), type: 'eyebrow',   text: 'The quarterly note · Q2 ’26' },
-      { id: uid(), type: 'heading',   text: 'Four stories from the <em>field</em>.' },
-      { id: uid(), type: 'paragraph', text: 'Brand work shipped, an AI pilot out of beta, a hiring note, and one short POV. If you only have two minutes, read the first story.' },
+      { id: uid(), type: 'eyebrow',   text: 'Field notes · recent work' },
+      { id: uid(), type: 'heading',   text: 'Built for what <em>comes next</em>.' },
+      { id: uid(), type: 'paragraph', text: 'A short note on a recent piece of work — SEO-led content strategy and targeted Meta ads for a premium Indian coffee brand entering the U.S. market. Real numbers, no rounding.' },
       { id: uid(), type: 'divider' },
-      { id: uid(), type: 'heading2',  text: 'Sales <em>up 44%</em> for a coffee brand.' },
-      { id: uid(), type: 'paragraph', text: 'Brand refresh, paid search, and a rebuilt DTC funnel — one engagement, three levers, measurable result. The write-up names every decision.' },
-      { id: uid(), type: 'image',     url: 'https://images.unsplash.com/photo-1511920170033-f8396924c348?w=1200&q=80', alt: 'Coffee shop interior', caption: 'The flagship store in Bergen, six months after relaunch.', link: '' },
-      { id: uid(), type: 'button',    label: 'Read the case', url: 'https://kilowott.com/cases/coffee', style: 'ink' },
+      { id: uid(), type: 'heading2',  text: '<em>3.5×</em> organic traffic for Paul John Caffeine.' },
+      { id: uid(), type: 'paragraph', text: 'Premium Indian coffee brand entering the U.S. market. We led with SEO content strategy and Meta ads — Domain Authority moved from 1 to 20, organic users grew 111%, engaged sessions 98%, and impressions hit 256,000. The full breakdown names every decision.' },
+      { id: uid(), type: 'image',     url: 'https://images.unsplash.com/photo-1511920170033-f8396924c348?w=1200&q=80', alt: 'Coffee brand reference photography', caption: 'Replace this with the case-study hero image when you compose your own newsletter.', link: '' },
+      { id: uid(), type: 'button',    label: 'Read the case study', url: 'https://kilowott.com/case-studies/driving-3-5x-higher-organic-traffic-for-paul-john-caffeine/', style: 'ink' },
       { id: uid(), type: 'divider' },
-      { id: uid(), type: 'stat',      number: '+44%', caption: 'Year-on-year DTC growth, six months after relaunch.' },
-      { id: uid(), type: 'quote',     text: 'Partnership — not a vendor at the door.', cite: 'Aaron Bisht, founder' },
+      { id: uid(), type: 'stat',      number: '3.5×', caption: 'Organic traffic growth for Paul John Caffeine — SEO + Meta ads, U.S. market entry.' },
+      { id: uid(), type: 'quote',     text: 'Scale faster. Deliver better. Create impact.', cite: 'Kilowott' },
+      { id: uid(), type: 'divider' },
+      { id: uid(), type: 'paragraph', text: 'Want to talk through a project? Pick a slot — link below — or reply to this email and we’ll route you to the right person.' },
+      { id: uid(), type: 'button',    label: 'Book a call', url: 'https://meetings.hubspot.com/pphadtare', style: 'accent' },
     ],
   };
 
