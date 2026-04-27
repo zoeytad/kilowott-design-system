@@ -395,10 +395,10 @@ window.renderEmail = function (root) {
               </div>
 
               <div class="em-story">
-                <div class="em-story__eyebrow">Team &middot; Oslo</div>
+                <div class="em-story__eyebrow">Team &middot; Sandnes</div>
                 <h3 class="em-story__title">Nine new faces, mostly <em>engineers</em>.</h3>
                 <p class="em-story__body">
-                  We added seven engineers, a senior PM, and one brand lead in Oslo this quarter.
+                  Seven engineers, a senior PM, and one brand lead joined the Sandnes team this quarter.
                   If you&rsquo;re hiring in the Nordics, we can swap notes.
                 </p>
                 <a class="em-story__link" href="#">Read the hiring note <i data-lucide="arrow-right"></i></a>

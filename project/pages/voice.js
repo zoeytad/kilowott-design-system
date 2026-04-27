@@ -321,15 +321,15 @@ window.renderVoice = function (root) {
   <!-- ============ HERO ============ -->
   <section class="vc-hero">
     <div class="container">
-      <span class="eyebrow eyebrow--accent">v0.6 · Voice &amp; tone</span>
+      <span class="eyebrow eyebrow--accent">06 · Voice &amp; tone</span>
       <h1>Scale faster. Deliver better. <em>Create impact.</em></h1>
       <p class="vc-hero__lede">
         Kilowott is a strategic partner that turns strategy and execution into measurable
-        outcomes &mdash; while protecting margins, speed, and delivery confidence. Our voice
+        outcomes &mdash; while protecting margins, speed, and delivery confidence. The voice
         has to do the same work: confident on the claim, specific on the proof, and short
-        enough to read in a calendar invite. This page locks in the principles, the register
-        shifts by audience, and the mechanics that separate a Kilowott sentence from a
-        generic one.
+        enough to read in a calendar invite. This page is the reference for the principles,
+        the register shifts by audience, and the mechanics that separate a Kilowott sentence
+        from a generic one.
       </p>
 
       <div class="vc-hero__meta">

@@ -557,7 +557,7 @@ window.renderType = function (root) {
     <div class="container">
       <div class="section-head">
         <h2 class="section-head__title">When to use what</h2>
-        <p class="section-head__body">The most common confusion you flagged &mdash; which font for which heading. This covers 95% of cases.</p>
+        <p class="section-head__body">Which font for which heading &mdash; the question that comes up most often. This covers 95% of cases.</p>
       </div>
       <div class="ty-rules">
         <div class="token-row" style="padding: 18px 24px;"><span class="token-row__label"><b>Page &amp; section titles</b></span><span class="token-row__meta">Newsreader · fs-d1 / fs-d2 / fs-d3</span></div>
