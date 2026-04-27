@@ -229,68 +229,255 @@ window.renderMagazine = function (root) {
     .mg-page__folio em { font-style: italic; color: #E4022D; }
 
     /* ============================================================
-       SPREAD 1 — OPENER (full-bleed photo left + masthead/lede right)
+       EDITORIAL — running heads, drop caps, columned body, pull-quotes
        ============================================================ */
-    .mg-opener .mg-page--text {
-      padding: 32px 28px 28px;
-      justify-content: center;
-    }
-    .mg-opener__eyebrow {
-      font-size: 9px; font-weight: 500;
-      letter-spacing: 0.24em; text-transform: uppercase;
-      color: #E4022D;
-      display: inline-flex; align-items: center; gap: 8px;
-      margin-bottom: 12px;
-    }
-    .mg-opener__eyebrow::before { content: ""; width: 16px; height: 1px; background: #E4022D; }
-    .mg-opener__h {
-      font-family: 'Newsreader', Georgia, serif;
-      font-size: 36px; line-height: 1.0; letter-spacing: -0.02em;
-      font-weight: 400;
-    }
-    .mg-opener__h em { font-style: italic; color: #E4022D; }
-    .mg-opener__deck {
-      font-family: 'DM Sans', Arial, sans-serif;
-      font-size: 10px; line-height: 1.55; color: #5B6573;
-      margin-top: 14px; max-width: 30ch;
-    }
-    .mg-opener__byline {
-      margin-top: 16px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 8px; letter-spacing: 0.16em;
-      text-transform: uppercase; color: #5B6573;
-    }
-    .mg-opener__byline b { color: #0B0F14; font-weight: 500; }
 
-    /* ============================================================
-       SPREAD 2 — PROFILE (large portrait + Q&A body)
-       ============================================================ */
-    .mg-profile__name {
-      font-family: 'Newsreader', Georgia, serif;
-      font-size: 22px; line-height: 1.05; letter-spacing: -0.015em;
-      font-weight: 500;
-    }
-    .mg-profile__name em { font-style: italic; color: #E4022D; }
-    .mg-profile__role {
+    /* Running head (top of every editorial page) */
+    .mg-head {
+      position: absolute; top: 16px; left: 22px; right: 22px;
+      display: flex; justify-content: space-between; align-items: baseline;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 8px; letter-spacing: 0.18em;
-      text-transform: uppercase; color: #5B6573;
-      margin-top: 6px;
+      font-size: 7px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(11,15,20,0.4);
+      padding-bottom: 6px;
+      border-bottom: 1px solid rgba(11,15,20,0.12);
     }
-    .mg-profile__rule {
-      width: 32px; height: 1px; background: #E4022D; margin: 14px 0 12px;
-    }
-    .mg-profile__qa {
+    .mg-head em { font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 10px; color: rgba(11,15,20,0.65); letter-spacing: 0; text-transform: none; }
+
+    /* Editorial body — flowing prose, multi-column */
+    .mg-body {
       font-family: 'DM Sans', Arial, sans-serif;
-      font-size: 9px; line-height: 1.55; color: #1A2230;
+      font-size: 7.5px; line-height: 1.6; color: #1A2230;
+      column-count: 2;
+      column-gap: 14px;
+      column-rule: 0;
+      text-align: justify;
+      hyphens: auto;
       flex: 1;
     }
-    .mg-profile__qa p { margin: 0 0 8px; }
-    .mg-profile__qa p b {
+    .mg-body p { margin: 0 0 7px; }
+    .mg-body p + p { text-indent: 1.2em; margin-top: -2px; }
+    /* Drop cap — 4-line serif first letter */
+    .mg-body--dropcap p:first-child::first-letter {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 38px;
+      font-weight: 400;
+      line-height: 0.85;
+      float: left;
+      padding: 4px 6px 0 0;
+      color: #0B0F14;
+    }
+    .mg-body--dropcap p:first-child {
+      text-indent: 0;
+    }
+    /* Pull quote — breaks across columns or sits centered */
+    .mg-pq {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 16px;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      font-style: italic;
+      color: #0B0F14;
+      column-span: all;
+      margin: 14px 0 12px;
+      padding: 12px 16px 12px 18px;
+      border-left: 2px solid #E4022D;
+      max-width: 38ch;
+    }
+    .mg-pq cite {
       display: block;
       font-family: 'JetBrains Mono', monospace;
+      font-style: normal;
+      font-size: 7px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #5B6573;
+      margin-top: 6px;
+    }
+    /* Image caption (italic small under photo) */
+    .mg-cap {
+      font-family: 'Newsreader', Georgia, serif;
+      font-style: italic;
+      font-size: 8px;
+      line-height: 1.4;
+      color: #5B6573;
+      padding: 4px 0 0;
+    }
+    .mg-cap b { font-style: normal; font-family: 'JetBrains Mono', monospace; font-size: 6.5px; letter-spacing: 0.2em; text-transform: uppercase; color: #0B0F14; font-weight: 500; margin-right: 6px; }
+
+    /* ============================================================
+       SPREAD 1 — OPENER (top photo bleed + display headline below)
+       ============================================================ */
+    .mg-opener {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+    }
+    .mg-opener-page {
+      padding: 0;
+      background: #FFFFFF;
+      position: relative;
+      display: flex; flex-direction: column;
+      overflow: hidden;
+    }
+    .mg-opener-page__photo {
+      height: 56%;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .mg-opener-page__photo--bleed-l {
+      margin-right: -7px; /* bleed across spine on the verso */
+    }
+    .mg-opener-page__photo--bleed-r {
+      margin-left: -7px;
+    }
+    .mg-opener-page__text {
+      padding: 18px 22px 22px;
+      flex: 1;
+      display: flex; flex-direction: column;
+      justify-content: flex-start;
+    }
+    .mg-opener-page__kicker {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7px; letter-spacing: 0.24em; text-transform: uppercase;
+      color: #E4022D;
+      margin-bottom: 8px;
+    }
+    .mg-opener-page__h {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 32px; line-height: 0.96; letter-spacing: -0.02em;
+      font-weight: 400;
+      color: #0B0F14;
+    }
+    .mg-opener-page__h em { font-style: italic; color: #E4022D; }
+    .mg-opener-page__byline {
+      font-family: 'JetBrains Mono', monospace;
       font-size: 7px; letter-spacing: 0.18em; text-transform: uppercase;
-      color: #E4022D; font-weight: 500; margin-bottom: 2px;
+      color: #5B6573;
+      margin-top: auto; padding-top: 10px;
+    }
+    .mg-opener-page__byline b { color: #0B0F14; font-weight: 500; }
+
+    /* ============================================================
+       SPREAD 2 — PROFILE (full-bleed portrait verso + editorial recto)
+       ============================================================ */
+    .mg-profile-l {
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+      background: #0B0F14;
+    }
+    .mg-profile-l img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: contrast(1.05);
+    }
+    .mg-profile-l__overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 24px 22px 22px;
+      background: linear-gradient(0deg, rgba(11,15,20,0.85) 0%, rgba(11,15,20,0.4) 60%, rgba(11,15,20,0) 100%);
+      color: #fff;
+    }
+    .mg-profile-l__num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7px; letter-spacing: 0.24em; text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-bottom: 8px;
+    }
+    .mg-profile-l__num::before { content: ""; width: 14px; height: 1px; background: #E4022D; }
+    .mg-profile-l__name {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 26px; line-height: 1.0; letter-spacing: -0.02em;
+      font-weight: 400;
+    }
+    .mg-profile-l__name em { font-style: italic; color: #E4022D; }
+    .mg-profile-l__role {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      margin-top: 6px;
+    }
+
+    .mg-profile-r {
+      padding: 32px 24px 24px;
+      display: flex; flex-direction: column;
+    }
+    .mg-profile-r__h {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 22px; line-height: 1.05; letter-spacing: -0.015em;
+      font-weight: 400;
+      margin: 16px 0 10px;
+      color: #0B0F14;
+    }
+    .mg-profile-r__h em { font-style: italic; color: #E4022D; }
+
+    /* ============================================================
+       SPREAD 3 — PROFILE B (portrait inset + body wrap)
+       ============================================================ */
+    .mg-profileB {
+      grid-template-columns: 1fr 1fr;
+    }
+    .mg-profileB-l {
+      padding: 32px 22px 22px;
+      display: flex; flex-direction: column;
+    }
+    .mg-profileB-l__sec {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7px; letter-spacing: 0.24em; text-transform: uppercase;
+      color: #E4022D;
+      margin-bottom: 8px;
+    }
+    .mg-profileB-l__h {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 28px; line-height: 0.98; letter-spacing: -0.02em;
+      font-weight: 400;
+      color: #0B0F14;
+      margin-bottom: 10px;
+    }
+    .mg-profileB-l__h em { font-style: italic; color: #E4022D; }
+    .mg-profileB-l__role {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: #5B6573;
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+      border-bottom: 1px solid rgba(11,15,20,0.12);
+    }
+    .mg-profileB-r {
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .mg-profileB-r__photo {
+      height: 70%;
+      background-size: cover;
+      background-position: center;
+    }
+    .mg-profileB-r__quote-block {
+      padding: 18px 22px 24px;
+      flex: 1;
+      display: flex; align-items: flex-start;
+      background: #F6F4F0;
+    }
+    .mg-profileB-r__quote {
+      font-family: 'Newsreader', Georgia, serif;
+      font-style: italic;
+      font-size: 14px;
+      line-height: 1.25;
+      letter-spacing: -0.005em;
+      color: #0B0F14;
+    }
+    .mg-profileB-r__quote::before { content: "\201C"; color: #E4022D; margin-right: 2px; }
+    .mg-profileB-r__quote::after { content: "\201D"; color: #E4022D; }
+    .mg-profileB-r__cite {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 6.5px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: #5B6573;
+      margin-top: 10px;
+      display: block;
     }
 
     /* ============================================================
@@ -500,116 +687,93 @@ window.renderMagazine = function (root) {
         <span class="mg-sec__sub">4 variations &middot; opener · profile · stat · divider</span>
       </div>
 
-      <!-- SPREAD 1 — OPENER -->
+      <!-- SPREAD 1 — OPENER · split-photo + display headline + 2-col body -->
       <div class="mg-card" style="margin-bottom: var(--s-5);">
         <div class="mg-card__stage" style="padding: 48px 32px;">
           <div class="mg-spread mg-opener">
-            <div class="mg-page mg-page--photo">
-              <img src="${PHOTO.teamLaugh}" alt="Agency team in working session">
-              <div class="mg-page__folio mg-page__folio--l" style="color:rgba(255,255,255,0.7);"><em>FW</em> &middot; 12 &middot; Mar 2026</div>
-            </div>
-            <div class="mg-page mg-page--text">
-              <div class="mg-opener__eyebrow">Cover feature &middot; agencies</div>
-              <h1 class="mg-opener__h">Inside the <em>global agency</em> network.</h1>
-              <p class="mg-opener__deck">
-                Eleven founders and owners from the digital agency sector &mdash; some building quietly,
-                others redefining what an agency can achieve. Framework #003 brings them together
-                across brand storytelling, performance marketing, AI-led strategy, ecommerce, and
-                local digital growth.
-              </p>
-              <div class="mg-opener__byline">
-                <b>Framework editorial</b> &middot; March 2026
+            <div class="mg-opener-page">
+              <div class="mg-head"><span>FRAMEWORK &middot; #003</span><em>Inside the global agency network</em></div>
+              <div class="mg-opener-page__photo mg-opener-page__photo--bleed-l" style="background-image:url(${PHOTO.teamLaugh});"></div>
+              <div class="mg-opener-page__text">
+                <p class="mg-cap"><b>Photograph</b>Working session in Adelaide &mdash; agency leads from six markets, one room, March 2026.</p>
+                <div class="mg-page__folio mg-page__folio--l">12 &middot; <em>FW</em></div>
               </div>
-              <div class="mg-page__folio mg-page__folio--r">12 &middot; <em>13</em></div>
+            </div>
+            <div class="mg-opener-page">
+              <div class="mg-head"><span>COVER FEATURE</span><em>March 2026</em></div>
+              <div class="mg-opener-page__photo mg-opener-page__photo--bleed-r" style="background-image:url(${PHOTO.teamFocused});"></div>
+              <div class="mg-opener-page__text">
+                <div class="mg-opener-page__kicker">Cover feature &middot; 01</div>
+                <h1 class="mg-opener-page__h">Inside the<br><em>global agency</em><br>network.</h1>
+                <div class="mg-opener-page__byline">
+                  <b>Framework editorial</b> &middot; eleven founders, six countries
+                </div>
+                <div class="mg-page__folio mg-page__folio--r"><em>13</em></div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="mg-card__cap"><b>Spread 01 &middot; Article opener</b> &middot; full-bleed photo on the verso (left page), eyebrow + headline + deck + byline on the recto (right page). Folio bottom corner &mdash; mono caps, italic accent on the live page number. Real Framework #003 deck copy.</div>
+        <div class="mg-card__cap"><b>Spread 01 &middot; Article opener</b> &middot; double-photo across the spine, captions in italic serif, kicker + display headline on the recto. Running heads top, folio bottom outside &mdash; italic page number for the live folio.</div>
       </div>
 
-      <!-- SPREAD 2 — PROFILE · Natalie Renna · Mercy Me Marketing -->
+      <!-- SPREAD 2 — PROFILE · Natalie Renna · full portrait verso + editorial body recto -->
       <div class="mg-card" style="margin-bottom: var(--s-5);">
         <div class="mg-card__stage" style="padding: 48px 32px;">
           <div class="mg-spread">
-            <div class="mg-page mg-page--photo">
+            <div class="mg-profile-l">
               <img src="${PHOTO.portraitTab}" alt="Natalie Renna, Mercy Me Marketing">
-              <div class="mg-page__folio mg-page__folio--l" style="color:rgba(255,255,255,0.7);"><em>FW</em> &middot; 18 &middot; Mar 2026</div>
-            </div>
-            <div class="mg-page">
-              <div class="mg-opener__eyebrow" style="color:#5B6573;">
-                <span style="background:#E4022D;width:16px;height:1px;"></span> Profile &middot; 01 of 11
+              <div class="mg-profile-l__overlay">
+                <div class="mg-profile-l__num">Profile &middot; 01 of 11</div>
+                <div class="mg-profile-l__name">Natalie<br><em>Renna</em></div>
+                <div class="mg-profile-l__role">Founder &amp; Director &middot; Mercy Me Marketing &middot; Adelaide</div>
               </div>
-              <div class="mg-profile__name">Natalie <em>Renna</em></div>
-              <div class="mg-profile__role">Founder &amp; Director &middot; Mercy Me Marketing &middot; Adelaide, Australia</div>
-              <div class="mg-profile__rule"></div>
-
-              <div class="mg-profile__qa">
-                <p>
-                  <b>On the agency</b>
-                  Mercy Me Marketing is a boutique advertising and marketing consultancy with twenty-five years
-                  behind it. Strategy, branding, graphic design, social, video, web, performance &mdash; one
-                  team, one room, full-service for clients who want a partner not a queue.
-                </p>
-                <p>
-                  <b>On the work</b>
-                  The approach is long-term: tailored campaigns built on collaborative relationships,
-                  measured by business results not vanity metrics. The team culture is deliberately
-                  approachable &mdash; senior people on every call, no client left to a junior account manager.
-                </p>
-                <p>
-                  <b>On Framework</b>
-                  &ldquo;The experience of working with Kilowott on the Framework feature was fantastic
-                  and exceeded expectations 100%. Valuable networking, professional execution end to end.&rdquo;
-                </p>
+              <div class="mg-page__folio mg-page__folio--l" style="color:rgba(255,255,255,0.55); border-color:rgba(255,255,255,0.2);"><em>FW</em> &middot; 18</div>
+            </div>
+            <div class="mg-page mg-profile-r">
+              <div class="mg-head"><span>PROFILE &middot; 01</span><em>Mercy Me Marketing</em></div>
+              <h2 class="mg-profile-r__h">Twenty-five years of <em>boutique</em>, told in one room.</h2>
+              <div class="mg-body mg-body--dropcap">
+                <p>Mercy Me Marketing is a boutique advertising and marketing consultancy with twenty-five years behind it. Strategy, branding, graphic design, social, video, web, performance &mdash; one team, one room, full-service for clients who want a partner not a queue. The work is the work; the receipt is the receipt; the reader doesn&rsquo;t need to be told which is which.</p>
+                <p>The approach is long-term. Tailored campaigns built on collaborative relationships, measured by business results not vanity metrics. The team culture is deliberately approachable &mdash; senior people on every call, no client passed off to a junior account manager once the retainer signs. That sounds like every agency&rsquo;s pitch deck. The difference, Natalie says, is showing the receipts when a client asks.</p>
+                <blockquote class="mg-pq">The experience of working with Kilowott on the Framework feature was fantastic and exceeded expectations 100%.<cite>Natalie Renna &middot; Founder, Mercy Me Marketing</cite></blockquote>
+                <p>Adelaide is part of it. The market is smaller than Sydney or Melbourne, and that is, deliberately, the point &mdash; clients are repeat clients, the conversation runs longer than the campaign, and the team isn&rsquo;t fighting an agency-of-record cycle every eighteen months.</p>
+                <p>Framework caught Mercy Me at the start of a new positioning push, one year into a hiring run that took the team from seven to twelve. The boutique label sticks; the operations behind it have been quietly industrialised.</p>
               </div>
               <div class="mg-page__folio mg-page__folio--r">18 &middot; <em>19</em></div>
             </div>
           </div>
         </div>
-        <div class="mg-card__cap"><b>Spread 02 &middot; Founder profile</b> &middot; portrait verso, name (italic accent on family name) + role + Q&amp;A recto. Real Framework #003 profile: Natalie Renna of Mercy Me Marketing, Adelaide. Body summary from <a href="https://mercymemarketing.com.au" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);">mercymemarketing.com.au</a>; testimonial pulled verbatim from Framework.</div>
+        <div class="mg-card__cap"><b>Spread 02 &middot; Founder profile</b> &middot; full-bleed portrait verso with name overlay; editorial recto running head, italic-accent display headline, drop-cap on the body, 2-column justified prose, pull-quote breaking across the columns with red accent rule. Real Framework #003 profile (Natalie Renna, Mercy Me Marketing); body summarises <a href="https://mercymemarketing.com.au" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);">mercymemarketing.com.au</a>; pull-quote verbatim from Framework.</div>
       </div>
 
-      <!-- SPREAD 2B — PROFILE · Fabien Katola · COPY FK -->
+      <!-- SPREAD 2B — PROFILE B · Fabien Katola · text-led verso + photo-quote recto -->
       <div class="mg-card" style="margin-bottom: var(--s-5);">
         <div class="mg-card__stage" style="padding: 48px 32px;">
-          <div class="mg-spread">
-            <div class="mg-page mg-page--photo">
-              <img src="${PHOTO.leader}" alt="Fabien Katola, COPY FK">
-              <div class="mg-page__folio mg-page__folio--l" style="color:rgba(255,255,255,0.7);"><em>FW</em> &middot; 26 &middot; Mar 2026</div>
+          <div class="mg-spread mg-profileB">
+            <div class="mg-profileB-l">
+              <div class="mg-head"><span>PROFILE &middot; 02</span><em>COPY FK</em></div>
+              <div class="mg-profileB-l__sec">Profile &middot; 02 of 11</div>
+              <h2 class="mg-profileB-l__h">Fabien <em>Katola</em>, on showing up the same way <em>twice</em>.</h2>
+              <div class="mg-profileB-l__role">Founder &middot; COPY FK &middot; France</div>
+              <div class="mg-body mg-body--dropcap" style="column-count: 1;">
+                <p>COPY FK runs a marketing approach centred on client relationships, consistency, and real value &mdash; the sort of thing every agency claims, then quietly stops practising once the retainer is signed. Fabien doesn&rsquo;t. The voice on the campaign is the voice on the deck, on the email, on the invoice. The work gets edited by the people closest to the customer, not the people closest to the founder.</p>
+                <p>That sounds simple until you&rsquo;ve sat in a debrief and watched a copywriter quietly mute themselves because the founder said something more confident. COPY FK&rsquo;s rule, Fabien explains, is that the most senior person stops talking first.</p>
+              </div>
+              <div class="mg-page__folio mg-page__folio--l">26 &middot; <em>FW</em></div>
             </div>
-            <div class="mg-page">
-              <div class="mg-opener__eyebrow" style="color:#5B6573;">
-                <span style="background:#E4022D;width:16px;height:1px;"></span> Profile &middot; 02 of 11
+            <div class="mg-profileB-r">
+              <div class="mg-profileB-r__photo" style="background-image:url(${PHOTO.leader});"></div>
+              <div class="mg-profileB-r__quote-block">
+                <div>
+                  <div class="mg-profileB-r__quote">The collaboration let me highlight a marketing approach centred on client relationships, consistency, and real value.</div>
+                  <span class="mg-profileB-r__cite">Fabien Katola &middot; Founder, COPY FK &middot; France</span>
+                </div>
               </div>
-              <div class="mg-profile__name">Fabien <em>Katola</em></div>
-              <div class="mg-profile__role">Founder &middot; COPY FK &middot; France</div>
-              <div class="mg-profile__rule"></div>
-
-              <div class="mg-profile__qa">
-                <p>
-                  <b>On the work</b>
-                  COPY FK runs a marketing approach centred on client relationships, consistency
-                  and real value &mdash; the sort of thing every agency claims, then quietly stops
-                  practising once the retainer is signed. Fabien doesn&rsquo;t.
-                </p>
-                <p>
-                  <b>On positioning</b>
-                  &ldquo;Brand storytelling&rdquo; gets used to mean anything. For Fabien it means showing up
-                  in the same voice across the campaign, the deck, the email, the invoice &mdash; and
-                  letting the work get edited by the people closest to the customer, not the people
-                  closest to the founder.
-                </p>
-                <p>
-                  <b>On Framework</b>
-                  &ldquo;The collaboration let me highlight a marketing approach centred on client
-                  relationships, consistency, and real value &mdash; rare in this market.&rdquo;
-                </p>
-              </div>
-              <div class="mg-page__folio mg-page__folio--r">26 &middot; <em>27</em></div>
+              <div class="mg-page__folio mg-page__folio--r" style="color:rgba(11,15,20,0.5);"><em>27</em></div>
             </div>
           </div>
         </div>
-        <div class="mg-card__cap"><b>Spread 02b &middot; Second profile</b> &middot; same architecture, different photo + body. Real Framework #003 profile: Fabien Katola of COPY FK, France. Testimonial verbatim.</div>
+        <div class="mg-card__cap"><b>Spread 02b &middot; Profile, text-led</b> &middot; running head, kicker, italic-accent display headline, drop-cap body single-column verso. Recto = portrait above, warm-paper pull-quote tile below with red opening/closing quotation marks. Body adapts <a href="https://kilowott.com/framework-edition/2026/March/inside-the-global-agency-network/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);">Framework #003</a> editorial; pull-quote verbatim.</div>
       </div>
 
       <!-- SPREAD 3 — STAT -->
