@@ -1111,7 +1111,7 @@ window.renderDeck = function (root) {
               <div class="dk-01-meta">
                 <div>Prepared for<b>Acme Inc. · Leadership</b></div>
                 <div>Prepared by<b>Kilowott · Sandnes</b></div>
-                <div>Confidential<b>Internal draft v1</b></div>
+                <div>Confidential<b>v1.0</b></div>
               </div>
               <div class="dk-chrome-footer">
                 <span>kilowott.com</span>
@@ -1593,7 +1593,7 @@ window.renderDeck = function (root) {
                     <span class="dk-10-q">Q2 &middot; 2026</span>
                     <div class="dk-10-milestones">
                       <span class="dk-10-m">Discovery &amp; audit</span>
-                      <span class="dk-10-m">Brand platform draft</span>
+                      <span class="dk-10-m">Brand platform</span>
                       <span class="dk-10-m">Team onboarding</span>
                     </div>
                   </div>
