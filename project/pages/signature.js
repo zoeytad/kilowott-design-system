@@ -23,7 +23,7 @@ window.renderSignature = function (root) {
     website:    'kilowott.com',
     websiteUrl: 'https://kilowott.com',
     address:    'Fredrikstad · Sandnes · Goa · Dubai',
-    photo:      'https://i.pravatar.cc/200?u=ola.nordmann',
+    photo:      'https://kilowott-design-system-production.up.railway.app/assets/photos/portrait-leader-window.jpg',
     linkedin:   '',
     twitter:    '',
     instagram:  'https://www.instagram.com/kilowott/',
