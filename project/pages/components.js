@@ -2298,7 +2298,7 @@ window.renderComponents = function (root) {
               <div class="k-search__results" data-k-search-results></div>
             </div>
           </div>
-          <div class="cp-spec__foot"><b>Try &mdash;</b> Type <b>&ldquo;health&rdquo;</b>, <b>&ldquo;priya&rdquo;</b>, or <b>&ldquo;grid&rdquo;</b>. Clear the field to close. Unknown query shows an empty state.</div>
+          <div class="cp-spec__foot"><b>Try &mdash;</b> Type <b>&ldquo;health&rdquo;</b>, <b>&ldquo;ola&rdquo;</b>, or <b>&ldquo;grid&rdquo;</b>. Clear the field to close. Unknown query shows an empty state.</div>
         </div>
       </div>
     </div>

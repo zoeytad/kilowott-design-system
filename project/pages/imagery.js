@@ -364,7 +364,7 @@ window.renderImagery = function (root) {
   <!-- HERO -->
   <section class="im-hero">
     <div class="container">
-      <span class="eyebrow eyebrow--accent">v0.4 · Imagery &amp; photography</span>
+      <span class="eyebrow eyebrow--accent">08 · Imagery &amp; photography</span>
       <h1>What a Kilowott <em>image</em> looks like.</h1>
       <p class="im-hero__lede">
         Photography is the fastest way to break the system &mdash; a single off-brand stock photo
@@ -737,7 +737,7 @@ window.renderImagery = function (root) {
           </div>
           <div class="im-ph__meta">
             <div class="im-ph__name">Typographic</div>
-            <div class="im-ph__spec">Default &middot; internal drafts</div>
+            <div class="im-ph__spec">Default &middot; in-progress layouts</div>
             <p class="im-ph__use">Warm paper, crossed diagonals, italic serif label, dimensions in mono. For drafts where the image brief is clear.</p>
           </div>
         </div>
@@ -863,7 +863,7 @@ window.renderImagery = function (root) {
 
       <div class="im-lib__meter">
         <span><b>14</b> &nbsp;images cleared</span>
-        <span><b>v0.6</b> &nbsp;release</span>
+        <span><b>Live</b> &nbsp;library</span>
         <span><b>Perpetual</b> &nbsp;license</span>
         <span><b>/brand/photography/</b></span>
       </div>

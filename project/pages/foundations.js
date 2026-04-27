@@ -254,9 +254,9 @@ window.renderFoundations = function (root) {
     <div class="container">
       <div class="section-head">
         <h2 class="section-head__title">Tokens (CSS)</h2>
-        <p class="section-head__body">Copy-paste-ready CSS custom properties. The exact tokens this doc is built from. Developers: this is the handoff file.</p>
+        <p class="section-head__body">Copy-paste-ready CSS custom properties. The exact tokens this site is built from. For engineers: this is the handoff file.</p>
       </div>
-      <pre class="fd-tokens"><span class="comment">/* Kilowott · Design System · v0.6 — complete */</span>
+      <pre class="fd-tokens"><span class="comment">/* Kilowott · Design System · tokens */</span>
 :root {
   <span class="comment">/* ---------- BRAND COLORS ---------- */</span>
   <span class="prop">--k-ink</span>:        #0B0F14;

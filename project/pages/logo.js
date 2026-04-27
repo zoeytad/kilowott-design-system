@@ -370,7 +370,7 @@ window.renderLogo = function (root) {
     <div class="container">
       <div class="section-head">
         <h2 class="section-head__title">Clear space &amp; sizing</h2>
-        <p class="section-head__body">Give the mark room to breathe. The minimum clear space on all sides equals the height of the capital &ldquo;K&rdquo;. Below 80&nbsp;px wide on screen or 20&nbsp;mm in print, use the monogram (coming in v0.2).</p>
+        <p class="section-head__body">Give the mark room to breathe. The minimum clear space on all sides equals the height of the capital &ldquo;K&rdquo;. Below 80&nbsp;px wide on screen or 20&nbsp;mm in print, use the bolt instead.</p>
       </div>
       <div class="grid grid-2">
         <div class="lg-clear">
@@ -472,7 +472,7 @@ window.renderLogo = function (root) {
     <div class="container">
       <div class="section-head">
         <h2 class="section-head__title">Don&rsquo;ts</h2>
-        <p class="section-head__body">The most common violations we&rsquo;ve seen across decks and social templates. If you catch one, fix it.</p>
+        <p class="section-head__body">The four moves that break the wordmark. If you catch one in a deck, a social template or a partner asset, fix it before it ships.</p>
       </div>
       <div class="grid grid-4">
         <div class="lg-var lg-dont lg-dont--stretch"><div class="lg-var__logo"></div><span class="lg-var__cap accent-text"><i data-lucide="x"></i> Stretch</span></div>

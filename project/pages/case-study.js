@@ -464,7 +464,7 @@ window.renderCaseStudy = function (root) {
                 <blockquote>
                   They didn&rsquo;t pitch us a playbook. They sat inside our ops, argued with us about what was actually broken, and shipped the fixes in the same week. That&rsquo;s not how an agency usually works.
                 </blockquote>
-                <cite><b>Signe Halvorsen</b><span>&middot; Founder &middot; Nordic coffee brand</span></cite>
+                <cite><b>[Client name]</b><span>&middot; [Role] &middot; [Company]</span></cite>
               </div>
 
               <h2>What didn&rsquo;t work</h2>
@@ -476,7 +476,7 @@ window.renderCaseStudy = function (root) {
               </p>
 
               <div class="cs-body-img" style="background-image: url(assets/photos/lounge-coworking-warm.jpg);"></div>
-              <div class="cs-body-img__cap">Week 11 working session, Oslo &mdash; rebuilding the subscription bundle after the first version underperformed.</div>
+              <div class="cs-body-img__cap">Week 11 working session, Sandnes &mdash; rebuilding the subscription bundle after the first version underperformed.</div>
 
               <h2>Timeline</h2>
               <div class="cs-timeline">

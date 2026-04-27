@@ -329,7 +329,7 @@ window.renderColor = function (root) {
     <div class="container">
       <div class="section-head">
         <h2 class="section-head__title">Red is a spotlight</h2>
-        <p class="section-head__body">You said it yourself: the brand colors are strong, and misuse is loud. These five rules handle 95% of decisions about red.</p>
+        <p class="section-head__body">The brand colors are strong, and misuse is loud. These five rules handle 95% of decisions about red.</p>
       </div>
       <div class="grid grid-2">
         <ul style="list-style:none; padding:0; margin:0;">
