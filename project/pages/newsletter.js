@@ -44,7 +44,7 @@ window.renderNewsletter = function (root) {
       { id: uid(), type: 'divider' },
       { id: uid(), type: 'heading2',  text: '<em>3.5×</em> organic traffic for Paul John Caffeine.' },
       { id: uid(), type: 'paragraph', text: 'Premium Indian coffee brand entering the U.S. market. We led with SEO content strategy and Meta ads — Domain Authority moved from 1 to 20, organic users grew 111%, engaged sessions 98%, and impressions hit 256,000. The full breakdown names every decision.' },
-      { id: uid(), type: 'image',     url: 'https://images.unsplash.com/photo-1511920170033-f8396924c348?w=1200&q=80', alt: 'Coffee brand reference photography', caption: 'Replace this with the case-study hero image when you compose your own newsletter.', link: '' },
+      { id: uid(), type: 'image',     url: 'https://kilowott-design-system-production.up.railway.app/assets/photos/textural-atmosphere-warm.jpg', alt: 'Coffee brand reference photography', caption: 'Replace this with the case-study hero image when you compose your own newsletter.', link: '' },
       { id: uid(), type: 'button',    label: 'Read the case study', url: 'https://kilowott.com/case-studies/driving-3-5x-higher-organic-traffic-for-paul-john-caffeine/', style: 'ink' },
       { id: uid(), type: 'divider' },
       { id: uid(), type: 'stat',      number: '3.5×', caption: 'Organic traffic growth for Paul John Caffeine — SEO + Meta ads, U.S. market entry.' },

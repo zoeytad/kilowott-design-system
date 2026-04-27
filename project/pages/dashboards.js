@@ -7,72 +7,72 @@ window.renderDashboards = function (root) {
 
   // ---------- Spreadsheet demo data ----------
   const ssData = [
-    {id:'INV-4821', date:'2025-10-03', vendor:'AWS',              cat:'Hosting',    memo:'Monthly infra · eu-north-1',   inv:48120, paid:48120, owner:'Priya', due:'Oct 15', status:'Paid'},
-    {id:'INV-4822', date:'2025-10-05', vendor:'Clifford Chance',  cat:'Legal',      memo:'Q3 advisory retainer',          inv:22500, paid:22500, owner:'Aaron', due:'Oct 20', status:'Paid'},
-    {id:'INV-4823', date:'2025-10-07', vendor:'Adobe',            cat:'Software',   memo:'Creative Cloud · 40 seats',     inv: 8400, paid: 8400, owner:'Mira',  due:'Oct 21', status:'Paid'},
-    {id:'INV-4824', date:'2025-10-09', vendor:'WeWork Oslo',      cat:'Office',     memo:'Q4 lease · main floor',         inv:18600, paid:    0, owner:'Aaron', due:'Oct 25', status:'Open'},
-    {id:'INV-4825', date:'2025-10-11', vendor:'Nordic Travel Co', cat:'Travel',     memo:'Pitch travel · Helsinki',       inv: 6240, paid: 6240, owner:'Jonas', due:'Oct 25', status:'Paid'},
-    {id:'INV-4826', date:'2025-10-14', vendor:'Figma',            cat:'Software',   memo:'Organization plan · annual',    inv: 9800, paid: 9800, owner:'Mira',  due:'Oct 28', status:'Paid'},
-    {id:'INV-4827', date:'2025-10-16', vendor:'Datadog',          cat:'Hosting',    memo:'Observability + APM',           inv:14200, paid:14200, owner:'Priya', due:'Oct 30', status:'Paid'},
-    {id:'INV-4828', date:'2025-10-18', vendor:'Mercer Nordic',    cat:'Consulting', memo:'Compensation study',            inv:31500, paid:    0, owner:'Aaron', due:'Nov 03', status:'Open'},
-    {id:'INV-4829', date:'2025-10-20', vendor:'Stripe',           cat:'Fees',       memo:'Q3 processing fees',            inv:12840, paid:12840, owner:'Priya', due:'Nov 05', status:'Paid'},
-    {id:'INV-4830', date:'2025-10-22', vendor:'DigitalOcean',     cat:'Hosting',    memo:'Staging clusters',              inv: 3200, paid: 3200, owner:'Priya', due:'Nov 06', status:'Paid'},
-    {id:'INV-4831', date:'2025-10-24', vendor:'Deloitte',         cat:'Legal',      memo:'Tax structure review',          inv:42000, paid:    0, owner:'Aaron', due:'Nov 08', status:'Overdue'},
-    {id:'INV-4832', date:'2025-10-25', vendor:'Slack',            cat:'Software',   memo:'Enterprise · 240 seats',        inv: 7680, paid: 7680, owner:'Mira',  due:'Nov 08', status:'Paid'},
-    {id:'INV-4833', date:'2025-10-27', vendor:'Klarna Biz',       cat:'Payments',   memo:'Q4 onboarding',                 inv: 2400, paid: 2400, owner:'Priya', due:'Nov 10', status:'Paid'},
-    {id:'INV-4834', date:'2025-10-28', vendor:'BergenTele AS',    cat:'Utilities',  memo:'Office + plant connectivity',   inv:32440, paid:    0, owner:'Jonas', due:'Nov 10', status:'Overdue', active:true},
-    {id:'INV-4835', date:'2025-10-29', vendor:'Lieberman PR',     cat:'Marketing',  memo:'Narrative refresh · phase 1',   inv:28000, paid:28000, owner:'Aaron', due:'Nov 12', status:'Paid'},
-    {id:'INV-4836', date:'2025-10-30', vendor:'HubSpot',          cat:'Software',   memo:'Marketing automation',          inv:11400, paid:11400, owner:'Mira',  due:'Nov 14', status:'Paid'},
-    {id:'INV-4837', date:'2025-11-02', vendor:'Rest EU',          cat:'Travel',     memo:'Offsite venue · Porto',         inv:48200, paid:24100, owner:'Jonas', due:'Nov 17', status:'Open'},
-    {id:'INV-4838', date:'2025-11-03', vendor:'OpenAI',           cat:'Software',   memo:'API + Enterprise tier',         inv:22800, paid:22800, owner:'Priya', due:'Nov 18', status:'Paid'},
-    {id:'INV-4839', date:'2025-11-04', vendor:'Holvi Oslo',       cat:'Banking',    memo:'Q4 bank fees',                  inv: 1240, paid: 1240, owner:'Aaron', due:'Nov 20', status:'Paid'},
-    {id:'INV-4840', date:'2025-11-05', vendor:'BrandCollab Stud', cat:'Marketing',  memo:'Brand system v0.6',             inv:64000, paid:32000, owner:'Mira',  due:'Nov 22', status:'Disputed'},
-    {id:'INV-4841', date:'2025-11-06', vendor:'Workday',          cat:'Software',   memo:'HRIS · annual',                 inv:38400, paid:    0, owner:'Aaron', due:'Nov 25', status:'Open'},
-    {id:'INV-4842', date:'2025-11-08', vendor:'Nordic Travel Co', cat:'Travel',     memo:'EOY partner visits',            inv:12400, paid:    0, owner:'Jonas', due:'Nov 28', status:'Open'},
-    {id:'INV-4843', date:'2025-11-09', vendor:'GitHub',           cat:'Software',   memo:'Enterprise seats · 180',        inv:14800, paid:14800, owner:'Priya', due:'Nov 30', status:'Paid'},
-    {id:'INV-4844', date:'2025-11-10', vendor:'Auditly EU',       cat:'Audit',      memo:'Q4 SOC2 prep',                  inv:56000, paid:    0, owner:'Aaron', due:'Dec 02', status:'Draft'},
+    {id:'CMP-2401', date:'2026-01-08', channel:'Meta',     type:'Conversion', memo:'Paul John Caffeine · US launch',         spend:48120, revenue:148120, owner:'Growth',      end:'Mar 31', status:'Live'},
+    {id:'CMP-2402', date:'2026-01-10', channel:'SEO',      type:'Brand',      memo:'Editorial content · Q1 publish',         spend:22500, revenue: 78400, owner:'Brand',       end:'Mar 28', status:'Live'},
+    {id:'CMP-2403', date:'2026-01-12', channel:'Google',   type:'Conversion', memo:'Branded search · always-on',             spend: 8400, revenue: 31200, owner:'Performance', end:'—',     status:'Live'},
+    {id:'CMP-2404', date:'2026-01-14', channel:'LinkedIn', type:'Lead-gen',   memo:'Enterprise prospects · Nordics',          spend:18600, revenue:     0, owner:'Growth',      end:'Feb 28', status:'Optimizing'},
+    {id:'CMP-2405', date:'2026-01-16', channel:'Meta',     type:'Awareness',  memo:'Ramadan campaign · UAE',                 spend: 6240, revenue: 14800, owner:'Brand',       end:'Mar 10', status:'Live'},
+    {id:'CMP-2406', date:'2026-01-18', channel:'Email',    type:'Retention',  memo:'Win-back · dormant subscribers',         spend: 9800, revenue: 27400, owner:'Lifecycle',   end:'Apr 15', status:'Live'},
+    {id:'CMP-2407', date:'2026-01-21', channel:'YouTube',  type:'Awareness',  memo:'Brand film · 6-week burst',              spend:14200, revenue: 19200, owner:'Brand',       end:'Mar 04', status:'Live'},
+    {id:'CMP-2408', date:'2026-01-23', channel:'Google',   type:'Conversion', memo:'Comparison keywords · DTC',              spend:31500, revenue:     0, owner:'Performance', end:'Feb 28', status:'Paused'},
+    {id:'CMP-2409', date:'2026-01-25', channel:'Meta',     type:'Retargeting',memo:'Cart abandon · 14-day window',           spend:12840, revenue: 38600, owner:'Performance', end:'—',     status:'Live'},
+    {id:'CMP-2410', date:'2026-01-27', channel:'TikTok',   type:'Awareness',  memo:'UGC creator partnership',                spend: 3200, revenue:  4800, owner:'Creative',    end:'Mar 02', status:'Live'},
+    {id:'CMP-2411', date:'2026-01-29', channel:'LinkedIn', type:'Lead-gen',   memo:'C-suite ABM · Norway',                   spend:42000, revenue:     0, owner:'Growth',      end:'Apr 02', status:'Optimizing'},
+    {id:'CMP-2412', date:'2026-01-30', channel:'SEO',      type:'Brand',      memo:'Case-study landing pages',               spend: 7680, revenue: 22400, owner:'Brand',       end:'—',     status:'Live'},
+    {id:'CMP-2413', date:'2026-02-02', channel:'Email',    type:'Lifecycle',  memo:'Onboarding sequence · 5-touch',          spend: 2400, revenue:  9600, owner:'Lifecycle',   end:'—',     status:'Live'},
+    {id:'CMP-2414', date:'2026-02-04', channel:'Meta',     type:'Conversion', memo:'Spring collection · push',               spend:32440, revenue: 89200, owner:'Performance', end:'Apr 30', status:'Live', active:true},
+    {id:'CMP-2415', date:'2026-02-06', channel:'Google',   type:'Conversion', memo:'Display retarget · audience-first',      spend:28000, revenue: 64200, owner:'Performance', end:'Mar 28', status:'Live'},
+    {id:'CMP-2416', date:'2026-02-08', channel:'X',        type:'Awareness',  memo:'Industry event piggyback',               spend:11400, revenue: 14800, owner:'Brand',       end:'Feb 24', status:'Ended'},
+    {id:'CMP-2417', date:'2026-02-10', channel:'Meta',     type:'Conversion', memo:'Bundle promo · DTC',                     spend:48200, revenue:121400, owner:'Performance', end:'Mar 18', status:'Live'},
+    {id:'CMP-2418', date:'2026-02-12', channel:'LinkedIn', type:'Brand',      memo:'Thought leadership · founder voice',     spend:22800, revenue: 31600, owner:'Brand',       end:'—',     status:'Live'},
+    {id:'CMP-2419', date:'2026-02-14', channel:'Email',    type:'Retention',  memo:'VIP loyalty tier · Q1',                  spend: 1240, revenue:  8400, owner:'Lifecycle',   end:'—',     status:'Live'},
+    {id:'CMP-2420', date:'2026-02-16', channel:'Meta',     type:'Awareness',  memo:'Brand refresh launch · phase 1',         spend:64000, revenue: 92800, owner:'Brand',       end:'Apr 30', status:'Optimizing'},
+    {id:'CMP-2421', date:'2026-02-18', channel:'Google',   type:'Lead-gen',   memo:'Lookalike modeling · expansion',         spend:38400, revenue:     0, owner:'Growth',      end:'Mar 22', status:'Optimizing'},
+    {id:'CMP-2422', date:'2026-02-20', channel:'YouTube',  type:'Conversion', memo:'Pre-roll · purchase intent',             spend:12400, revenue:     0, owner:'Performance', end:'Mar 14', status:'Optimizing'},
+    {id:'CMP-2423', date:'2026-02-22', channel:'SEO',      type:'Brand',      memo:'Hub-and-spoke content programme',        spend:14800, revenue: 41200, owner:'Brand',       end:'—',     status:'Live'},
+    {id:'CMP-2424', date:'2026-02-24', channel:'TikTok',   type:'Conversion', memo:'Promo code influencer drop',             spend:56000, revenue:     0, owner:'Creative',    end:'Mar 18', status:'Draft'},
   ];
   const fmt = n => n === 0 ? '—' : '$' + n.toLocaleString('en-US');
   const sum = arr => arr.reduce((a,b)=>a+b,0);
-  const totInv  = sum(ssData.map(r=>r.inv));
-  const totPaid = sum(ssData.map(r=>r.paid));
-  const totBal  = totInv - totPaid;
-  const overdue = ssData.filter(r=>r.status==='Overdue');
+  const totSpend   = sum(ssData.map(r=>r.spend));
+  const totRevenue = sum(ssData.map(r=>r.revenue));
+  const totProfit  = totRevenue - totSpend;
+  const belowROAS  = ssData.filter(r=>(r.revenue - r.spend) < 0);
   const statusClass = s => ({
-    'Paid':'ss-st ss-st--paid',
-    'Open':'ss-st ss-st--open',
-    'Overdue':'ss-st ss-st--over',
-    'Disputed':'ss-st ss-st--disp',
+    'Live':'ss-st ss-st--paid',
+    'Optimizing':'ss-st ss-st--open',
+    'Paused':'ss-st ss-st--over',
+    'Ended':'ss-st ss-st--disp',
     'Draft':'ss-st ss-st--draft',
   })[s] || 'ss-st';
   const ssRows = () => ssData.map((r, i) => {
     const rowNum = i + 1;
-    const bal = r.inv - r.paid;
+    const profit = r.revenue - r.spend;
     const isActive = r.active;
     const trCls = isActive ? ' class="is-active-row"' : '';
-    const balCls = 'ss-num' + (bal > 0 ? ' ss-num--neg' : '') + (isActive ? ' is-active-cell' : '');
+    const profitCls = 'ss-num' + (profit < 0 ? ' ss-num--neg' : '') + (isActive ? ' is-active-cell' : '');
     return `
       <tr${trCls}>
         <td class="ss-rownum${isActive ? ' is-active-row-num' : ''}">${rowNum}</td>
         <td class="ss-mono">${r.id}</td>
         <td class="ss-mono ss-muted">${r.date}</td>
-        <td class="ss-vendor">${r.vendor}</td>
-        <td><span class="ss-pill">${r.cat}</span></td>
+        <td class="ss-vendor">${r.channel}</td>
+        <td><span class="ss-pill">${r.type}</span></td>
         <td class="ss-memo">${r.memo}</td>
-        <td class="ss-num">${fmt(r.inv)}</td>
-        <td class="ss-num ss-num--paid">${fmt(r.paid)}</td>
-        <td class="${balCls}">${fmt(bal)}</td>
-        <td class="ss-mono ss-muted">${r.due}</td>
+        <td class="ss-num">${fmt(r.spend)}</td>
+        <td class="ss-num ss-num--paid">${fmt(r.revenue)}</td>
+        <td class="${profitCls}">${fmt(profit)}</td>
+        <td class="ss-mono ss-muted">${r.end}</td>
         <td>${r.owner}</td>
         <td><span class="${statusClass(r.status)}">${r.status}</span></td>
       </tr>`;
   }).join('');
   // Replace tfoot values at render time
-  const ssTotInv = '$' + totInv.toLocaleString('en-US');
-  const ssTotPaid = '$' + totPaid.toLocaleString('en-US');
-  const ssTotBal = '$' + totBal.toLocaleString('en-US');
-  const ssOverdueCount = overdue.length;
-  const ssOverdueSum = '$' + sum(overdue.map(r=>r.inv-r.paid)).toLocaleString('en-US');
+  const ssTotInv = '$' + totSpend.toLocaleString('en-US');
+  const ssTotPaid = '$' + totRevenue.toLocaleString('en-US');
+  const ssTotBal = '$' + totProfit.toLocaleString('en-US');
+  const ssOverdueCount = belowROAS.length;
+  const ssOverdueSum = '$' + Math.abs(sum(belowROAS.map(r=>r.revenue-r.spend))).toLocaleString('en-US');
   const ssRowCount = ssData.length;
 
   // ==============================================================
@@ -2220,7 +2220,7 @@ window.renderDashboards = function (root) {
 
       <div class="db-spec">
         <div class="db-spec__head">
-          <span>Invoices ledger · Q4</span>
+          <span>Campaigns ledger · Q1</span>
           <span>.ss-wrap</span>
         </div>
         <div class="db-spec__stage db-spec__stage--flush">
@@ -2245,7 +2245,7 @@ window.renderDashboards = function (root) {
               <button class="ss-tb-btn" title="Freeze"><i data-lucide="snowflake"></i> Freeze</button>
               <button class="ss-tb-btn" title="Group"><i data-lucide="menu"></i> Group</button>
               <div class="ss-tb-sep"></div>
-              <input class="ss-tb-search" placeholder="Search vendor, memo, ID…">
+              <input class="ss-tb-search" placeholder="Search channel, campaign, ID…">
               <div style="margin-left:auto; display:flex; gap:6px;">
                 <button class="ss-tb-btn" title="Share"><i data-lucide="share-2"></i> Share</button>
                 <button class="ss-tb-btn" title="Export"><i data-lucide="download"></i> CSV</button>
@@ -2264,9 +2264,9 @@ window.renderDashboards = function (root) {
             <!-- Filter chips -->
             <div class="ss-chips">
               <span class="ss-chips__label">Active filters</span>
-              <span class="ss-chip">Period <b>Q4</b> <button aria-label="remove"><i data-lucide="x"></i></button></span>
-              <span class="ss-chip">Status <b>Open, Overdue</b> <button aria-label="remove"><i data-lucide="x"></i></button></span>
-              <span class="ss-chip">Amount <b>&gt; $5,000</b> <button aria-label="remove"><i data-lucide="x"></i></button></span>
+              <span class="ss-chip">Period <b>Q1</b> <button aria-label="remove"><i data-lucide="x"></i></button></span>
+              <span class="ss-chip">Status <b>Live, Optimizing</b> <button aria-label="remove"><i data-lucide="x"></i></button></span>
+              <span class="ss-chip">Spend <b>&gt; $5,000</b> <button aria-label="remove"><i data-lucide="x"></i></button></span>
               <button class="ss-chip ss-chip--add">+ Add filter</button>
               <span class="ss-chips__count">Showing <b>${ssRowCount}</b> of 812 rows</span>
             </div>
@@ -2285,27 +2285,27 @@ window.renderDashboards = function (root) {
                       <div class="ss-colhead__inner"><span>B</span> <span class="ss-colhead__label">Date</span></div>
                     </th>
                     <th class="ss-colhead ss-col-wide">
-                      <div class="ss-colhead__inner"><span>C</span> <span class="ss-colhead__label">Vendor</span>
+                      <div class="ss-colhead__inner"><span>C</span> <span class="ss-colhead__label">Channel</span>
                         <span class="ss-colhead__filter" title="Filtered">⧩</span></div>
                     </th>
                     <th class="ss-colhead">
-                      <div class="ss-colhead__inner"><span>D</span> <span class="ss-colhead__label">Category</span></div>
+                      <div class="ss-colhead__inner"><span>D</span> <span class="ss-colhead__label">Type</span></div>
                     </th>
                     <th class="ss-colhead ss-col-wide">
                       <div class="ss-colhead__inner"><span>E</span> <span class="ss-colhead__label">Memo</span></div>
                     </th>
                     <th class="ss-colhead ss-col-num">
-                      <div class="ss-colhead__inner ss-colhead__inner--num"><span>F</span> <span class="ss-colhead__label">Invoice $</span></div>
+                      <div class="ss-colhead__inner ss-colhead__inner--num"><span>F</span> <span class="ss-colhead__label">Spend $</span></div>
                     </th>
                     <th class="ss-colhead ss-col-num">
-                      <div class="ss-colhead__inner ss-colhead__inner--num"><span>G</span> <span class="ss-colhead__label">Paid $</span></div>
+                      <div class="ss-colhead__inner ss-colhead__inner--num"><span>G</span> <span class="ss-colhead__label">Revenue $</span></div>
                     </th>
                     <th class="ss-colhead ss-col-num">
-                      <div class="ss-colhead__inner ss-colhead__inner--num"><span>H</span> <span class="ss-colhead__label">Balance $</span>
+                      <div class="ss-colhead__inner ss-colhead__inner--num"><span>H</span> <span class="ss-colhead__label">Profit $</span>
                         <span class="ss-colhead__sort">▼</span></div>
                     </th>
                     <th class="ss-colhead">
-                      <div class="ss-colhead__inner"><span>I</span> <span class="ss-colhead__label">Due</span></div>
+                      <div class="ss-colhead__inner"><span>I</span> <span class="ss-colhead__label">End</span></div>
                     </th>
                     <th class="ss-colhead">
                       <div class="ss-colhead__inner"><span>J</span> <span class="ss-colhead__label">Owner</span></div>
@@ -2326,7 +2326,7 @@ window.renderDashboards = function (root) {
                     <td class="ss-num">${ssTotInv}</td>
                     <td class="ss-num">${ssTotPaid}</td>
                     <td class="ss-num ss-num--neg">${ssTotBal}</td>
-                    <td colspan="3" class="ss-foot-meta">${ssOverdueCount} overdue · ${ssOverdueSum} past due · avg DSO 38d</td>
+                    <td colspan="3" class="ss-foot-meta">${ssOverdueCount} below ROAS · ${ssOverdueSum} deficit · avg ROAS 2.4×</td>
                   </tr>
                 </tfoot>
               </table>
@@ -2337,21 +2337,21 @@ window.renderDashboards = function (root) {
               <div class="ss-tabs">
                 <button class="ss-tab" title="Add sheet">+</button>
                 <button class="ss-tab is-active">
-                  <span class="ss-tab__dot"></span>Invoices <span class="ss-tab__n">34</span>
+                  <span class="ss-tab__dot"></span>Campaigns <span class="ss-tab__n">34</span>
                 </button>
-                <button class="ss-tab">Expenses <span class="ss-tab__n">218</span></button>
-                <button class="ss-tab">Cash ledger <span class="ss-tab__n">94</span></button>
-                <button class="ss-tab">Payroll <span class="ss-tab__n">42</span></button>
+                <button class="ss-tab">Performance <span class="ss-tab__n">218</span></button>
+                <button class="ss-tab">Audience <span class="ss-tab__n">94</span></button>
+                <button class="ss-tab">Creative <span class="ss-tab__n">42</span></button>
                 <button class="ss-tab">Forecast <span class="ss-tab__n">Q1'26</span></button>
-                <button class="ss-tab">Reconciliation <span class="ss-tab__pill">●</span></button>
+                <button class="ss-tab">Attribution <span class="ss-tab__pill">●</span></button>
                 <button class="ss-tab">Audit trail</button>
                 <button class="ss-tab">Notes</button>
               </div>
               <div class="ss-status">
                 <span>Selection · <b>H14</b></span>
-                <span>Value · <b>$32,440</b></span>
+                <span>Value · <b>$56,760</b></span>
                 <span>Sum · <b>${ssTotBal}</b></span>
-                <span>Avg · <b>$${Math.round(totBal/ssRowCount).toLocaleString('en-US')}</b></span>
+                <span>Avg · <b>$${Math.round(totProfit/ssRowCount).toLocaleString('en-US')}</b></span>
                 <span>Count · <b>${ssRowCount}</b></span>
                 <span class="ss-status__zoom">100%</span>
               </div>
@@ -2377,10 +2377,10 @@ window.renderDashboards = function (root) {
             <div class="ss-tabsbar ss-tabsbar--top">
               <div class="ss-tabs">
                 <button class="ss-tab is-active">
-                  <span class="ss-tab__dot"></span>Invoices <span class="ss-tab__n">${ssRowCount}</span>
+                  <span class="ss-tab__dot"></span>Campaigns <span class="ss-tab__n">${ssRowCount}</span>
                 </button>
-                <button class="ss-tab">Expenses <span class="ss-tab__n">218</span></button>
-                <button class="ss-tab">Cash ledger <span class="ss-tab__n">94</span></button>
+                <button class="ss-tab">Performance <span class="ss-tab__n">218</span></button>
+                <button class="ss-tab">Audience <span class="ss-tab__n">94</span></button>
                 <button class="ss-tab">Forecast <span class="ss-tab__n">Q1'26</span></button>
                 <button class="ss-tab">Audit trail</button>
                 <button class="ss-tab ss-tab--add" title="Add sheet">+</button>
@@ -2404,15 +2404,15 @@ window.renderDashboards = function (root) {
             <div class="ss-formula">
               <div class="ss-namebox">F3</div>
               <div class="ss-fx">fx</div>
-              <input class="ss-fx-input" value="48120">
+              <input class="ss-fx-input" value="8400">
               <span class="ss-fx-status">● synced <span class="ss-fx-time">12:04:18</span></span>
             </div>
 
             <!-- Filter chips -->
             <div class="ss-chips">
               <span class="ss-chips__label">Active filters</span>
-              <span class="ss-chip">Status <b>Open, Overdue</b> <button aria-label="remove"><i data-lucide="x"></i></button></span>
-              <span class="ss-chip">Owner <b>Aaron</b> <button aria-label="remove"><i data-lucide="x"></i></button></span>
+              <span class="ss-chip">Status <b>Live, Optimizing</b> <button aria-label="remove"><i data-lucide="x"></i></button></span>
+              <span class="ss-chip">Owner <b>Growth</b> <button aria-label="remove"><i data-lucide="x"></i></button></span>
               <button class="ss-chip ss-chip--add">+ Add filter</button>
               <span class="ss-chips__count">Showing <b>8</b> of 812 rows</span>
             </div>
@@ -2431,16 +2431,16 @@ window.renderDashboards = function (root) {
                       <div class="ss-colhead__inner"><span>B</span> <span class="ss-colhead__label">Date</span></div>
                     </th>
                     <th class="ss-colhead ss-col-wide">
-                      <div class="ss-colhead__inner"><span>C</span> <span class="ss-colhead__label">Vendor</span></div>
+                      <div class="ss-colhead__inner"><span>C</span> <span class="ss-colhead__label">Channel</span></div>
                     </th>
                     <th class="ss-colhead">
-                      <div class="ss-colhead__inner"><span>D</span> <span class="ss-colhead__label">Category</span></div>
+                      <div class="ss-colhead__inner"><span>D</span> <span class="ss-colhead__label">Type</span></div>
                     </th>
                     <th class="ss-colhead ss-col-num">
-                      <div class="ss-colhead__inner ss-colhead__inner--num"><span>E</span> <span class="ss-colhead__label">Invoice $</span></div>
+                      <div class="ss-colhead__inner ss-colhead__inner--num"><span>E</span> <span class="ss-colhead__label">Spend $</span></div>
                     </th>
                     <th class="ss-colhead ss-col-num">
-                      <div class="ss-colhead__inner ss-colhead__inner--num"><span>F</span> <span class="ss-colhead__label">Balance $</span></div>
+                      <div class="ss-colhead__inner ss-colhead__inner--num"><span>F</span> <span class="ss-colhead__label">Profit $</span></div>
                     </th>
                     <th class="ss-colhead">
                       <div class="ss-colhead__inner"><span>G</span> <span class="ss-colhead__label">Status</span>
@@ -2450,16 +2450,16 @@ window.renderDashboards = function (root) {
                 </thead>
                 <tbody>
                   ${ssData.slice(0,8).map((r,i) => {
-                    const bal = r.inv - r.paid;
+                    const profit = r.revenue - r.spend;
                     return `
                     <tr>
                       <td class="ss-rownum">${i+1}</td>
                       <td class="ss-mono">${r.id}</td>
                       <td class="ss-mono ss-muted">${r.date}</td>
-                      <td class="ss-vendor">${r.vendor}</td>
-                      <td><span class="ss-pill">${r.cat}</span></td>
-                      <td class="ss-num">${fmt(r.inv)}</td>
-                      <td class="ss-num${bal>0 ? ' ss-num--neg' : ''}">${fmt(bal)}</td>
+                      <td class="ss-vendor">${r.channel}</td>
+                      <td><span class="ss-pill">${r.type}</span></td>
+                      <td class="ss-num">${fmt(r.spend)}</td>
+                      <td class="ss-num${profit<0 ? ' ss-num--neg' : ''}">${fmt(profit)}</td>
                       <td><span class="${statusClass(r.status)}">${r.status}</span></td>
                     </tr>`;
                   }).join('')}
@@ -2472,7 +2472,7 @@ window.renderDashboards = function (root) {
               <div class="ss-status">
                 <span>Ready</span>
                 <span>Selection · <b>F3</b></span>
-                <span>Value · <b>$48,120</b></span>
+                <span>Value · <b>$8,400</b></span>
                 <span>Count · <b>8</b></span>
                 <span class="ss-status__zoom">100%</span>
               </div>
@@ -2908,7 +2908,7 @@ window.renderDashboards = function (root) {
   // ---------- Spreadsheet(s) ----------
   root.querySelectorAll('.ss-wrap').forEach(sheet => {
 
-    // Sheet tabs (Invoices / Expenses / Cash ledger / …)
+    // Sheet tabs (Campaigns / Performance / Audience / …)
     const tabs = Array.from(sheet.querySelectorAll('.ss-tab'));
     const addTab = tabs[0]; // the "+" tab
     tabs.forEach(tab => {
@@ -2992,10 +2992,10 @@ window.renderDashboards = function (root) {
     const addChipBtn = sheet.querySelector('.ss-chip--add');
     if (addChipBtn) {
       const demoFilters = [
-        { field: 'Owner',    val: 'Aaron, Priya' },
-        { field: 'Category', val: 'Software, Hosting' },
-        { field: 'Vendor',   val: 'contains "Nordic"' },
-        { field: 'Due',      val: 'this week' },
+        { field: 'Owner',   val: 'Growth, Performance' },
+        { field: 'Type',    val: 'Conversion, Lead-gen' },
+        { field: 'Channel', val: 'contains "Meta"' },
+        { field: 'End',     val: 'this week' },
       ];
       let nextDemo = 0;
       addChipBtn.addEventListener('click', () => {
