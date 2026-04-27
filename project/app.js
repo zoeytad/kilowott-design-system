@@ -3,7 +3,7 @@
    ============================================================ */
 
 (function () {
-  const pages = ['overview','logo','color','type','foundations','icons','components','landing','dashboards','deck','email','signature','newsletter','stationery','case-study','imagery','voice','social'];
+  const pages = ['overview','logo','color','type','foundations','icons','components','landing','dashboards','deck','email','signature','newsletter','stationery','case-study','magazine','imagery','voice','social'];
   const renderers = {
     overview:      window.renderOverview,
     logo:          window.renderLogo,
@@ -20,6 +20,7 @@
     newsletter:    window.renderNewsletter,
     stationery:    window.renderStationery,
     'case-study':  window.renderCaseStudy,
+    magazine:      window.renderMagazine,
     imagery:       window.renderImagery,
     voice:         window.renderVoice,
     social:        window.renderSocial,
@@ -29,7 +30,7 @@
     overview: 'Overview', logo: 'Logo', color: 'Color', type: 'Type',
     foundations: 'Foundations', icons: 'Icons', components: 'Components',
     landing: 'Landing', dashboards: 'Dashboards', deck: 'Deck',
-    email: 'Email', signature: 'Signature', newsletter: 'Newsletter', stationery: 'Stationery', 'case-study': 'Case study', imagery: 'Imagery',
+    email: 'Email', signature: 'Signature', newsletter: 'Newsletter', stationery: 'Stationery', 'case-study': 'Case study', magazine: 'Magazine', imagery: 'Imagery',
     voice: 'Voice', social: 'Social',
   };
   const CATEGORIES = {
@@ -37,7 +38,7 @@
     voice: 'Brand', imagery: 'Brand',
     foundations: 'System', icons: 'System', components: 'System',
     landing: 'Surfaces', dashboards: 'Surfaces', deck: 'Surfaces',
-    'case-study': 'Surfaces', social: 'Surfaces',
+    'case-study': 'Surfaces', magazine: 'Surfaces', social: 'Surfaces',
     email: 'Communications', signature: 'Communications',
     newsletter: 'Communications', stationery: 'Communications',
   };
