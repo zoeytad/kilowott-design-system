@@ -2037,7 +2037,7 @@ window.renderDashboards = function (root) {
             <tbody>
               <tr>
                 <td><span class="dot dot--live"></span></td>
-                <td><span class="ticker">NDA.OL</span><span class="secondary muted">Nordic Data A/S</span></td>
+                <td><span class="ticker">OBX</span><span class="secondary muted">Oslo benchmark</span></td>
                 <td class="num">$142.40</td>
                 <td class="num">+$3.20</td>
                 <td class="num">+2.30%</td>
@@ -2497,12 +2497,12 @@ window.renderDashboards = function (root) {
       </div>
 
       <div class="db-spec">
-        <div class="db-spec__head"><span>NDA.OL &middot; 28 sessions</span><span>.ohlc</span></div>
+        <div class="db-spec__head"><span>OBX &middot; 28 sessions</span><span>.ohlc</span></div>
         <div class="db-spec__stage db-spec__stage--flush">
           <div class="ohlc">
             <div class="ohlc__head">
               <div>
-                <div class="ohlc__sym">NDA.OL <small>Nordic Data A/S</small></div>
+                <div class="ohlc__sym">OBX <small>Oslo benchmark</small></div>
               </div>
               <div class="ohlc__price">$${ohlcLast.c.toFixed(2)}</div>
               <div class="ohlc__delta${ohlcDelta < 0 ? ' ohlc__delta--down' : ''}">${ohlcDelta >= 0 ? '+' : '−'}$${Math.abs(ohlcDelta).toFixed(2)} &middot; ${ohlcDelta >= 0 ? '+' : '−'}${Math.abs(ohlcDeltaPct).toFixed(2)}%</div>

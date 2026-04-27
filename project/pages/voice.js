@@ -1,5 +1,5 @@
 /* ============================================================
-   VOICE & TONE — v0.6
+   VOICE & TONE — v1.0
    How Kilowott sounds. Principles, tone sliders, do/don't,
    vocabulary, and the register-shift matrix across contexts.
    ============================================================ */
