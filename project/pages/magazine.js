@@ -462,16 +462,13 @@ window.renderMagazine = function (root) {
             <div class="mg-cover__bg"></div>
             <div class="mg-cover__inner">
               <div class="mg-cover__top">
-                <div class="mg-cover__brand">
-                  <div class="mg-cover__bolt"><img src="assets/kilowott-bolt.jpg" alt="Kilowott"></div>
-                  <div class="mg-cover__wordmark">Framework</div>
-                </div>
+                <div class="mg-cover__brand"></div>
                 <div class="mg-cover__issue">
                   Issue<b>#003</b>
                 </div>
               </div>
 
-              <div class="mg-cover__masthead">FRAME-<br>WORK</div>
+              <div class="mg-cover__masthead">FRAMEWORK</div>
 
               <div class="mg-cover__rule"></div>
               <div class="mg-cover__eyebrow">Cover feature &middot; March 2026</div>
@@ -515,9 +512,10 @@ window.renderMagazine = function (root) {
               <div class="mg-opener__eyebrow">Cover feature &middot; agencies</div>
               <h1 class="mg-opener__h">Inside the <em>global agency</em> network.</h1>
               <p class="mg-opener__deck">
-                Eleven founders, eleven cities. Framework #003 sits down with the people building agencies
-                that act like partners &mdash; not pitch shops &mdash; in a market where the word &ldquo;digital&rdquo;
-                stopped meaning anything specific years ago.
+                Eleven founders and owners from the digital agency sector &mdash; some building quietly,
+                others redefining what an agency can achieve. Framework #003 brings them together
+                across brand storytelling, performance marketing, AI-led strategy, ecommerce, and
+                local digital growth.
               </p>
               <div class="mg-opener__byline">
                 <b>Framework editorial</b> &middot; March 2026
@@ -526,48 +524,92 @@ window.renderMagazine = function (root) {
             </div>
           </div>
         </div>
-        <div class="mg-card__cap"><b>Spread 01 &middot; Article opener</b> &middot; full-bleed photo on the verso (left page), eyebrow + headline + deck + byline on the recto (right page). Folio bottom corner &mdash; mono caps, italic accent on the live page number.</div>
+        <div class="mg-card__cap"><b>Spread 01 &middot; Article opener</b> &middot; full-bleed photo on the verso (left page), eyebrow + headline + deck + byline on the recto (right page). Folio bottom corner &mdash; mono caps, italic accent on the live page number. Real Framework #003 deck copy.</div>
       </div>
 
-      <!-- SPREAD 2 — PROFILE -->
+      <!-- SPREAD 2 — PROFILE · Natalie Renna · Mercy Me Marketing -->
       <div class="mg-card" style="margin-bottom: var(--s-5);">
         <div class="mg-card__stage" style="padding: 48px 32px;">
           <div class="mg-spread">
             <div class="mg-page mg-page--photo">
-              <img src="${PHOTO.leader}" alt="Agency founder portrait">
-              <div class="mg-page__folio mg-page__folio--l" style="color:rgba(255,255,255,0.7);"><em>FW</em> &middot; 24 &middot; Mar 2026</div>
+              <img src="${PHOTO.portraitTab}" alt="Natalie Renna, Mercy Me Marketing">
+              <div class="mg-page__folio mg-page__folio--l" style="color:rgba(255,255,255,0.7);"><em>FW</em> &middot; 18 &middot; Mar 2026</div>
             </div>
             <div class="mg-page">
               <div class="mg-opener__eyebrow" style="color:#5B6573;">
-                <span style="background:#E4022D;width:16px;height:1px;"></span> Profile · 04 of 11
+                <span style="background:#E4022D;width:16px;height:1px;"></span> Profile &middot; 01 of 11
               </div>
-              <div class="mg-profile__name">Daniel Calbacho</div>
-              <div class="mg-profile__role">Founder &amp; MD &middot; Red Marketing &middot; UK</div>
+              <div class="mg-profile__name">Natalie <em>Renna</em></div>
+              <div class="mg-profile__role">Founder &amp; Director &middot; Mercy Me Marketing &middot; Adelaide, Australia</div>
               <div class="mg-profile__rule"></div>
 
               <div class="mg-profile__qa">
                 <p>
-                  <b>On the agency model</b>
-                  We were a content shop in 2018. Performance came in 2020. Strategy came last &mdash;
-                  because clients started asking for it last. The order matters; if we&rsquo;d led with
-                  strategy we&rsquo;d have closed.
+                  <b>On the agency</b>
+                  Mercy Me Marketing is a boutique advertising and marketing consultancy with twenty-five years
+                  behind it. Strategy, branding, graphic design, social, video, web, performance &mdash; one
+                  team, one room, full-service for clients who want a partner not a queue.
                 </p>
                 <p>
-                  <b>On the team</b>
-                  Twelve people, four cities, one rule: every senior runs at least one client review
-                  a quarter. The hierarchy flattens fast when the founder is on the call.
+                  <b>On the work</b>
+                  The approach is long-term: tailored campaigns built on collaborative relationships,
+                  measured by business results not vanity metrics. The team culture is deliberately
+                  approachable &mdash; senior people on every call, no client left to a junior account manager.
                 </p>
                 <p>
                   <b>On Framework</b>
-                  &ldquo;The collaboration was very professional, with clear communication and a genuine
-                  interest in the nuances of our work.&rdquo;
+                  &ldquo;The experience of working with Kilowott on the Framework feature was fantastic
+                  and exceeded expectations 100%. Valuable networking, professional execution end to end.&rdquo;
                 </p>
               </div>
-              <div class="mg-page__folio mg-page__folio--r">24 &middot; <em>25</em></div>
+              <div class="mg-page__folio mg-page__folio--r">18 &middot; <em>19</em></div>
             </div>
           </div>
         </div>
-        <div class="mg-card__cap"><b>Spread 02 &middot; Founder profile</b> &middot; portrait verso, name + role + Q&amp;A recto. Question labels in mono red caps, body in DM Sans 9pt. Sample uses a real Framework #003 profile (Daniel Calbacho, Red Marketing UK) with a real testimonial pull.</div>
+        <div class="mg-card__cap"><b>Spread 02 &middot; Founder profile</b> &middot; portrait verso, name (italic accent on family name) + role + Q&amp;A recto. Real Framework #003 profile: Natalie Renna of Mercy Me Marketing, Adelaide. Body summary from <a href="https://mercymemarketing.com.au" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);">mercymemarketing.com.au</a>; testimonial pulled verbatim from Framework.</div>
+      </div>
+
+      <!-- SPREAD 2B — PROFILE · Fabien Katola · COPY FK -->
+      <div class="mg-card" style="margin-bottom: var(--s-5);">
+        <div class="mg-card__stage" style="padding: 48px 32px;">
+          <div class="mg-spread">
+            <div class="mg-page mg-page--photo">
+              <img src="${PHOTO.leader}" alt="Fabien Katola, COPY FK">
+              <div class="mg-page__folio mg-page__folio--l" style="color:rgba(255,255,255,0.7);"><em>FW</em> &middot; 26 &middot; Mar 2026</div>
+            </div>
+            <div class="mg-page">
+              <div class="mg-opener__eyebrow" style="color:#5B6573;">
+                <span style="background:#E4022D;width:16px;height:1px;"></span> Profile &middot; 02 of 11
+              </div>
+              <div class="mg-profile__name">Fabien <em>Katola</em></div>
+              <div class="mg-profile__role">Founder &middot; COPY FK &middot; France</div>
+              <div class="mg-profile__rule"></div>
+
+              <div class="mg-profile__qa">
+                <p>
+                  <b>On the work</b>
+                  COPY FK runs a marketing approach centred on client relationships, consistency
+                  and real value &mdash; the sort of thing every agency claims, then quietly stops
+                  practising once the retainer is signed. Fabien doesn&rsquo;t.
+                </p>
+                <p>
+                  <b>On positioning</b>
+                  &ldquo;Brand storytelling&rdquo; gets used to mean anything. For Fabien it means showing up
+                  in the same voice across the campaign, the deck, the email, the invoice &mdash; and
+                  letting the work get edited by the people closest to the customer, not the people
+                  closest to the founder.
+                </p>
+                <p>
+                  <b>On Framework</b>
+                  &ldquo;The collaboration let me highlight a marketing approach centred on client
+                  relationships, consistency, and real value &mdash; rare in this market.&rdquo;
+                </p>
+              </div>
+              <div class="mg-page__folio mg-page__folio--r">26 &middot; <em>27</em></div>
+            </div>
+          </div>
+        </div>
+        <div class="mg-card__cap"><b>Spread 02b &middot; Second profile</b> &middot; same architecture, different photo + body. Real Framework #003 profile: Fabien Katola of COPY FK, France. Testimonial verbatim.</div>
       </div>
 
       <!-- SPREAD 3 — STAT -->
