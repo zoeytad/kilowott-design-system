@@ -1,0 +1,347 @@
+{
+  "$schema": "https://kilowott.com/brand-schema/v1.json",
+  "name": "Kilowott Design System",
+  "version": "1.0",
+  "register": "editorial",
+  "default_theme": "light",
+  "tagline": {
+    "primary": "Built for what comes next.",
+    "long": "Scale faster. Deliver better. Create impact."
+  },
+
+  "color": {
+    "_rule": "60·30·5·5 ratio. Paper is the surface, not red. Default theme is light. Red is a single-accent spotlight, never a background.",
+
+    "tokens": {
+      "paper": {
+        "hex": "#FFFFFF",
+        "rgb": [255, 255, 255],
+        "css_var": "--k-paper",
+        "role": "primary surface — body background",
+        "ratio_target": 0.60
+      },
+      "paper_2": {
+        "hex": "#F6F4F0",
+        "rgb": [246, 244, 240],
+        "css_var": "--k-paper-2",
+        "role": "warm paper — section breaks, cards on paper",
+        "ratio_target": 0.05
+      },
+      "paper_3": {
+        "hex": "#EDEAE3",
+        "rgb": [237, 234, 227],
+        "css_var": "--k-paper-3",
+        "role": "warmer card on paper"
+      },
+      "ink": {
+        "hex": "#0B0F14",
+        "rgb": [11, 15, 20],
+        "css_var": "--k-ink",
+        "role": "primary text on light + dark hero panels",
+        "ratio_target": 0.30
+      },
+      "ink_2": {
+        "hex": "#1A2230",
+        "rgb": [26, 34, 48],
+        "css_var": "--k-ink-2",
+        "role": "secondary text body / secondary surface dark"
+      },
+      "ink_3": {
+        "hex": "#2B3544",
+        "rgb": [43, 53, 68],
+        "css_var": "--k-ink-3",
+        "role": "tertiary, borders on dark"
+      },
+      "red": {
+        "hex": "#E4022D",
+        "rgb": [228, 2, 45],
+        "css_var": "--k-red",
+        "role": "signature accent — italic emphasis word, single stat per surface, 1-2px rules, primary CTA",
+        "ratio_target": 0.05,
+        "rules": [
+          "single accent per surface — never alongside another color accent",
+          "never as a full background or large surface fill",
+          "never as body text",
+          "never gradient or two-tone"
+        ]
+      },
+      "red_soft": {
+        "hex": "#FCE5EA",
+        "rgb": [252, 229, 234],
+        "css_var": "--k-red-soft",
+        "role": "tinted bg behind red accent (rare)"
+      },
+      "red_ink": {
+        "hex": "#8A021B",
+        "rgb": [138, 2, 27],
+        "css_var": "--k-red-ink",
+        "role": "darkened red text on paper for accessibility"
+      },
+      "muted": {
+        "hex": "#5B6573",
+        "rgb": [91, 101, 115],
+        "css_var": "--k-muted",
+        "role": "secondary text on paper"
+      },
+      "muted_dark": {
+        "hex": "#8A95A5",
+        "rgb": [138, 149, 165],
+        "css_var": "--k-muted-dark",
+        "role": "secondary text on ink"
+      },
+      "rule": {
+        "hex": "#1A2230",
+        "css_var": "--k-rule",
+        "role": "strong rule on paper"
+      },
+      "rule_soft": {
+        "hex": "#E2DED6",
+        "rgb": [226, 222, 214],
+        "css_var": "--k-rule-soft",
+        "role": "soft divider on paper"
+      }
+    },
+
+    "semantic": {
+      "bg": "#FFFFFF",
+      "bg_2": "#F6F4F0",
+      "bg_3": "#EDEAE3",
+      "fg": "#0B0F14",
+      "fg_2": "#5B6573",
+      "accent": "#E4022D",
+      "accent_ink": "#8A021B",
+      "rule": "#E2DED6",
+      "rule_strong": "#1A2230"
+    },
+
+    "ratio": {
+      "paper": 60,
+      "ink": 30,
+      "warm": 5,
+      "red": 5,
+      "_rule": "60·30·5·5 — paper · ink · warm · red. Never invert."
+    },
+
+    "do": [
+      "Red on the single italic emphasis word in a serif headline",
+      "Red on one statistic per page (e.g. 3.5×)",
+      "Red as a 1px–2px rule under an eyebrow or above a foot",
+      "Red as a 4mm rule on print (business cards, envelopes)",
+      "Red as primary CTA button fill",
+      "Ink (#0B0F14) as primary body color on light surfaces",
+      "Warm paper (#F6F4F0) as section dividers / cards on paper"
+    ],
+
+    "dont": [
+      "Red as a full-page or full-section background",
+      "Red as body text or large blocks of text",
+      "Red gradients or two-tone reds",
+      "Red alongside another color accent on the same surface",
+      "More than one red emphasis word per headline",
+      "Black-as-default backgrounds (the brand is paper-led, not ink-led)",
+      "Recoloring the bolt mark — only black on white or white on ink"
+    ],
+
+    "alt_accents": {
+      "_rule": "Sub-brand or campaign use only. They REPLACE red as the single accent — never used alongside it.",
+      "deeper_red":     { "hex": "#C8102E", "name": "Deeper Red",     "use": "editorial / print" },
+      "signal_orange":  { "hex": "#F05A28", "name": "Signal Orange",  "use": "Workforce sub-brand, energy" },
+      "electric_blue":  { "hex": "#1F3CFF", "name": "Electric Blue",  "use": "Intelligence sub-brand, product" },
+      "ink_mono":       { "hex": "#0B0F14", "name": "Ink Mono",       "use": "mono-color restraint" }
+    }
+  },
+
+  "typography": {
+    "_trio": "Newsreader (display) + DM Sans (UI/body) + JetBrains Mono (system labels). No other webfonts.",
+
+    "google_fonts_url": "https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap",
+
+    "display": {
+      "family": "Newsreader",
+      "fallback": "Georgia, serif",
+      "css_var": "--font-display",
+      "weights": [400, 500],
+      "italic": true,
+      "use": "Headlines, magazine masthead, editorial pull-quotes. Italic for one accent word per headline."
+    },
+    "sans": {
+      "family": "DM Sans",
+      "fallback": "ui-sans-serif, system-ui, sans-serif",
+      "css_var": "--font-sans",
+      "weights": [400, 500],
+      "use": "UI text, body copy, buttons, eyebrows."
+    },
+    "mono": {
+      "family": "JetBrains Mono",
+      "fallback": "ui-monospace, SF Mono, Menlo, monospace",
+      "css_var": "--font-mono",
+      "weights": [400, 500],
+      "use": "System labels, eyebrows, folio, code, tabular numbers."
+    },
+
+    "scale": {
+      "fs_d1":   { "css": "clamp(3.5rem, 7vw, 6.25rem)",   "px_range": [56, 100], "use": "biggest hero" },
+      "fs_d2":   { "css": "clamp(2.75rem, 5.2vw, 4.5rem)", "px_range": [44, 72],  "use": "page-header headline" },
+      "fs_d3":   { "css": "clamp(2rem, 3.6vw, 3rem)",      "px_range": [32, 48],  "use": "section title" },
+      "fs_h1":   { "px": 36, "use": "h1 in body content" },
+      "fs_h2":   { "px": 24, "use": "h2" },
+      "fs_h3":   { "px": 18, "use": "h3" },
+      "fs_body": { "px": 16, "use": "body" },
+      "fs_sm":   { "px": 14, "use": "small / captions" },
+      "fs_xs":   { "px": 12, "use": "eyebrow" }
+    },
+
+    "tracking": {
+      "eyebrow": "0.18em",
+      "display": "-0.02em"
+    },
+
+    "line_height": {
+      "tight": 1.04,
+      "snug": 1.2,
+      "body": 1.55
+    },
+
+    "rules": [
+      "One italic-accent emphasis word per headline (wrapped in <em>, defaults to red)",
+      "Eyebrows in mono caps with 24px red rule prefix and 0.18-0.22em letter-spacing",
+      "Body 16px DM Sans / 1.6 line-height / color #1A2230",
+      "Headlines weight 400 (NOT bold). The serif weight does the work.",
+      "Numbers in tabular-nums for stats and tables"
+    ]
+  },
+
+  "spacing": {
+    "_base": "8pt scale",
+    "tokens": {
+      "s_0":  0,    "s_1":  4,    "s_2":  8,    "s_3":  12,
+      "s_4":  16,   "s_5":  24,   "s_6":  32,   "s_7":  48,
+      "s_8":  64,   "s_9":  96,   "s_10": 128
+    }
+  },
+
+  "radii": {
+    "r_0":    0,
+    "r_1":    "2px",
+    "r_2":    "4px",
+    "r_3":    "8px",
+    "r_4":    "12px",
+    "r_pill": "999px"
+  },
+
+  "logo": {
+    "wordmark": {
+      "svg": "assets/kilowott-logo.svg",
+      "viewBox": "0 0 313 41",
+      "treatment": "Single SVG, recolored via CSS mask + currentColor. One asset, every surface — no PNG sprites, no inline SVG duplication.",
+      "minimum_size": { "screen_px": 80, "print_mm": 20 },
+      "clear_space": "Equal to cap-height of the K on all sides"
+    },
+    "bolt": {
+      "image": "assets/kilowott-bolt.jpg",
+      "source": "Kilowott LinkedIn company-logo CDN",
+      "use": "Square companion mark — profile avatars, favicons, app icons, watermarks. Companion to wordmark, never replacement.",
+      "default_color": "Black bolt on white square",
+      "on_dark": "Invert via CSS filter: invert(1) for dark backgrounds",
+      "rules": [
+        "Never recolor red, gradient, or two-tone",
+        "Never replace the wordmark with the bolt on letterhead, decks, websites, signage",
+        "Use as profile mark for LinkedIn / X / Facebook / Instagram"
+      ]
+    }
+  },
+
+  "facts": {
+    "legal_entity": "Kilowott LLP",
+    "tagline_primary": "Built for what comes next.",
+    "tagline_long": "Scale faster. Deliver better. Create impact.",
+
+    "offices": [
+      { "region": "Norway",  "address": "Waterbear AS, Haugstentunet 16, 1637 Gamle Fredrikstad" },
+      { "region": "Norway",  "address": "FOMO WORKS, Grenseveien 21, 4313 Sandnes" },
+      { "region": "India",   "address": "Nordic Intent, Lane 4, PDA Colony, Porvorim, Goa", "note": "Porvorim — NOT Panjim or Panaji" },
+      { "region": "UAE",     "address": "Kilowott DXB, Meydan Grandstand, 6th floor, Dubai" },
+      { "region": "USA",     "address": "Kilowott USA LLC, 317 N Layton Ave, Wyoming, DE 19934", "note": "Registration only — not a working office. Don't list as a city." }
+    ],
+    "address_compact": "Fredrikstad · Sandnes · Goa · Dubai",
+
+    "contact": {
+      "phone_norway": "+47 925 11 386",
+      "phone_sales_india": "+91 91452 46464",
+      "phone_careers_india": "+91 9765419976",
+      "meeting_url": "https://meetings.hubspot.com/pphadtare",
+      "contact_page": "https://kilowott.com/contact-us/"
+    },
+
+    "socials": {
+      "facebook":  "https://www.facebook.com/kilowott/",
+      "instagram": "https://www.instagram.com/kilowott/",
+      "youtube":   "https://www.youtube.com/channel/UC6v7gOFR2IXdQobTFz_Ac8Q",
+      "behance":   "https://www.behance.net/kilowott",
+      "_note": "LinkedIn and X/Twitter are NOT linked from the public site. Leave blank in defaults."
+    },
+
+    "real_clients": ["Craft", "Bosch", "Marriott", "Mazda", "Nissan", "Netflix", "Pepe Jeans", "Radisson", "Stihl"],
+
+    "real_case_studies": [
+      { "client": "Paul John Caffeine",     "result": "3.5× organic traffic, DA 1→20, 256k impressions",
+        "url": "https://kilowott.com/case-studies/driving-3-5x-higher-organic-traffic-for-paul-john-caffeine/" },
+      { "client": "Noma Norge",             "result": "190%+ engagement",
+        "url": "https://kilowott.com/case-studies/noma-norge-e-commerce-redesign-that-drove-over-190-higher-engagement/" },
+      { "client": "Showcar",                "result": "10k MAU automotive",
+        "url": "https://kilowott.com/case-studies/boosting-engagement-for-automotive-enthusiasts-with-10k-monthly-active-users/" },
+      { "client": "Big Banyan Wines",       "result": "500 bookings, ₹4.6L revenue",
+        "url": "https://kilowott.com/case-studies/driving-500-bookings-%e2%82%b94-6l-revenue-for-big-banyan-wines-with-strategic-digital-marketing/" }
+    ],
+
+    "framework_magazine": {
+      "url": "https://kilowott.com/framework-edition/",
+      "latest_issue": { "number": "#003", "month": "March 2026", "title": "Inside the Global Agency Network" }
+    },
+
+    "placeholder_persona": {
+      "_note": "When demo content needs a name, use this. Comment in code that it's a placeholder.",
+      "name": "Ola Nordmann",
+      "email": "ola.nordmann@kilowott.com",
+      "phone": "+47 925 11 386"
+    },
+
+    "fabricated_names_DO_NOT_REUSE": [
+      "Aaron Bisht", "Priya", "Priya Mehta", "Priya Nair", "Priya Rao",
+      "Mira", "Mira Lindqvist", "Jonas", "Jonas Kielland", "Jonas Kleiva",
+      "Hartvig Reinfjord", "Maya Ravn", "Aaron Holm", "Sara Lindgren",
+      "Lena Fernandes", "Ravi Kumar", "Nordic Data", "NDA.OL",
+      "Bergen Labs", "Mindset Corporate"
+    ]
+  },
+
+  "voice": {
+    "register": "editorial",
+    "principles": [
+      "Calm by default — generous whitespace, narrow palette, type does the heavy lifting. Noise is a design failure, not a feature.",
+      "Red earns its place — signature red is a spotlight, not a wash. One idea per surface.",
+      "Editorial over ornamental — serif display + clean sans, italics carry emphasis, no gradients/glows/filler iconography.",
+      "Technical and human — precise, never sterile. Confident, never loud."
+    ],
+    "do": ["Short sentences", "Real numbers (no rounding for headline)", "Specific decisions", "Italic accent on one word"],
+    "dont": ["Marketing fluff (synergy, transformative, world-class)", "Passive voice", "Vague claims", "Em-dashes used as conjunctions"]
+  },
+
+  "surfaces_shipped": {
+    "Brand":           ["overview", "logo", "color", "type", "voice", "imagery"],
+    "System":          ["foundations", "icons", "components"],
+    "Surfaces":        ["landing", "dashboards", "deck", "case-study", "magazine", "social"],
+    "Communications": ["email", "signature", "newsletter", "stationery"]
+  },
+
+  "ai_render_recipe": [
+    "Body bg: #FFFFFF",
+    "Body text: #0B0F14, DM Sans 16px, line-height 1.6",
+    "Headlines: Newsreader, weight 400, line-height 1.04, letter-spacing -0.02em",
+    "Pick ONE word per headline to wrap in <em> for italic + red (#E4022D)",
+    "Eyebrows: mono caps, 12px, letter-spacing 0.22em, with a 24px red rule prefix",
+    "Buttons: pill (border-radius 999px), 14px DM Sans medium; primary = ink fill (#0B0F14), accent = red fill (#E4022D)",
+    "Section breaks via warm paper #F6F4F0, NOT red",
+    "Icons: Lucide library, stroke-width 1.75, 16-18px"
+  ]
+}

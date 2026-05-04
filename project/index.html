@@ -5,6 +5,46 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Kilowott — Design System v1.0</title>
 
+<!-- ============ AI / scraper-friendly metadata ============
+     This is a SPA — content is rendered by JS at runtime. Bots and AI
+     scrapers without JS execution see empty page divs. The metadata,
+     <noscript> block, and machine-readable resources below give them
+     enough to render brand-correct.
+     ============================================================ -->
+<meta name="description" content="Kilowott Design System v1.0 — editorial brand register. Newsreader serif + DM Sans + JetBrains Mono. Paper / Ink / Warm / Red 60·30·5·5 palette (#FFFFFF · #0B0F14 · #F6F4F0 · #E4022D). Light theme by default. Built for what comes next.">
+<meta name="keywords" content="Kilowott, design system, brand kit, editorial, Newsreader, DM Sans, JetBrains Mono, Paul John Caffeine, Framework magazine">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kilowott Design System v1.0">
+<meta property="og:description" content="Editorial brand register — Newsreader + DM Sans + JetBrains Mono · 60·30·5·5 color ratio: Paper #FFFFFF · Ink #0B0F14 · Warm #F6F4F0 · Red #E4022D.">
+<meta property="og:image" content="assets/kilowott-bolt.jpg">
+
+<!-- Machine-readable resources for AI agents -->
+<link rel="alternate" type="text/markdown" href="llms.txt" title="Brand reference for AI tools (markdown)">
+<link rel="alternate" type="application/json" href="brand.json" title="Brand tokens + facts (machine-readable)">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Kilowott Design System",
+  "version": "1.0",
+  "description": "Editorial brand register: Newsreader + DM Sans + JetBrains Mono · paper/ink/warm/red 60·30·5·5 palette. Default theme is light. Body bg #FFFFFF, body text #0B0F14, signature accent #E4022D used on a single italic emphasis word per headline.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Kilowott",
+    "url": "https://kilowott.com",
+    "logo": "assets/kilowott-logo.svg"
+  },
+  "potentialAction": {
+    "@type": "ReadAction",
+    "target": ["llms.txt", "brand.json"]
+  }
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- Kilowott brand trio: Newsreader (display) · DM Sans (sans) · JetBrains Mono (mono). System serifs/sans used as fallbacks — no extra webfont payload. -->
@@ -113,6 +153,88 @@
 
 <!-- ============ MAIN ============ -->
 <main id="main">
+
+  <!-- ============================================================
+       AI / NO-JS BRAND SUMMARY
+       Hidden visually when JS runs (the live kit takes over) but
+       parseable by bots, AI scrapers, and JS-disabled clients.
+       Mirrors the essentials in /llms.txt and /brand.json.
+       ============================================================ -->
+  <noscript>
+    <style>
+      .nojs-fallback { max-width: 760px; margin: 64px auto; padding: 0 32px; font-family: Georgia, serif; color: #0B0F14; line-height: 1.55; }
+      .nojs-fallback h1 { font-size: 2.5rem; margin: 0 0 16px; letter-spacing: -0.02em; }
+      .nojs-fallback h2 { font-size: 1.25rem; margin: 32px 0 12px; }
+      .nojs-fallback em { font-style: italic; color: #E4022D; }
+      .nojs-fallback table { border-collapse: collapse; width: 100%; font-size: 14px; }
+      .nojs-fallback td, .nojs-fallback th { padding: 6px 10px; border-bottom: 1px solid #E2DED6; text-align: left; }
+      .nojs-fallback code { font-family: ui-monospace, Menlo, monospace; background: #F6F4F0; padding: 2px 6px; border-radius: 3px; }
+      .nojs-fallback a { color: #E4022D; text-decoration: none; border-bottom: 1px solid #E4022D; }
+    </style>
+    <article class="nojs-fallback" itemscope itemtype="https://schema.org/CreativeWork">
+      <h1 itemprop="name">Kilowott Design System <em>v1.0</em></h1>
+      <p itemprop="description"><strong>Built for what comes next.</strong> Editorial brand register — calm by default, red earns its place. JavaScript is required for the interactive kit; this fallback is for bots, AI scrapers, and JS-disabled clients.</p>
+
+      <h2>Machine-readable resources</h2>
+      <ul>
+        <li><a href="llms.txt">llms.txt</a> — full markdown brand reference</li>
+        <li><a href="brand.json">brand.json</a> — structured tokens + facts</li>
+      </ul>
+
+      <h2>Color palette · 60·30·5·5</h2>
+      <table>
+        <tr><th>Token</th><th>Hex</th><th>Role</th><th>%</th></tr>
+        <tr><td>Paper</td><td><code>#FFFFFF</code></td><td>Primary surface — body bg</td><td>60</td></tr>
+        <tr><td>Ink</td><td><code>#0B0F14</code></td><td>Primary text + dark hero</td><td>30</td></tr>
+        <tr><td>Warm</td><td><code>#F6F4F0</code></td><td>Section breaks, cards</td><td>5</td></tr>
+        <tr><td>Red</td><td><code>#E4022D</code></td><td>Single accent — italic word, one stat per page</td><td>5</td></tr>
+      </table>
+      <p><strong>Default theme:</strong> light (paper bg, ink text). Don't render dark by default.<br>
+      <strong>Red rules:</strong> never as a full background or body text. One red emphasis word per headline. Never red gradients or two-tone.</p>
+
+      <h2>Typography</h2>
+      <ul>
+        <li><strong>Display:</strong> Newsreader serif (Georgia fallback) — headlines, italic accent</li>
+        <li><strong>UI / body:</strong> DM Sans (Arial fallback) — body 16px / line-height 1.6 / color #1A2230</li>
+        <li><strong>Mono:</strong> JetBrains Mono (Menlo fallback) — eyebrows, folio, code, system labels</li>
+      </ul>
+
+      <h2>Real Kilowott facts (use these — never invent)</h2>
+      <ul>
+        <li><strong>Tagline:</strong> Built for what comes next. (Long: Scale faster. Deliver better. Create impact.)</li>
+        <li><strong>Offices:</strong> Fredrikstad · Sandnes · Goa (Porvorim, NOT Panjim) · Dubai. <em>No New York office.</em></li>
+        <li><strong>Norway phone:</strong> +47 925 11 386</li>
+        <li><strong>Meeting booking:</strong> https://meetings.hubspot.com/pphadtare</li>
+        <li><strong>Real socials:</strong> facebook.com/kilowott · instagram.com/kilowott · youtube.com/channel/UC6v7gOFR2IXdQobTFz_Ac8Q · behance.net/kilowott</li>
+        <li><strong>Real clients:</strong> Craft, Bosch, Marriott, Mazda, Nissan, Netflix, Pepe Jeans, Radisson, Stihl</li>
+        <li><strong>Real flagship case:</strong> Paul John Caffeine — 3.5× organic traffic, DA 1→20, 256k impressions. <a href="https://kilowott.com/case-studies/driving-3-5x-higher-organic-traffic-for-paul-john-caffeine/">Read it</a></li>
+        <li><strong>Placeholder persona for demos:</strong> Ola Nordmann (Norwegian "John Doe")</li>
+      </ul>
+
+      <h2>Logo</h2>
+      <ul>
+        <li>Wordmark: <code>assets/kilowott-logo.svg</code> (recolored via CSS mask + currentColor)</li>
+        <li>Bolt mark: <code>assets/kilowott-bolt.jpg</code> (black bolt on white square — for avatars, favicons, app icons; never replaces the wordmark)</li>
+      </ul>
+
+      <h2>Surfaces in the kit</h2>
+      <p><strong>Brand:</strong> Overview · Logo · Color · Type · Voice · Imagery<br>
+      <strong>System:</strong> Foundations · Icons · Components<br>
+      <strong>Surfaces:</strong> Landing · Dashboards · Deck · Case study · Magazine · Social<br>
+      <strong>Communications:</strong> Email · Signature · Newsletter · Stationery</p>
+
+      <h2>How to render brand-correct</h2>
+      <ol>
+        <li>Body bg: <code>#FFFFFF</code> · Body text: <code>#0B0F14</code> · DM Sans 16px / line-height 1.6</li>
+        <li>Headlines: Newsreader, weight 400, line-height 1.04, letter-spacing -0.02em</li>
+        <li>One word per headline wrapped in <code>&lt;em&gt;</code> for italic + red</li>
+        <li>Eyebrows: mono caps, 12px, letter-spacing 0.22em, with a 24px red rule prefix</li>
+        <li>Buttons: pill (radius 999px); primary = ink fill, accent = red fill</li>
+        <li>Section breaks via warm paper #F6F4F0 — NOT red</li>
+      </ol>
+    </article>
+  </noscript>
+
   <div id="page-overview" class="page"></div>
   <div id="page-logo" class="page" hidden></div>
   <div id="page-color" class="page" hidden></div>
