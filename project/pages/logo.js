@@ -273,6 +273,19 @@ window.renderLogo = function (root) {
     .lg-dont--shadow .lg-var__logo {
       filter: drop-shadow(4px 6px 0 rgba(0,0,0,0.3));
     }
+    /* Mobile containment */
+    .grid > * { min-width: 0; }
+    @media (max-width: 600px) {
+      .lg-clear { padding: var(--s-4); grid-template-columns: minmax(0, 1fr); }
+      .lg-clear__box { width: 100%; min-width: 0; }
+      .lg-clear__box { padding: 28px 24px; max-width: 100%; }
+      .lg-clear__logo { width: 100%; max-width: 300px; }
+      .lg-sizes { grid-template-columns: minmax(0, 1fr); }
+      .lg-size { padding: var(--s-5) var(--s-4); }
+      .lg-size__logo { max-width: 100%; }
+      .lg-variants { gap: var(--s-3); }
+    }
+
   </style>
 
   <!-- HERO -->
@@ -444,7 +457,7 @@ window.renderLogo = function (root) {
           <p style="margin-top: 12px; color: var(--fg-2); font-size: var(--fs-sm); max-width: 60ch;">
             The logo is a CSS mask, not an <span class="mono">&lt;img&gt;</span>. Background defaults to <span class="mono">currentColor</span>, so the mark takes the parent&rsquo;s text color. Switch theme, switch section, switch mood &mdash; the logo follows. One SVG, zero duplication.
           </p>
-          <pre style="margin-top: 16px; padding: var(--s-6); background: var(--bg-2); border: 1px solid var(--rule); border-radius: var(--r-3); font-family: var(--font-mono); font-size: 12px; line-height: 1.6; color: var(--fg); overflow-x: auto; white-space: pre;"><span style="color: var(--fg-2);">/* Topbar logo &mdash; 110&times;18, any color */</span>
+          <pre style="margin-top: 16px; padding: var(--s-6); background: var(--bg-2); border: 1px solid var(--rule); border-radius: var(--r-3); font-family: var(--font-mono); font-size: 12px; line-height: 1.6; color: var(--fg); overflow-x: auto; white-space: pre; max-width: 100%;"><span style="color: var(--fg-2);">/* Topbar logo &mdash; 110&times;18, any color */</span>
 .topbar__logo {
   width: 110px;
   height: 18px;

@@ -18,18 +18,18 @@ window.renderSignature = function (root) {
     title:      'Senior Brand Strategist',
     department: 'Kilowott',
     email:      'ola.nordmann@kilowott.com',
-    phone:      '+47 925 11 386',
+    phone:      '+47 000 00 000',
     mobile:     '',
     website:    'kilowott.com',
     websiteUrl: 'https://kilowott.com',
     address:    'Fredrikstad · Sandnes · Goa · Dubai',
-    photo:      'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80',
+    photo:      'https://brandkit.kilowott.com/project/assets/kilowott-bolt.jpg',
     linkedin:   '',
     twitter:    '',
     instagram:  'https://www.instagram.com/kilowott/',
     youtube:    '',
     cta:        'Book a meeting',
-    ctaUrl:     'https://meetings.hubspot.com/pphadtare',
+    ctaUrl:     'https://kilowott.com/contact-us/',
     quote:      'Built for what comes next.',
     legal:      'This message and any attachments are confidential and intended solely for the named recipient. If you received this in error, please notify the sender and delete all copies.',
     accent:     '#E4022D',
@@ -260,6 +260,20 @@ window.renderSignature = function (root) {
       background: var(--bg-2); padding: 1px 6px; border-radius: 3px;
       color: var(--fg);
     }
+
+    .sig-actions__note { display: block; margin-top: 6px; font-size: 12px; color: var(--fg-2); }
+
+    /* Mobile containment */
+    .sig-studio > * { min-width: 0; }
+    @media (max-width: 1100px) { .sig-studio { grid-template-columns: minmax(0, 1fr); } }
+    @media (max-width: 900px) { .sig-howto { grid-template-columns: minmax(0, 1fr); } }
+    @media (max-width: 600px) {
+      .sig-form { position: static; max-height: none; }
+      .sig-preview__stage { padding: var(--s-4) var(--s-3); }
+      .sig-preview__inner { padding: var(--s-4); }
+      .sig-preview__head { padding: 12px var(--s-4); }
+      .sig-btns { flex-wrap: wrap; }
+    }
   </style>
 
   <!-- HERO -->
@@ -369,6 +383,7 @@ window.renderSignature = function (root) {
             <div class="sig-actions">
               <div class="sig-actions__hint">
                 Click <b>Copy signature</b> &mdash; then in Gmail open <b>Settings → See all settings → Signature</b>, paste in the editor, save at the bottom.
+                <span class="sig-actions__note">Email clients don&rsquo;t load web fonts: Newsreader and DM Sans fall back to Georgia and Arial in Gmail and Outlook.</span>
               </div>
               <div class="sig-btns">
                 <button class="sig-btn" id="sig-copyHtml" title="Copy raw HTML source"><i data-lucide="code-2"></i> Copy HTML source</button>

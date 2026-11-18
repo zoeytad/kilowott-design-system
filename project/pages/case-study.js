@@ -320,7 +320,7 @@ window.renderCaseStudy = function (root) {
       display: inline-flex; align-items: center; gap: 8px;
     }
     .cs-cta a .lucide { width: 16px; height: 16px; stroke-width: 1.75; }
-    .cs-cta a:hover { background: #B40224; }
+    .cs-cta a:hover { background: var(--accent-hover); }
   </style>
 
   <!-- HERO (doc intro) -->
@@ -364,18 +364,18 @@ window.renderCaseStudy = function (root) {
       </div>
 
       <div class="cs-spec">
-        <div class="cs-spec__head"><span>Retail &middot; coffee brand &middot; 6 months</span><span>.cs-doc</span></div>
+        <div class="cs-spec__head"><span>Retail &middot; Nordhavn Coffee (sample) &middot; 6 months</span><span>.cs-doc</span></div>
         <div class="cs-doc">
 
           <!-- Header -->
           <header class="cs-header">
             <div>
               <span class="cs-header__eyebrow">Case study &middot; retail</span>
-              <h1 class="cs-header__title">Sales <em>up 44%</em> for a coffee brand &mdash; six months in.</h1>
+              <h1 class="cs-header__title">Organic traffic <em>up 3.5&times;</em> for Nordhavn Coffee &mdash; six months in.</h1>
             </div>
             <div class="cs-header__meta">
               <div>Sector<b>Retail &middot; DTC</b></div>
-              <div>Region<b>Nordics</b></div>
+              <div>Region<b>Nordics &rarr; US</b></div>
               <div>Engagement<b>Kilowott for Brands</b></div>
               <div>Window<b>Oct 2025 &mdash; Mar 2026</b></div>
             </div>
@@ -392,9 +392,9 @@ window.renderCaseStudy = function (root) {
               <div class="cs-outcome__window">Trailing 6 months</div>
             </div>
             <div class="cs-outcome">
-              <div class="cs-outcome__num">3<small>&times;</small></div>
+              <div class="cs-outcome__num">3.5<small>&times;</small></div>
               <div class="cs-outcome__label">Organic search traffic on category pages</div>
-              <div class="cs-outcome__window">Month 1 vs. month 6</div>
+              <div class="cs-outcome__window">Month 1 vs. month 6 &middot; sample figures</div>
             </div>
             <div class="cs-outcome">
               <div class="cs-outcome__num">21<small>%</small></div>
@@ -422,7 +422,7 @@ window.renderCaseStudy = function (root) {
 
             <article class="cs-article">
               <p class="lede">
-                A Nordic coffee brand with strong retail shelf presence couldn&rsquo;t convert that brand equity
+                Nordhavn Coffee, a Nordic specialty coffee brand with strong retail shelf presence couldn&rsquo;t convert that brand equity
                 into <em>direct</em> revenue. The DTC site looked modern, traffic was decent, and nothing was
                 working. We rebuilt three things at once &mdash; and the results came from the connective tissue
                 between them.
@@ -431,7 +431,7 @@ window.renderCaseStudy = function (root) {
               <h2>The situation</h2>
               <p>
                 Strong wholesale, weak DTC. The brand had 36% market share in Nordic specialty retail but
-                less than 4% of its revenue came through kilowott-coffee-example.com. The previous agency
+                less than 4% of its revenue came through nordhavn-coffee.example. The previous agency
                 had shipped a polished visual update two years earlier, but the funnel underneath was
                 a 2019 Shopify theme with plugin buildup, the paid search account was running 340 keywords
                 split across six ad groups, and the brand voice had drifted into coffee-shop clich&eacute; over time.
@@ -501,7 +501,7 @@ window.renderCaseStudy = function (root) {
               <h2>The result</h2>
               <p>
                 Sales up 44% over six months, tracked against an agreed baseline. Organic search traffic
-                tripled on category pages after the rebrand and canonical cleanup. Paid CAC dropped 21%
+                grew 3.5&times; on category pages after the rebrand and canonical cleanup. Paid CAC dropped 21%
                 once the keyword set narrowed. Subscription AOV doubled after the bundle rebuild. And the
                 in-house team that inherited the work on week 26 has kept the trend line up.
               </p>

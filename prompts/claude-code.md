@@ -1,79 +1,45 @@
-# Kilowott Design System — Claude Code prompt
+# Kilowott brand kit v1.0 — Claude Code prompt
 
-Paste this at the start of a Claude Code session when you want the agent to produce on-brand code for any Kilowott surface (dashboards, marketing pages, tooling).
+Paste this at the start of a Claude Code session (or into `CLAUDE.md` of the project you are building) when the agent should produce on-brand code for a Kilowott surface: marketing pages, product UI, dashboards, internal tools.
 
 ---
 
-You are building for the **Kilowott Design System v0.6**. Read these first and do not deviate:
+You are building for the **Kilowott brand kit v1.0**. Before writing code, fetch and read:
 
-1. **Tokens** — machine-readable: `tokens.json`. CSS source: `project/styles/tokens.css`. Use `var(--fg)`, `var(--bg)`, `var(--accent)`, `var(--rule)`, `var(--s-*)`, `var(--r-*)`, `var(--font-display)`, `var(--font-sans)`, `var(--font-mono)` — never hardcode hex or pixel values that live as tokens.
+1. **https://brandkit.kilowott.com/AGENTS.md** — hard rules, decision tree, files, page index, checklist. Follow it.
+2. **https://brandkit.kilowott.com/project/llms.txt** — component and pattern specs for the surface you are building.
+3. The page source for that surface, e.g. `https://brandkit.kilowott.com/project/pages/landing.js` or `dashboards.js`. Each is a template string with the exact CSS and HTML of that tab: lift patterns from it.
 
-2. **Brand reference (compact)** — `KILOWOTT_BRAND.md`. Covers palette, type, voice, vocab, mechanics, length ladder.
+(Or fetch everything at once: https://brandkit.kilowott.com/llms-full.txt)
 
-3. **Component manifest** — `manifest.json`. Maps every class (`.k-btn`, `.kpi`, `.ss-wrap`, etc.) to its file and house rule. When you need a primitive, check the manifest before inventing one.
+## Setup
 
-4. **Live prototype** — open `project/index.html` (or the deployed URL) to see every component rendered. Use "View Source" on any page to lift a working snippet.
+- **Plain HTML / any framework:** link `https://brandkit.kilowott.com/project/kit/kilowott.css` (fonts, tokens, base, primitives), or copy it into the project. Start from `https://brandkit.kilowott.com/project/kit/starter/index.html` for landing pages.
+- **Tailwind v3:** download `https://brandkit.kilowott.com/project/kit/tokens.tailwind.js` and add `presets: [require('./tokens.tailwind.js')]`, plus kilowott.css for the CSS variables.
+- **Tailwind v4:** import kilowott.css and `https://brandkit.kilowott.com/project/kit/tokens.tailwind.css`.
+- **Sass:** `project/kit/tokens.scss`. **Token pipelines:** `https://brandkit.kilowott.com/tokens.json` (W3C DTCG, light + dark).
+- **Icons:** Lucide pinned to `https://unpkg.com/lucide@1.66.0/dist/umd/lucide.min.js`; `<i data-lucide="arrow-right"></i>` then `lucide.createIcons({ root })`. Stroke 1.5, `currentColor`. Never hand-draw an SVG icon.
 
 ## Hard rules
 
-- **Fonts:** Newsreader (display, serif) + DM Sans (sans) + JetBrains Mono (numeric/code). No other families.
-- **Red:** `#E4022D` — one accent moment per surface. Never decoration. Losses, alerts, single CTAs, italic emphasis words.
-- **Italics:** serif italic only, usually carries accent color.
-- **Headings:** font-weight 500, tight tracking (`-0.02em`), line-height 1.04–1.2.
-- **Tabular numerals:** `font-variant-numeric: tabular-nums;` on every figure that sits in a column.
-- **Spacing:** 8pt scale. Read density from `--density` var so tweaks panel works.
-- **Focus:** 2px accent ring at 3px offset. Never remove focus outlines.
+- **Tokens, not hex:** `var(--bg)`, `var(--fg)`, `var(--fg-2)`, `var(--accent)`, `var(--link)`, `var(--rule)`, `var(--s-*)`, `var(--r-*)`, `var(--font-display|sans|mono)`. Exceptions: HTML email (inline hex), swatches, third-party mock chrome, print mock-ups.
+- **Light by default.** Dark (`data-theme="dark"`) is for product surfaces and ink bands (`.section--ink`).
+- **Fonts:** Newsreader (display, weight 400, line-height 1.04, −0.02em) + DM Sans (body/UI) + JetBrains Mono (numbers, code, meta). Nothing else.
+- **Red is one moment per surface:** the italic `<em>` word in a headline, or one stat, or the primary CTA (`.btn--accent`), or a thin rule. Links and small red text use `var(--link)`. Never red body text or red backgrounds.
+- **State colours** (`--success`, `--warning`, `--info`) only in product UI, always with an icon and a word. Dashboard deltas: up = ink, down = red.
+- **Tabular numerals** on any figure in a column. 8pt spacing. Visible focus: 2px accent ring at 3px offset.
+- **Semantic HTML.** `<button>`, `<nav>`, `<main>`, labelled inputs. Respect `prefers-reduced-motion`.
 
-## When generating code
+## Content
 
-- Write semantic HTML (`<button>` not `<div>`, `<nav>` not `<div class="nav">`).
-- Prefer existing classes to inline styles. If you need a new class, follow the BEM-ish prefix convention: module prefix + double-dash variant (e.g. `.kpi__num--accent`).
-- Keep dark mode working: use tokens that remap under `[data-theme="dark"]` automatically.
-- Keep the four Tweaks knobs alive: `accent`, `theme`, `fontPair`, `density`. Nothing should break when any of them changes.
-- Every `<a href="#">` inside an embedded surface must `preventDefault` to avoid hash routing issues (see `project/pages/dashboards.js` for the safety-net pattern).
+- Demo content is **fictional**: client **Nordhavn Coffee** (specialty coffee, US launch, SEO + paid social, 3.5× organic traffic in six months, sample figures), person **Ola Nordmann**, Senior Strategist, ola.nordmann@kilowott.com, +47 000 00 000. No real third-party people, companies, logos, testimonials, or personal booking links.
+- Company facts are real and may be used: kilowott.com, https://kilowott.com/contact-us/, offices Fredrikstad · Sandnes · Goa · Dubai.
+- Voice: outcome-driven, specific, confident, human. No exclamation marks, sentence case, Oxford comma, curly quotes, unspaced em dash, numerals from 10. Avoid: leverage, empower, unlock, synergy, best-in-class, cutting-edge, at scale, seamless, end-to-end, tailored solutions, excited to announce.
 
-## Voice (when writing copy)
+## Before you finish
 
-- Outcome-driven, specific, confident, human. Contractions fine. First person fine.
-- **Avoid:** leverage, empower, unlock, synergy, best-in-class, cutting-edge, at scale, seamless, end-to-end, tailored solutions, "excited to announce".
-- **Use:** partner, deliver / ship, measurable, outcome / ROI, ownership, build, help.
-- Length ladder: hero 4–9 words · deck headline 10–14 · subhead 25–40 · social 60–120 · service 250–400 · case 600–900.
-- No exclamation marks. Em-dashes unspaced. Oxford comma.
+Run the checklist in AGENTS.md §9: paper background, exactly one red moment, Newsreader 400 headlines with at most one italic word, tokens only, voice passes, demo content fictional, Lucide icons, visible focus, AA contrast.
 
-## Icons — always Lucide
+## Working on the brand kit repo itself
 
-Kilowott uses [Lucide](https://lucide.dev) (1,500+ icons, ISC licensed). Loaded globally in `index.html`.
-
-- **Markup:** `<i data-lucide="arrow-right"></i>` — no SVG by hand, ever.
-- **Hydrate** after render: `lucide.createIcons({ root: myContainer });`
-- **Never hand-draw an SVG icon.** If Lucide doesn't have it, tell the user — don't invent one.
-- **Stroke-width:** 1.5 (not Lucide default 2) — brand spec. Already set in global `.lucide` CSS.
-- **Color:** always `currentColor`. Never hardcode a hex on an icon.
-- **Accent state-only:** hover/active/alert get `var(--accent)`. Resting icons use `var(--fg)`.
-
-When you need to use an icon:
-1. Check the house-curated set in `project/pages/icons.js` first (63 icons across nav/action/status/fin/social/misc).
-2. If not there, search [lucide.dev/icons](https://lucide.dev/icons) by keyword.
-3. Use the canonical Lucide name as `data-lucide` value.
-
-Example:
-```html
-<button class="k-btn k-btn--primary">
-  <i data-lucide="plus"></i> New row
-</button>
-```
-
-## Where to copy from
-
-| Need | Lift from |
-|---|---|
-| Buttons, forms, tabs, badges | `project/pages/components.js` |
-| KPI tiles, charts, dashboard shell | `project/pages/dashboards.js` |
-| Slide layouts | `project/pages/deck.js` |
-| Social templates | `project/pages/social.js` |
-| Photo treatments | `project/pages/imagery.js` |
-| Copy examples | `project/pages/voice.js` |
-
-## Quick smoke test
-
-After generating, open the component in a browser with the Tweaks panel open. Flip theme, change accent, swap density. If anything breaks, it's not on-brand yet.
+Edit tokens only in `project/styles/tokens.css`, then `npm run build:tokens`. Run `npm run check` before pushing. Inside page template strings, CSS escapes are doubled (`\\201C`). Push to `main` deploys.

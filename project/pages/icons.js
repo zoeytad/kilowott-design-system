@@ -280,7 +280,7 @@ window.renderIcons = function (root) {
       font-size: 13px;
     }
     .ic-snippet pre .c { color: var(--fg-2); }
-    .ic-snippet pre .t { color: var(--accent); }
+    .ic-snippet pre .t { color: var(--link); }
     .ic-snippet pre .a { color: var(--fg); }
 
     .ic-toast {
@@ -311,7 +311,7 @@ window.renderIcons = function (root) {
         all drawn to the same editorial spec: 24&times;24 canvas, 1.5px stroke, round caps, one line.
         Icons inherit <code>currentColor</code> so tokens, themes, and accents cascade without overrides.
         The ${icons.length} shown below are the house-curated starter set. Everything else on
-        <a href="https://lucide.dev" target="_blank" rel="noopener" style="color:var(--accent)">lucide.dev</a>
+        <a href="https://lucide.dev" target="_blank" rel="noopener" style="color:var(--link)">lucide.dev</a>
         is available &mdash; click to copy any name.
       </p>
 
@@ -351,7 +351,7 @@ window.renderIcons = function (root) {
       <div class="ic-snippet">
         <div class="ic-snippet__head">HTML &middot; load once in &lt;head&gt;</div>
         <pre><span class="c">&lt;!-- Lucide loaded globally in index.html --&gt;</span>
-<span class="t">&lt;script</span> <span class="a">src</span>=<span class="c">"https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"</span><span class="t">&gt;&lt;/script&gt;</span></pre>
+<span class="t">&lt;script</span> <span class="a">src</span>=<span class="c">"https://unpkg.com/lucide@1.66.0/dist/umd/lucide.min.js"</span><span class="t">&gt;&lt;/script&gt;</span></pre>
       </div>
 
       <div class="ic-snippet">
@@ -470,12 +470,12 @@ window.renderIcons = function (root) {
     <div class="container">
       <div class="section-head">
         <h2 class="section-head__title">Need an icon that isn&rsquo;t here?</h2>
-        <p class="section-head__body">Lucide has 1,500+ icons. If a glyph exists on <a href="https://lucide.dev" target="_blank" rel="noopener" style="color:var(--accent)">lucide.dev</a>, you can use it immediately &mdash; no code change needed. Reference the name.</p>
+        <p class="section-head__body">Lucide has 1,500+ icons. If a glyph exists on <a href="https://lucide.dev" target="_blank" rel="noopener" style="color:var(--link)">lucide.dev</a>, you can use it immediately &mdash; no code change needed. Reference the name.</p>
       </div>
       <ul style="list-style:none; padding:0; margin:0; border-top: 1px solid var(--rule);">
-        <li class="token-row"><span class="token-row__label">Browse the full catalogue</span><span class="token-row__meta"><a href="https://lucide.dev/icons" target="_blank" rel="noopener" style="color:var(--accent)">lucide.dev/icons <i data-lucide="arrow-up-right"></i></a></span></li>
-        <li class="token-row"><span class="token-row__label">Search by keyword</span><span class="token-row__meta"><a href="https://lucide.dev" target="_blank" rel="noopener" style="color:var(--accent)">lucide.dev <i data-lucide="arrow-up-right"></i></a></span></li>
-        <li class="token-row"><span class="token-row__label">Submit a new icon to the upstream library</span><span class="token-row__meta"><a href="https://github.com/lucide-icons/lucide/issues" target="_blank" rel="noopener" style="color:var(--accent)">github issues <i data-lucide="arrow-up-right"></i></a></span></li>
+        <li class="token-row"><span class="token-row__label">Browse the full catalogue</span><span class="token-row__meta"><a href="https://lucide.dev/icons" target="_blank" rel="noopener" style="color:var(--link)">lucide.dev/icons <i data-lucide="arrow-up-right"></i></a></span></li>
+        <li class="token-row"><span class="token-row__label">Search by keyword</span><span class="token-row__meta"><a href="https://lucide.dev" target="_blank" rel="noopener" style="color:var(--link)">lucide.dev <i data-lucide="arrow-up-right"></i></a></span></li>
+        <li class="token-row"><span class="token-row__label">Submit a new icon to the upstream library</span><span class="token-row__meta"><a href="https://github.com/lucide-icons/lucide/issues" target="_blank" rel="noopener" style="color:var(--link)">github issues <i data-lucide="arrow-up-right"></i></a></span></li>
         <li class="token-row"><span class="token-row__label">License</span><span class="token-row__meta">ISC &middot; free for commercial use</span></li>
         <li class="token-row"><span class="token-row__label">Bundle size (CDN global)</span><span class="token-row__meta">~20KB gzipped</span></li>
       </ul>

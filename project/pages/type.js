@@ -186,8 +186,8 @@ window.renderType = function (root) {
       background: var(--bg); color: var(--fg);
       box-shadow: inset 0 -1px 0 var(--rule);
     }
-    .ty-mono__line--kbd .arrow { color: var(--accent); margin: 0 6px; }
-    .ty-mono__line em { color: var(--accent); font-style: normal; }
+    .ty-mono__line--kbd .arrow { color: var(--link); margin: 0 6px; }
+    .ty-mono__line em { color: var(--link); font-style: normal; }
 
     /* Weight demo */
     .ty-mono__weights {
@@ -289,6 +289,14 @@ window.renderType = function (root) {
     }
     .ty-mono__relation-line em {
       font-style: italic; color: var(--accent);
+    }
+
+    /* Mobile containment */
+    .grid > * { min-width: 0; }
+    .ty-pat h3 { overflow-wrap: anywhere; }
+    @media (max-width: 600px) {
+      .ty-pat { padding: var(--s-5) var(--s-4); }
+      .ty-pat h3 { font-size: 1.625rem; }
     }
   </style>
 
@@ -427,7 +435,7 @@ window.renderType = function (root) {
         </div>
         <div class="ty-pat">
           <div class="ty-pat__label">Pattern 02 · Eyebrow + headline</div>
-          <div style="font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); margin-bottom:12px;">— Partner success</div>
+          <div style="font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--link); margin-bottom:12px;">— Partner success</div>
           <h3>Seven years. Four products. One partner.</h3>
           <p>Eyebrow sets context, headline stays punchy and declarative.</p>
         </div>

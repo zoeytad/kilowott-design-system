@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nordhavn Coffee — a Kilowott case (starter template)</title>
+<meta name="description" content="Kilowott starter landing page. Demo content: Nordhavn Coffee and all figures are fictional sample data.">
+<!--
+  KILOWOTT STARTER LANDING PAGE — brand kit v1.0
+  Clone this file and replace the copy. Rules: https://brandkit.kilowott.com/AGENTS.md
+
+  - Stylesheet: when you copy this file out of the kit, change the href below to
+    https://brandkit.kilowott.com/project/kit/kilowott.css
+  - ONE red moment on this page: the italic word in the hero headline.
+    If you make a button red (.btn--accent), take the red off the headline word.
+  - Demo content is fictional: Nordhavn Coffee, its figures, and Ola Nordmann.
+    Company facts in the footer (kilowott.com, offices, contact page) are real.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../kilowott.css">
+<script src="https://unpkg.com/lucide@1.66.0/dist/umd/lucide.min.js" defer></script>
+<style>
+  /* Page-specific layout only. Colours, type, and spacing come from tokens. */
+  .case { display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--s-8); align-items: center; }
+  .case__media { aspect-ratio: 4 / 3; border-radius: var(--r-3); overflow: hidden; background: var(--bg-3); }
+  .case__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .case__quote { font-family: var(--font-display); font-size: var(--fs-h2); line-height: 1.3; margin-top: var(--s-5); }
+  .case__cite { margin-top: var(--s-3); font-size: var(--fs-sm); color: var(--fg-2); }
+  .services .card { height: 100%; }
+  .services .lucide { color: var(--fg); }
+  .cta { display: flex; justify-content: space-between; align-items: end; gap: var(--s-6); flex-wrap: wrap; }
+  .cta .display { font-size: var(--fs-d2); max-width: 18ch; }
+  @media (max-width: 900px) { .case { grid-template-columns: 1fr; gap: var(--s-6); } }
+</style>
+</head>
+<body>
+
+<header class="k-nav">
+  <div class="k-nav__inner">
+    <a href="#top" class="k-logo" aria-label="Kilowott home"></a>
+    <ul class="k-nav__links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="btn btn--primary btn--sm" href="https://kilowott.com/contact-us/">Talk to us</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 01 · Editorial hero: eyebrow, 4–9 word headline with ONE italic red word, ≤40-word lede -->
+  <section class="k-hero">
+    <div class="container">
+      <span class="eyebrow">Kilowott for Brands · Case</span>
+      <h1 class="display">A US launch that <em>compounds</em>.</h1>
+      <p class="lede">Nordhavn Coffee arrived in the US with a strong product and no search footprint. We paired SEO with paid social, and in six months organic traffic grew 3.5×.</p>
+      <div class="k-hero__actions">
+        <a class="btn btn--primary" href="#work">Read the case <i data-lucide="arrow-right" class="btn__arrow"></i></a>
+        <a class="btn btn--ghost" href="#services">What we do</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 · Stat strip: numbers in ink, each with a source and a window -->
+  <section class="section section--tight section--warm" aria-label="Results">
+    <div class="container grid grid-4">
+      <div class="stat">
+        <div class="stat__num">3.5×</div>
+        <div class="stat__label">organic traffic</div>
+        <div class="stat__source">Sample figure · months 1–6</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">−21%</div>
+        <div class="stat__label">cost per acquisition on paid social</div>
+        <div class="stat__source">Sample figure · months 1–6</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">2×</div>
+        <div class="stat__label">average order value from search</div>
+        <div class="stat__source">Sample figure · months 1–6</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">58</div>
+        <div class="stat__label">page-one keywords, up from none</div>
+        <div class="stat__source">Sample figure · month 6</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 · Feature split: the case, with one attributed (fictional) quote -->
+  <section class="section" id="work">
+    <div class="container case">
+      <div>
+        <span class="eyebrow">Situation → decision → result</span>
+        <h2 class="k-h" style="font-size: var(--fs-d3); margin-top: var(--s-4);">Search first, then spend.</h2>
+        <p class="lede" style="margin-top: var(--s-4);">Paid social was buying traffic that never came back. We rebuilt the site around 40 buying questions, then pointed paid social only at pages that already ranked. Spend fell as search took over.</p>
+        <p class="case__quote">“We stopped renting attention and started owning it.”</p>
+        <p class="case__cite">Ola Nordmann, Senior Strategist, Kilowott (fictional placeholder)</p>
+      </div>
+      <div class="case__media">
+        <img src="../../assets/photos/pair-working-warm.jpg" alt="Two people working at a laptop in warm light">
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 · Three-up value prop: name the service lines -->
+  <section class="section section--warm services" id="services">
+    <div class="container">
+      <span class="eyebrow">What we do</span>
+      <h2 class="k-h" style="font-size: var(--fs-d3); margin-top: var(--s-4); max-width: 20ch;">Strategy and execution, owned by one team.</h2>
+      <div class="grid grid-3" style="margin-top: var(--s-7);">
+        <a class="card card--link" href="https://kilowott.com">
+          <i data-lucide="trending-up"></i>
+          <h3 class="card__title">Kilowott for Brands</h3>
+          <p class="card__body">Full operational ownership of growth, measured in ROI every month.</p>
+        </a>
+        <a class="card card--link" href="https://kilowott.com">
+          <i data-lucide="users"></i>
+          <h3 class="card__title">Kilowott Workforce</h3>
+          <p class="card__body">Cross-functional teams stood up in weeks, not quarters.</p>
+        </a>
+        <a class="card card--link" href="https://kilowott.com">
+          <i data-lucide="cpu"></i>
+          <h3 class="card__title">Kilowott Intelligence</h3>
+          <p class="card__body">Smart systems with human oversight, so the outcome stays accountable.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 · Final CTA on ink: no red here, the page already spent it -->
+  <section class="section section--ink" id="contact">
+    <div class="container cta">
+      <h2 class="display">Scale faster. Deliver better. Create impact.</h2>
+      <a class="btn" style="border-color: var(--fg); color: var(--fg);" href="https://kilowott.com/contact-us/">Start a project <i data-lucide="arrow-right" class="btn__arrow"></i></a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="k-footer">
+  <div class="container">
+    <div class="k-footer__grid">
+      <div>
+        <span class="k-logo" aria-hidden="true" style="color: var(--fg);"></span>
+        <p style="margin-top: var(--s-4); max-width: 36ch;">Built for what comes next.</p>
+      </div>
+      <div>
+        <p><b style="color: var(--fg); font-weight: 500;">Offices</b></p>
+        <p style="margin-top: var(--s-2);">Fredrikstad · Sandnes · Goa · Dubai</p>
+      </div>
+      <div>
+        <p><b style="color: var(--fg); font-weight: 500;">Contact</b></p>
+        <p style="margin-top: var(--s-2);"><a href="https://kilowott.com/contact-us/">kilowott.com/contact-us</a></p>
+      </div>
+    </div>
+    <p class="k-footer__legal">© Kilowott · Demo page: Nordhavn Coffee and all figures are fictional sample data.</p>
+  </div>
+</footer>
+
+<script>
+  addEventListener('DOMContentLoaded', function () { if (window.lucide) lucide.createIcons(); });
+</script>
+</body>
+</html>

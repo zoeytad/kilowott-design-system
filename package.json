@@ -1,11 +1,15 @@
 {
   "name": "kilowott-design-system",
-  "version": "0.6.0",
+  "version": "1.0.0",
   "private": true,
-  "description": "Kilowott Design System — editorial brand system (logo, color, type, components, dashboards, decks, templates) served as a static site.",
+  "description": "Kilowott brand kit — an agentic, editorial brand system (tokens, components, landing pages, dashboards, decks, email, print, social, posters) served as a static site at https://brandkit.kilowott.com.",
+  "homepage": "https://brandkit.kilowott.com",
+  "repository": "github:zoeytad/kilowott-design-system",
   "scripts": {
     "start": "serve -l tcp://0.0.0.0:${PORT:-3000} --config serve.json .",
-    "dev": "python3 -m http.server 8723 --directory project"
+    "dev": "python3 -m http.server 8723",
+    "build:tokens": "node scripts/build-tokens.mjs",
+    "check": "node scripts/check.mjs"
   },
   "dependencies": {
     "serve": "^14.2.4"

@@ -1,49 +1,130 @@
-# Kilowott Design System
+# Kilowott brand kit
 
-> Editorial brand system for Kilowott — calm by default, one hit of red, Newsreader + DM Sans. Covers logo, color, type, spacing, components, dashboards, decks, imagery, voice, and social. This file is the entry point for AI agents (Claude Code, Claude Design, Cowork) that want to build something on-brand without scanning every source file.
+> Kilowott’s agentic brand kit (v1.0): an editorial brand system that AI agents can read and use. Light and paper-led, Newsreader + DM Sans + JetBrains Mono, one hit of Kilowott Red (#E4022D) per surface. Covers logo, colour, type, tokens, components, landing pages, dashboards, decks, email, signatures, newsletters, stationery, case studies, magazine, imagery, voice, social, posters, and banners.
 
-## Canonical URL
+The live kit at https://brandkit.kilowott.com/project/ is a JavaScript app; read the text files below instead of scraping it. Start with AGENTS.md: it has the 60-second brand summary, hard rules, a decision tree per deliverable, every file URL, and a copy-paste starter page. To build a web page, link one stylesheet: https://brandkit.kilowott.com/project/kit/kilowott.css
 
-**Public:** https://kilowott-design-system-production.up.railway.app/
-**Local dev:** http://localhost:8723/
-**Source:** https://github.com/zoeytad/kilowott-design-system
+Brand in one breath: white paper background, ink text, warm paper section breaks, ratio 60·30·5·5 (paper · ink · warm paper · red). Serif headlines (Newsreader 400) with exactly one italic red word. Pill buttons, 8pt spacing, Lucide icons at 1.5 stroke. Voice is outcome-driven, specific, confident, human; no exclamation marks. Demo content is fictional (client: Nordhavn Coffee; person: Ola Nordmann). Company facts (kilowott.com, offices Fredrikstad · Sandnes · Goa · Dubai) are real.
 
 ## Start here
 
-- [Brand reference (compact)](KILOWOTT_BRAND.md): one-page summary — hex, fonts, scale, voice principles, vocab, length ladder
-- [Tokens (JSON)](tokens.json): machine-readable color / type / spacing / radii / shadow tokens
-- [Component manifest (JSON)](manifest.json): every component with class name, HTML snippet, usage rule
+- [AGENTS.md](https://brandkit.kilowott.com/AGENTS.md): agent guide — summary, hard rules, decision tree, files, page index, starter page, checklist
+- [llms-full.txt](https://brandkit.kilowott.com/llms-full.txt): everything in one file (AGENTS.md + brand reference + build spec)
+- [KILOWOTT_BRAND.md](https://brandkit.kilowott.com/KILOWOTT_BRAND.md): brand reference — principles, tokens, type, logo, imagery, voice, mechanics
+- [project/llms.txt](https://brandkit.kilowott.com/project/llms.txt): build spec — render recipe, common mistakes, component and pattern specs, facts
 
-## Pages (source)
+## Kit (link or download)
 
-- [Overview](project/pages/overview.js): principles, primary direction, what's shipped
-- [Logo](project/pages/logo.js): wordmark, clear space, placements, don'ts
-- [Color](project/pages/color.js): 60/30/5/5 ratio, 5 red rules, recipes, accessibility
-- [Type](project/pages/type.js): Newsreader + DM Sans, 9-size scale, headline patterns
-- [Foundations](project/pages/foundations.js): 8pt spacing, grid, radii, motion, full token dump
-- [Icons](project/pages/icons.js): 43 line icons, 5 sizes, 6 categories, click-to-copy
-- [Components](project/pages/components.js): buttons, forms, cards, tabs, badges, eyebrows, UI states (empty/error/loading/404)
-- [Dashboards](project/pages/dashboards.js): KPI tiles, tables, spreadsheet, OHLC, tree, waterfall, heatmap, forecast
-- [Deck](project/pages/deck.js): 7 canonical slide layouts
-- [Email](project/pages/email.js): transactional + newsletter templates (600px)
-- [Case study](project/pages/case-study.js): full case-study template — situation → decision → result
-- [Imagery](project/pages/imagery.js): photo treatments, crop ratios, sourcing
-- [Voice](project/pages/voice.js): principles, tone dial, register shifts, vocab
-- [Social](project/pages/social.js): feed posts, carousels, stories, reels
+- [kilowott.css](https://brandkit.kilowott.com/project/kit/kilowott.css): the one drop-in stylesheet (fonts, tokens, base, .btn/.chip/.card/.eyebrow/.display, nav, hero, stat, footer)
+- [Starter landing page](https://brandkit.kilowott.com/project/kit/starter/index.html): on-brand HTML template to clone
+- [tokens.json](https://brandkit.kilowott.com/tokens.json): W3C design tokens (DTCG), light + dark
+- [tokens.tailwind.js](https://brandkit.kilowott.com/project/kit/tokens.tailwind.js): Tailwind v3 preset
+- [tokens.tailwind.css](https://brandkit.kilowott.com/project/kit/tokens.tailwind.css): Tailwind v4 theme
+- [tokens.scss](https://brandkit.kilowott.com/project/kit/tokens.scss): Sass variables
+- [figma-tokens.json](https://brandkit.kilowott.com/project/kit/figma-tokens.json): Tokens Studio for Figma
+- [brand.json](https://brandkit.kilowott.com/project/brand.json): structured brand data, resolved tokens, contrast, facts
+- [manifest.json](https://brandkit.kilowott.com/manifest.json): every tab and kit file with URL, purpose, and source
+- [Logo SVG](https://brandkit.kilowott.com/project/downloads/kilowott-logo.svg), [Adobe swatches .ase](https://brandkit.kilowott.com/project/downloads/kilowott-colors.ase), [GIMP palette .gpl](https://brandkit.kilowott.com/project/downloads/kilowott-colors.gpl), [swatches JSON](https://brandkit.kilowott.com/project/downloads/kilowott-colors.json), [deck template .pptx](https://brandkit.kilowott.com/project/downloads/kilowott-deck-template.pptx)
 
-## Agent-specific prompts
+## Tokens
 
-- [Claude Code prompt](prompts/claude-code.md): how to generate on-brand code from this system
-- [Claude Design prompt](prompts/claude-design.md): how to generate on-brand designs
-- [Cowork prompt](prompts/cowork.md): how to integrate the system into Cowork workflows
+<!-- tokens:start variant=compact -->
+<!-- Generated by scripts/build-tokens.mjs from project/styles/tokens.css. Do not edit by hand: run `npm run build:tokens`. -->
 
-## Core rules (always)
+### Brand colours
 
-1. **Calm by default.** Whitespace over noise. Narrow palette. Type does the heavy lifting.
-2. **Red earns its place.** One accent moment per surface. Never decoration.
-3. **Editorial over ornamental.** Serif display + clean sans. Italic emphasis. No gradients, glows, or filler icons.
-4. **Technical & human.** Enterprise rigor, written like people. Precise, never sterile.
+| Token | Hex | Role |
+|---|---|---|
+| `--k-ink` | `#0B0F14` | near-black, primary text, hero backgrounds |
+| `--k-ink-2` | `#1A2230` | secondary surface dark |
+| `--k-ink-3` | `#2B3544` | tertiary, borders on dark |
+| `--k-paper` | `#FFFFFF` | primary surface |
+| `--k-paper-2` | `#F6F4F0` | warm off-white, section breaks |
+| `--k-paper-3` | `#EDEAE3` | warmer still, cards on paper |
+| `--k-red` | `#E4022D` | signature — use sparingly |
+| `--k-red-soft` | `#FCE5EA` | tinted bg for red accents |
+| `--k-red-ink` | `#8A021B` | darkened red for text on paper |
+| `--k-rule` | `#1A2230` | rules/borders on paper |
+| `--k-rule-soft` | `#E2DED6` | soft divider on paper |
+| `--k-muted` | `#5B6573` | secondary text on paper |
+| `--k-muted-dark` | `#8A95A5` | secondary text on ink |
+| `--k-red-hover` | `#B40224` | pressed / hover state for red fills |
+
+### State colours (product UI only, never marketing)
+
+| Token | Hex | Role |
+|---|---|---|
+| `--k-success` | `#1A7F35` | success text, icons, dots · 5.1:1 on paper |
+| `--k-success-soft` | `#E8F3EB` | success tint (badge / banner background) |
+| `--k-warning` | `#9A6200` | warning text, icons, dots · 5.1:1 on paper |
+| `--k-warning-soft` | `#FBF1E0` | warning tint (badge / banner background) |
+| `--k-info` | `#1A4E8A` | info text, icons, dots · 8.4:1 on paper |
+| `--k-info-soft` | `#E6EDF5` | info tint (badge / banner background) |
+
+### Semantic tokens (use these in CSS; they switch with the theme)
+
+| Token | Light (default) | Dark (`[data-theme="dark"]`) | Use for |
+|---|---|---|---|
+| `--bg` | `#FFFFFF` (`--k-paper`) | `#0B0F14` (`--k-ink`) | page background |
+| `--bg-2` | `#F6F4F0` (`--k-paper-2`) | `#1A2230` (`--k-ink-2`) | warm paper: section breaks, cards on paper |
+| `--bg-3` | `#EDEAE3` (`--k-paper-3`) | `#2B3544` (`--k-ink-3`) | warmer card on paper |
+| `--fg` | `#0B0F14` (`--k-ink`) | `#FFFFFF` (`--k-paper`) | primary text |
+| `--fg-2` | `#5B6573` (`--k-muted`) | `#8A95A5` (`--k-muted-dark`) | secondary text |
+| `--accent` | `#E4022D` (`--k-red`) | `#E4022D` (`--k-red`) | signature red: one spotlight per surface |
+| `--accent-ink` | `#8A021B` (`--k-red-ink`) | `#FCE5EA` (`--k-red-soft`) | red for small text on paper |
+| `--rule` | `#E2DED6` (`--k-rule-soft`) | `#2B3544` | soft divider |
+| `--rule-strong` | `#1A2230` (`--k-rule`) | `#3B4656` | strong rule / button border |
+| `--accent-hover` | `#B40224` (`--k-red-hover`) | `#B40224` (`--k-red-hover`) | hover / pressed state for red fills |
+| `--success` | `#1A7F35` (`--k-success`) | `#5BC27A` | state: success (product UI only) |
+| `--success-soft` | `#E8F3EB` (`--k-success-soft`) | `rgba(91,194,122,0.12)` | state: success tint |
+| `--warning` | `#9A6200` (`--k-warning`) | `#E0A43A` | state: warning (product UI only) |
+| `--warning-soft` | `#FBF1E0` (`--k-warning-soft`) | `rgba(224,164,58,0.12)` | state: warning tint |
+| `--info` | `#1A4E8A` (`--k-info`) | `#7FA8E0` | state: info (product UI only) |
+| `--info-soft` | `#E6EDF5` (`--k-info-soft`) | `rgba(127,168,224,0.12)` | state: info tint |
+| `--danger` | `#E4022D` (`--accent`) | `#E4022D` (`--accent`) | state: danger = brand red |
+| `--danger-soft` | `#FCE5EA` (`--k-red-soft`) | `#FCE5EA` (`--k-red-soft`) | state: danger tint |
+| `--link` | `#8A021B` (`--accent-ink`) | `#FCE5EA` (`--accent-ink`) | text links, inline code, small red text |
+
+**Fonts:** `--font-display` "Newsreader", ui-serif, Georgia, serif · `--font-sans` "DM Sans", ui-sans-serif, system-ui, sans-serif · `--font-mono` "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace
+
+**Spacing (8pt):** `--s-0` 0 · `--s-1` 4px · `--s-2` 8px · `--s-3` 12px · `--s-4` 16px · `--s-5` 24px · `--s-6` 32px · `--s-7` 48px · `--s-8` 64px · `--s-9` 96px · `--s-10` 128px
+
+**Radii:** `--r-0` 0 · `--r-1` 2px · `--r-2` 4px · `--r-3` 8px · `--r-4` 12px · `--r-pill` 999px
+
+Full tables (type scale, shadows, motion, contrast): https://brandkit.kilowott.com/KILOWOTT_BRAND.md#2-tokens
+<!-- tokens:end -->
+
+## Pages (live tab · source)
+
+- [Overview](https://brandkit.kilowott.com/project/pages/overview.js): principles, what is in the kit, where to start — https://brandkit.kilowott.com/project/#overview
+- [Logo](https://brandkit.kilowott.com/project/pages/logo.js): wordmark, bolt, clear space, sizes, placements, CSS mask — https://brandkit.kilowott.com/project/#logo
+- [Color](https://brandkit.kilowott.com/project/pages/color.js): palette, 60·30·5·5, alt accents, recipes, red rules, accessibility, state colours — https://brandkit.kilowott.com/project/#color
+- [Type](https://brandkit.kilowott.com/project/pages/type.js): pairing, 9-step scale, headline patterns, mono — https://brandkit.kilowott.com/project/#type
+- [Foundations](https://brandkit.kilowott.com/project/pages/foundations.js): spacing, grid, radii, elevation, motion, token dump — https://brandkit.kilowott.com/project/#foundations
+- [Icons](https://brandkit.kilowott.com/project/pages/icons.js): Lucide rules, sizes, 69-icon curated set (library has 1,500+) — https://brandkit.kilowott.com/project/#icons
+- [Components](https://brandkit.kilowott.com/project/pages/components.js): buttons, forms, cards, tabs, states, modal, toast, nav, footer — https://brandkit.kilowott.com/project/#components
+- [Landing](https://brandkit.kilowott.com/project/pages/landing.js): 6 hero patterns + 4 marketing sections — https://brandkit.kilowott.com/project/#landing
+- [Dashboards](https://brandkit.kilowott.com/project/pages/dashboards.js): KPI tiles, tables, spreadsheet, charts, full shell — https://brandkit.kilowott.com/project/#dashboards
+- [Deck](https://brandkit.kilowott.com/project/pages/deck.js): 15 slide layouts, 1920×1080 specs — https://brandkit.kilowott.com/project/#deck
+- [Email](https://brandkit.kilowott.com/project/pages/email.js): transactional + newsletter templates, 600px — https://brandkit.kilowott.com/project/#email
+- [Signature](https://brandkit.kilowott.com/project/pages/signature.js): signature generator, Gmail-ready — https://brandkit.kilowott.com/project/#signature
+- [Newsletter](https://brandkit.kilowott.com/project/pages/newsletter.js): block composer, email-safe export — https://brandkit.kilowott.com/project/#newsletter
+- [Stationery](https://brandkit.kilowott.com/project/pages/stationery.js): business card, letterhead, envelope, print specs — https://brandkit.kilowott.com/project/#stationery
+- [Case study](https://brandkit.kilowott.com/project/pages/case-study.js): seven rules + full template — https://brandkit.kilowott.com/project/#case-study
+- [Magazine](https://brandkit.kilowott.com/project/pages/magazine.js): Framework cover + spreads, print specs — https://brandkit.kilowott.com/project/#magazine
+- [Imagery](https://brandkit.kilowott.com/project/pages/imagery.js): principles, grades, crops, sourcing — https://brandkit.kilowott.com/project/#imagery
+- [Voice](https://brandkit.kilowott.com/project/pages/voice.js): principles, tone, vocab, mechanics, length ladder — https://brandkit.kilowott.com/project/#voice
+- [Social](https://brandkit.kilowott.com/project/pages/social.js): LinkedIn, X, Facebook, Instagram, cover banners — https://brandkit.kilowott.com/project/#social
+- [Posters & banners](https://brandkit.kilowott.com/project/pages/posters.js): print posters, roll-ups, billboards, display ads, OG images; spec in script#posters-spec — https://brandkit.kilowott.com/project/#posters
+
+## Prompts
+
+- [Claude Code](https://brandkit.kilowott.com/prompts/claude-code.md): on-brand code
+- [Claude Design](https://brandkit.kilowott.com/prompts/claude-design.md): on-brand mock-ups
+- [Cowork](https://brandkit.kilowott.com/prompts/cowork.md): Cowork workflows
+- [Web builders](https://brandkit.kilowott.com/prompts/web-builders.md): v0, Lovable, Bolt, Cursor, ChatGPT
 
 ## Optional
 
-- [Full system dump](llms-full.txt): every page compiled to markdown for one-shot loading
+- [tokens.css](https://brandkit.kilowott.com/project/styles/tokens.css): canonical token source
+- [Source repository](https://github.com/zoeytad/kilowott-design-system): issues, history, raw files

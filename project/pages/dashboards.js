@@ -7,7 +7,7 @@ window.renderDashboards = function (root) {
 
   // ---------- Spreadsheet demo data ----------
   const ssData = [
-    {id:'CMP-2401', date:'2026-01-08', channel:'Meta',     type:'Conversion', memo:'Paul John Caffeine · US launch',         spend:48120, revenue:148120, owner:'Growth',      end:'Mar 31', status:'Live'},
+    {id:'CMP-2401', date:'2026-01-08', channel:'Meta',     type:'Conversion', memo:'Nordhavn Coffee · US launch',         spend:48120, revenue:148120, owner:'Growth',      end:'Mar 31', status:'Live'},
     {id:'CMP-2402', date:'2026-01-10', channel:'SEO',      type:'Brand',      memo:'Editorial content · Q1 publish',         spend:22500, revenue: 78400, owner:'Brand',       end:'Mar 28', status:'Live'},
     {id:'CMP-2403', date:'2026-01-12', channel:'Google',   type:'Conversion', memo:'Branded search · always-on',             spend: 8400, revenue: 31200, owner:'Performance', end:'—',     status:'Live'},
     {id:'CMP-2404', date:'2026-01-14', channel:'LinkedIn', type:'Lead-gen',   memo:'Enterprise prospects · Nordics',          spend:18600, revenue:     0, owner:'Growth',      end:'Feb 28', status:'Optimizing'},
@@ -895,7 +895,7 @@ window.renderDashboards = function (root) {
     .ss-tb-btn:hover { background: var(--bg-2); }
     .ss-tb-btn.is-on { background: var(--bg-2); border-color: var(--fg); }
     .ss-tb-btn--accent { background: var(--accent); color: #fff; border-color: var(--accent); }
-    .ss-tb-btn--accent:hover { background: #B40224; }
+    .ss-tb-btn--accent:hover { background: var(--accent-hover); }
     .ss-tb-btn .lucide, .ss-seg button .lucide { width: 13px; height: 13px; stroke-width: 1.75; }
     .db-alert__dismiss .lucide { width: 14px; height: 14px; stroke-width: 1.75; }
     .ss-chip button .lucide { width: 10px; height: 10px; stroke-width: 2; }
@@ -1598,7 +1598,7 @@ window.renderDashboards = function (root) {
     .heatmap__cell--1 { background: #F6F4F0; color: var(--fg); }
     .heatmap__cell--2 { background: #FCE5EA; color: #8A021B; }
     .heatmap__cell--3 { background: #F5A8B7; color: #60010F; }
-    .heatmap__cell--4 { background: #E4022D; color: #fff; }
+    .heatmap__cell--4 { background: var(--accent); color: #fff; }
     .heatmap__cell--5 { background: #8A021B; color: #fff; }
     [data-theme="dark"] .heatmap__cell--1 { background: #1A2230; color: var(--fg); }
     [data-theme="dark"] .heatmap__cell--2 { background: #3A1820; }
@@ -2710,7 +2710,7 @@ window.renderDashboards = function (root) {
             </aside>
             <div class="db-main">
               <div class="db-top">
-                <div class="db-top__crumb">Finance &nbsp;/&nbsp; <b>Overview</b> &middot; <span style="font-family:var(--font-mono); font-size:11px;">updated 12 min ago</span></div>
+                <div class="db-top__crumb">Finance &nbsp;/&nbsp; <b>Overview</b> &middot; <span style="font-family:var(--font-mono); font-size:11px;">updated 12 min ago</span> &middot; <span style="font-family:var(--font-mono); font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:var(--fg-2); border:1px solid var(--rule); border-radius:3px; padding:1px 6px;">Sample data</span></div>
                 <div style="display:flex; gap:6px; align-items:center;">
                   <div class="db-seg">
                     <button>1D</button>

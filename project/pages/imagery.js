@@ -1,5 +1,5 @@
 /* ============================================================
-   IMAGERY & PHOTOGRAPHY — v0.4
+   IMAGERY & PHOTOGRAPHY — v1.0
    ============================================================ */
 
 window.renderImagery = function (root) {
@@ -51,7 +51,7 @@ window.renderImagery = function (root) {
     }
     .im-prin__n {
       font-family: var(--font-mono); font-size: 11px;
-      color: var(--accent); letter-spacing: 0.16em;
+      color: var(--link); letter-spacing: 0.16em;
     }
     .im-prin b {
       display: block; font-family: var(--font-display);
@@ -90,7 +90,7 @@ window.renderImagery = function (root) {
     .im-cat__eyebrow {
       font-family: var(--font-sans); font-size: 11px;
       letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--accent); font-weight: 500;
+      color: var(--link); font-weight: 500;
     }
     .im-cat h3 {
       font-family: var(--font-display); font-weight: 400;
@@ -122,7 +122,7 @@ window.renderImagery = function (root) {
     .vis svg { width: 100%; height: 100%; display: block; }
     .vis__tag {
       position: absolute; top: 16px; left: 16px;
-      font-family: var(--font-mono); font-size: 10px;
+      font-family: var(--font-mono); font-size: 11px;
       letter-spacing: 0.2em; text-transform: uppercase;
       background: rgba(255,255,255,0.9); padding: 5px 9px;
       color: #0B0F14; border-radius: 2px;
@@ -233,7 +233,7 @@ window.renderImagery = function (root) {
     .im-dd__vis { aspect-ratio: 3/2; position: relative; background: var(--bg-2); }
     .im-dd__vis::before {
       content: attr(data-tag); position: absolute; top: 14px; left: 14px;
-      font-family: var(--font-sans); font-size: 10px;
+      font-family: var(--font-sans); font-size: 11px;
       letter-spacing: 0.22em; text-transform: uppercase;
       padding: 5px 10px; color: #fff; font-weight: 500; z-index: 2;
     }
@@ -280,13 +280,13 @@ window.renderImagery = function (root) {
     .im-source__row b { font-weight: 500; }
     .im-source__row p { margin: 0; color: var(--fg-2); font-size: 13px; line-height: 1.5; }
     .im-pill {
-      font-family: var(--font-mono); font-size: 10px;
+      font-family: var(--font-mono); font-size: 11px;
       letter-spacing: 0.16em; text-transform: uppercase;
       padding: 5px 10px; border-radius: 100px;
       white-space: nowrap;
     }
     .im-pill--yes  { background: rgba(11,15,20,0.1); color: var(--fg); }
-    .im-pill--cond { background: rgba(228,2,45,0.1); color: var(--accent); }
+    .im-pill--cond { background: rgba(228,2,45,0.1); color: var(--link); }
     .im-pill--no   { background: var(--accent); color: #fff; }
 
     [data-theme="dark"] .im-pill--yes { background: rgba(255,255,255,0.1); }
@@ -322,7 +322,7 @@ window.renderImagery = function (root) {
     .im-lib__meta {
       position: absolute; left: 14px; right: 14px; bottom: 12px;
       color: #fff; font-family: var(--font-mono);
-      font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
       opacity: 0; transform: translateY(6px);
       transition: opacity 220ms ease, transform 220ms ease;
       z-index: 2;
@@ -359,6 +359,12 @@ window.renderImagery = function (root) {
       color: var(--fg-2);
     }
     .im-lib__meter b { color: var(--fg); font-weight: 500; }
+    .im-lib__meter { flex-wrap: wrap; }
+    .im-lib__meter span { min-width: 0; overflow-wrap: anywhere; }
+    @media (max-width: 700px) {
+      .im-source__row { grid-template-columns: minmax(0, 1fr); gap: 8px; padding: 16px; justify-items: start; }
+      .im-lib__meter { gap: 8px 16px; }
+    }
   </style>
 
   <!-- HERO -->

@@ -1,94 +1,59 @@
-# Deploying the Kilowott Design System
+# Deploying the Kilowott brand kit
 
-Zero-config static deploy. Pick any host — the bundle is plain HTML/CSS/JS with no build step.
+**Production:** https://brandkit.kilowott.com, hosted on Railway. **Deploying:** push to `main`.
 
-## Option A — Vercel (fastest)
+## How it works
 
-```bash
-cd "/Users/aaron/Claude Code/Kilowott Branding"
+- Railway builds the repo with Nixpacks (`railway.json`) and starts it with
+  `npx serve -l tcp://0.0.0.0:$PORT --config serve.json .`
+  The same command is in `Procfile`. It serves the **repo root**.
+- Railway's health check requests `/llms.txt` (`railway.json → healthcheckPath`).
+- `serve.json`:
+  - **Redirect:** `/` returns a 302 to `/project/`, where the SPA lives.
+  - **Rewrites:** `/project` and `/project/` serve `project/index.html`.
+  - **Headers:**
 
-# one-time: install CLI + login
-npm i -g vercel
-vercel login
+    | Files | Content-Type |
+    |---|---|
+    | `**/*.txt` | `text/plain; charset=utf-8` |
+    | `**/*.md` | `text/markdown; charset=utf-8` |
+    | `**/*.json` | `application/json; charset=utf-8` |
 
-# deploy
-vercel          # preview URL
-vercel --prod   # production URL
-```
+    All of these, plus everything under `project/kit|styles|pages|assets|downloads/**`, also get `Access-Control-Allow-Origin: *` and a 5-minute cache, so agents can `fetch()` them and other sites can use `kit/kilowott.css` and its logo mask. The `.ase` swatch downloads as an attachment. `project/index.html` sends a `Link` header that points to `/llms.txt` and `/AGENTS.md`.
+- There is no build step on Railway. Generated files are committed, so run `npm run build:tokens` locally before you push.
 
-Uses `vercel.json` at repo root. `/` rewrites to `project/index.html`. The key AI-facing files (`llms.txt`, `tokens.json`, `manifest.json`) are served with CORS + short cache so external tools can read them.
+## Release checklist
 
-## Option B — Netlify
+1. If you changed tokens: edit `project/styles/tokens.css`, then run `npm run build:tokens`.
+2. Run `npm run check`. It must pass, and CI runs the same check on the push.
+3. Preview locally: run `python3 -m http.server 8723` from the repo root and open http://localhost:8723/project/. To test the production config (headers and redirect) as well, run `npm install && npm start`. It serves on `$PORT`, or 3000 if that isn't set.
+4. Commit and push to `main`. Railway deploys within about a minute.
+5. Smoke-test the live site:
+   ```bash
+   curl -sI https://brandkit.kilowott.com/ | grep -i location        # → /project/
+   curl -sI https://brandkit.kilowott.com/llms.txt | grep -i content-type
+   curl -s  https://brandkit.kilowott.com/AGENTS.md | head -3
+   curl -sI https://brandkit.kilowott.com/project/kit/kilowott.css | grep -i access-control
+   ```
 
-```bash
-cd "/Users/aaron/Claude Code/Kilowott Branding"
+## Domain
 
-npm i -g netlify-cli
-netlify login
+`brandkit.kilowott.com` is a custom domain on the Railway service. Its DNS is a CNAME to the target Railway shows under *Settings → Networking*. Railway's auto-generated `*.up.railway.app` URL is an internal alias. Don't publish it in docs; always use `https://brandkit.kilowott.com`.
 
-netlify deploy             # preview URL
-netlify deploy --prod      # production URL
-```
+## URLs to give people and agents
 
-Uses `netlify.toml` at repo root (same rewrites + headers as Vercel config).
+| URL | Use |
+|---|---|
+| https://brandkit.kilowott.com/project/ | Live kit, for people |
+| https://brandkit.kilowott.com/AGENTS.md | Agent front door |
+| https://brandkit.kilowott.com/llms.txt | llmstxt.org index |
+| https://brandkit.kilowott.com/llms-full.txt | Everything in one file |
+| https://brandkit.kilowott.com/project/kit/kilowott.css | Drop-in stylesheet |
+| https://brandkit.kilowott.com/tokens.json | Design tokens |
+| https://brandkit.kilowott.com/manifest.json | Machine-readable map |
+| https://brandkit.kilowott.com/prompts/claude-code.md | Prompt for Claude Code (also: `claude-design.md`, `cowork.md`, `web-builders.md`) |
+| https://brandkit.kilowott.com/project/#&lt;tab&gt; | A specific tab |
 
-## Option C — Cloudflare Pages
+## Rollback
 
-```bash
-cd "/Users/aaron/Claude Code/Kilowott Branding"
-
-npm i -g wrangler
-wrangler login
-wrangler pages deploy . --project-name=kilowott-design-system
-```
-
-## Option D — GitHub Pages
-
-```bash
-cd "/Users/aaron/Claude Code/Kilowott Branding"
-git init
-git add .
-git commit -m "Initial brand system"
-git branch -M main
-git remote add origin https://github.com/<org>/kilowott-design-system.git
-git push -u origin main
-```
-
-Then in GitHub repo settings → Pages → deploy from `main` / `/ (root)`. URL will be `https://<org>.github.io/kilowott-design-system/project/`.
-
-## After deploying
-
-1. **Update `llms.txt`** — replace `_set this when deployed_` with the production URL.
-2. **Update `manifest.json`** page URLs to absolute if desired (optional — relative works for agent traversal).
-3. **Hand the URL to:**
-   - **Claude Code:** paste `prompts/claude-code.md` + the URL into any session's system prompt.
-   - **Claude Design:** same with `prompts/claude-design.md`.
-   - **Cowork:** same with `prompts/cowork.md`.
-   - **Team:** bookmark it. The brand ref is human-readable too.
-
-## Custom domain (optional)
-
-For all hosts above, add a custom domain (e.g. `brand.kilowott.com`) in the host's dashboard. DNS: CNAME pointing at the host's target (`cname.vercel-dns.com`, `<site>.netlify.app`, etc.).
-
-## Local preview
-
-Already running:
-
-```bash
-cd project && python3 -m http.server 8723
-```
-
-→ http://localhost:8723/
-
-## AI-facing URLs once deployed
-
-Let's assume production URL is `https://brand.kilowott.com`. External agents should hit:
-
-- `https://brand.kilowott.com/llms.txt` — entry point (llmstxt.org format)
-- `https://brand.kilowott.com/KILOWOTT_BRAND.md` — compact brand reference
-- `https://brand.kilowott.com/tokens.json` — machine-readable tokens
-- `https://brand.kilowott.com/manifest.json` — component catalog
-- `https://brand.kilowott.com/prompts/claude-code.md` — Claude Code prompt
-- `https://brand.kilowott.com/prompts/claude-design.md` — Claude Design prompt
-- `https://brand.kilowott.com/prompts/cowork.md` — Cowork prompt
-- `https://brand.kilowott.com/project/index.html#<tab>` — any specific page
+Revert the commit on `main` and push. You can also redeploy a previous deployment from Railway's *Deployments* tab.

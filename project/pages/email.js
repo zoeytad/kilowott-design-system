@@ -235,6 +235,13 @@ window.renderEmail = function (root) {
         <li class="token-row"><span class="token-row__label"><b style="color:var(--fg)">04</b> &nbsp; Preview text (preheader) 40&ndash;90 chars, writes like a subhead &mdash; never repeats the subject.</span><span class="token-row__meta">Deliverability</span></li>
         <li class="token-row"><span class="token-row__label"><b style="color:var(--fg)">05</b> &nbsp; Plain-text version always. Unsubscribe + company address in footer. Mono for any data row (receipts, stats).</span><span class="token-row__meta">Compliance</span></li>
       </ul>
+      <div class="card" style="margin-top: var(--s-6); background: var(--bg-2); display:flex; gap: var(--s-4); align-items:flex-start;">
+        <i data-lucide="info" style="flex:none; width:18px; height:18px; color: var(--info); margin-top:2px;"></i>
+        <p style="font-size: var(--fs-sm); color: var(--fg);">
+          <b>The three templates below are visual specs, not paste-ready code.</b> They show layout, hierarchy and type for each email type; they are drawn with web CSS so they can sit in this page. When you build the real template, follow the five rules above (tables, inline styles, hex colours, Georgia/Arial fallbacks).
+          For HTML you can paste straight into Gmail, Outlook or an email tool today, use the <a href="#newsletter" style="color:var(--link)">Newsletter composer</a> or the <a href="#signature" style="color:var(--link)">Signature generator</a> &mdash; both export table-based, inline-styled HTML.
+        </p>
+      </div>
     </div>
   </section>
 

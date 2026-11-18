@@ -477,7 +477,7 @@ window.renderStationery = function (root) {
                 </div>
                 <div class="st-bc__contact">
                   <b>ola.nordmann@kilowott.com</b>
-                  +47 925 11 386<br>
+                  +47 000 00 000<br>
                   kilowott.com
                 </div>
               </div>

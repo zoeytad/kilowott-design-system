@@ -66,7 +66,7 @@ window.renderLanding = function (root) {
       position: relative;
     }
     .lp-spec__stage--flush { padding: 0; }
-    .lp-spec__stage--ink { background: var(--k-ink); color: #F7F5EF; }
+    .lp-spec__stage--ink { background: var(--k-ink); color: var(--k-paper-2); }
     .lp-spec__stage--warm { background: var(--bg-2); }
     .lp-spec__foot {
       padding: 14px 20px;
@@ -96,7 +96,7 @@ window.renderLanding = function (root) {
     .lp-btn--primary { background: var(--k-ink); color: #fff; border-color: var(--k-ink); }
     .lp-btn--primary:hover { background: var(--accent); border-color: var(--accent); }
     .lp-btn--accent { background: var(--accent); color: #fff; border-color: var(--accent); }
-    .lp-btn--accent:hover { background: #B40224; border-color: #B40224; }
+    .lp-btn--accent:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
     .lp-btn--ghost {
       background: transparent; color: var(--k-ink); border-color: transparent;
       padding: 14px 6px;
@@ -104,11 +104,11 @@ window.renderLanding = function (root) {
     .lp-btn--ghost:hover { color: var(--accent); }
     /* On-ink variants */
     .lp-spec__stage--ink .lp-btn--primary,
-    .lp-hero--ink .lp-btn--primary { background: #F7F5EF; color: var(--k-ink); border-color: #F7F5EF; }
+    .lp-hero--ink .lp-btn--primary { background: var(--k-paper-2); color: var(--k-ink); border-color: var(--k-paper-2); }
     .lp-spec__stage--ink .lp-btn--primary:hover,
     .lp-hero--ink .lp-btn--primary:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
     .lp-spec__stage--ink .lp-btn--ghost,
-    .lp-hero--ink .lp-btn--ghost { color: #F7F5EF; }
+    .lp-hero--ink .lp-btn--ghost { color: var(--k-paper-2); }
     .lp-spec__stage--ink .lp-btn--ghost:hover,
     .lp-hero--ink .lp-btn--ghost:hover { color: var(--accent); }
 
@@ -188,7 +188,7 @@ window.renderLanding = function (root) {
     .lp-h3__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 
     /* Full-bleed atmospheric (pattern 4) */
-    .lp-h4 { position: relative; min-height: 560px; overflow: hidden; color: #F7F5EF; }
+    .lp-h4 { position: relative; min-height: 560px; overflow: hidden; color: var(--k-paper-2); }
     .lp-h4__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; z-index: 0; }
     .lp-h4__scrim {
       position: absolute; inset: 0; z-index: 1;
@@ -207,7 +207,7 @@ window.renderLanding = function (root) {
       line-height: 1.04; letter-spacing: -0.02em;
       max-width: 18ch;
       margin-top: 14px;
-      color: #F7F5EF;
+      color: var(--k-paper-2);
     }
     .lp-h4__head em { font-style: italic; color: var(--accent); }
     .lp-h4__lede { margin-top: 18px; max-width: 52ch; color: rgba(247,245,239,0.78); font-size: 1.0625rem; line-height: 1.6; }
@@ -242,7 +242,7 @@ window.renderLanding = function (root) {
     }
 
     /* Video-poster hero (pattern 6) */
-    .lp-h6 { position: relative; min-height: 560px; overflow: hidden; color: #F7F5EF; background: var(--k-ink); }
+    .lp-h6 { position: relative; min-height: 560px; overflow: hidden; color: var(--k-paper-2); background: var(--k-ink); }
     .lp-h6__photo {
       position: absolute; inset: 0; width: 100%; height: 100%;
       object-fit: cover; display: block; opacity: 0.45;
@@ -270,7 +270,7 @@ window.renderLanding = function (root) {
     .lp-h6__play::before {
       content: "";
       width: 0; height: 0;
-      border-left: 22px solid #F7F5EF;
+      border-left: 22px solid var(--k-paper-2);
       border-top: 14px solid transparent;
       border-bottom: 14px solid transparent;
       margin-left: 6px;
@@ -282,7 +282,7 @@ window.renderLanding = function (root) {
       font-size: clamp(2.5rem, 5vw, 4.25rem);
       line-height: 1.04; letter-spacing: -0.02em;
       max-width: 20ch;
-      color: #F7F5EF;
+      color: var(--k-paper-2);
     }
     .lp-h6__head em { font-style: italic; color: var(--accent); }
     .lp-h6__meta {
@@ -438,7 +438,7 @@ window.renderLanding = function (root) {
     /* Stat strip band (section 9) */
     .lp-s9 {
       background: var(--k-ink);
-      color: #F7F5EF;
+      color: var(--k-paper-2);
       padding: var(--s-8) 0;
       border-radius: var(--r-3);
     }

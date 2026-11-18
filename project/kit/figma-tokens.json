@@ -1,0 +1,574 @@
+{
+  "global": {
+    "color": {
+      "brand": {
+        "ink": {
+          "value": "#0B0F14",
+          "type": "color",
+          "description": "near-black, primary text, hero backgrounds"
+        },
+        "ink-2": {
+          "value": "#1A2230",
+          "type": "color",
+          "description": "secondary surface dark"
+        },
+        "ink-3": {
+          "value": "#2B3544",
+          "type": "color",
+          "description": "tertiary, borders on dark"
+        },
+        "paper": {
+          "value": "#FFFFFF",
+          "type": "color",
+          "description": "primary surface"
+        },
+        "paper-2": {
+          "value": "#F6F4F0",
+          "type": "color",
+          "description": "warm off-white, section breaks"
+        },
+        "paper-3": {
+          "value": "#EDEAE3",
+          "type": "color",
+          "description": "warmer still, cards on paper"
+        },
+        "red": {
+          "value": "#E4022D",
+          "type": "color",
+          "description": "signature — use sparingly"
+        },
+        "red-soft": {
+          "value": "#FCE5EA",
+          "type": "color",
+          "description": "tinted bg for red accents"
+        },
+        "red-ink": {
+          "value": "#8A021B",
+          "type": "color",
+          "description": "darkened red for text on paper"
+        },
+        "rule": {
+          "value": "#1A2230",
+          "type": "color",
+          "description": "rules/borders on paper"
+        },
+        "rule-soft": {
+          "value": "#E2DED6",
+          "type": "color",
+          "description": "soft divider on paper"
+        },
+        "muted": {
+          "value": "#5B6573",
+          "type": "color",
+          "description": "secondary text on paper"
+        },
+        "muted-dark": {
+          "value": "#8A95A5",
+          "type": "color",
+          "description": "secondary text on ink"
+        },
+        "red-hover": {
+          "value": "#B40224",
+          "type": "color",
+          "description": "pressed / hover state for red fills"
+        }
+      },
+      "state": {
+        "success": {
+          "value": "#1A7F35",
+          "type": "color",
+          "description": "success text, icons, dots · 5.1:1 on paper"
+        },
+        "success-soft": {
+          "value": "#E8F3EB",
+          "type": "color",
+          "description": "success tint (badge / banner background)"
+        },
+        "warning": {
+          "value": "#9A6200",
+          "type": "color",
+          "description": "warning text, icons, dots · 5.1:1 on paper"
+        },
+        "warning-soft": {
+          "value": "#FBF1E0",
+          "type": "color",
+          "description": "warning tint (badge / banner background)"
+        },
+        "info": {
+          "value": "#1A4E8A",
+          "type": "color",
+          "description": "info text, icons, dots · 8.4:1 on paper"
+        },
+        "info-soft": {
+          "value": "#E6EDF5",
+          "type": "color",
+          "description": "info tint (badge / banner background)"
+        }
+      }
+    },
+    "fontFamilies": {
+      "display": {
+        "value": "Newsreader",
+        "type": "fontFamilies",
+        "description": "\"Newsreader\", ui-serif, Georgia, serif"
+      },
+      "sans": {
+        "value": "DM Sans",
+        "type": "fontFamilies",
+        "description": "\"DM Sans\", ui-sans-serif, system-ui, sans-serif"
+      },
+      "mono": {
+        "value": "JetBrains Mono",
+        "type": "fontFamilies",
+        "description": "\"JetBrains Mono\", ui-monospace, \"SF Mono\", Menlo, monospace"
+      }
+    },
+    "fontSizes": {
+      "d1": {
+        "value": "100",
+        "type": "fontSizes",
+        "description": "fluid 56–100px (clamp(3.5rem, 7vw, 6.25rem)); value = desktop max"
+      },
+      "d2": {
+        "value": "72",
+        "type": "fontSizes",
+        "description": "fluid 44–72px (clamp(2.75rem, 5.2vw, 4.5rem)); value = desktop max"
+      },
+      "d3": {
+        "value": "48",
+        "type": "fontSizes",
+        "description": "fluid 32–48px (clamp(2rem, 3.6vw, 3rem)); value = desktop max"
+      },
+      "h1": {
+        "value": "36",
+        "type": "fontSizes",
+        "description": "2.25rem"
+      },
+      "h2": {
+        "value": "24",
+        "type": "fontSizes",
+        "description": "1.5rem"
+      },
+      "h3": {
+        "value": "18",
+        "type": "fontSizes",
+        "description": "1.125rem"
+      },
+      "body": {
+        "value": "16",
+        "type": "fontSizes",
+        "description": "1rem"
+      },
+      "sm": {
+        "value": "14",
+        "type": "fontSizes",
+        "description": "0.875rem"
+      },
+      "xs": {
+        "value": "12",
+        "type": "fontSizes",
+        "description": "0.75rem"
+      }
+    },
+    "lineHeights": {
+      "tight": {
+        "value": "104%",
+        "type": "lineHeights"
+      },
+      "snug": {
+        "value": "120%",
+        "type": "lineHeights"
+      },
+      "body": {
+        "value": "155%",
+        "type": "lineHeights"
+      }
+    },
+    "letterSpacing": {
+      "eyebrow": {
+        "value": "18%",
+        "type": "letterSpacing"
+      },
+      "display": {
+        "value": "-2%",
+        "type": "letterSpacing"
+      }
+    },
+    "fontWeights": {
+      "regular": {
+        "value": "400",
+        "type": "fontWeights"
+      },
+      "medium": {
+        "value": "500",
+        "type": "fontWeights"
+      }
+    },
+    "spacing": {
+      "s-0": {
+        "value": "0",
+        "type": "spacing"
+      },
+      "s-1": {
+        "value": "4",
+        "type": "spacing"
+      },
+      "s-2": {
+        "value": "8",
+        "type": "spacing"
+      },
+      "s-3": {
+        "value": "12",
+        "type": "spacing"
+      },
+      "s-4": {
+        "value": "16",
+        "type": "spacing"
+      },
+      "s-5": {
+        "value": "24",
+        "type": "spacing"
+      },
+      "s-6": {
+        "value": "32",
+        "type": "spacing"
+      },
+      "s-7": {
+        "value": "48",
+        "type": "spacing"
+      },
+      "s-8": {
+        "value": "64",
+        "type": "spacing"
+      },
+      "s-9": {
+        "value": "96",
+        "type": "spacing"
+      },
+      "s-10": {
+        "value": "128",
+        "type": "spacing"
+      }
+    },
+    "borderRadius": {
+      "r-0": {
+        "value": "0",
+        "type": "borderRadius"
+      },
+      "r-1": {
+        "value": "2",
+        "type": "borderRadius"
+      },
+      "r-2": {
+        "value": "4",
+        "type": "borderRadius"
+      },
+      "r-3": {
+        "value": "8",
+        "type": "borderRadius"
+      },
+      "r-4": {
+        "value": "12",
+        "type": "borderRadius"
+      },
+      "r-pill": {
+        "value": "999",
+        "type": "borderRadius"
+      }
+    },
+    "boxShadow": {
+      "0": {
+        "value": [],
+        "type": "boxShadow"
+      },
+      "1": {
+        "value": [
+          {
+            "x": "0",
+            "y": "1",
+            "blur": "0",
+            "spread": "0",
+            "color": "rgba(11,15,20,0.06)",
+            "type": "dropShadow"
+          },
+          {
+            "x": "0",
+            "y": "1",
+            "blur": "2",
+            "spread": "0",
+            "color": "rgba(11,15,20,0.04)",
+            "type": "dropShadow"
+          }
+        ],
+        "type": "boxShadow"
+      },
+      "2": {
+        "value": [
+          {
+            "x": "0",
+            "y": "2",
+            "blur": "4",
+            "spread": "0",
+            "color": "rgba(11,15,20,0.06)",
+            "type": "dropShadow"
+          },
+          {
+            "x": "0",
+            "y": "8",
+            "blur": "16",
+            "spread": "0",
+            "color": "rgba(11,15,20,0.06)",
+            "type": "dropShadow"
+          }
+        ],
+        "type": "boxShadow"
+      },
+      "3": {
+        "value": [
+          {
+            "x": "0",
+            "y": "4",
+            "blur": "8",
+            "spread": "0",
+            "color": "rgba(11,15,20,0.08)",
+            "type": "dropShadow"
+          },
+          {
+            "x": "0",
+            "y": "24",
+            "blur": "48",
+            "spread": "0",
+            "color": "rgba(11,15,20,0.10)",
+            "type": "dropShadow"
+          }
+        ],
+        "type": "boxShadow"
+      }
+    }
+  },
+  "light": {
+    "semantic": {
+      "bg": {
+        "value": "{color.brand.paper}",
+        "type": "color",
+        "description": "page background"
+      },
+      "bg-2": {
+        "value": "{color.brand.paper-2}",
+        "type": "color",
+        "description": "warm paper: section breaks, cards on paper"
+      },
+      "bg-3": {
+        "value": "{color.brand.paper-3}",
+        "type": "color",
+        "description": "warmer card on paper"
+      },
+      "fg": {
+        "value": "{color.brand.ink}",
+        "type": "color",
+        "description": "primary text"
+      },
+      "fg-2": {
+        "value": "{color.brand.muted}",
+        "type": "color",
+        "description": "secondary text"
+      },
+      "accent": {
+        "value": "{color.brand.red}",
+        "type": "color",
+        "description": "signature red: one spotlight per surface"
+      },
+      "accent-ink": {
+        "value": "{color.brand.red-ink}",
+        "type": "color",
+        "description": "red for small text on paper"
+      },
+      "rule": {
+        "value": "{color.brand.rule-soft}",
+        "type": "color",
+        "description": "soft divider"
+      },
+      "rule-strong": {
+        "value": "{color.brand.rule}",
+        "type": "color",
+        "description": "strong rule / button border"
+      },
+      "accent-hover": {
+        "value": "{color.brand.red-hover}",
+        "type": "color",
+        "description": "hover / pressed state for red fills"
+      },
+      "success": {
+        "value": "{color.state.success}",
+        "type": "color",
+        "description": "state: success (product UI only)"
+      },
+      "success-soft": {
+        "value": "{color.state.success-soft}",
+        "type": "color",
+        "description": "state: success tint"
+      },
+      "warning": {
+        "value": "{color.state.warning}",
+        "type": "color",
+        "description": "state: warning (product UI only)"
+      },
+      "warning-soft": {
+        "value": "{color.state.warning-soft}",
+        "type": "color",
+        "description": "state: warning tint"
+      },
+      "info": {
+        "value": "{color.state.info}",
+        "type": "color",
+        "description": "state: info (product UI only)"
+      },
+      "info-soft": {
+        "value": "{color.state.info-soft}",
+        "type": "color",
+        "description": "state: info tint"
+      },
+      "danger": {
+        "value": "{semantic.accent}",
+        "type": "color",
+        "description": "state: danger = brand red"
+      },
+      "danger-soft": {
+        "value": "{color.brand.red-soft}",
+        "type": "color",
+        "description": "state: danger tint"
+      },
+      "link": {
+        "value": "{semantic.accent-ink}",
+        "type": "color",
+        "description": "text links, inline code, small red text"
+      }
+    }
+  },
+  "dark": {
+    "semantic": {
+      "bg": {
+        "value": "{color.brand.ink}",
+        "type": "color",
+        "description": "page background"
+      },
+      "bg-2": {
+        "value": "{color.brand.ink-2}",
+        "type": "color",
+        "description": "warm paper: section breaks, cards on paper"
+      },
+      "bg-3": {
+        "value": "{color.brand.ink-3}",
+        "type": "color",
+        "description": "warmer card on paper"
+      },
+      "fg": {
+        "value": "{color.brand.paper}",
+        "type": "color",
+        "description": "primary text"
+      },
+      "fg-2": {
+        "value": "{color.brand.muted-dark}",
+        "type": "color",
+        "description": "secondary text"
+      },
+      "accent": {
+        "value": "{color.brand.red}",
+        "type": "color",
+        "description": "signature red: one spotlight per surface"
+      },
+      "accent-ink": {
+        "value": "{color.brand.red-soft}",
+        "type": "color",
+        "description": "red for small text on paper"
+      },
+      "rule": {
+        "value": "#2B3544",
+        "type": "color",
+        "description": "soft divider"
+      },
+      "rule-strong": {
+        "value": "#3B4656",
+        "type": "color",
+        "description": "strong rule / button border"
+      },
+      "accent-hover": {
+        "value": "{color.brand.red-hover}",
+        "type": "color",
+        "description": "hover / pressed state for red fills"
+      },
+      "success": {
+        "value": "#5BC27A",
+        "type": "color",
+        "description": "state: success (product UI only)"
+      },
+      "success-soft": {
+        "value": "rgba(91,194,122,0.12)",
+        "type": "color",
+        "description": "state: success tint"
+      },
+      "warning": {
+        "value": "#E0A43A",
+        "type": "color",
+        "description": "state: warning (product UI only)"
+      },
+      "warning-soft": {
+        "value": "rgba(224,164,58,0.12)",
+        "type": "color",
+        "description": "state: warning tint"
+      },
+      "info": {
+        "value": "#7FA8E0",
+        "type": "color",
+        "description": "state: info (product UI only)"
+      },
+      "info-soft": {
+        "value": "rgba(127,168,224,0.12)",
+        "type": "color",
+        "description": "state: info tint"
+      },
+      "danger": {
+        "value": "{semantic.accent}",
+        "type": "color",
+        "description": "state: danger = brand red"
+      },
+      "danger-soft": {
+        "value": "{color.brand.red-soft}",
+        "type": "color",
+        "description": "state: danger tint"
+      },
+      "link": {
+        "value": "{semantic.accent-ink}",
+        "type": "color",
+        "description": "text links, inline code, small red text"
+      }
+    }
+  },
+  "$themes": [
+    {
+      "id": "kilowott-light",
+      "name": "Kilowott light (default)",
+      "selectedTokenSets": {
+        "global": "source",
+        "light": "enabled"
+      }
+    },
+    {
+      "id": "kilowott-dark",
+      "name": "Kilowott dark",
+      "selectedTokenSets": {
+        "global": "source",
+        "dark": "enabled"
+      }
+    }
+  ],
+  "$metadata": {
+    "tokenSetOrder": [
+      "global",
+      "light",
+      "dark"
+    ],
+    "generatedBy": "scripts/build-tokens.mjs",
+    "version": "1.0"
+  }
+}

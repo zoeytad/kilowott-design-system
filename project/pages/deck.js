@@ -171,7 +171,7 @@ window.renderDeck = function (root) {
     .dk-eyebrow::before {
       content: ""; width: 28px; height: 1px; background: currentColor;
     }
-    .dk-eyebrow--accent { color: #E4022D; }
+    .dk-eyebrow--accent { color: var(--accent); }
 
     .dk-rule { height: 1px; background: rgba(11,15,20,0.14); border: 0; margin: 0; }
     .dk-slide--ink .dk-rule { background: rgba(255,255,255,0.14); }
@@ -189,7 +189,7 @@ window.renderDeck = function (root) {
       font-size: 120px; line-height: 1; letter-spacing: -0.025em;
       margin: 40px 0 0; max-width: 26ch;
     }
-    .dk-01 h1 em { font-style: italic; color: #E4022D; }
+    .dk-01 h1 em { font-style: italic; color: var(--accent); }
     .dk-01 .dk-01-meta {
       position: absolute; bottom: 100px; left: 56px; right: 56px;
       display: grid; grid-template-columns: repeat(3, 1fr);
@@ -213,7 +213,7 @@ window.renderDeck = function (root) {
     }
     .dk-02 .dk-02-num::before {
       content: ""; display: inline-block;
-      width: 22px; height: 1px; background: #E4022D;
+      width: 22px; height: 1px; background: var(--accent);
       vertical-align: middle; margin-right: 10px;
     }
     .dk-02 .dk-02-body {
@@ -226,7 +226,7 @@ window.renderDeck = function (root) {
       font-size: 104px; line-height: 1; letter-spacing: -0.02em;
       margin: 24px 0 0; max-width: 16ch;
     }
-    .dk-02 h2 em { font-style: italic; color: #E4022D; }
+    .dk-02 h2 em { font-style: italic; color: var(--accent); }
     .dk-02 p {
       font-size: 20px; color: rgba(255,255,255,0.66); line-height: 1.5;
       max-width: 46ch; margin-top: 40px;
@@ -246,7 +246,7 @@ window.renderDeck = function (root) {
       font-size: 64px; line-height: 1.02; letter-spacing: -0.02em;
       margin: 22px 0 0; max-width: 14ch;
     }
-    .dk-03 h2 em { font-style: italic; color: #E4022D; }
+    .dk-03 h2 em { font-style: italic; color: var(--accent); }
     .dk-03 .dk-03-lede {
       font-size: 17px; line-height: 1.5; color: rgba(11,15,20,0.62);
       margin-top: 22px; max-width: 40ch;
@@ -287,11 +287,11 @@ window.renderDeck = function (root) {
       font-weight: 400;
       font-size: 320px; line-height: 0.85;
       letter-spacing: -0.05em;
-      color: #E4022D;
+      color: var(--accent);
     }
     .dk-04 .dk-04-num sup {
       font-size: 96px; vertical-align: top; letter-spacing: 0;
-      top: 20px; position: relative; color: #E4022D;
+      top: 20px; position: relative; color: var(--accent);
       font-style: italic;
     }
     .dk-04 .dk-04-right h2 {
@@ -320,7 +320,7 @@ window.renderDeck = function (root) {
     .dk-05 .dk-05-mark {
       font-family: var(--font-display); font-style: italic;
       font-size: 180px; line-height: 1;
-      color: #E4022D; position: absolute; left: 56px; top: 160px;
+      color: var(--accent); position: absolute; left: 56px; top: 160px;
     }
     .dk-05 blockquote {
       font-family: var(--font-display);
@@ -329,14 +329,14 @@ window.renderDeck = function (root) {
       letter-spacing: -0.01em;
       margin: 0; max-width: 22ch;
     }
-    .dk-05 blockquote em { font-style: italic; color: #E4022D; }
+    .dk-05 blockquote em { font-style: italic; color: var(--accent); }
     .dk-05 .dk-05-cite {
       position: absolute; left: 120px; right: 120px; bottom: 120px;
       display: flex; gap: 24px; align-items: center;
     }
     .dk-05 .dk-05-avatar {
       width: 64px; height: 64px; border-radius: 50%;
-      background: linear-gradient(135deg, #E4022D 0%, #8A021B 100%);
+      background: linear-gradient(135deg, var(--accent) 0%, #8A021B 100%);
       display: grid; place-items: center;
       font-family: var(--font-display); color: #fff; font-size: 24px;
     }
@@ -371,7 +371,7 @@ window.renderDeck = function (root) {
       margin: 20px 0 0; max-width: 18ch;
       color: #FFFFFF;
     }
-    .dk-06 h2 em { font-style: italic; color: #E4022D; }
+    .dk-06 h2 em { font-style: italic; color: var(--accent); }
     .dk-06 .dk-06-cap {
       font-size: 17px; color: rgba(255,255,255,0.7);
       margin-top: 20px; max-width: 48ch; line-height: 1.55;
@@ -393,7 +393,7 @@ window.renderDeck = function (root) {
       font-size: 120px; line-height: 1; letter-spacing: -0.025em;
       margin: 32px 0 0;
     }
-    .dk-07 h1 em { font-style: italic; color: #E4022D; }
+    .dk-07 h1 em { font-style: italic; color: var(--accent); }
     .dk-07 .dk-07-contact {
       position: absolute; left: 56px; right: 56px; bottom: 100px;
       display: grid; grid-template-columns: repeat(3, 1fr);
@@ -422,7 +422,7 @@ window.renderDeck = function (root) {
       font-size: 84px; line-height: 1; letter-spacing: -0.02em;
       margin: 28px 0 0; max-width: 10ch;
     }
-    .dk-08 h2 em { font-style: italic; color: #E4022D; }
+    .dk-08 h2 em { font-style: italic; color: var(--accent); }
     .dk-08 .dk-08-lede {
       font-size: 17px; line-height: 1.55; color: rgba(11,15,20,0.58);
       margin-top: 28px; max-width: 28ch;
@@ -464,7 +464,7 @@ window.renderDeck = function (root) {
       font-size: 64px; line-height: 1.02; letter-spacing: -0.02em;
       margin: 20px 0 0; max-width: 20ch;
     }
-    .dk-09 h2 em { font-style: italic; color: #E4022D; }
+    .dk-09 h2 em { font-style: italic; color: var(--accent); }
     .dk-09 .dk-09-grid {
       position: absolute; left: 56px; right: 56px; top: 320px; bottom: 110px;
       display: grid; grid-template-columns: repeat(4, 1fr);
@@ -480,7 +480,7 @@ window.renderDeck = function (root) {
       margin-bottom: 20px;
     }
     .dk-09 .dk-09-card--accent .dk-09-avatar {
-      background: linear-gradient(135deg, #E4022D 0%, #8A021B 100%);
+      background: linear-gradient(135deg, var(--accent) 0%, #8A021B 100%);
       color: #fff;
     }
     .dk-09 .dk-09-card b {
@@ -514,7 +514,7 @@ window.renderDeck = function (root) {
       font-size: 60px; line-height: 1.02; letter-spacing: -0.02em;
       margin: 20px 0 0; max-width: 22ch;
     }
-    .dk-10 h2 em { font-style: italic; color: #E4022D; }
+    .dk-10 h2 em { font-style: italic; color: var(--accent); }
     .dk-10 .dk-10-track {
       position: absolute; left: 56px; right: 56px; top: 350px; bottom: 110px;
     }
@@ -543,9 +543,9 @@ window.renderDeck = function (root) {
       background: #fff;
       border: 1px solid rgba(11,15,20,0.35);
     }
-    .dk-10 .dk-10-col--now .dk-10-q { color: #E4022D; }
+    .dk-10 .dk-10-col--now .dk-10-q { color: var(--accent); }
     .dk-10 .dk-10-col--now .dk-10-q::after {
-      background: #E4022D; border-color: #E4022D;
+      background: var(--accent); border-color: var(--accent);
     }
     .dk-10 .dk-10-milestones {
       display: flex; flex-direction: column; gap: 10px;
@@ -558,12 +558,12 @@ window.renderDeck = function (root) {
       color: rgba(11,15,20,0.78);
     }
     .dk-10 .dk-10-m--accent {
-      color: #E4022D;
+      color: var(--accent);
       display: inline-flex; align-items: baseline; gap: 8px;
     }
     .dk-10 .dk-10-m--accent::before {
       content: ""; width: 6px; height: 6px; border-radius: 50%;
-      background: #E4022D; display: inline-block;
+      background: var(--accent); display: inline-block;
       transform: translateY(-2px);
     }
 
@@ -579,7 +579,7 @@ window.renderDeck = function (root) {
       font-size: 46px; line-height: 1.02; letter-spacing: -0.02em;
       margin: 14px 0 0; max-width: 24ch;
     }
-    .dk-11 h2 em { font-style: italic; color: #E4022D; }
+    .dk-11 h2 em { font-style: italic; color: var(--accent); }
     .dk-11 .dk-11-tiers {
       position: absolute; left: 56px; right: 56px; top: 252px; bottom: 92px;
       display: grid; grid-template-columns: repeat(3, 1fr);
@@ -594,12 +594,12 @@ window.renderDeck = function (root) {
       display: flex; flex-direction: column;
     }
     .dk-11 .dk-11-tier--featured {
-      border: 1px solid #E4022D;
+      border: 1px solid var(--accent);
       box-shadow: 0 8px 30px rgba(228,2,45,0.08);
     }
     .dk-11 .dk-11-pill {
       position: absolute; top: -12px; left: 20px;
-      background: #E4022D; color: #fff;
+      background: var(--accent); color: #fff;
       font-family: var(--font-mono);
       font-size: 10px; letter-spacing: 0.18em;
       text-transform: uppercase;
@@ -642,7 +642,7 @@ window.renderDeck = function (root) {
     }
     .dk-11 .dk-11-tier__features li::before {
       content: "\\2713";
-      font-size: 11px; color: #E4022D;
+      font-size: 11px; color: var(--accent);
       line-height: 1;
     }
     .dk-11 .dk-11-tier__cta {
@@ -674,7 +674,7 @@ window.renderDeck = function (root) {
       font-size: 48px; line-height: 1.02; letter-spacing: -0.02em;
       margin: 14px 0 0; max-width: 22ch;
     }
-    .dk-12 h2 em { font-style: italic; color: #E4022D; }
+    .dk-12 h2 em { font-style: italic; color: var(--accent); }
     .dk-12 .dk-12-table {
       position: absolute; left: 56px; right: 56px; top: 246px; bottom: 88px;
       display: grid; grid-template-columns: 150px 1fr 1fr;
@@ -688,8 +688,8 @@ window.renderDeck = function (root) {
       border-bottom: 1px solid rgba(11,15,20,0.14);
     }
     .dk-12 .dk-12-col-head--kw {
-      color: #E4022D;
-      border-bottom-color: #E4022D;
+      color: var(--accent);
+      border-bottom-color: var(--accent);
     }
     .dk-12 .dk-12-row-label,
     .dk-12 .dk-12-cell {
@@ -731,7 +731,7 @@ window.renderDeck = function (root) {
       font-size: 60px; line-height: 1.02; letter-spacing: -0.02em;
       margin: 18px 0 0; max-width: 22ch;
     }
-    .dk-13 h2 em { font-style: italic; color: #E4022D; }
+    .dk-13 h2 em { font-style: italic; color: var(--accent); }
     .dk-13 .dk-13-wall {
       position: absolute; left: 56px; right: 56px; top: 320px; bottom: 110px;
       display: grid; grid-template-columns: repeat(5, 1fr);
@@ -778,7 +778,7 @@ window.renderDeck = function (root) {
       font-size: 56px; line-height: 1.04; letter-spacing: -0.02em;
       margin: 20px 0 0; max-width: 16ch;
     }
-    .dk-14 h2 em { font-style: italic; color: #E4022D; }
+    .dk-14 h2 em { font-style: italic; color: var(--accent); }
     .dk-14 .dk-14-lede {
       font-size: 16px; line-height: 1.55;
       color: rgba(11,15,20,0.6);
@@ -798,7 +798,7 @@ window.renderDeck = function (root) {
       width: 14px; height: 2px; display: inline-block;
       background: #0B0F14;
     }
-    .dk-14 .dk-14-legend i.is-accent { background: #E4022D; }
+    .dk-14 .dk-14-legend i.is-accent { background: var(--accent); }
 
     /* =====================================================
        SLIDE 15 · THANK YOU / Q&A
@@ -821,7 +821,7 @@ window.renderDeck = function (root) {
       font-size: 180px; line-height: 0.95; letter-spacing: -0.03em;
       margin: 20px 0 0;
     }
-    .dk-15 h1 em { font-style: italic; color: #E4022D; }
+    .dk-15 h1 em { font-style: italic; color: var(--accent); }
     .dk-15 .dk-15-contact {
       position: absolute; left: 56px; right: 56px; bottom: 110px;
       display: grid; grid-template-columns: repeat(3, 1fr);
@@ -1002,7 +1002,7 @@ window.renderDeck = function (root) {
     .dk-cta__arrow .lucide { width: 32px; height: 32px; stroke-width: 1.5; }
     .dk-cta:hover .dk-cta__arrow { transform: translateX(6px); }
     .dk-cta.is-requested { background: var(--accent); }
-    .dk-cta.is-requested:hover { background: #B40224; }
+    .dk-cta.is-requested:hover { background: var(--accent-hover); }
     .dk-cta.is-requested .dk-cta__arrow { color: #fff; transform: none; font-size: 26px; }
     .dk-cta.is-requested .dk-cta__arrow .lucide { width: 26px; height: 26px; }
   </style>
@@ -1109,7 +1109,7 @@ window.renderDeck = function (root) {
                 <h1>Scale faster. Deliver better. <em>Create impact.</em></h1>
               </div>
               <div class="dk-01-meta">
-                <div>Prepared for<b>Acme Inc. · Leadership</b></div>
+                <div>Prepared for<b>Nordhavn Coffee · Leadership</b></div>
                 <div>Prepared by<b>Kilowott · Sandnes</b></div>
                 <div>Confidential<b>v1.0</b></div>
               </div>
@@ -1150,7 +1150,7 @@ window.renderDeck = function (root) {
               <div class="dk-chrome-logo" aria-label="Kilowott"></div>
               <div class="dk-02-num">02 / Section</div>
               <div class="dk-02-body">
-                <div class="dk-eyebrow" style="color:#E4022D;">Chapter two</div>
+                <div class="dk-eyebrow" style="color:var(--accent);">Chapter two</div>
                 <h2>How we <em>partner</em>, not how we pitch.</h2>
                 <p>Four practices &mdash; Brands, Agencies, Intelligence, Workforce &mdash; under one accountable team.</p>
               </div>
@@ -1354,9 +1354,9 @@ window.renderDeck = function (root) {
               <div class="dk-06-scrim"></div>
               <div class="dk-chrome-logo" aria-label="Kilowott"></div>
               <div class="dk-06-body">
-                <div class="dk-eyebrow" style="color:#E4022D;">Case study · Food &amp; Beverage</div>
-                <h2>A coffee brand, <em>reshaped</em> in six months.</h2>
-                <p class="dk-06-cap">Brand refresh, paid search, and a rebuilt DTC funnel &mdash; sales up 44% against pre-engagement baseline.</p>
+                <div class="dk-eyebrow" style="color:var(--accent);">Case study · Food &amp; Beverage</div>
+                <h2>Nordhavn Coffee, <em>reshaped</em> in six months.</h2>
+                <p class="dk-06-cap">Brand refresh, paid search, and a rebuilt DTC funnel &mdash; 3.5&times; organic traffic against the pre-engagement baseline.</p>
               </div>
               <div class="dk-chrome-footer">
                 <span>Kilowott · Case study</span>
@@ -1813,18 +1813,18 @@ window.renderDeck = function (root) {
                 <div class="dk-eyebrow dk-eyebrow--accent">Working with</div>
                 <h2>Some of the partnerships <em>behind</em> the work.</h2>
               </div>
-              <!-- Real Kilowott clients per kilowott.com -->
+              <!-- Fictional sample clients (dummy data) -->
               <div class="dk-13-wall">
-                <div class="dk-13-logo">Marriott</div>
-                <div class="dk-13-logo dk-13-logo--caps">Bosch</div>
-                <div class="dk-13-logo">Pepe Jeans</div>
-                <div class="dk-13-logo dk-13-logo--mono">NETFLIX</div>
-                <div class="dk-13-logo">Radisson</div>
-                <div class="dk-13-logo dk-13-logo--caps">Mazda</div>
-                <div class="dk-13-logo">Nissan</div>
-                <div class="dk-13-logo dk-13-logo--mono">STIHL</div>
-                <div class="dk-13-logo">Craft</div>
-                <div class="dk-13-logo dk-13-logo--caps">Showcar</div>
+                <div class="dk-13-logo">Nordic Freight</div>
+                <div class="dk-13-logo dk-13-logo--caps">Meridian Health</div>
+                <div class="dk-13-logo">Nordhavn Coffee</div>
+                <div class="dk-13-logo dk-13-logo--mono">FJORDLINE</div>
+                <div class="dk-13-logo">Halden Hotels</div>
+                <div class="dk-13-logo dk-13-logo--caps">Solvik</div>
+                <div class="dk-13-logo">Brightwater</div>
+                <div class="dk-13-logo dk-13-logo--mono">TIDEWORKS</div>
+                <div class="dk-13-logo">Lumen &amp; Co</div>
+                <div class="dk-13-logo dk-13-logo--caps">Northgate</div>
               </div>
               <div class="dk-chrome-footer">
                 <span>Kilowott &middot; Clients</span>
@@ -1948,7 +1948,7 @@ window.renderDeck = function (root) {
               <div class="dk-chrome-logo" aria-label="Kilowott"></div>
               <span class="dk-15-page">15 / 15</span>
               <div class="dk-15-body">
-                <div class="dk-eyebrow" style="color:#E4022D;">Q&amp;A</div>
+                <div class="dk-eyebrow" style="color:var(--accent);">Q&amp;A</div>
                 <h1>Thank <em>you</em>.</h1>
               </div>
               <div class="dk-15-contact">

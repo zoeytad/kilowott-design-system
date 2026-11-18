@@ -73,6 +73,24 @@ window.renderFoundations = function (root) {
     .fd-radius__name { font-size: 13px; font-weight: 500; }
     .fd-radius__val { font-family: var(--font-mono); font-size: 12px; color: var(--fg-2); }
 
+    .fd-radii { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: var(--s-5); }
+    .fd-radius { min-width: 0; text-align: center; }
+    .fd-shadows { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-5); }
+    .fd-shadow { min-width: 0; }
+    @media (max-width: 900px) {
+      .fd-radii { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-4); }
+      .fd-shadows { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-4); }
+    }
+    @media (max-width: 600px) {
+      .fd-radii { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .fd-radius { padding: var(--s-4); }
+      .fd-shadow { padding: var(--s-4); }
+      .fd-space { padding: 12px 0; }
+      .fd-grid-viz { gap: 4px; padding: 12px; }
+      .fd-grid-caption { flex-direction: column; gap: 4px; }
+      .fd-tokens { padding: var(--s-4); font-size: 12px; }
+    }
+
     /* Shadow cards */
     .fd-shadow {
       display: flex; flex-direction: column; align-items: center; gap: 16px;
@@ -96,10 +114,10 @@ window.renderFoundations = function (root) {
       padding: var(--s-6);
       font-family: var(--font-mono); font-size: 13px; line-height: 1.8;
       color: var(--fg);
-      overflow-x: auto;
+      overflow-x: auto; max-width: 100%;
     }
     .fd-tokens .comment { color: var(--fg-2); }
-    .fd-tokens .prop { color: var(--accent); }
+    .fd-tokens .prop { color: var(--link); }
     .fd-tokens .val { color: var(--fg); }
 
     /* Motion demo */
@@ -188,13 +206,14 @@ window.renderFoundations = function (root) {
     <div class="container">
       <div class="section-head">
         <h2 class="section-head__title">Radii</h2>
-        <p class="section-head__body">Kilowott runs sharp. Most surfaces use 0 or 4 px; pills for navigation and chips; 8 px for cards. Nothing softer.</p>
+        <p class="section-head__body">Kilowott runs sharp. Most surfaces use 0 or 4 px; pills for navigation and chips; 8 px is the default for cards and images; 12 px for large panels. Nothing softer.</p>
       </div>
-      <div class="grid grid-6" style="grid-template-columns: repeat(5, 1fr);">
-        <div class="fd-radius"><div class="fd-radius__demo" style="border-radius: 0;"></div><span class="fd-radius__name">r-0 · Sharp</span><span class="fd-radius__val">0px · default</span></div>
+      <div class="fd-radii">
+        <div class="fd-radius"><div class="fd-radius__demo" style="border-radius: 0;"></div><span class="fd-radius__name">r-0 · Sharp</span><span class="fd-radius__val">0px</span></div>
         <div class="fd-radius"><div class="fd-radius__demo" style="border-radius: 2px;"></div><span class="fd-radius__name">r-1 · Edge</span><span class="fd-radius__val">2px</span></div>
         <div class="fd-radius"><div class="fd-radius__demo" style="border-radius: 4px;"></div><span class="fd-radius__name">r-2 · Tag</span><span class="fd-radius__val">4px</span></div>
-        <div class="fd-radius"><div class="fd-radius__demo" style="border-radius: 8px;"></div><span class="fd-radius__name">r-3 · Card</span><span class="fd-radius__val">8px</span></div>
+        <div class="fd-radius"><div class="fd-radius__demo" style="border-radius: 8px;"></div><span class="fd-radius__name">r-3 · Card</span><span class="fd-radius__val">8px · default</span></div>
+        <div class="fd-radius"><div class="fd-radius__demo" style="border-radius: 12px;"></div><span class="fd-radius__name">r-4 · Panel</span><span class="fd-radius__val">12px</span></div>
         <div class="fd-radius"><div class="fd-radius__demo" style="border-radius: 999px;"></div><span class="fd-radius__name">r-pill</span><span class="fd-radius__val">Buttons, chips</span></div>
       </div>
     </div>
@@ -207,7 +226,7 @@ window.renderFoundations = function (root) {
         <h2 class="section-head__title">Elevation</h2>
         <p class="section-head__body">Four levels of elevation. Use rarely &mdash; Kilowott prefers borders and whitespace to separate surfaces, not shadow. Reserve <span class="mono">shadow-3</span> for modals and detached overlays only.</p>
       </div>
-      <div class="grid grid-4">
+      <div class="fd-shadows">
         <div class="fd-shadow"><div class="fd-shadow__demo"></div><span class="fd-shadow__name">Flat · shadow-0</span><span class="fd-shadow__val">Default · 1px border</span></div>
         <div class="fd-shadow"><div class="fd-shadow__demo" style="box-shadow: 0 1px 0 rgba(11,15,20,0.06), 0 1px 2px rgba(11,15,20,0.04);"></div><span class="fd-shadow__name">Soft · shadow-1</span><span class="fd-shadow__val">Cards on hover</span></div>
         <div class="fd-shadow"><div class="fd-shadow__demo" style="box-shadow: 0 2px 4px rgba(11,15,20,0.06), 0 8px 16px rgba(11,15,20,0.06);"></div><span class="fd-shadow__name">Lift · shadow-2</span><span class="fd-shadow__val">Tooltips, popovers</span></div>
@@ -268,10 +287,16 @@ window.renderFoundations = function (root) {
   <span class="prop">--k-red</span>:        #E4022D;
   <span class="prop">--k-red-soft</span>:   #FCE5EA;
   <span class="prop">--k-red-ink</span>:    #8A021B;
+  <span class="prop">--k-red-hover</span>:  #B40224;
   <span class="prop">--k-rule</span>:       #1A2230;
   <span class="prop">--k-rule-soft</span>:  #E2DED6;
   <span class="prop">--k-muted</span>:      #5B6573;
   <span class="prop">--k-muted-dark</span>: #8A95A5;
+
+  <span class="comment">/* ---------- STATE (product UI only · danger = brand red) ---------- */</span>
+  <span class="prop">--k-success</span>:      #1A7F35;  <span class="prop">--k-success-soft</span>: #E8F3EB;
+  <span class="prop">--k-warning</span>:      #9A6200;  <span class="prop">--k-warning-soft</span>: #FBF1E0;
+  <span class="prop">--k-info</span>:         #1A4E8A;  <span class="prop">--k-info-soft</span>:    #E6EDF5;
 
   <span class="comment">/* ---------- SEMANTIC ---------- */</span>
   <span class="prop">--bg</span>:           var(--k-paper);
@@ -280,7 +305,13 @@ window.renderFoundations = function (root) {
   <span class="prop">--fg</span>:           var(--k-ink);
   <span class="prop">--fg-2</span>:         var(--k-muted);
   <span class="prop">--accent</span>:       var(--k-red);
+  <span class="prop">--accent-hover</span>: var(--k-red-hover);
   <span class="prop">--accent-ink</span>:   var(--k-red-ink);
+  <span class="prop">--link</span>:         var(--accent-ink);
+  <span class="prop">--success</span>:      var(--k-success);
+  <span class="prop">--warning</span>:      var(--k-warning);
+  <span class="prop">--info</span>:         var(--k-info);
+  <span class="prop">--danger</span>:       var(--accent);
   <span class="prop">--rule</span>:         var(--k-rule-soft);
   <span class="prop">--rule-strong</span>:  var(--k-rule);
 

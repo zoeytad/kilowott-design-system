@@ -1,22 +1,81 @@
-# CODING AGENTS: READ THIS FIRST
+# Kilowott brand kit
 
-This is a **handoff bundle** from Claude Design (claude.ai/design).
+Kilowott’s **agentic brand kit** (v1.0): the brand system for people and for AI agents. It is live at **https://brandkit.kilowott.com**.
 
-A user mocked up designs in HTML/CSS/JS using an AI design tool, then exported this bundle so a coding agent can implement the designs for real.
+- **People:** open https://brandkit.kilowott.com/project/ to browse 20 tabs. They cover logo, colour, type, voice, imagery, foundations, icons, components, landing pages, dashboards, decks, email, signatures, newsletters, stationery, case studies, magazine, social, and posters and banners.
+- **AI agents** (Claude Code, Cursor, ChatGPT, Claude Design, v0, Lovable…): start with **[AGENTS.md](AGENTS.md)** (https://brandkit.kilowott.com/AGENTS.md). For a web page, link one stylesheet: `https://brandkit.kilowott.com/project/kit/kilowott.css`. To load everything in one file, use https://brandkit.kilowott.com/llms-full.txt.
 
-## What you should do — IMPORTANT
+## Run locally
 
-**Read `kilowott-design-system/project/index.html` in full.** The user had this file open when they triggered the handoff, so it's almost certainly the primary design they want built. Read it top to bottom — don't skim. Then **follow its imports**: open every file it pulls in (shared components, CSS, scripts) so you understand how the pieces fit together before you start implementing.
+Run this from the repo root:
 
-**If anything is ambiguous, ask the user to confirm before you start implementing.** It's much cheaper to clarify scope up front than to build the wrong thing.
+```bash
+python3 -m http.server 8723
+```
 
-## About the design files
+Then open http://localhost:8723/project/. The site is static and has no build step. The repo root is served so that `/llms.txt`, `/AGENTS.md`, `/tokens.json` and `/prompts/` resolve the same way they do in production. To check the production server config, including headers and the `/` → `/project/` redirect, run `npm start`; it needs `npm install` first.
 
-The design medium is **HTML/CSS/JS** — these are prototypes, not production code. Your job is to **recreate them pixel-perfectly** in whatever technology makes sense for the target codebase (React, Vue, native, whatever fits). Match the visual output; don't copy the prototype's internal structure unless it happens to fit.
+## Scripts
 
-**Don't render these files in a browser or take screenshots unless the user asks you to.** Everything you need — dimensions, colors, layout rules — is spelled out in the source. Read the HTML and CSS directly; a screenshot won't tell you anything they don't.
+Both scripts need Node 18 or later and nothing else.
 
-## Bundle contents
+| Command | What it does |
+|---|---|
+| `npm run build:tokens` | Reads `project/styles/tokens.css`, the single source of truth, and regenerates the files in the table below. |
+| `npm run check` | Runs `node --check` on every JS file. Checks that the generated files are in sync with `tokens.css`. Checks the WCAG contrast claims in `color.js` (`A11Y_PAIRS`) and the contrast comments in `tokens.css`. Checks that `manifest.json` matches the tabs routed in `app.js`. Checks that every local URL in the docs exists. Flags raw `\NNN` escapes in template strings, version drift, and dummy-data policy violations. CI runs it on every push and PR (`.github/workflows/check.yml`). |
 
-- `kilowott-design-system/README.md` — this file
-- `kilowott-design-system/project/` — the `Kilowott Design System` project files (HTML prototypes, assets, components)
+Files that `npm run build:tokens` regenerates:
+
+| File | Contents |
+|---|---|
+| `tokens.json` | W3C design tokens |
+| `project/brand.json` | The `tokens` key only |
+| `<!-- tokens:start -->` blocks | The marked blocks in `llms.txt`, `project/llms.txt`, `KILOWOTT_BRAND.md` and `AGENTS.md` |
+| `llms-full.txt` | Single-file bundle for agents |
+| `project/kit/kilowott.css` | Drop-in stylesheet |
+| `project/kit/tokens.scss` | Sass tokens |
+| `project/kit/tokens.tailwind.js`, `project/kit/tokens.tailwind.css` | Tailwind tokens |
+| `project/kit/figma-tokens.json` | Figma tokens |
+| `project/downloads/kilowott-colors.ase`, `.gpl`, `.json` | Colour swatches |
+| `project/downloads/kilowott-logo.svg` | Logo |
+
+**To change a token:** edit `project/styles/tokens.css`, run `npm run build:tokens`, then run `npm run check`. Never hand-edit a generated file.
+
+## Deploy
+
+Pushing to `main` deploys. Railway runs `npx serve -l tcp://0.0.0.0:$PORT --config serve.json .`, and the domain is `brandkit.kilowott.com`. See [DEPLOY.md](DEPLOY.md).
+
+## File map
+
+```
+AGENTS.md              Front door for AI agents: rules, decision tree, files, page index, starter
+llms.txt               llmstxt.org index (root)
+llms-full.txt          Generated: AGENTS.md + KILOWOTT_BRAND.md + project/llms.txt
+KILOWOTT_BRAND.md      Brand reference: principles, tokens, type, logo, imagery, voice
+tokens.json            Generated W3C design tokens
+manifest.json          All 20 tabs (URL, purpose, contents, source) + kit files + component catalogue
+prompts/               Ready-to-paste prompts: claude-code, claude-design, cowork, web-builders
+scripts/               build-tokens.mjs, check.mjs, kit-extras.css (hand-written part of kilowott.css)
+serve.json             Production server config: redirect, rewrites, Content-Type and CORS headers
+railway.json, Procfile Railway start command
+project/
+  index.html           SPA shell (topbar, drawer, page containers, noscript fallback)
+  app.js               Hash router + tweaks panel
+  pages/<tab>.js       One file per tab; each defines window.render<Tab>(root)
+  styles/tokens.css    Canonical tokens (single source of truth)
+  styles/shell.css     App chrome
+  llms.txt             Build spec for agents (linked from index.html)
+  brand.json           Structured brand data; "tokens" key is generated
+  kit/                 Agent-ready assets: kilowott.css, Tailwind, SCSS, Figma tokens, starter/
+  downloads/           Deck template, logo SVG, colour swatches (.ase / .gpl / .json)
+  assets/              Wordmark SVG, bolt JPG, cleared photos (assets/photos/)
+  uploads/             Shutterstock originals: the team's photo library (see below)
+```
+
+## Photo library (`project/uploads/`)
+
+`project/uploads/` holds licensed Shutterstock stock, kept as the team’s internal reference library. These images are for Kilowott use only. Do not redistribute them, hotlink them from non-Kilowott work, or treat them as cleared for client deliverables without checking the licence. The cleared images used in the kit live in `project/assets/photos/`.
+
+## Dummy data
+
+Everything shown in the kit is demo content that shows how the brand looks and works. The shared demo client is **Nordhavn Coffee**. Its figures are sample figures, including 3.5× organic traffic in six months. The placeholder person is **Ola Nordmann**. Kilowott’s own company facts are real: kilowott.com, the contact page, the offices in Fredrikstad, Sandnes, Goa and Dubai, and the company phone lines. Never add real third-party people, clients, testimonials, or personal booking links.

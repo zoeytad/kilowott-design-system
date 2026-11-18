@@ -1,329 +1,262 @@
-# Kilowott Design System v1.0
+# Kilowott build spec for AI agents — v1.0
 
 > Editorial brand register. Calm by default. Red earns its place.
-> Use this file as the authoritative reference when generating any
-> Kilowott-branded artifact: web page, deck, email, ad, social post.
+> This is the detailed build spec: render recipe, common mistakes, component specs, and pattern specs for every surface in the kit.
+> Start with the agent guide (https://brandkit.kilowott.com/AGENTS.md) if you haven't. Everything in one file: https://brandkit.kilowott.com/llms-full.txt
+
+Live kit: https://brandkit.kilowott.com/project/ · Page sources: https://brandkit.kilowott.com/project/pages/<tab>.js · Drop-in stylesheet: https://brandkit.kilowott.com/project/kit/kilowott.css
 
 ---
 
-## TL;DR for AI agents
+## Read this first
 
-This is a SPA. Fetching `index.html` returns empty page divs because
-content is rendered by JavaScript at runtime. **Use this file
-(`llms.txt`) and `brand.json` for the source of truth — not the
-rendered HTML.**
+The kit is a single-page app. Fetching `index.html` returns empty page divs because content is rendered by JavaScript. Use this file, `brand.json` (same folder), `../tokens.json`, and the page sources in `pages/*.js` as the source of truth, not the rendered HTML.
 
-When asked to "match the brand kit", produce something that:
+When asked to “match the Kilowott brand”, produce something that:
 
-- Sits on a **white paper background** (#FFFFFF) by default. NOT dark.
-- Uses **Newsreader serif** for headlines + **DM Sans** for body
-  + **JetBrains Mono** for system labels.
-- Adds **one** italic-accent emphasis word per headline, in **red #E4022D**.
-- Uses red for at most **5%** of the visible surface — never as a
-  large background or body color.
-- Avoids gradients, glows, neon, vaporwave, or stock-actor handshakes.
-
-If your output is dark by default, you've misread the brand.
+- sits on a **white paper background** (`#FFFFFF`) by default, not dark;
+- uses **Newsreader** for headlines, **DM Sans** for body and UI, **JetBrains Mono** for system labels;
+- puts **one** italic emphasis word per headline in **red `#E4022D`**, and no other red on that surface;
+- keeps red to about **5%** of the visible area: never a background, never body text;
+- has no gradients, glows, neon, vaporwave, stock handshakes, or AI-generated imagery.
 
 ---
 
-## Tagline
+## Render recipe
 
-- **Built for what comes next.**
-- Long form: **Scale faster. Deliver better. Create impact.**
+1. `<link rel="stylesheet" href="https://brandkit.kilowott.com/project/kit/kilowott.css">` (fonts, tokens, base, primitives). Or copy the tokens from `../tokens.json`.
+2. Body: `background: var(--bg)` (#FFFFFF), `color: var(--fg)` (#0B0F14), DM Sans 16px, line-height 1.55.
+3. Headlines: `.display` (Newsreader 400, line-height 1.04, tracking −0.02em). Sizes `--fs-d1` hero, `--fs-d2` page title, `--fs-d3` section.
+4. One word per headline in `<em>`: italic + `var(--accent)`.
+5. Eyebrows: `.eyebrow` (DM Sans 12px caps, 0.18em, 24px tick in currentColor), max four words.
+6. Buttons: `.btn` pill, 14px DM Sans 500. `.btn--primary` = ink fill (default CTA). `.btn--accent` = red fill, only for the primary conversion and only if nothing else on the surface is red.
+7. Sections 96px apart (`.section`). Breaks via warm paper (`.section--warm`), dark bands via `.section--ink`. Never red.
+8. Icons: Lucide `lucide@1.66.0`, stroke 1.5, 24px default, `currentColor`.
+9. Links and small red text: `var(--link)` (red-ink #8A021B).
 
----
-
-## Color palette — STRICT
-
-The 60·30·5·5 ratio is a rule, not a suggestion.
-
-### Tokens (these match `styles/tokens.css`)
-
-| Token            | Hex       | Role                                               | Target % |
-|------------------|-----------|----------------------------------------------------|----------|
-| `--k-paper`      | `#FFFFFF` | Primary surface — body background                  | 60       |
-| `--k-ink`        | `#0B0F14` | Primary text + dark hero panels                    | 30       |
-| `--k-paper-2`    | `#F6F4F0` | Warm paper — section breaks                        | 5        |
-| `--k-red`        | `#E4022D` | Signature accent — italic word, one stat per page  | 5        |
-| `--k-ink-2`      | `#1A2230` | Secondary surface dark / secondary body text       | —        |
-| `--k-ink-3`      | `#2B3544` | Tertiary, borders on dark                          | —        |
-| `--k-paper-3`    | `#EDEAE3` | Warmer card on paper                               | —        |
-| `--k-red-soft`   | `#FCE5EA` | Tinted bg for red accent (rare)                    | —        |
-| `--k-red-ink`    | `#8A021B` | Darkened red for text on paper (a11y)              | —        |
-| `--k-muted`      | `#5B6573` | Secondary text on paper                            | —        |
-| `--k-rule`       | `#1A2230` | Strong rule on paper                               | —        |
-| `--k-rule-soft`  | `#E2DED6` | Soft divider on paper                              | —        |
-
-### Default theme
-
-**Light.** Body bg `#FFFFFF`. Body text `#0B0F14`. NOT dark mode.
-
-There is a `[data-theme="dark"]` token set for inversions, but the
-**default surface is white**. Don't render the brand dark unless
-explicitly asked.
-
-### Color do / don't
-
-**DO:**
-- Red on the **single italic emphasis word** in a serif headline:
-  `Built for what <em>comes next</em>.`
-- Red on the **one statistic** that matters per surface (e.g. `3.5×`).
-- Red as a thin 1px–2px rule (under an eyebrow, over a foot, on a
-  business card edge).
-- Red on call-to-action buttons (primary CTA only).
-- Ink (`#0B0F14`) as primary body color on light surfaces.
-- Warm paper (`#F6F4F0`) as section dividers / cards on paper.
-
-**DON'T:**
-- Red as a full-page or full-section background.
-- Red as body text or large blocks of text.
-- Red gradients, two-tone reds, neon reds.
-- Red alongside another color accent (orange, blue) on the same surface.
-- More than one red emphasis word per headline.
-- Black-as-default backgrounds — the brand is **paper-led**, not
-  ink-led. Dark sections are the exception, not the rule.
-
-### Common AI mistakes — read this
-
-1. **The bolt logo has a red square; the page does not.** Don't
-   make the page red because the bolt is red.
-2. **Light theme by default.** If the AI sees the topbar with
-   white background and black wordmark, that's the right read.
-3. **`--accent` is the only place red lives by default.** Backgrounds
-   pull from `--bg` / `--bg-2` (white / warm paper).
-4. **Italic in headlines is RED. Italic in body is sometimes muted.**
-   Don't make every italic red.
-5. **`--fg` = ink, not red.** Red is `--accent`.
-
-### Sub-brand alt accents (rare — campaign use only)
-
-Available alternates for sub-brand or campaign work. They REPLACE
-red as the single accent — never used alongside it.
-
-| Hex       | Name           | When                                     |
-|-----------|----------------|------------------------------------------|
-| `#C8102E` | Deeper Red     | Editorial / print contexts               |
-| `#F05A28` | Signal Orange  | Workforce sub-brand, energy              |
-| `#1F3CFF` | Electric Blue  | Intelligence sub-brand, product          |
-| `#0B0F14` | Ink Mono       | Mono-color restraint                     |
+If your output looks neon, dark by default, gradient-heavy, or has more than one red word, it is wrong.
 
 ---
 
-## Typography
+## Common AI mistakes
 
-### Trio (no other webfonts)
-
-| Role    | Family           | Fallback                | Weights | Use                                                     |
-|---------|------------------|-------------------------|---------|---------------------------------------------------------|
-| Display | Newsreader       | Georgia, serif          | 400, 500 (italic too) | Headlines, magazine masthead, editorial quotes |
-| UI/body | DM Sans          | Arial, sans-serif       | 400, 500 | Body copy, buttons, labels                            |
-| Mono    | JetBrains Mono   | Menlo, monospace        | 400, 500 | Eyebrows, folio, system labels, code, tabular numbers |
-
-### Google Fonts URL (single line)
-
-```
-https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap
-```
-
-### Type scale (CSS custom properties)
-
-```
---fs-d1: clamp(3.5rem, 7vw, 6.25rem);   /* 56–100 */
---fs-d2: clamp(2.75rem, 5.2vw, 4.5rem); /* 44–72  */
---fs-d3: clamp(2rem, 3.6vw, 3rem);      /* 32–48  */
---fs-h1: 2.25rem;   /* 36 */
---fs-h2: 1.5rem;    /* 24 */
---fs-h3: 1.125rem;  /* 18 */
---fs-body: 1rem;    /* 16 */
---fs-sm: 0.875rem;  /* 14 */
---fs-xs: 0.75rem;   /* 12 — eyebrows */
-```
-
-### Type rules
-
-- **One italic-accent emphasis word per headline.** Wrap it in `<em>`.
-  Default red color comes from the brand `<em>` rule.
-- **Eyebrows** in mono caps, letter-spacing `0.18em`–`0.22em`,
-  with a 24px red rule before the text.
-- Body 16px DM Sans, line-height 1.6, color `#1A2230`.
-- Headlines: line-height 1.04, letter-spacing `-0.02em`, weight 400
-  (NOT bold).
-- Don't bold display text. The serif weight does the work.
+1. **Making the page dark.** The topbar is white with a black wordmark. Light is the default.
+2. **Making things red because the brand is “red”.** Red is one spotlight. `--fg` is ink, not red. Red lives only in `--accent`.
+3. **Every italic in red.** Only the headline emphasis word. Italic in body copy stays `--fg` or `--fg-2`.
+4. **Bold serif headlines.** Newsreader is set at 400. The serif does the work.
+5. **Brand red for links.** Use `--link` (red-ink). Brand red fails AA on warm paper.
+6. **Two red moments** (red word + red button + red stat). Pick one.
+7. **Inventing facts.** Don’t invent offices, clients, awards, people, or numbers. Demo content uses Nordhavn Coffee and Ola Nordmann.
+8. **Hand-drawn icons or emoji.** Use Lucide.
+9. **Green for positive deltas** in dashboards. Up = ink, down = red.
 
 ---
 
-## Logo
+## Tokens
 
-### Wordmark (primary)
+<!-- tokens:start -->
+<!-- Generated by scripts/build-tokens.mjs from project/styles/tokens.css. Do not edit by hand: run `npm run build:tokens`. -->
 
-- File: `assets/kilowott-logo.svg`
-- viewBox: `0 0 313 41`
-- Treatment: single SVG, recolored via CSS mask + `currentColor`
-- Minimum: 80px wide on screen / 20mm in print
-- Clear space: equal to cap-height of "K" on all sides
+### Brand colours
 
-### Bolt mark (secondary, square)
+| Token | Hex | Role |
+|---|---|---|
+| `--k-ink` | `#0B0F14` | near-black, primary text, hero backgrounds |
+| `--k-ink-2` | `#1A2230` | secondary surface dark |
+| `--k-ink-3` | `#2B3544` | tertiary, borders on dark |
+| `--k-paper` | `#FFFFFF` | primary surface |
+| `--k-paper-2` | `#F6F4F0` | warm off-white, section breaks |
+| `--k-paper-3` | `#EDEAE3` | warmer still, cards on paper |
+| `--k-red` | `#E4022D` | signature — use sparingly |
+| `--k-red-soft` | `#FCE5EA` | tinted bg for red accents |
+| `--k-red-ink` | `#8A021B` | darkened red for text on paper |
+| `--k-rule` | `#1A2230` | rules/borders on paper |
+| `--k-rule-soft` | `#E2DED6` | soft divider on paper |
+| `--k-muted` | `#5B6573` | secondary text on paper |
+| `--k-muted-dark` | `#8A95A5` | secondary text on ink |
+| `--k-red-hover` | `#B40224` | pressed / hover state for red fills |
 
-- File: `assets/kilowott-bolt.jpg` (canonical: black bolt on white)
-- Use: profile avatars, favicons, app icons, watermarks
-- Source: Kilowott LinkedIn company-logo CDN
-- DO NOT replace the wordmark with the bolt on letterheads, decks,
-  websites, signage. Bolt is a companion, not a shortcut.
-- Color: black on white default; white on ink via
-  `filter: invert(1)` for dark surfaces.
-- Never recolor red, gradient, two-tone.
+### State colours (product UI only, never marketing)
 
----
+| Token | Hex | Role |
+|---|---|---|
+| `--k-success` | `#1A7F35` | success text, icons, dots · 5.1:1 on paper |
+| `--k-success-soft` | `#E8F3EB` | success tint (badge / banner background) |
+| `--k-warning` | `#9A6200` | warning text, icons, dots · 5.1:1 on paper |
+| `--k-warning-soft` | `#FBF1E0` | warning tint (badge / banner background) |
+| `--k-info` | `#1A4E8A` | info text, icons, dots · 8.4:1 on paper |
+| `--k-info-soft` | `#E6EDF5` | info tint (badge / banner background) |
 
-## Voice
+### Semantic tokens (use these in CSS; they switch with the theme)
 
-Editorial register. Confident, never loud. Italic does emphasis.
-One headline, one accent word per surface.
+| Token | Light (default) | Dark (`[data-theme="dark"]`) | Use for |
+|---|---|---|---|
+| `--bg` | `#FFFFFF` (`--k-paper`) | `#0B0F14` (`--k-ink`) | page background |
+| `--bg-2` | `#F6F4F0` (`--k-paper-2`) | `#1A2230` (`--k-ink-2`) | warm paper: section breaks, cards on paper |
+| `--bg-3` | `#EDEAE3` (`--k-paper-3`) | `#2B3544` (`--k-ink-3`) | warmer card on paper |
+| `--fg` | `#0B0F14` (`--k-ink`) | `#FFFFFF` (`--k-paper`) | primary text |
+| `--fg-2` | `#5B6573` (`--k-muted`) | `#8A95A5` (`--k-muted-dark`) | secondary text |
+| `--accent` | `#E4022D` (`--k-red`) | `#E4022D` (`--k-red`) | signature red: one spotlight per surface |
+| `--accent-ink` | `#8A021B` (`--k-red-ink`) | `#FCE5EA` (`--k-red-soft`) | red for small text on paper |
+| `--rule` | `#E2DED6` (`--k-rule-soft`) | `#2B3544` | soft divider |
+| `--rule-strong` | `#1A2230` (`--k-rule`) | `#3B4656` | strong rule / button border |
+| `--accent-hover` | `#B40224` (`--k-red-hover`) | `#B40224` (`--k-red-hover`) | hover / pressed state for red fills |
+| `--success` | `#1A7F35` (`--k-success`) | `#5BC27A` | state: success (product UI only) |
+| `--success-soft` | `#E8F3EB` (`--k-success-soft`) | `rgba(91,194,122,0.12)` | state: success tint |
+| `--warning` | `#9A6200` (`--k-warning`) | `#E0A43A` | state: warning (product UI only) |
+| `--warning-soft` | `#FBF1E0` (`--k-warning-soft`) | `rgba(224,164,58,0.12)` | state: warning tint |
+| `--info` | `#1A4E8A` (`--k-info`) | `#7FA8E0` | state: info (product UI only) |
+| `--info-soft` | `#E6EDF5` (`--k-info-soft`) | `rgba(127,168,224,0.12)` | state: info tint |
+| `--danger` | `#E4022D` (`--accent`) | `#E4022D` (`--accent`) | state: danger = brand red |
+| `--danger-soft` | `#FCE5EA` (`--k-red-soft`) | `#FCE5EA` (`--k-red-soft`) | state: danger tint |
+| `--link` | `#8A021B` (`--accent-ink`) | `#FCE5EA` (`--accent-ink`) | text links, inline code, small red text |
 
-### Principles
+### Contrast (WCAG 2.2, computed from the hex values)
 
-1. **Calm by default.** Generous whitespace, narrow palette, type
-   does the work. Noise is a design failure, not a feature.
-2. **Red earns its place.** The signature red is a spotlight, not a
-   wash. Use it for one idea per surface.
-3. **Editorial over ornamental.** Serif display + clean sans.
-   Italics carry emphasis. No gradients, no glows, no filler iconography.
-4. **Technical and human.** Built for engineers and enterprise — but
-   written like people. Precise, never sterile.
+| Foreground | Background | Ratio | Body text (4.5:1) | Large text (3:1) |
+|---|---|---|---|---|
+| `--k-ink` #0B0F14 | `--k-paper` #FFFFFF | 19.22:1 | pass | pass |
+| `--k-ink-2` #1A2230 | `--k-paper` #FFFFFF | 15.96:1 | pass | pass |
+| `--k-muted` #5B6573 | `--k-paper` #FFFFFF | 5.91:1 | pass | pass |
+| `--k-muted` #5B6573 | `--k-paper-2` #F6F4F0 | 5.38:1 | pass | pass |
+| `--k-red` #E4022D | `--k-paper` #FFFFFF | 4.83:1 | pass | pass |
+| `--k-red` #E4022D | `--k-paper-2` #F6F4F0 | 4.40:1 | fail | pass |
+| `--k-red-ink` #8A021B | `--k-paper` #FFFFFF | 9.98:1 | pass | pass |
+| `--k-red-ink` #8A021B | `--k-paper-2` #F6F4F0 | 9.08:1 | pass | pass |
+| `--k-paper` #FFFFFF | `--k-red` #E4022D | 4.83:1 | pass | pass |
+| `--k-paper` #FFFFFF | `--k-ink` #0B0F14 | 19.22:1 | pass | pass |
+| `--k-muted-dark` #8A95A5 | `--k-ink` #0B0F14 | 6.34:1 | pass | pass |
+| `--k-red` #E4022D | `--k-ink` #0B0F14 | 3.98:1 | fail | pass |
+| `--k-red-soft` #FCE5EA | `--k-ink` #0B0F14 | 16.05:1 | pass | pass |
+| `--k-success` #1A7F35 | `--k-paper` #FFFFFF | 5.08:1 | pass | pass |
+| `--k-warning` #9A6200 | `--k-paper` #FFFFFF | 5.10:1 | pass | pass |
+| `--k-info` #1A4E8A | `--k-paper` #FFFFFF | 8.40:1 | pass | pass |
+| `--k-success` #1A7F35 | `--k-paper-2` #F6F4F0 | 4.63:1 | pass | pass |
+| `--k-warning` #9A6200 | `--k-paper-2` #F6F4F0 | 4.64:1 | pass | pass |
+| `--k-info` #1A4E8A | `--k-paper-2` #F6F4F0 | 7.64:1 | pass | pass |
 
-### Voice DO / DON'T
+### Type
 
-- DO: short sentences. Real numbers. Specific decisions. Italic accent.
-- DON'T: marketing fluff (synergy, transformative, world-class), passive
-  voice, vague claims, em-dashes used as conjunctions.
+| Token | Value | Note |
+|---|---|---|
+| `--font-display` | `"Newsreader", ui-serif, Georgia, serif` |  |
+| `--font-sans` | `"DM Sans", ui-sans-serif, system-ui, sans-serif` |  |
+| `--font-mono` | `"JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace` |  |
+| `--fs-d1` | `clamp(3.5rem, 7vw, 6.25rem)` | 56–100px fluid |
+| `--fs-d2` | `clamp(2.75rem, 5.2vw, 4.5rem)` | 44–72px fluid |
+| `--fs-d3` | `clamp(2rem, 3.6vw, 3rem)` | 32–48px fluid |
+| `--fs-h1` | `2.25rem` | 36px |
+| `--fs-h2` | `1.5rem` | 24px |
+| `--fs-h3` | `1.125rem` | 18px |
+| `--fs-body` | `1rem` | 16px |
+| `--fs-sm` | `0.875rem` | 14px |
+| `--fs-xs` | `0.75rem` | 12px · eyebrows |
+| `--lh-tight` | `1.04` |  |
+| `--lh-snug` | `1.2` |  |
+| `--lh-body` | `1.55` |  |
+| `--tracking-eyebrow` | `0.18em` |  |
+| `--tracking-display` | `-0.02em` |  |
 
----
+### Spacing, radii, elevation, motion, layout
 
-## Real Kilowott facts (use these — never invent)
-
-Source of truth: kilowott.com (verified).
-
-### Tagline
-
-- Primary: **Built for what comes next.**
-- Long: **Scale faster. Deliver better. Create impact.**
-
-### Offices (4 working offices — NOT New York)
-
-| Region       | Address                                                              |
-|--------------|----------------------------------------------------------------------|
-| Norway       | Waterbear AS, Haugstentunet 16, 1637 Gamle Fredrikstad               |
-| Norway       | FOMO WORKS, Grenseveien 21, 4313 Sandnes                             |
-| India        | Nordic Intent, Lane 4, PDA Colony, **Porvorim**, Goa (NOT Panjim)    |
-| UAE          | Kilowott DXB, Meydan Grandstand, 6th floor, Dubai                    |
-| USA (reg.)   | Kilowott USA LLC, 317 N Layton Ave, Wyoming, DE 19934 (registration only — not a working office) |
-
-Compact form: `Fredrikstad · Sandnes · Goa · Dubai`
-
-### Contact
-
-- Norway phone: **+47 925 11 386**
-- Sales (India): **+91 91452 46464**
-- Careers (India): **+91 9765419976**
-- Meeting booking (real, used on the live site):
-  **https://meetings.hubspot.com/pphadtare**
-- Contact page: **https://kilowott.com/contact-us/** (note the trailing path)
-
-### Legal entity
-
-**Kilowott LLP** (per cookie notice on kilowott.com).
-
-### Real socials (verified on the public site)
-
-- Facebook: https://www.facebook.com/kilowott/
-- Instagram: https://www.instagram.com/kilowott/
-- YouTube: https://www.youtube.com/channel/UC6v7gOFR2IXdQobTFz_Ac8Q
-- Behance: https://www.behance.net/kilowott
-
-LinkedIn / X are NOT linked from the public site. Don't guess URLs.
-
-### Real clients
-
-Craft, Bosch, Marriott, Mazda, Nissan, Netflix, Pepe Jeans,
-Radisson, Stihl
-
-### Real case studies (a few — full list at kilowott.com/case-study/)
-
-| Case                      | Result                          | URL slug                                              |
-|---------------------------|---------------------------------|-------------------------------------------------------|
-| Paul John Caffeine        | 3.5× organic traffic, DA 1→20   | /case-studies/driving-3-5x-higher-organic-traffic-for-paul-john-caffeine/ |
-| Noma Norge                | 190%+ engagement                | /case-studies/noma-norge-e-commerce-redesign…/        |
-| Showcar                   | 10k MAU                         | /case-studies/boosting-engagement-for-automotive…/    |
-| Big Banyan Wines          | 500 bookings, ₹4.6L revenue     | /case-studies/driving-500-bookings…/                  |
-
-### Placeholder persona (for demos that need a name)
-
-- Name: **Ola Nordmann** (Norwegian "John Doe")
-- Email: `ola.nordmann@kilowott.com`
-- Phone: `+47 925 11 386`
-- Comment in code: `// Ola Nordmann is a fictional placeholder — replace with your details.`
-
-### Names that are NOT real Kilowott people (don't reuse)
-
-Aaron Bisht · Priya / Mehta / Nair / Rao · Mira / Lindqvist · Jonas /
-Kielland / Kleiva · Hartvig Reinfjord · Maya Ravn · Aaron Holm ·
-Sara Lindgren · Lena Fernandes · Ravi Kumar
-
-Also fictional: Nordic Data / NDA.OL · Bergen Labs · Mindset Corporate.
-
----
-
-## Surfaces shipped (19 pages organised in 4 categories)
-
-### Brand
-Overview · Logo · Color · Type · Voice · Imagery
-
-### System
-Foundations · Icons · Components
-
-### Surfaces
-Landing · Dashboards · Deck · Case study · Magazine · Social
-
-### Communications
-Email · Signature · Newsletter · Stationery
+- **Spacing (8pt base):** `--s-0` 0 · `--s-1` 4px · `--s-2` 8px · `--s-3` 12px · `--s-4` 16px · `--s-5` 24px · `--s-6` 32px · `--s-7` 48px · `--s-8` 64px · `--s-9` 96px · `--s-10` 128px
+- **Radii:** `--r-0` 0 · `--r-1` 2px · `--r-2` 4px · `--r-3` 8px · `--r-4` 12px · `--r-pill` 999px
+- `--shadow-0`: `none`
+- `--shadow-1`: `0 1px 0 rgba(11,15,20,0.06), 0 1px 2px rgba(11,15,20,0.04)`
+- `--shadow-2`: `0 2px 4px rgba(11,15,20,0.06), 0 8px 16px rgba(11,15,20,0.06)`
+- `--shadow-3`: `0 4px 8px rgba(11,15,20,0.08), 0 24px 48px rgba(11,15,20,0.10)`
+- **Motion:** `--ease-standard` cubic-bezier(.2, .8, .2, 1) · `--ease-in` cubic-bezier(.4, 0, 1, 1) · `--ease-out` cubic-bezier(0, 0, .2, 1) · `--dur-fast` 120ms · `--dur-standard` 200ms · `--dur-slow` 320ms
+- **Layout:** `--container` 1280px · `--gutter` 32px
+- **Dark theme** also overrides: `--shadow-1`, `--shadow-2`, `--shadow-3` (deeper shadows).
+<!-- tokens:end -->
 
 ---
 
-## How to render brand-correct from this file
+## Component specs (Components tab, prefix `.k-*`; kit primitives in `kit/kilowott.css`)
 
-If asked to "match the Kilowott brand", do this:
-
-1. Set body background `#FFFFFF`.
-2. Set body text `#0B0F14`, font `DM Sans`, size 16px, line-height 1.6.
-3. Use Newsreader for headlines, weight 400, line-height 1.04,
-   letter-spacing -0.02em.
-4. Pick ONE word per headline to wrap in `<em>` for italic + red.
-5. Eyebrows: mono caps, 12px, letter-spacing 0.22em, with a 24px red
-   rule prefix.
-6. Buttons: pill (`border-radius: 999px`), 14px DM Sans medium,
-   primary = ink fill (`#0B0F14`), accent = red fill (`#E4022D`).
-7. Section breaks via warm paper (`#F6F4F0`), not red.
-8. Icons: Lucide library, 1.75 stroke-width, 16–18px.
-
-If your output looks neon, dark-mode-by-default, gradient-heavy,
-or has more than one red word per headline, it's wrong.
+- **Buttons** — 4 variants (primary ink, accent red, secondary outline, ghost) × sm/md/lg. Pill radius. Never two accent buttons in one view. Focus ring 2px accent at 3px offset. Arrow icon nudges 3px right on hover.
+- **Badges and eyebrows** — eyebrow ALL CAPS, 0.18em, max four words. Status badges show a dot; taxonomy tags don’t.
+- **Form fields** — label above in caps; focus = accent border + 3px ring at 12%; checkbox hit area 18px; switch only for instant-apply settings.
+- **Cards** — paper, 1px `--rule`, 8px radius, 32px padding. Stat card: one serif number, one line, one mono source line. Case card: 4:3 photo, two meta pills, serif title with italic accent, arrow CTA.
+- **Tabs** — max five. Underline variant for long filtering lists. **Breadcrumb** only 3+ levels deep.
+- **UI states** — empty (one italic accent word, one action, no sad faces), error (name the failure, give a reference code, retry first), skeleton (shape matches content, 1.4s pulse, respects reduced motion), spinner (rarely; skeletons are the default), success, 404 (the italic 0 is the accent moment).
+- **Modal** — destructive dialogs: Cancel has default focus. `--shadow-3`.
+- **Toast** — 3px rail. **Tooltip** — max four words. **Alert banner** — one at a time.
+- **Avatar** — 28 / 40 / 56px. **Pagination** — first, last, and three around current.
+- **Top nav** — max five links + one CTA; goes solid after 80px scroll. **Footer** — three columns.
+- **House rules** — check the Components tab before inventing a component; one accent per view; works in light, dark, compact, and spacious; focus outlines are non-negotiable.
 
 ---
 
-## Machine-readable resources
+## Pattern specs by surface
 
-- **`brand.json`** — structured color tokens, type scale, facts,
-  asset URLs. Fetch this for code-friendly access.
-- **`llms.txt`** — this file (markdown).
+### Landing (`#landing`, prefix `.lp-*`)
+House rules: one accent moment (italic red word or red button); hero 4–9 words, lede ≤40 words; container 1280px, content ≤64ch; ≥96px between sections; every claim paired with proof; red CTA only for conversion, otherwise ink.
+Patterns: 01 editorial hero · 02 stat-led hero (figure ~40% width) · 03 image-right hero (55/45) · 04 full-bleed atmospheric (scrim 40→85%) · 05 proof hero (six wordmarks, fictional) · 06 video-poster hero · 07 three-up value prop · 08 feature split (50/50) · 09 stat strip band (once per page) · 10 final CTA block.
 
-Both live at the same path as `index.html`.
+### Dashboards (`#dashboards`, prefixes `.db-*`, `.kpi`, `.ss-*`, `.ohlc`, `.tree`, `.waterfall`, `.heatmap`, `.fc`)
+Rules: one serif number per tile; tabular numerals in columns; red only for losses and alerts; positive deltas in ink, not green; 12–16px tile padding and gaps; every number has a time window.
+Parts: KPI tiles, deltas, sparklines (32px, 1.25px stroke), data tables (right-aligned mono numerals), status dots, meters (4px), alerts, toolbars (search left, scope centre, primary action right), spreadsheet grid, OHLC (up ink, down accent), tree grid, waterfall (losses accent), heatmap (the only place red fills large areas: severity is the point), forecast and scenarios, full shell (paper sidebar, ink tick for active page).
+
+### Deck (`#deck`, prefix `.dk-*`; template `downloads/kilowott-deck-template.pptx`)
+Canvas 1920×1080 (16:9), 56px outer margin, one red per slide, never bullet lists, dark slides are for breaks.
+Specs: logo 48px from top, 56px from left, 18–22px high; page number mono 12px; cover headline 100–140px; content headline 60–84px; eyebrow 14px at 0.22em; body 17–18px; deck headlines 10–14 words.
+15 layouts: title · section divider (ink) · content 2-col · stat (240–320px number) · quote (<20 words) · full-bleed image · closing CTA · agenda (≤5 items) · team · timeline · pricing (3 tiers, ≤5 features) · comparison (5 rows) · logo wall (5×2, fictional marks) · chart (≤2 series) · thank you.
+
+### Email (`#email`, prefix `.em-*`)
+Five rules: 600px single column in nested tables; one headline, one button, one CTA; Georgia/Arial fallbacks, red only on the italic word and the legal line; preheader 40–90 characters; plain-text version, unsubscribe, and postal address, mono for data rows.
+Specs: padding 40/40/32; headline 34px/1.1; body 16px/1.6 `#1A2230`; button 14px, padding 14×28, radius 999px; logo 120×18px; subject under 55 characters; no emoji in transactional mail; forced light mode. **Email HTML must use inline styles and hex values** (no CSS variables, no external stylesheet).
+
+### Newsletter (`#newsletter`, prefix `.nl-*`)
+Block composer on a 600px canvas; 11 blocks (eyebrow, heading, sub-heading, paragraph, image, video poster, button ink/accent/outline, divider, quote, stat, spacer); header fields subject, preheader (40–90 chars), issue eyebrow, from, address; exports email-safe HTML or plain text for Gmail. Quarterly note: 3–4 stories of 60–100 words.
+
+### Signature (`#signature`, prefix `.sig-*`)
+Generator with three layouts (Classic, Compact, Editorial); table HTML, inline styles, Georgia/Arial fallbacks, no tracking pixels; square photo ≥144px; fill → copy → paste into Gmail Settings → Signature. Defaults use Ola Nordmann.
+
+### Stationery (`#stationery`, prefix `.st-*`)
+Business card 88×54mm, 350gsm uncoated, 3mm bleed, 4mm red right-edge rule · letterhead A4 210×297mm, 100gsm · compliments slip 210×99mm · DL envelope 110×220mm with 4mm red foot rule · A5 notebook · A4 pocket folder · 50mm round sticker.
+Print colour: red CMYK 0/100/87/5 (nearest Pantone 186 C); rich black 60/50/50/100. Type: body 10pt, foot 8pt, display 18pt+. Uncoated stock always; deboss the bolt, never foil or spot UV; use the sender’s real office address.
+
+### Case study (`#case-study`, prefix `.cs-*`)
+Seven rules: name sector, region, and model; every stat has a source and window; the situation names what wasn’t working; one attributed client quote (fictional in demos); include what didn’t work; team strip; 600–900 words.
+Order: header · hero · four outcomes · aside · situation · decision · pull quote · what didn’t work · timeline · result · team · CTA (never “get in touch”). Demo client: Nordhavn Coffee.
+
+### Magazine (`#magazine`, prefix `.mg-*`)
+Framework, Kilowott’s own magazine. Trim A4 210×297mm. Cover 300gsm, body 120gsm FSC, perfect-bound; bleed 3mm, safety 5mm; display 30–110pt cover, 22–38pt spreads; body 9–10pt; mono 7–9pt; two-column grid, 24mm gutter. Spreads: opener, profile, by-the-numbers, section divider. Rules: one register; real people and numbers only in live issues (the kit shows fictional ones); photo on the verso, type on the recto.
+
+### Social (`#social`, prefixes `.so-*`, `.li-*`, `.x-*`, `.fb-*`, `.ig-*`)
+LinkedIn feed image 1200×627 and document carousel · X under 280 characters, threads · Facebook square or 1.91:1 · Instagram 1:1 feed, carousels, 9:16 stories and reels · cover banners LinkedIn 1584×396, X 1500×500, Facebook 820×312. Posts 60–120 words, proof-led. Metrics shown are sample data.
+
+### Posters & banners (`#posters`)
+Print: A3, A2, A1, 18×24in posters · roll-up 850×2000mm · event backdrop · 48-sheet billboard · flyer · event badge. Digital: IAB display ads · Meta / LinkedIn ad set · Open Graph 1200×630 · YouTube thumbnail · email hero. Four archetypes: **Statement** (serif headline, one italic red word), **Stat** (one big number), **Photo-led** (real photography, type in clear space), **Event** (date, place, name). The machine-readable spec (sizes, safe areas, type sizes per format) is the JSON in `script#posters-spec` inside https://brandkit.kilowott.com/project/pages/posters.js.
+
+### Imagery (`#imagery`, prefix `.im-*`)
+Principles: real over rendered (no AI imagery externally), human gaze, warm not saturated, space for type. Categories: people, environment, product UI (2× retina minimum), abstract / textural, diagrams (1.2px stroke, mono labels 10–12px, 4px radius). Grades: house (desaturate −12, warmth +8), ink/red duotone for heroes, warm mono. Crops: 16:9, 21:9, 3:2, 4:5, 1:1, 9:16. Mistakes to avoid: stock hard hats, AI gradients, people lined up against a wall, sunset handshake, glossy mock-ups, post-it brainstorms. Cleared photos: `assets/photos/`. `uploads/` = licensed Shutterstock originals, internal reference library for Kilowott use only, do not redistribute.
+
+### Logo (`#logo`)
+Wordmark SVG via CSS mask + currentColor, 110×18px in a 56px topbar with 16px clear space. Clear space = cap-K height. Hero ≥240px / 60mm, standard 120–240px, minimum 80px / 20mm. Bolt for avatars and favicons (16–1024px) and watermarks (24–48px, 60–80% opacity). The bolt exists only as a 100×100 JPG.
+
+### Voice (`#voice`)
+Four principles (outcome-driven; strategic and specific; confident, not loud; human, not corporate), four service lines (Kilowott for Brands, for Agencies, Intelligence, Workforce), the tone dial, registers by context, vocabulary, mechanics, and the length ladder. Full text in KILOWOTT_BRAND.md §9.
 
 ---
 
-## Production URL
+## Facts
 
-https://kilowott-design-system-production.up.railway.app/
+### Company facts — real (use as-is)
 
-(Or wherever the kit is hosted — `llms.txt` should sit alongside
-`index.html` at the root.)
+- **Name:** Kilowott (one word). Legal entity: Kilowott LLP.
+- **Tagline:** Built for what comes next. Long form: Scale faster. Deliver better. Create impact.
+- **Website:** https://kilowott.com · **Contact page:** https://kilowott.com/contact-us/
+- **Offices:** Fredrikstad · Sandnes · Goa · Dubai (Goa office is in Porvorim, not Panjim; no New York office). Full addresses in `brand.json` → `facts.offices`.
+- **Company phone lines:** Norway +47 925 11 386 · Sales (India) +91 91452 46464 · Careers (India) +91 9765419976.
+- **Socials:** facebook.com/kilowott · instagram.com/kilowott · youtube.com/channel/UC6v7gOFR2IXdQobTFz_Ac8Q · behance.net/kilowott. LinkedIn and X are not linked from the public site; don’t guess URLs.
+- **Framework** is Kilowott’s own magazine: https://kilowott.com/framework-edition/
+
+### Demo content — fictional (always)
+
+- Everything shown as an example in the kit is dummy data that demonstrates how the brand looks and works.
+- **Shared demo client:** Nordhavn Coffee — specialty coffee brand, US launch, SEO + paid social, 3.5× organic traffic in six months (sample figures). Domain if needed: `nordhavn-coffee.example`.
+- **Placeholder person:** Ola Nordmann, Senior Strategist, ola.nordmann@kilowott.com, +47 000 00 000. Comment in code: `<!-- Ola Nordmann is a fictional placeholder -->`.
+- Other fictional clients already in the kit (Nordic Freight, Meridian Health, Halden Hotels, …) are fine.
+- Never use real third-party people, companies, client logos, testimonials, case-study figures, personal phone numbers, or personal booking links in demo content. Real client work comes from the Kilowott team, not from this kit.

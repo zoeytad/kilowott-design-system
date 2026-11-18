@@ -12,18 +12,26 @@
      enough to render brand-correct.
      ============================================================ -->
 <meta name="description" content="Kilowott Design System v1.0 — editorial brand register. Newsreader serif + DM Sans + JetBrains Mono. Paper / Ink / Warm / Red 60·30·5·5 palette (#FFFFFF · #0B0F14 · #F6F4F0 · #E4022D). Light theme by default. Built for what comes next.">
-<meta name="keywords" content="Kilowott, design system, brand kit, editorial, Newsreader, DM Sans, JetBrains Mono, Paul John Caffeine, Framework magazine">
+<meta name="keywords" content="Kilowott, design system, brand kit, agentic brand kit, editorial, Newsreader, DM Sans, JetBrains Mono, design tokens, llms.txt">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Kilowott Design System v1.0">
 <meta property="og:description" content="Editorial brand register — Newsreader + DM Sans + JetBrains Mono · 60·30·5·5 color ratio: Paper #FFFFFF · Ink #0B0F14 · Warm #F6F4F0 · Red #E4022D.">
-<meta property="og:image" content="assets/kilowott-bolt.jpg">
+<meta property="og:url" content="https://brandkit.kilowott.com/project/">
+<meta property="og:image" content="https://brandkit.kilowott.com/project/assets/kilowott-bolt.jpg">
 
 <!-- Machine-readable resources for AI agents -->
-<link rel="alternate" type="text/markdown" href="llms.txt" title="Brand reference for AI tools (markdown)">
-<link rel="alternate" type="application/json" href="brand.json" title="Brand tokens + facts (machine-readable)">
+<link rel="canonical" href="https://brandkit.kilowott.com/project/">
+<link rel="alternate" type="text/markdown" href="/AGENTS.md" title="Agent guide: rules, decision tree, files, starter page">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt index of the brand kit">
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="Full brand kit reference in one file">
+<link rel="alternate" type="text/plain" href="llms.txt" title="Build spec for AI agents">
+<link rel="alternate" type="application/json" href="brand.json" title="Brand data, resolved tokens, facts">
+<link rel="alternate" type="application/json" href="/tokens.json" title="Design tokens (W3C DTCG)">
+<link rel="alternate" type="application/json" href="/manifest.json" title="Machine-readable map of every tab and kit file">
+<meta name="ai-instructions" content="AI agents: read https://brandkit.kilowott.com/AGENTS.md first. For web pages link https://brandkit.kilowott.com/project/kit/kilowott.css. Demo content is fictional (Nordhavn Coffee, Ola Nordmann).">
 
 <script type="application/ld+json">
 {
@@ -36,11 +44,17 @@
     "@type": "Organization",
     "name": "Kilowott",
     "url": "https://kilowott.com",
-    "logo": "assets/kilowott-logo.svg"
+    "logo": "https://brandkit.kilowott.com/project/assets/kilowott-logo.svg"
   },
+  "url": "https://brandkit.kilowott.com/project/",
   "potentialAction": {
     "@type": "ReadAction",
-    "target": ["llms.txt", "brand.json"]
+    "target": [
+      "https://brandkit.kilowott.com/AGENTS.md",
+      "https://brandkit.kilowott.com/llms.txt",
+      "https://brandkit.kilowott.com/llms-full.txt",
+      "https://brandkit.kilowott.com/project/brand.json"
+    ]
   }
 }
 </script>
@@ -50,8 +64,8 @@
 <!-- Kilowott brand trio: Newsreader (display) · DM Sans (sans) · JetBrains Mono (mono). System serifs/sans used as fallbacks — no extra webfont payload. -->
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="styles/tokens.css">
-<link rel="stylesheet" href="styles/shell.css?v=3">
+<link rel="stylesheet" href="styles/tokens.css?v=2">
+<link rel="stylesheet" href="styles/shell.css?v=4">
 
 <script>
   // Edit-mode-available protocol registered FIRST
@@ -74,6 +88,9 @@
 
     <span class="topbar__here" id="topbar-here" aria-live="polite"></span>
 
+    <button class="topbar__search" id="topbar-search" type="button" aria-label="Search the brand kit (⌘K)">
+      <i data-lucide="search"></i><span class="topbar__search-label">Search</span><kbd>⌘K</kbd>
+    </button>
     <button class="topbar__menu" id="topbar-menu" aria-label="Open menu" aria-expanded="false">
       <span class="topbar__menu-label">Index</span>
       <i data-lucide="menu"></i>
@@ -121,6 +138,7 @@
         <a class="tab drawer__link" href="#case-study" data-tab="case-study">Case study<span>Situation → decision → result</span></a>
         <a class="tab drawer__link" href="#magazine"   data-tab="magazine">Magazine<span>Framework cover + spreads</span></a>
         <a class="tab drawer__link" href="#social"     data-tab="social">Social<span>Real platform simulations</span></a>
+        <a class="tab drawer__link" href="#posters"    data-tab="posters">Posters &amp; banners<span>Print · OOH · web ads · events</span></a>
       </div>
 
       <div class="drawer__col">
@@ -175,10 +193,12 @@
       <h1 itemprop="name">Kilowott Design System <em>v1.0</em></h1>
       <p itemprop="description"><strong>Built for what comes next.</strong> Editorial brand register — calm by default, red earns its place. JavaScript is required for the interactive kit; this fallback is for bots, AI scrapers, and JS-disabled clients.</p>
 
-      <h2>Machine-readable resources</h2>
+      <h2>For AI agents</h2>
       <ul>
-        <li><a href="llms.txt">llms.txt</a> — full markdown brand reference</li>
-        <li><a href="brand.json">brand.json</a> — structured tokens + facts</li>
+        <li><a href="/AGENTS.md">AGENTS.md</a> — start here: rules, decision tree, files, starter page</li>
+        <li><a href="/llms-full.txt">llms-full.txt</a> — everything in one file</li>
+        <li><a href="kit/kilowott.css">kit/kilowott.css</a> — the one stylesheet for on-brand pages</li>
+        <li><a href="llms.txt">llms.txt</a> (build spec) · <a href="brand.json">brand.json</a> · <a href="/tokens.json">tokens.json</a></li>
       </ul>
 
       <h2>Color palette · 60·30·5·5</h2>
@@ -199,16 +219,17 @@
         <li><strong>Mono:</strong> JetBrains Mono (Menlo fallback) — eyebrows, folio, code, system labels</li>
       </ul>
 
-      <h2>Real Kilowott facts (use these — never invent)</h2>
+      <h2>Company facts — real</h2>
       <ul>
         <li><strong>Tagline:</strong> Built for what comes next. (Long: Scale faster. Deliver better. Create impact.)</li>
-        <li><strong>Offices:</strong> Fredrikstad · Sandnes · Goa (Porvorim, NOT Panjim) · Dubai. <em>No New York office.</em></li>
-        <li><strong>Norway phone:</strong> +47 925 11 386</li>
-        <li><strong>Meeting booking:</strong> https://meetings.hubspot.com/pphadtare</li>
-        <li><strong>Real socials:</strong> facebook.com/kilowott · instagram.com/kilowott · youtube.com/channel/UC6v7gOFR2IXdQobTFz_Ac8Q · behance.net/kilowott</li>
-        <li><strong>Real clients:</strong> Craft, Bosch, Marriott, Mazda, Nissan, Netflix, Pepe Jeans, Radisson, Stihl</li>
-        <li><strong>Real flagship case:</strong> Paul John Caffeine — 3.5× organic traffic, DA 1→20, 256k impressions. <a href="https://kilowott.com/case-studies/driving-3-5x-higher-organic-traffic-for-paul-john-caffeine/">Read it</a></li>
-        <li><strong>Placeholder persona for demos:</strong> Ola Nordmann (Norwegian "John Doe")</li>
+        <li><strong>Offices:</strong> Fredrikstad · Sandnes · Goa (Porvorim) · Dubai</li>
+        <li><strong>Website:</strong> kilowott.com · <strong>Contact:</strong> kilowott.com/contact-us/</li>
+      </ul>
+      <h2>Demo content — fictional</h2>
+      <ul>
+        <li><strong>Demo client:</strong> Nordhavn Coffee — specialty coffee, US launch, SEO + paid social, 3.5× organic traffic in six months (sample figures)</li>
+        <li><strong>Placeholder person:</strong> Ola Nordmann, Senior Strategist</li>
+        <li>Never use real third-party people, clients, logos, or testimonials in demo work.</li>
       </ul>
 
       <h2>Logo</h2>
@@ -220,7 +241,7 @@
       <h2>Surfaces in the kit</h2>
       <p><strong>Brand:</strong> Overview · Logo · Color · Type · Voice · Imagery<br>
       <strong>System:</strong> Foundations · Icons · Components<br>
-      <strong>Surfaces:</strong> Landing · Dashboards · Deck · Case study · Magazine · Social<br>
+      <strong>Surfaces:</strong> Landing · Dashboards · Deck · Case study · Magazine · Social · Posters &amp; banners<br>
       <strong>Communications:</strong> Email · Signature · Newsletter · Stationery</p>
 
       <h2>How to render brand-correct</h2>
@@ -228,7 +249,7 @@
         <li>Body bg: <code>#FFFFFF</code> · Body text: <code>#0B0F14</code> · DM Sans 16px / line-height 1.6</li>
         <li>Headlines: Newsreader, weight 400, line-height 1.04, letter-spacing -0.02em</li>
         <li>One word per headline wrapped in <code>&lt;em&gt;</code> for italic + red</li>
-        <li>Eyebrows: mono caps, 12px, letter-spacing 0.22em, with a 24px red rule prefix</li>
+        <li>Eyebrows: mono caps, 12px, letter-spacing 0.18em, with a 24px red rule prefix</li>
         <li>Buttons: pill (radius 999px); primary = ink fill, accent = red fill</li>
         <li>Section breaks via warm paper #F6F4F0 — NOT red</li>
       </ol>
@@ -254,6 +275,7 @@
   <div id="page-imagery" class="page" hidden></div>
   <div id="page-voice" class="page" hidden></div>
   <div id="page-social" class="page" hidden></div>
+  <div id="page-posters" class="page" hidden></div>
 </main>
 
 <!-- ============ FOOTER ============ -->
@@ -318,31 +340,32 @@
 <button class="tweaks-toggle-hint" id="tweaks-hint">Open Tweaks <i data-lucide="sliders-horizontal"></i></button>
 
 <!-- ============ ICON LIBRARY — Lucide ============ -->
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="https://unpkg.com/lucide@1.66.0/dist/umd/lucide.min.js"></script>
 
 <!-- ============ PAGE MODULES ============ -->
-<script src="pages/overview.js?v=8"></script>
-<script src="pages/logo.js?v=5"></script>
-<script src="pages/color.js?v=5"></script>
-<script src="pages/type.js?v=5"></script>
-<script src="pages/foundations.js?v=6"></script>
-<script src="pages/icons.js?v=3"></script>
-<script src="pages/components.js?v=6"></script>
-<script src="pages/landing.js?v=2"></script>
-<script src="pages/dashboards.js?v=8"></script>
-<script src="pages/deck.js?v=12"></script>
-<script src="pages/email.js?v=3"></script>
-<script src="pages/signature.js?v=5"></script>
-<script src="pages/newsletter.js?v=4"></script>
-<script src="pages/stationery.js?v=2"></script>
-<script src="pages/case-study.js?v=3"></script>
-<script src="pages/magazine.js?v=3"></script>
-<script src="pages/imagery.js?v=10"></script>
+<script src="pages/overview.js?v=9"></script>
+<script src="pages/logo.js?v=6"></script>
+<script src="pages/color.js?v=6"></script>
+<script src="pages/type.js?v=6"></script>
+<script src="pages/foundations.js?v=7"></script>
+<script src="pages/icons.js?v=4"></script>
+<script src="pages/components.js?v=7"></script>
+<script src="pages/landing.js?v=3"></script>
+<script src="pages/dashboards.js?v=9"></script>
+<script src="pages/deck.js?v=13"></script>
+<script src="pages/email.js?v=4"></script>
+<script src="pages/signature.js?v=6"></script>
+<script src="pages/newsletter.js?v=5"></script>
+<script src="pages/stationery.js?v=3"></script>
+<script src="pages/case-study.js?v=4"></script>
+<script src="pages/magazine.js?v=4"></script>
+<script src="pages/imagery.js?v=11"></script>
 <script src="pages/voice.js?v=5"></script>
-<script src="pages/social.js?v=4"></script>
+<script src="pages/social.js?v=5"></script>
+<script src="pages/posters.js?v=2"></script>
 
 <!-- ============ APP LOGIC ============ -->
-<script src="app.js?v=10"></script>
+<script src="app.js?v=11"></script>
 
 </body>
 </html>

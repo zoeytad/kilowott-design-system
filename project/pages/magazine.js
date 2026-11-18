@@ -1,9 +1,9 @@
 /* ============================================================
    MAGAZINE — Framework redesign in the Kilowott register
    Cover + four article spread variations (opener, profile,
-   stat, section divider). Real Framework #003 content used —
-   the agencies, testimonials, and pillars are from the live
-   issue at kilowott.com/framework-edition/.
+   stat, section divider). Illustrative content only — the
+   founders, agencies and quotes shown are fictional dummy data
+   that demonstrate the layouts; they are not real people.
    ============================================================ */
 
 window.renderMagazine = function (root) {
@@ -129,7 +129,7 @@ window.renderMagazine = function (root) {
       font-weight: 500;
       letter-spacing: 0.04em;
     }
-    .mg-cover__wordmark em { font-style: italic; color: #E4022D; }
+    .mg-cover__wordmark em { font-style: italic; color: var(--accent); }
     .mg-cover__issue {
       font-family: 'JetBrains Mono', monospace;
       font-size: 10px;
@@ -148,9 +148,9 @@ window.renderMagazine = function (root) {
       line-height: 0.95;
       text-transform: uppercase;
     }
-    .mg-cover__masthead em { font-style: italic; text-transform: none; color: #E4022D; font-weight: 400; letter-spacing: -0.02em; }
+    .mg-cover__masthead em { font-style: italic; text-transform: none; color: var(--accent); font-weight: 400; letter-spacing: -0.02em; }
     .mg-cover__rule {
-      width: 56px; height: 2px; background: #E4022D;
+      width: 56px; height: 2px; background: var(--accent);
       margin-top: auto; margin-bottom: 14px;
     }
     .mg-cover__eyebrow {
@@ -165,7 +165,7 @@ window.renderMagazine = function (root) {
       font-size: 30px; line-height: 1.05; letter-spacing: -0.02em;
       font-weight: 400;
     }
-    .mg-cover__h em { font-style: italic; color: #E4022D; }
+    .mg-cover__h em { font-style: italic; color: var(--accent); }
     .mg-cover__deck {
       font-family: 'DM Sans', Arial, sans-serif;
       font-size: 10px; line-height: 1.55;
@@ -226,7 +226,7 @@ window.renderMagazine = function (root) {
     }
     .mg-page__folio--l { left: 24px; }
     .mg-page__folio--r { right: 24px; }
-    .mg-page__folio em { font-style: italic; color: #E4022D; }
+    .mg-page__folio em { font-style: italic; color: var(--accent); }
 
     /* ============================================================
        EDITORIAL — running heads, drop caps, columned body, pull-quotes
@@ -281,7 +281,7 @@ window.renderMagazine = function (root) {
       column-span: all;
       margin: 14px 0 12px;
       padding: 12px 16px 12px 18px;
-      border-left: 2px solid #E4022D;
+      border-left: 2px solid var(--accent);
       max-width: 38ch;
     }
     .mg-pq cite {
@@ -340,7 +340,7 @@ window.renderMagazine = function (root) {
     .mg-opener-page__kicker {
       font-family: 'JetBrains Mono', monospace;
       font-size: 7px; letter-spacing: 0.24em; text-transform: uppercase;
-      color: #E4022D;
+      color: var(--accent);
       margin-bottom: 8px;
     }
     .mg-opener-page__h {
@@ -349,7 +349,7 @@ window.renderMagazine = function (root) {
       font-weight: 400;
       color: #0B0F14;
     }
-    .mg-opener-page__h em { font-style: italic; color: #E4022D; }
+    .mg-opener-page__h em { font-style: italic; color: var(--accent); }
     .mg-opener-page__byline {
       font-family: 'JetBrains Mono', monospace;
       font-size: 7px; letter-spacing: 0.18em; text-transform: uppercase;
@@ -387,13 +387,13 @@ window.renderMagazine = function (root) {
       display: inline-flex; align-items: center; gap: 8px;
       margin-bottom: 8px;
     }
-    .mg-profile-l__num::before { content: ""; width: 14px; height: 1px; background: #E4022D; }
+    .mg-profile-l__num::before { content: ""; width: 14px; height: 1px; background: var(--accent); }
     .mg-profile-l__name {
       font-family: 'Newsreader', Georgia, serif;
       font-size: 26px; line-height: 1.0; letter-spacing: -0.02em;
       font-weight: 400;
     }
-    .mg-profile-l__name em { font-style: italic; color: #E4022D; }
+    .mg-profile-l__name em { font-style: italic; color: var(--accent); }
     .mg-profile-l__role {
       font-family: 'JetBrains Mono', monospace;
       font-size: 7px; letter-spacing: 0.2em; text-transform: uppercase;
@@ -412,7 +412,7 @@ window.renderMagazine = function (root) {
       margin: 16px 0 10px;
       color: #0B0F14;
     }
-    .mg-profile-r__h em { font-style: italic; color: #E4022D; }
+    .mg-profile-r__h em { font-style: italic; color: var(--accent); }
 
     /* ============================================================
        SPREAD 3 — PROFILE B (portrait inset + body wrap)
@@ -427,7 +427,7 @@ window.renderMagazine = function (root) {
     .mg-profileB-l__sec {
       font-family: 'JetBrains Mono', monospace;
       font-size: 7px; letter-spacing: 0.24em; text-transform: uppercase;
-      color: #E4022D;
+      color: var(--accent);
       margin-bottom: 8px;
     }
     .mg-profileB-l__h {
@@ -437,7 +437,7 @@ window.renderMagazine = function (root) {
       color: #0B0F14;
       margin-bottom: 10px;
     }
-    .mg-profileB-l__h em { font-style: italic; color: #E4022D; }
+    .mg-profileB-l__h em { font-style: italic; color: var(--accent); }
     .mg-profileB-l__role {
       font-family: 'JetBrains Mono', monospace;
       font-size: 7px; letter-spacing: 0.2em; text-transform: uppercase;
@@ -470,8 +470,8 @@ window.renderMagazine = function (root) {
       letter-spacing: -0.005em;
       color: #0B0F14;
     }
-    .mg-profileB-r__quote::before { content: "\201C"; color: #E4022D; margin-right: 2px; }
-    .mg-profileB-r__quote::after { content: "\201D"; color: #E4022D; }
+    .mg-profileB-r__quote::before { content: "\\201C"; color: var(--accent); margin-right: 2px; }
+    .mg-profileB-r__quote::after { content: "\\201D"; color: var(--accent); }
     .mg-profileB-r__cite {
       font-family: 'JetBrains Mono', monospace;
       font-size: 6.5px; letter-spacing: 0.2em; text-transform: uppercase;
@@ -490,11 +490,11 @@ window.renderMagazine = function (root) {
       display: inline-flex; align-items: center; gap: 8px;
       margin-bottom: 14px;
     }
-    .mg-stat__eyebrow::before { content: ""; width: 16px; height: 1px; background: #E4022D; }
+    .mg-stat__eyebrow::before { content: ""; width: 16px; height: 1px; background: var(--accent); }
     .mg-stat__num {
       font-family: 'Newsreader', Georgia, serif;
       font-size: 110px; line-height: 0.92; letter-spacing: -0.04em;
-      color: #E4022D;
+      color: var(--accent);
       font-variant-numeric: tabular-nums;
       font-weight: 400;
     }
@@ -524,7 +524,7 @@ window.renderMagazine = function (root) {
       color: #0B0F14;
       font-variant-numeric: tabular-nums;
     }
-    .mg-stat__list-num em { font-style: italic; color: #E4022D; }
+    .mg-stat__list-num em { font-style: italic; color: var(--accent); }
     .mg-stat__list-cap {
       font-family: 'DM Sans', Arial, sans-serif;
       font-size: 9px; line-height: 1.5; color: #5B6573;
@@ -545,13 +545,13 @@ window.renderMagazine = function (root) {
       text-transform: uppercase; color: #5B6573;
       margin-bottom: 14px;
     }
-    .mg-divider__sec b { color: #E4022D; font-weight: 500; }
+    .mg-divider__sec b { color: var(--accent); font-weight: 500; }
     .mg-divider__h {
       font-family: 'Newsreader', Georgia, serif;
       font-size: 38px; line-height: 0.98; letter-spacing: -0.02em;
       font-weight: 400;
     }
-    .mg-divider__h em { font-style: italic; color: #E4022D; }
+    .mg-divider__h em { font-style: italic; color: var(--accent); }
     .mg-divider__lede {
       font-family: 'DM Sans', Arial, sans-serif;
       font-size: 10px; line-height: 1.6; color: #5B6573;
@@ -621,8 +621,8 @@ window.renderMagazine = function (root) {
       <p class="mg-hero__lede">
         The Framework magazine redesigned in the Kilowott register &mdash; one cover, four article-spread variations
         (opener, profile, stat, section divider), and the print specs that hold the whole edition to one
-        editorial voice. Sample content is the real Issue #003 (March 2026, &ldquo;Inside the Global Agency Network&rdquo;)
-        from <a href="https://kilowott.com/framework-edition/" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);" target="_blank" rel="noopener">kilowott.com/framework-edition</a>.
+        editorial voice. Sample content is illustrative &mdash; an imagined Issue #003 (March 2026, &ldquo;Inside the Global Agency Network&rdquo;)
+        with fictional founders and agencies, there to show the layouts and nothing else.
       </p>
       <div class="mg-hero__meta">
         <div>Format<b>A4 · 210×297mm</b></div>
@@ -695,7 +695,7 @@ window.renderMagazine = function (root) {
               <div class="mg-head"><span>FRAMEWORK &middot; #003</span><em>Inside the global agency network</em></div>
               <div class="mg-opener-page__photo mg-opener-page__photo--bleed-l" style="background-image:url(${PHOTO.teamLaugh});"></div>
               <div class="mg-opener-page__text">
-                <p class="mg-cap"><b>Photograph</b>Working session in Adelaide &mdash; agency leads from six markets, one room, March 2026.</p>
+                <p class="mg-cap"><b>Photograph</b>Working session in Lisbon &mdash; agency leads from six markets, one room, March 2026.</p>
                 <div class="mg-page__folio mg-page__folio--l">12 &middot; <em>FW</em></div>
               </div>
             </div>
@@ -716,48 +716,48 @@ window.renderMagazine = function (root) {
         <div class="mg-card__cap"><b>Spread 01 &middot; Article opener</b> &middot; double-photo across the spine, captions in italic serif, kicker + display headline on the recto. Running heads top, folio bottom outside &mdash; italic page number for the live folio.</div>
       </div>
 
-      <!-- SPREAD 2 — PROFILE · Natalie Renna · full portrait verso + editorial body recto -->
+      <!-- SPREAD 2 — PROFILE · Marit Halvorsen · full portrait verso + editorial body recto -->
       <div class="mg-card" style="margin-bottom: var(--s-5);">
         <div class="mg-card__stage" style="padding: 48px 32px;">
           <div class="mg-spread">
             <div class="mg-profile-l">
-              <img src="${PHOTO.portraitTab}" alt="Natalie Renna, Mercy Me Marketing">
+              <img src="${PHOTO.portraitTab}" alt="Marit Halvorsen, Fjordlight Studio">
               <div class="mg-profile-l__overlay">
                 <div class="mg-profile-l__num">Profile &middot; 01 of 11</div>
-                <div class="mg-profile-l__name">Natalie<br><em>Renna</em></div>
-                <div class="mg-profile-l__role">Founder &amp; Director &middot; Mercy Me Marketing &middot; Adelaide</div>
+                <div class="mg-profile-l__name">Marit<br><em>Halvorsen</em></div>
+                <div class="mg-profile-l__role">Founder &amp; Director &middot; Fjordlight Studio &middot; Bergen</div>
               </div>
               <div class="mg-page__folio mg-page__folio--l" style="color:rgba(255,255,255,0.55); border-color:rgba(255,255,255,0.2);"><em>FW</em> &middot; 18</div>
             </div>
             <div class="mg-page mg-profile-r">
-              <div class="mg-head"><span>PROFILE &middot; 01</span><em>Mercy Me Marketing</em></div>
+              <div class="mg-head"><span>PROFILE &middot; 01</span><em>Fjordlight Studio</em></div>
               <h2 class="mg-profile-r__h">Twenty-five years of <em>boutique</em>, told in one room.</h2>
               <div class="mg-body mg-body--dropcap">
-                <p>Mercy Me Marketing is a boutique advertising and marketing consultancy with twenty-five years behind it. Strategy, branding, graphic design, social, video, web, performance &mdash; one team, one room, full-service for clients who want a partner not a queue. The work is the work; the receipt is the receipt; the reader doesn&rsquo;t need to be told which is which.</p>
-                <p>The approach is long-term. Tailored campaigns built on collaborative relationships, measured by business results not vanity metrics. The team culture is deliberately approachable &mdash; senior people on every call, no client passed off to a junior account manager once the retainer signs. That sounds like every agency&rsquo;s pitch deck. The difference, Natalie says, is showing the receipts when a client asks.</p>
-                <blockquote class="mg-pq">The experience of working with Kilowott on the Framework feature was fantastic and exceeded expectations 100%.<cite>Natalie Renna &middot; Founder, Mercy Me Marketing</cite></blockquote>
-                <p>Adelaide is part of it. The market is smaller than Sydney or Melbourne, and that is, deliberately, the point &mdash; clients are repeat clients, the conversation runs longer than the campaign, and the team isn&rsquo;t fighting an agency-of-record cycle every eighteen months.</p>
-                <p>Framework caught Mercy Me at the start of a new positioning push, one year into a hiring run that took the team from seven to twelve. The boutique label sticks; the operations behind it have been quietly industrialised.</p>
+                <p>Fjordlight Studio is a boutique advertising and marketing consultancy with twenty-five years behind it. Strategy, branding, graphic design, social, video, web, performance &mdash; one team, one room, full-service for clients who want a partner not a queue. The work is the work; the receipt is the receipt; the reader doesn&rsquo;t need to be told which is which.</p>
+                <p>The approach is long-term. Tailored campaigns built on collaborative relationships, measured by business results not vanity metrics. The team culture is deliberately approachable &mdash; senior people on every call, no client passed off to a junior account manager once the retainer signs. That sounds like every agency&rsquo;s pitch deck. The difference, Marit says, is showing the receipts when a client asks.</p>
+                <blockquote class="mg-pq">Being in Framework made us say out loud what we had only ever implied &mdash; and the clients noticed before we did.<cite>Marit Halvorsen &middot; Founder, Fjordlight Studio</cite></blockquote>
+                <p>Bergen is part of it. The market is smaller than Oslo or Stockholm, and that is, deliberately, the point &mdash; clients are repeat clients, the conversation runs longer than the campaign, and the team isn&rsquo;t fighting an agency-of-record cycle every eighteen months.</p>
+                <p>Framework caught Fjordlight at the start of a new positioning push, one year into a hiring run that took the team from seven to twelve. The boutique label sticks; the operations behind it have been quietly industrialised.</p>
               </div>
               <div class="mg-page__folio mg-page__folio--r">18 &middot; <em>19</em></div>
             </div>
           </div>
         </div>
-        <div class="mg-card__cap"><b>Spread 02 &middot; Founder profile</b> &middot; full-bleed portrait verso with name overlay; editorial recto running head, italic-accent display headline, drop-cap on the body, 2-column justified prose, pull-quote breaking across the columns with red accent rule. Real Framework #003 profile (Natalie Renna, Mercy Me Marketing); body summarises <a href="https://mercymemarketing.com.au" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);">mercymemarketing.com.au</a>; pull-quote verbatim from Framework.</div>
+        <div class="mg-card__cap"><b>Spread 02 &middot; Founder profile</b> &middot; full-bleed portrait verso with name overlay; editorial recto running head, italic-accent display headline, drop-cap on the body, 2-column justified prose, pull-quote breaking across the columns with red accent rule. Illustrative profile (fictional founder and agency); body copy and pull-quote are invented dummy content.</div>
       </div>
 
-      <!-- SPREAD 2B — PROFILE B · Fabien Katola · text-led verso + photo-quote recto -->
+      <!-- SPREAD 2B — PROFILE B · Mateo Vidal · text-led verso + photo-quote recto -->
       <div class="mg-card" style="margin-bottom: var(--s-5);">
         <div class="mg-card__stage" style="padding: 48px 32px;">
           <div class="mg-spread mg-profileB">
             <div class="mg-profileB-l">
-              <div class="mg-head"><span>PROFILE &middot; 02</span><em>COPY FK</em></div>
+              <div class="mg-head"><span>PROFILE &middot; 02</span><em>Estudio Brisa</em></div>
               <div class="mg-profileB-l__sec">Profile &middot; 02 of 11</div>
-              <h2 class="mg-profileB-l__h">Fabien <em>Katola</em>, on showing up the same way <em>twice</em>.</h2>
-              <div class="mg-profileB-l__role">Founder &middot; COPY FK &middot; France</div>
+              <h2 class="mg-profileB-l__h">Mateo <em>Vidal</em>, on showing up the same way <em>twice</em>.</h2>
+              <div class="mg-profileB-l__role">Founder &middot; Estudio Brisa &middot; Valencia</div>
               <div class="mg-body mg-body--dropcap" style="column-count: 1;">
-                <p>COPY FK runs a marketing approach centred on client relationships, consistency, and real value &mdash; the sort of thing every agency claims, then quietly stops practising once the retainer is signed. Fabien doesn&rsquo;t. The voice on the campaign is the voice on the deck, on the email, on the invoice. The work gets edited by the people closest to the customer, not the people closest to the founder.</p>
-                <p>That sounds simple until you&rsquo;ve sat in a debrief and watched a copywriter quietly mute themselves because the founder said something more confident. COPY FK&rsquo;s rule, Fabien explains, is that the most senior person stops talking first.</p>
+                <p>Estudio Brisa runs a marketing approach centred on client relationships, consistency, and real value &mdash; the sort of thing every agency claims, then quietly stops practising once the retainer is signed. Mateo doesn&rsquo;t. The voice on the campaign is the voice on the deck, on the email, on the invoice. The work gets edited by the people closest to the customer, not the people closest to the founder.</p>
+                <p>That sounds simple until you&rsquo;ve sat in a debrief and watched a copywriter quietly mute themselves because the founder said something more confident. Estudio Brisa&rsquo;s rule, Mateo explains, is that the most senior person stops talking first.</p>
               </div>
               <div class="mg-page__folio mg-page__folio--l">26 &middot; <em>FW</em></div>
             </div>
@@ -765,15 +765,15 @@ window.renderMagazine = function (root) {
               <div class="mg-profileB-r__photo" style="background-image:url(${PHOTO.leader});"></div>
               <div class="mg-profileB-r__quote-block">
                 <div>
-                  <div class="mg-profileB-r__quote">The collaboration let me highlight a marketing approach centred on client relationships, consistency, and real value.</div>
-                  <span class="mg-profileB-r__cite">Fabien Katola &middot; Founder, COPY FK &middot; France</span>
+                  <div class="mg-profileB-r__quote">We stopped selling hours and started selling a point of view. The pitch got shorter, and the retainers got longer.</div>
+                  <span class="mg-profileB-r__cite">Mateo Vidal &middot; Founder, Estudio Brisa &middot; Valencia</span>
                 </div>
               </div>
               <div class="mg-page__folio mg-page__folio--r" style="color:rgba(11,15,20,0.5);"><em>27</em></div>
             </div>
           </div>
         </div>
-        <div class="mg-card__cap"><b>Spread 02b &middot; Profile, text-led</b> &middot; running head, kicker, italic-accent display headline, drop-cap body single-column verso. Recto = portrait above, warm-paper pull-quote tile below with red opening/closing quotation marks. Body adapts <a href="https://kilowott.com/framework-edition/2026/March/inside-the-global-agency-network/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);">Framework #003</a> editorial; pull-quote verbatim.</div>
+        <div class="mg-card__cap"><b>Spread 02b &middot; Profile, text-led</b> &middot; running head, kicker, italic-accent display headline, drop-cap body single-column verso. Recto = portrait above, warm-paper pull-quote tile below with red opening/closing quotation marks. Body copy and pull-quote are illustrative dummy content.</div>
       </div>
 
       <!-- SPREAD 3 — STAT -->
@@ -792,7 +792,7 @@ window.renderMagazine = function (root) {
               <ul class="mg-stat__list">
                 <li>
                   <div class="mg-stat__list-num"><em>06</em> countries</div>
-                  <div class="mg-stat__list-cap">UK, Netherlands, Turkey, Austria, Australia, France &mdash; one issue, six markets, no tourism.</div>
+                  <div class="mg-stat__list-cap">Norway, Spain, Portugal, Austria, Canada, Kenya &mdash; one issue, six markets, no tourism.</div>
                 </li>
                 <li>
                   <div class="mg-stat__list-num"><em>05</em> pillars</div>
@@ -914,8 +914,8 @@ window.renderMagazine = function (root) {
         </div>
         <div class="mg-step">
           <div class="mg-step__num">02</div>
-          <div class="mg-step__h">Real people, real numbers.</div>
-          <p class="mg-step__b">Profiles use real names with the founder&rsquo;s permission. Stats come from the source, never rounded for the headline. Quotes are pulled verbatim from the interview.</p>
+          <div class="mg-step__h">Real people, real numbers &mdash; in print.</div>
+          <p class="mg-step__b">In a live issue, profiles use real names with the founder&rsquo;s permission, stats come from the source and are never rounded for the headline, and quotes are pulled verbatim from the interview. The names and figures in this kit are illustrative.</p>
         </div>
         <div class="mg-step">
           <div class="mg-step__num">03</div>

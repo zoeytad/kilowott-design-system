@@ -31,7 +31,7 @@ window.renderNewsletter = function (root) {
   // pulled from kilowott.com. Edit freely — these are just defaults.
   const STATE = {
     subject:   'Stories from the field — recent client work',
-    preheader: 'Paul John Caffeine 3.5× organic traffic. Plus a few notes from the team.',
+    preheader: 'Nordhavn Coffee 3.5× organic traffic. Plus a few notes from the team.',
     issue:     'Field notes',
     fromName:  'Kilowott',
     fromEmail: 'sales@kilowott.com',
@@ -42,16 +42,16 @@ window.renderNewsletter = function (root) {
       { id: uid(), type: 'heading',   text: 'Built for what <em>comes next</em>.' },
       { id: uid(), type: 'paragraph', text: 'A short note on a recent piece of work — SEO-led content strategy and targeted Meta ads for a premium Indian coffee brand entering the U.S. market. Real numbers, no rounding.' },
       { id: uid(), type: 'divider' },
-      { id: uid(), type: 'heading2',  text: '<em>3.5×</em> organic traffic for Paul John Caffeine.' },
+      { id: uid(), type: 'heading2',  text: '<em>3.5×</em> organic traffic for Nordhavn Coffee.' },
       { id: uid(), type: 'paragraph', text: 'Premium Indian coffee brand entering the U.S. market. We led with SEO content strategy and Meta ads — Domain Authority moved from 1 to 20, organic users grew 111%, engaged sessions 98%, and impressions hit 256,000. The full breakdown names every decision.' },
       { id: uid(), type: 'image',     url: 'https://images.unsplash.com/photo-1511920170033-f8396924c348?w=1200&q=80', alt: 'Coffee brand reference photography', caption: 'Replace this with the case-study hero image when you compose your own newsletter.', link: '' },
-      { id: uid(), type: 'button',    label: 'Read the case study', url: 'https://kilowott.com/case-studies/driving-3-5x-higher-organic-traffic-for-paul-john-caffeine/', style: 'ink' },
+      { id: uid(), type: 'button',    label: 'Read the case study', url: 'https://kilowott.com/contact-us/', style: 'ink' },
       { id: uid(), type: 'divider' },
-      { id: uid(), type: 'stat',      number: '3.5×', caption: 'Organic traffic growth for Paul John Caffeine — SEO + Meta ads, U.S. market entry.' },
+      { id: uid(), type: 'stat',      number: '3.5×', caption: 'Organic traffic growth for Nordhavn Coffee — SEO + Meta ads, U.S. market entry.' },
       { id: uid(), type: 'quote',     text: 'Scale faster. Deliver better. Create impact.', cite: 'Kilowott' },
       { id: uid(), type: 'divider' },
       { id: uid(), type: 'paragraph', text: 'Want to talk through a project? Pick a slot — link below — or reply to this email and we’ll route you to the right person.' },
-      { id: uid(), type: 'button',    label: 'Book a call', url: 'https://meetings.hubspot.com/pphadtare', style: 'accent' },
+      { id: uid(), type: 'button',    label: 'Book a call', url: 'https://kilowott.com/contact-us/', style: 'accent' },
     ],
   };
 
@@ -77,7 +77,7 @@ window.renderNewsletter = function (root) {
       gap: var(--s-7);
       align-items: start;
     }
-    @media (max-width: 1180px) { .nl-studio { grid-template-columns: 1fr; } }
+    @media (max-width: 1180px) { .nl-studio { grid-template-columns: minmax(0, 1fr); } }
 
     /* Composer */
     .nl-comp {
@@ -281,6 +281,18 @@ window.renderNewsletter = function (root) {
       background: var(--bg-2); padding: 1px 6px; border-radius: 3px;
       color: var(--fg);
     }
+
+    .nl-actions__note { display: block; margin-top: 6px; }
+
+    /* Mobile containment */
+    .nl-studio > * { min-width: 0; }
+    @media (max-width: 900px) { .nl-howto { grid-template-columns: minmax(0, 1fr); } }
+    @media (max-width: 600px) {
+      .nl-comp { position: static; max-height: none; }
+      .nl-comp__head { padding: 12px var(--s-4); }
+      .nl-comp__body { padding: var(--s-4); }
+      .nl-field--row { grid-template-columns: minmax(0, 1fr); }
+    }
   </style>
 
   <!-- HERO -->
@@ -343,6 +355,7 @@ window.renderNewsletter = function (root) {
             <div class="nl-actions">
               <div class="nl-actions__hint">
                 Click <b>Copy newsletter</b> &mdash; paste into Gmail compose with <b>⌘V</b>. Rich-text formatting carries through. For source HTML or a plain-text fallback, use the other buttons.
+                <span class="nl-actions__note">Email clients don&rsquo;t load web fonts: Newsreader and DM Sans fall back to Georgia and Arial in Gmail and Outlook.</span>
               </div>
               <div class="nl-btns">
                 <button class="nl-btn" id="nl-copyText" title="Plain text fallback"><i data-lucide="type"></i> Plain text</button>

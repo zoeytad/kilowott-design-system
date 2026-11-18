@@ -92,7 +92,7 @@ window.renderComponents = function (root) {
     .k-btn--accent {
       background: var(--accent); color: #fff; border-color: var(--accent);
     }
-    .k-btn--accent:hover { background: #B40224; border-color: #B40224; }
+    .k-btn--accent:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
 
     /* Secondary — outline */
     .k-btn--secondary {
@@ -181,7 +181,7 @@ window.renderComponents = function (root) {
       border-color: var(--accent);
       box-shadow: 0 0 0 3px rgba(228,2,45,0.12);
     }
-    .k-input::placeholder, .k-textarea::placeholder { color: #9AA3AF; }
+    .k-input::placeholder, .k-textarea::placeholder { color: var(--fg-2); opacity: .7; }
     .k-textarea { resize: vertical; min-height: 96px; }
     .k-field__hint {
       font-size: 12px; color: var(--fg-2);
@@ -627,11 +627,11 @@ window.renderComponents = function (root) {
       cursor: pointer; padding: 0; line-height: 1;
       font-size: 16px;
     }
-    .k-toast--info     { border-left-color: var(--k-ink); }
-    .k-toast--success  { border-left-color: #1f8a3b; }
-    .k-toast--success .k-toast__icon { color: #1f8a3b; }
-    .k-toast--warning  { border-left-color: #B67B02; }
-    .k-toast--warning .k-toast__icon { color: #B67B02; }
+    .k-toast--info     { border-left-color: var(--info); }
+    .k-toast--success  { border-left-color: var(--success); }
+    .k-toast--success .k-toast__icon { color: var(--success); }
+    .k-toast--warning  { border-left-color: var(--warning); }
+    .k-toast--warning .k-toast__icon { color: var(--warning); }
     .k-toast--danger   { border-left-color: var(--accent); }
     .k-toast--danger .k-toast__icon { color: var(--accent); }
 
@@ -795,7 +795,7 @@ window.renderComponents = function (root) {
       content: ""; width: 14px; display: inline-block;
     }
     .k-dropdown__item--danger { color: var(--accent); }
-    .k-dropdown__item--danger:hover { background: #FCE5EA; }
+    .k-dropdown__item--danger:hover { background: var(--danger-soft); }
     .k-dropdown__divider {
       height: 1px; background: var(--rule); margin: 4px 2px;
     }
@@ -861,11 +861,11 @@ window.renderComponents = function (root) {
       border-radius: 4px;
     }
     .k-alert__close:hover { color: var(--fg); }
-    .k-alert--info    { border-left-color: var(--k-ink); }
-    .k-alert--info .k-alert__icon { color: var(--k-ink); }
-    .k-alert--warning { border-left-color: #B67B02; background: #FFF8E6; }
-    .k-alert--warning .k-alert__icon { color: #B67B02; }
-    .k-alert--danger  { border-left-color: var(--accent); background: #FCE5EA; }
+    .k-alert--info    { border-left-color: var(--info); background: var(--info-soft); }
+    .k-alert--info .k-alert__icon { color: var(--info); }
+    .k-alert--warning { border-left-color: var(--warning); background: var(--warning-soft); }
+    .k-alert--warning .k-alert__icon { color: var(--warning); }
+    .k-alert--danger  { border-left-color: var(--accent); background: var(--danger-soft); }
     .k-alert--danger .k-alert__icon { color: var(--accent); }
 
     /* ---------- PAGINATION ---------- */
@@ -1387,7 +1387,7 @@ window.renderComponents = function (root) {
               <span class="k-badge k-badge--outline k-badge--no-dot">AI</span>
             </div>
             <h3 class="k-case__title">Rebuilding a clinical platform in <em>six months</em>.</h3>
-            <a class="k-case__cta">Read the case <i data-lucide="arrow-right"></i></a>
+            <a class="k-case__cta" href="#">Read the case <i data-lucide="arrow-right"></i></a>
           </div>
         </article>
         <article class="k-case">
@@ -1398,7 +1398,7 @@ window.renderComponents = function (root) {
               <span class="k-badge k-badge--outline k-badge--no-dot">Web</span>
             </div>
             <h3 class="k-case__title">Shipping <em>bravely</em> inside a regulated stack.</h3>
-            <a class="k-case__cta">Read the case <i data-lucide="arrow-right"></i></a>
+            <a class="k-case__cta" href="#">Read the case <i data-lucide="arrow-right"></i></a>
           </div>
         </article>
         <article class="k-case">
@@ -1409,7 +1409,7 @@ window.renderComponents = function (root) {
               <span class="k-badge k-badge--outline k-badge--no-dot">IoT</span>
             </div>
             <h3 class="k-case__title">A grid-scale dashboard, read by <em>plant managers</em>.</h3>
-            <a class="k-case__cta">Read the case <i data-lucide="arrow-right"></i></a>
+            <a class="k-case__cta" href="#">Read the case <i data-lucide="arrow-right"></i></a>
           </div>
         </article>
       </div>
@@ -1560,7 +1560,7 @@ window.renderComponents = function (root) {
           <div class="cp-spec__head"><span>Success · inline</span><span>.k-state</span></div>
           <div class="cp-spec__stage" style="min-height: 320px;">
             <div class="k-state" style="width: 100%;">
-              <div class="k-state__icon" style="color: #1f8a3b; border-color: #1f8a3b; background: rgba(31,138,59,0.08);">
+              <div class="k-state__icon" style="color: var(--success); border-color: var(--success); background: var(--success-soft);">
                 <i data-lucide="circle-check"></i>
               </div>
               <h3 class="k-state__title">Engagement <em>live</em>.</h3>

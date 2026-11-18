@@ -3,8 +3,8 @@
    LinkedIn · X · Facebook · Instagram (feed/reel/carousel/story)
    Each mock renders inside accurate platform chrome so you can see
    exactly how a Kilowott post will look in the wild. Content uses
-   real Kilowott facts (Paul John Caffeine 3.5×, real offices, real
-   tagline) and brand photos from /assets/photos/.
+   Kilowott's own facts (real offices, tagline) plus the fictional Nordhavn Coffee case
+   (3.5×, sample figures) and brand photos from /assets/photos/.
    ============================================================ */
 
 window.renderSocial = function (root) {
@@ -185,13 +185,13 @@ window.renderSocial = function (root) {
       text-transform: uppercase;
       display: inline-flex; align-items: center; gap: 10px;
     }
-    .li-doc__eyebrow::before { content: ""; width: 18px; height: 1px; background: #E4022D; }
+    .li-doc__eyebrow::before { content: ""; width: 18px; height: 1px; background: var(--accent); }
     .li-doc__h {
       font-family: 'Newsreader', Georgia, serif;
       font-size: 42px; line-height: 1.04; letter-spacing: -0.02em;
       font-weight: 400;
     }
-    .li-doc__h em { font-style: italic; color: #E4022D; }
+    .li-doc__h em { font-style: italic; color: var(--accent); }
     .li-doc__pgcount {
       position: absolute; right: 12px; bottom: 12px;
       background: rgba(0,0,0,0.7); color: #fff;
@@ -551,7 +551,7 @@ window.renderSocial = function (root) {
       <span class="eyebrow eyebrow--accent">12 · Social</span>
       <h1>Real <em>previews</em>, not abstract posters.</h1>
       <p class="so-hero__lede">
-        Every layout below is rendered inside accurate platform chrome &mdash; LinkedIn, X, Facebook, Instagram feed, reel, carousel and story. So before you ship, you know exactly how a Kilowott post looks in the wild. Sample content uses the real Paul John Caffeine case (3.5&times; organic traffic) and brand photography from <code style="font-family:var(--font-mono);font-size:13px;">/assets/photos/</code>.
+        Every layout below is rendered inside accurate platform chrome &mdash; LinkedIn, X, Facebook, Instagram feed, reel, carousel and story. So before you ship, you know exactly how a Kilowott post looks in the wild. Sample content uses the fictional Nordhavn Coffee case (sample figures) (3.5&times; organic traffic) and brand photography from <code style="font-family:var(--font-mono);font-size:13px;">/assets/photos/</code>.
       </p>
     </div>
   </section>
@@ -611,7 +611,7 @@ window.renderSocial = function (root) {
           <div class="so-card__stage">
             ${xPost({
               name: 'Kilowott', handle: '@kilowott', time: '6h',
-              body: 'Built for what comes next.\n\nWe just wrote up how SEO content + targeted Meta ads pushed Paul John Caffeine 3.5× on organic traffic — full breakdown linked.',
+              body: 'Built for what comes next.\n\nWe just wrote up how SEO content + targeted paid social pushed Nordhavn Coffee 3.5× on organic traffic — full breakdown linked.',
               image: null, replies: '12', reposts: '47', likes: '218', views: '14.2K'
             })}
           </div>
@@ -622,7 +622,7 @@ window.renderSocial = function (root) {
           <div class="so-card__stage">
             ${xPost({
               name: 'Kilowott', handle: '@kilowott', time: '2d',
-              body: 'Domain Authority: 1 → 20.\nOrganic users: +111%.\nEngaged sessions: +98%.\n\nNot rounding. Real numbers from a real engagement.',
+              body: 'Domain Authority: 1 → 20.\nOrganic users: +111%.\nEngaged sessions: +98%.\n\nNot rounding. Sample numbers from a sample engagement.',
               image: PHOTO.teamFocused, replies: '23', reposts: '89', likes: '512', views: '38.6K'
             })}
           </div>
@@ -697,7 +697,7 @@ window.renderSocial = function (root) {
               image: PHOTO.teamLaugh, alt: 'Team laughing in meeting',
               isCarousel: false,
               likes: '1,284', user2: 'kilowott',
-              caption: 'New work shipped. Paul John Caffeine — 3.5× organic traffic, six months in. Link in bio for the full breakdown.',
+              caption: 'New work shipped. Nordhavn Coffee — 3.5× organic traffic, six months in. Link in bio for the full breakdown.',
               time: '2 days ago'
             })}
           </div>
@@ -724,7 +724,7 @@ window.renderSocial = function (root) {
           <div class="so-card__stage">
             ${igReel({
               image: PHOTO.portraitTab,
-              caption: 'How we got Paul John Caffeine to 3.5× organic traffic — in 30 seconds.',
+              caption: 'How we got Nordhavn Coffee to 3.5× organic traffic — in 30 seconds.',
               likes: '14.2K', comments: '208', shares: '1,406',
               audio: 'kilowott · Original audio'
             })}
@@ -750,7 +750,7 @@ window.renderSocial = function (root) {
               image: PHOTO.leader,
               user: 'kilowott', time: '1h',
               h: '<em>3.5×</em> organic traffic.',
-              sticker: 'PAUL JOHN CAFFEINE',
+              sticker: 'NORDHAVN COFFEE',
               progressIdx: 2
             })}
           </div>
@@ -815,8 +815,8 @@ window.renderSocial = function (root) {
         </div>
         <div class="so-step">
           <div class="so-step__num">03</div>
-          <div class="so-step__h">Real metrics, real URLs.</div>
-          <p class="so-step__b">Sample copy uses the actual Paul John Caffeine case (3.5&times; organic traffic, DA 1→20, 256k impressions). Swap in your numbers when you compose &mdash; never round.</p>
+          <div class="so-step__h">Sample metrics, sample URLs.</div>
+          <p class="so-step__b">Sample copy uses the fictional Nordhavn Coffee case (sample figures: 3.5&times; organic traffic in six months). Swap in your numbers when you compose &mdash; never round.</p>
         </div>
       </div>
     </div>
@@ -879,7 +879,7 @@ window.renderSocial = function (root) {
       <div class="li-doc__viewer">
         <div class="li-doc__slide">
           <div>
-            <div class="li-doc__eyebrow">Case study · Paul John Caffeine</div>
+            <div class="li-doc__eyebrow">Case study · Nordhavn Coffee</div>
           </div>
           <div>
             <div class="li-doc__h">A premium coffee brand,<br><em>3.5× organic</em> in the U.S.</div>
@@ -935,13 +935,13 @@ window.renderSocial = function (root) {
     return `
     <div class="x-thread">
       ${xPost({ name: 'Kilowott', handle: '@kilowott', time: '6h',
-        body: '1/3 — How we got Paul John Caffeine 3.5× on organic traffic in six months.\n\nTL;DR: SEO content + Meta ads, paired. Not either/or.',
+        body: '1/3 — How we got Nordhavn Coffee 3.5× on organic traffic in six months.\n\nTL;DR: SEO content + paid social, paired. Not either/or.',
         replies: '8', reposts: '34', likes: '142', views: '12K' })}
       ${xPost({ name: 'Kilowott', handle: '@kilowott', time: '6h',
         body: '2/3 — Domain Authority moved 1 → 20 in six months.\n\nThat doesn\'t happen on content alone. The Meta ads built brand awareness fast enough that backlinks followed.',
         replies: '4', reposts: '21', likes: '98', views: '8.4K' })}
       ${xPost({ name: 'Kilowott', handle: '@kilowott', time: '6h',
-        body: '3/3 — The lesson: stop arguing over which channel "works."\n\nThe channels work together. Engineer the loop, not just the touchpoint.\n\nFull breakdown: kilowott.com/case-studies/paul-john-caffeine',
+        body: '3/3 — The lesson: stop arguing over which channel "works."\n\nThe channels work together. Engineer the loop, not just the touchpoint.\n\nFull breakdown: kilowott.com/contact-us/',
         replies: '6', reposts: '17', likes: '88', views: '7.2K' })}
     </div>`;
   }
@@ -1025,7 +1025,7 @@ window.renderSocial = function (root) {
         <div class="ig-reel__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>${p.comments}</div>
         <div class="ig-reel__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>${p.shares}</div>
         <div class="ig-reel__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></div>
-        <div style="width:32px;height:32px;border-radius:6px;overflow:hidden;border:2px solid #fff;background:#222;"><img src="${p.image}" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div style="width:32px;height:32px;border-radius:6px;overflow:hidden;border:2px solid #fff;background:#222;"><img src="${p.image}" alt="Reel audio cover art" style="width:100%;height:100%;object-fit:cover;"></div>
       </div>
       <div class="ig-reel__bottom">
         <div class="ig-reel__user">

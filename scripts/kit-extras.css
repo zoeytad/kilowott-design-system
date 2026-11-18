@@ -1,0 +1,116 @@
+/* ============================================================
+   KIT ADDITIONS — appended to tokens.css to make kilowott.css.
+   Hand-written source: scripts/kit-extras.css. Use tokens only.
+   ============================================================ */
+
+/* ---------- Headline emphasis: the one red moment ---------- */
+.display em,
+.k-h em { font-style: italic; color: var(--accent); }
+.display--d1 { font-size: var(--fs-d1); }
+.display--d2 { font-size: var(--fs-d2); }
+.display--d3 { font-size: var(--fs-d3); }
+.k-h { font-family: var(--font-display); font-weight: 400; line-height: var(--lh-tight); letter-spacing: var(--tracking-display); }
+
+.lede { color: var(--fg-2); font-size: 1.0625rem; line-height: 1.6; max-width: 58ch; }
+.measure { max-width: 64ch; }
+
+/* ---------- Links: red-ink, never brand red ---------- */
+.prose a, a.link {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+.prose a:hover, a.link:hover { text-decoration-thickness: 2px; }
+.prose code, code.inline { font-family: var(--font-mono); font-size: 0.875em; color: var(--link); background: var(--bg-2); padding: 1px 6px; border-radius: var(--r-1); }
+
+/* ---------- Focus: never removed ---------- */
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* ---------- Button additions ---------- */
+.btn { text-decoration: none; cursor: pointer; }
+.btn--accent:hover { background: var(--accent-hover); border-color: var(--accent-hover); color: #fff; }
+.btn--sm { padding: 10px 16px; font-size: var(--fs-xs); }
+.btn--lg { padding: 18px 28px; font-size: var(--fs-body); }
+
+/* ---------- Sections: paper (default), warm, ink ---------- */
+.section--warm { background: var(--bg-2); }
+.section--ink,
+.on-ink {
+  --bg: var(--k-ink);
+  --bg-2: var(--k-ink-2);
+  --bg-3: var(--k-ink-3);
+  --fg: var(--k-paper);
+  --fg-2: var(--k-muted-dark);
+  --rule: #2B3544;
+  --rule-strong: #3B4656;
+  --accent-ink: var(--k-red-soft);
+  --link: var(--k-red-soft);
+  background: var(--bg);
+  color: var(--fg);
+}
+/* [data-theme="dark"] set on a child element (not <html>) also needs --link re-pointed */
+[data-theme="dark"] { --link: var(--accent-ink); --danger: var(--accent); }
+
+/* ---------- Logo: one SVG, recoloured via currentColor ---------- */
+.k-logo {
+  display: inline-block;
+  width: 110px; height: 18px;
+  aspect-ratio: 313 / 41;
+  background: currentColor;
+  -webkit-mask: url("../assets/kilowott-logo.svg") no-repeat center / contain;
+          mask: url("../assets/kilowott-logo.svg") no-repeat center / contain;
+}
+
+/* ---------- Top navigation: max 5 links + 1 CTA ---------- */
+.k-nav { border-bottom: 1px solid var(--rule); background: var(--bg); position: sticky; top: 0; z-index: 10; }
+.k-nav__inner { max-width: var(--container); margin: 0 auto; padding: 0 var(--gutter); height: 64px; display: flex; align-items: center; gap: var(--s-6); }
+.k-nav__links { display: flex; gap: var(--s-5); margin-left: auto; list-style: none; padding: 0; margin-top: 0; margin-bottom: 0; }
+.k-nav__links a { text-decoration: none; font-size: var(--fs-sm); color: var(--fg-2); }
+.k-nav__links a:hover, .k-nav__links a[aria-current="page"] { color: var(--fg); }
+@media (max-width: 760px) { .k-nav__links { display: none; } .k-nav__inner { justify-content: space-between; } }
+
+/* ---------- Hero ---------- */
+.k-hero { padding: var(--s-9) 0 var(--s-8); border-bottom: 1px solid var(--rule); }
+.k-hero .display { font-size: var(--fs-d1); margin-top: var(--s-5); max-width: 16ch; }
+.k-hero .lede { margin-top: var(--s-5); }
+.k-hero__actions { display: flex; flex-wrap: wrap; gap: var(--s-3); margin-top: var(--s-6); }
+
+/* ---------- Stat: one serif number, one line, one source ---------- */
+.stat__num { font-family: var(--font-display); font-size: var(--fs-d2); line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.stat__num--accent { color: var(--accent); }
+.stat__label { margin-top: var(--s-3); font-size: var(--fs-sm); color: var(--fg); max-width: 22ch; }
+.stat__source { margin-top: var(--s-2); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em; color: var(--fg-2); }
+.tabular { font-variant-numeric: tabular-nums; }
+
+/* ---------- Card additions ---------- */
+.card--warm { background: var(--bg-2); border-color: transparent; }
+.card--link { text-decoration: none; color: inherit; display: block; transition: border-color var(--dur-standard) var(--ease-standard), box-shadow var(--dur-standard) var(--ease-standard); }
+.card--link:hover { border-color: var(--rule-strong); box-shadow: var(--shadow-2); }
+.card__title { font-family: var(--font-display); font-size: var(--fs-h2); line-height: var(--lh-snug); margin-top: var(--s-4); }
+.card__body { margin-top: var(--s-3); color: var(--fg-2); font-size: var(--fs-sm); line-height: 1.6; }
+
+/* ---------- Footer ---------- */
+.k-footer { border-top: 1px solid var(--rule); padding: var(--s-8) 0 var(--s-6); font-size: var(--fs-sm); color: var(--fg-2); }
+.k-footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: var(--s-6); }
+.k-footer a { color: var(--fg); text-decoration: none; }
+.k-footer a:hover { text-decoration: underline; }
+.k-footer__legal { margin-top: var(--s-7); padding-top: var(--s-5); border-top: 1px solid var(--rule); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em; }
+@media (max-width: 760px) { .k-footer__grid { grid-template-columns: 1fr; } }
+
+/* ---------- Icons: Lucide, 1.5 stroke, currentColor ---------- */
+.lucide { width: 24px; height: 24px; stroke-width: 1.5; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; fill: none; flex: none; }
+.btn .lucide { width: 18px; height: 18px; }
+
+/* ---------- Small screens ---------- */
+@media (max-width: 600px) {
+  :root { --gutter: 20px; }
+  .grid-2, .grid-3, .grid-4, .grid-6, .two-col { grid-template-columns: 1fr; }
+  .section { padding: var(--s-8) 0; }
+}
+
+/* ---------- Motion preferences ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}

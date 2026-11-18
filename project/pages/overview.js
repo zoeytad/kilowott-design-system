@@ -154,7 +154,7 @@ window.renderOverview = function (root) {
       font-size: 2.75rem; line-height: 1.02; letter-spacing: -0.02em;
     }
     .dirA .ov-dir__headline em {
-      font-style: italic; color: #E4022D;
+      font-style: italic; color: var(--accent);
     }
     .dirA .ov-dir__eyebrow {
       font-family: var(--font-sans);
@@ -172,7 +172,7 @@ window.renderOverview = function (root) {
     }
     .dirA .ov-dir__stat-num {
       font-family: var(--font-display); font-size: 3rem; line-height: 1;
-      color: #E4022D; letter-spacing: -0.03em;
+      color: var(--accent); letter-spacing: -0.03em;
     }
     .dirA .ov-dir__stat-num .x {
       font-family: var(--font-sans); font-weight: 400;
@@ -371,7 +371,7 @@ window.renderOverview = function (root) {
             </div>
             <div class="ov-dir__stat">
               <div class="ov-dir__stat-num">3.5<span class="x">&times;</span></div>
-              <div class="ov-dir__stat-cap">Organic traffic for Paul John Caffeine &mdash; SEO + Meta ads</div>
+              <div class="ov-dir__stat-cap">Organic traffic for Nordhavn Coffee &mdash; SEO + paid social</div>
             </div>
           </div>
           <div class="ov-dir__meta">
