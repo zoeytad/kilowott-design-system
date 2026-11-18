@@ -5,7 +5,7 @@
 ## How it works
 
 - Railway builds the repo with Nixpacks (`railway.json`) and starts it with
-  `npx serve -l tcp://0.0.0.0:$PORT --config serve.json .`
+  `node server.mjs` (serve-handler + `serve.json`, plus agent detection — see `server.mjs`)
   The same command is in `Procfile`. It serves the **repo root**.
 - Railway's health check requests `/llms.txt` (`railway.json → healthcheckPath`).
 - `serve.json`:

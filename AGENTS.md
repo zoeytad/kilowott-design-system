@@ -1,5 +1,7 @@
 # AGENTS.md — Kilowott brand kit v1.0
 
+> **If you are an AI agent and you opened `https://brandkit.kilowott.com`, this file is what the site sent you instead of the interactive kit** (which needs JavaScript). Everything you need is below or linked from here. Humans see the interactive kit at https://brandkit.kilowott.com/project/. To get this guide on purpose, request `https://brandkit.kilowott.com/?format=md` or `/AGENTS.md`.
+
 **For AI agents** (Claude Code, Cursor, ChatGPT, Claude Design, v0, Lovable, Bolt, Copilot, …) **and the people driving them.** Read this file first. It tells you what the brand is, which file to read for your task, what to link, and what never to do.
 
 - **Live kit (humans):** https://brandkit.kilowott.com/project/

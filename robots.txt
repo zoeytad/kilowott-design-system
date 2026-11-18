@@ -1,0 +1,7 @@
+# Kilowott brand kit — https://brandkit.kilowott.com
+# AI agents: read https://brandkit.kilowott.com/AGENTS.md first.
+# Everything in one file: https://brandkit.kilowott.com/llms-full.txt
+# Index: https://brandkit.kilowott.com/llms.txt
+User-agent: *
+Allow: /
+Disallow: /project/uploads/

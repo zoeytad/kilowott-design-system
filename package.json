@@ -6,13 +6,14 @@
   "homepage": "https://brandkit.kilowott.com",
   "repository": "github:zoeytad/kilowott-design-system",
   "scripts": {
-    "start": "serve -l tcp://0.0.0.0:${PORT:-3000} --config serve.json .",
+    "start": "node server.mjs",
     "dev": "python3 -m http.server 8723",
     "build:tokens": "node scripts/build-tokens.mjs",
-    "check": "node scripts/check.mjs"
+    "check": "node scripts/check.mjs",
+    "smoke": "node scripts/smoke-server.mjs"
   },
   "dependencies": {
-    "serve": "^14.2.4"
+    "serve-handler": "6.1.6"
   },
   "engines": {
     "node": ">=18"

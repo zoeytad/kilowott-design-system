@@ -16,5 +16,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      # No install step: scripts/check.mjs and scripts/build-tokens.mjs use Node built-ins only.
+      # scripts/check.mjs and scripts/build-tokens.mjs use Node built-ins only.
       - run: npm run check
+      # server.mjs needs serve-handler; the smoke test proves agents get AGENTS.md and browsers get the site.
+      - run: npm ci
+      - run: npm run smoke

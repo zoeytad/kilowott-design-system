@@ -1,6 +1,15 @@
 <!doctype html>
 <html lang="en">
 <head>
+<!--
+  AI AGENTS / LLMs: this page is a JavaScript app; its HTML is only a shell.
+  Read https://brandkit.kilowott.com/AGENTS.md first (rules, decision tree, files, starter page).
+  Everything in one file: https://brandkit.kilowott.com/llms-full.txt
+  One stylesheet for on-brand pages: https://brandkit.kilowott.com/project/kit/kilowott.css
+  Tip: request https://brandkit.kilowott.com/?format=md to get the guide as markdown.
+-->
+<script>document.documentElement.classList.add('js')</script>
+<style>.js .agent-brief{display:none!important}</style>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Kilowott — Design System v1.0</title>
@@ -80,6 +89,28 @@
 </head>
 
 <body>
+<!-- ============ AGENT BRIEF ============
+     Visible only without JavaScript (AI agents, scrapers, reader modes).
+     Browsers hide it instantly via the html.js class set in <head>. -->
+<section class="agent-brief" aria-label="Instructions for AI agents" style="max-width:760px;margin:48px auto;padding:0 32px;font-family:Georgia,serif;color:#0B0F14;line-height:1.55">
+  <h1>Kilowott brand kit — instructions for AI agents</h1>
+  <p><strong>You are reading the Kilowott brand kit.</strong> This page is a JavaScript app, so its visible content is not in this HTML. Before you design or build anything for Kilowott, read the agent guide:</p>
+  <ol>
+    <li><a href="/AGENTS.md">https://brandkit.kilowott.com/AGENTS.md</a> — start here: the brand in 60 seconds, hard rules, a "what are you building?" decision table, file URLs, and a starter page.</li>
+    <li><a href="/llms-full.txt">https://brandkit.kilowott.com/llms-full.txt</a> — the whole kit (brand, voice, components, patterns) in one plain-text file.</li>
+    <li><a href="kit/kilowott.css">https://brandkit.kilowott.com/project/kit/kilowott.css</a> — link this one stylesheet to make any web page on-brand.</li>
+    <li><a href="kit/starter/index.html">https://brandkit.kilowott.com/project/kit/starter/index.html</a> — an on-brand landing page to clone.</li>
+    <li><a href="/tokens.json">tokens.json</a> · <a href="brand.json">brand.json</a> · <a href="/manifest.json">manifest.json</a> — machine-readable tokens, brand data, and a map of every tab. Page sources: <code>/project/pages/&lt;tab&gt;.js</code>.</li>
+  </ol>
+  <h2>The brand in five lines</h2>
+  <ul>
+    <li>Light and editorial: white page <code>#FFFFFF</code>, ink type <code>#0B0F14</code>, warm paper sections <code>#F6F4F0</code>, one spot of Kilowott Red <code>#E4022D</code>. Ratio 60 · 30 · 5 · 5.</li>
+    <li>Type: Newsreader (serif headlines) · DM Sans (body, UI) · JetBrains Mono (labels, numbers). Signature: one italic red word per headline.</li>
+    <li>Red is one spotlight per surface — never body text, never a background wash. Small red text uses red-ink <code>#8A021B</code>.</li>
+    <li>Voice: specific, confident, human. No exclamation marks. Sentence case.</li>
+    <li>Demo content is fictional: client <em>Nordhavn Coffee</em>, person <em>Ola Nordmann</em>. Never use real third-party people, clients or testimonials.</li>
+  </ul>
+</section>
 
 <!-- ============ TOP BAR ============ -->
 <header class="topbar">

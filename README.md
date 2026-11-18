@@ -43,7 +43,7 @@ Files that `npm run build:tokens` regenerates:
 
 ## Deploy
 
-Pushing to `main` deploys. Railway runs `npx serve -l tcp://0.0.0.0:$PORT --config serve.json .`, and the domain is `brandkit.kilowott.com`. See [DEPLOY.md](DEPLOY.md).
+Pushing to `main` deploys. Railway runs `node server.mjs` (serve-handler + `serve.json`, plus agent detection — see `server.mjs`), and the domain is `brandkit.kilowott.com`. See [DEPLOY.md](DEPLOY.md).
 
 ## File map
 
