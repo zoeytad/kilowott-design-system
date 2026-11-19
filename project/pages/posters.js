@@ -102,12 +102,12 @@
 
   /* Dummy content (policy: fictional client, fictional event, real Kilowott facts) */
   const CONTENT = {
-    statement: { eyebrow: 'Strategy + execution', headline: 'Built for what comes next.', em: 'comes next',
+    statement: { eyebrow: 'Strategy + execution', headline: 'Ahead, by design.', em: 'design',
                  cta: 'Work with us', photo: 'nordic' },
     stat:      { eyebrow: 'Case study · Nordhavn Coffee', stat: '3.5×',
                  headline: 'organic traffic in six months, from a standing start.', em: '',
                  source: 'Nordhavn Coffee US launch, Jan–Jun 2026 · sample figures', cta: 'Read the case', photo: 'focused' },
-    photo:     { eyebrow: 'Fredrikstad · Sandnes · Goa · Dubai', headline: 'Scale faster. Deliver better.', em: 'Deliver better',
+    photo:     { eyebrow: 'Fredrikstad · Sandnes · Goa · Dubai', headline: 'Strategy and execution in one team.', em: 'one team',
                  cta: 'How we work', photo: 'workshop' },
     event:     { eyebrow: 'Kilowott Signal Summit', date: '12 March 2027', place: 'Fredrikstad · Norway',
                  headline: 'A day on search, social, and the signal in between.', em: 'signal',
@@ -1114,7 +1114,7 @@
   <!-- HERO -->
   <section class="po-hero">
     <div class="container">
-      <span class="eyebrow eyebrow--accent">15 · Posters &amp; banners</span>
+      <span class="eyebrow">Make something</span>
       <h1>One message, <em>four</em> ways to put it on a wall.</h1>
       <p class="po-hero__lede">
         Every poster, banner, and ad Kilowott ships is built from four archetypes&mdash;Statement, Stat, Photo-led, and Event.

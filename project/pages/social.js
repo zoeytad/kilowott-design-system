@@ -548,7 +548,7 @@ window.renderSocial = function (root) {
   <!-- HERO -->
   <section class="so-hero">
     <div class="container">
-      <span class="eyebrow eyebrow--accent">12 · Social</span>
+      <span class="eyebrow">Social media</span>
       <h1>Real <em>previews</em>, not abstract posters.</h1>
       <p class="so-hero__lede">
         Every layout below is rendered inside accurate platform chrome &mdash; LinkedIn, X, Facebook, Instagram feed, reel, carousel and story. So before you ship, you know exactly how a Kilowott post looks in the wild. Sample content uses the fictional Nordhavn Coffee case (sample figures) (3.5&times; organic traffic) and brand photography from <code style="font-family:var(--font-mono);font-size:13px;">/assets/photos/</code>.
@@ -611,7 +611,7 @@ window.renderSocial = function (root) {
           <div class="so-card__stage">
             ${xPost({
               name: 'Kilowott', handle: '@kilowott', time: '6h',
-              body: 'Built for what comes next.\n\nWe just wrote up how SEO content + targeted paid social pushed Nordhavn Coffee 3.5× on organic traffic — full breakdown linked.',
+              body: 'Ahead, by design.\n\nWe just wrote up how SEO content + targeted paid social pushed Nordhavn Coffee 3.5× on organic traffic — full breakdown linked.',
               image: null, replies: '12', reposts: '47', likes: '218', views: '14.2K'
             })}
           </div>
@@ -737,7 +737,7 @@ window.renderSocial = function (root) {
             ${igStory({
               image: PHOTO.atmoWarm,
               user: 'kilowott', time: '4h',
-              h: 'Built for what <em>comes next</em>.',
+              h: 'Ahead, by <em>design</em>.',
               sticker: 'NEW WORK SHIPPED'
             })}
           </div>
@@ -776,7 +776,7 @@ window.renderSocial = function (root) {
           <div class="so-banner__bg"><img src="${PHOTO.nordic}" alt=""></div>
           <div class="so-banner__inner">
             <span class="so-banner__eyebrow">LinkedIn page · 1584×396</span>
-            <div class="so-banner__h">Built for what <em>comes next</em>.</div>
+            <div class="so-banner__h">Ahead, by <em>design</em>.</div>
           </div>
         </div>
 
@@ -784,7 +784,7 @@ window.renderSocial = function (root) {
           <div class="so-banner__bg"><img src="${PHOTO.atmoCool}" alt=""></div>
           <div class="so-banner__inner">
             <span class="so-banner__eyebrow">X header · 1500×500</span>
-            <div class="so-banner__h">Scale faster. <em>Deliver better</em>.</div>
+            <div class="so-banner__h">Ahead, by <em>design</em>.</div>
           </div>
         </div>
 

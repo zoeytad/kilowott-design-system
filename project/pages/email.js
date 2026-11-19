@@ -210,7 +210,7 @@ window.renderEmail = function (root) {
   <!-- HERO -->
   <section class="em-hero">
     <div class="container">
-      <span class="eyebrow eyebrow--accent">09 · Email</span>
+      <span class="eyebrow">Email &amp; newsletters</span>
       <h1>The same <em>voice</em> in the inbox.</h1>
       <p class="em-hero__lede">
         Kilowott email comes in two shapes &mdash; transactional (receipt, password, welcome,
@@ -341,7 +341,7 @@ window.renderEmail = function (root) {
             </div>
             <div class="em-footer">
               <div class="em-footer__brand">Kilowott</div>
-              <div>Built for what comes next.</div>
+              <div>Ahead, by design.</div>
               <div style="margin-top:10px;"><a href="#">Update preferences</a> &middot; <a href="#">View in browser</a></div>
             </div>
           </div>

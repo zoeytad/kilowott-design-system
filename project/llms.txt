@@ -246,7 +246,7 @@ Four principles (outcome-driven; strategic and specific; confident, not loud; hu
 ### Company facts — real (use as-is)
 
 - **Name:** Kilowott (one word). Legal entity: Kilowott LLP.
-- **Tagline:** Built for what comes next. Long form: Scale faster. Deliver better. Create impact.
+- **Tagline:** Ahead, by design. Long form: We build ahead so you can scale faster, deliver better and create impact. Middle line: not decided yet (use a placeholder). Retired: “Built for what comes next.”
 - **Website:** https://kilowott.com · **Contact page:** https://kilowott.com/contact-us/
 - **Offices:** Fredrikstad · Sandnes · Goa · Dubai (Goa office is in Porvorim, not Panjim; no New York office). Full addresses in `brand.json` → `facts.offices`.
 - **Company phone lines:** Norway +47 925 11 386 · Sales (India) +91 91452 46464 · Careers (India) +91 9765419976.

@@ -19,11 +19,11 @@
 - **Light, paper-led, editorial.** White page (`#FFFFFF`), near-black ink type (`#0B0F14`), warm paper sections (`#F6F4F0`), and one hit of Kilowott Red (`#E4022D`). If your output is dark by default, you have misread the brand.
 - **Ratio 60 · 30 · 5 · 5 = paper · ink · warm paper · red.**
 - **Type trio:** Newsreader (serif display, weight 400, tight, −0.02em) · DM Sans (body and UI) · JetBrains Mono (labels, numbers, code). No other fonts.
-- **The signature move:** a serif headline with **one** word in italic red: `Built for what <em>comes next</em>.`
+- **The signature move:** a serif headline with **one** word in italic red: `Ahead, by <em>design</em>.`
 - **Pill buttons**, 1px rules, 8px card radius, 8pt spacing, 1280px container, 96px between sections. No gradients, glows, neon, or drop-shadow-everything.
 - **Icons:** Lucide, 1.5px stroke, `currentColor`.
 - **Voice:** outcome-driven, specific, confident, human. No exclamation marks. Sentence case. Numbers that can be checked.
-- **Tagline:** *Built for what comes next.* Long form: *Scale faster. Deliver better. Create impact.*
+- **Tagline:** *Ahead, by design.* (keep the comma). Long form: *We build ahead so you can scale faster, deliver better and create impact.* A middle line (5–8 words) is not decided yet: leave a placeholder, never invent one. The old line “Built for what comes next.” is retired.
 
 ---
 
@@ -186,13 +186,17 @@ Full tables (type scale, shadows, motion, contrast): https://brandkit.kilowott.c
 
 ---
 
-## 6. Page index: the 20 tabs
+## 6. Page index: the 22 pages
 
 Live: `https://brandkit.kilowott.com/project/#<id>` · Source: `https://brandkit.kilowott.com/project/pages/<id>.js`
 
+The sidebar groups the pages by task: **Start** (Home, Downloads) · **Brand basics** (Logo, Colour, Type, Imagery, Voice) · **Make something** (Social media, Posters & ads, Presentations, Email & newsletters, Email signature, Print & stationery, Case studies & editorial) · **Build for web** (Foundations, Components, Icons, Landing pages, Dashboards, Developers & AI). Every page opens with a “Rules at a glance” do / never box. Deep links: `#<id>/<element-id>`.
+
 | Tab (`#id`) | What it contains | Use it when |
 |---|---|---|
-| Overview (`#overview`) | Principles, what is in the kit, three “where to start” routes | Orientation |
+| Home (`#overview`) | Search, eight task tiles, the brand in 60 seconds, most-used files, four principles | Orientation |
+| Downloads (`#downloads`) | Every file in one place: logo, swatches, deck template, starter page, CSS, Tailwind, Sass, tokens, Figma tokens, AI files | Getting a file |
+| Developers & AI (`#developers`) | Copy-paste prompt for AI tools, tokens by format, machine-readable files | Briefing an AI tool, wiring tokens into code |
 | Logo (`#logo`) | Wordmark anatomy, bolt mark, clear space and sizes, placements, CSS-mask implementation, don’ts | Placing the logo anywhere |
 | Color (`#color`) | Core palette, 60·30·5·5, alt accents, three recipes (paper, ink, warm), red rules, accessibility table, state colours | Any colour decision |
 | Type (`#type`) | Newsreader + DM Sans pairing, 9-step scale, headline patterns, JetBrains Mono usage | Setting type |

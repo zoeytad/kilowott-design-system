@@ -30,7 +30,7 @@ window.renderSignature = function (root) {
     youtube:    '',
     cta:        'Book a meeting',
     ctaUrl:     'https://kilowott.com/contact-us/',
-    quote:      'Built for what comes next.',
+    quote:      'Ahead, by design.',
     legal:      'This message and any attachments are confidential and intended solely for the named recipient. If you received this in error, please notify the sender and delete all copies.',
     accent:     '#E4022D',
   };
@@ -279,7 +279,7 @@ window.renderSignature = function (root) {
   <!-- HERO -->
   <section class="sig-hero">
     <div class="container">
-      <span class="eyebrow eyebrow--accent">10 · Email signature</span>
+      <span class="eyebrow">Make something</span>
       <h1>One <em>signature</em> for the whole crew.</h1>
       <p class="sig-hero__lede">
         Internal generator. Fill the form, pick a layout, hit copy &mdash; paste straight into

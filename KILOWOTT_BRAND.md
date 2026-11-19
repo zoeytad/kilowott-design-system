@@ -2,7 +2,7 @@
 
 Compact brand reference for people and AI agents. Live kit: https://brandkit.kilowott.com/project/ · Agent guide: https://brandkit.kilowott.com/AGENTS.md · Source of truth for tokens: `project/styles/tokens.css` (the tables in §2 are generated from it).
 
-> **Tagline:** *Built for what comes next.* · **Long form:** *Scale faster. Deliver better. Create impact.*
+> **Tagline:** *Ahead, by design.* · **Long form:** *We build ahead so you can scale faster, deliver better and create impact.* · Middle line (5–8 words): not decided yet; leave a placeholder.
 > Kilowott is a strategic partner that turns strategy and execution into measurable outcomes: margins protected, speed gained, delivery you can rely on.
 
 ---

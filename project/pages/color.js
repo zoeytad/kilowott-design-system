@@ -307,7 +307,7 @@ window.renderColor = function (root) {
   <!-- HERO -->
   <section class="cl-hero">
     <div class="cl-hero__text">
-      <span class="eyebrow eyebrow--accent">02 · Color</span>
+      <span class="eyebrow">Brand basics</span>
       <h1 class="page-header__title" style="padding:0; border:0; margin-top:16px">A narrow palette, used with <em style="color:var(--accent); font-style:italic">intent</em>.</h1>
       <p class="page-header__lede">Four colours do all the work. White carries the page. Ink holds the type. Warm paper separates sections. Red is a spotlight &mdash; never a wash. The 60&middot;30&middot;5&middot;5 ratio keeps it honest.</p>
       <div style="margin-top:32px; display:flex; gap:12px; flex-wrap:wrap;">

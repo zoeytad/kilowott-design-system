@@ -1124,7 +1124,7 @@ window.renderComponents = function (root) {
   <!-- HERO -->
   <section class="cp-hero">
     <div class="container">
-      <span class="eyebrow eyebrow--accent">05 · Components</span>
+      <span class="eyebrow">Build for web</span>
       <h1>The shared <em>parts</em> bin.</h1>
       <p class="cp-hero__lede">Every button, input, card and tab in one place. If it&rsquo;s on this page, use it as-is. If it&rsquo;s not, add it here before scattering a one-off across the site or a deck. Components are built from the same tokens as the rest of the system &mdash; swap theme, density or font pair and they follow.</p>
 

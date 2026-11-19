@@ -1692,7 +1692,7 @@ window.renderDashboards = function (root) {
   <!-- ============ HERO ============ -->
   <section class="db-hero">
     <div class="container">
-      <span class="eyebrow eyebrow--accent">06 · Dashboards</span>
+      <span class="eyebrow">Build for web</span>
       <h1>Numbers carry the <em>weight</em>.</h1>
       <p class="db-hero__lede">
         Finance and ops dashboards demand density without noise. This module is the parts bin for data-heavy surfaces

@@ -304,7 +304,7 @@ window.renderIcons = function (root) {
   <!-- HERO -->
   <section class="ic-hero">
     <div class="container">
-      <span class="eyebrow eyebrow--accent">07 · Icons</span>
+      <span class="eyebrow">Build for web</span>
       <h1>One library. <em>One weight</em>. One behaviour.</h1>
       <p class="ic-hero__lede">
         Kilowott uses <b>Lucide</b> &mdash; the open-source fork of Feather Icons with 1,500+ glyphs,

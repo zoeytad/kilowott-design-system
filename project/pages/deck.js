@@ -1010,7 +1010,7 @@ window.renderDeck = function (root) {
   <!-- HERO -->
   <section class="dk-hero">
     <div class="container">
-      <span class="eyebrow eyebrow--accent">v0.3 · Slide deck template</span>
+      <span class="eyebrow">Make something</span>
       <h1>Every deck, <em>same partnership voice</em>.</h1>
       <p class="dk-hero__lede">
         Fifteen canonical layouts in the locked-in editorial register. Use them as a starting kit for
@@ -1106,7 +1106,7 @@ window.renderDeck = function (root) {
               <div class="dk-chrome-logo" aria-label="Kilowott"></div>
               <div class="dk-01-body">
                 <div class="dk-eyebrow dk-eyebrow--accent">A partnership proposal &middot; May 2026</div>
-                <h1>Scale faster. Deliver better. <em>Create impact.</em></h1>
+                <h1>Ahead, by <em>design</em>.</h1>
               </div>
               <div class="dk-01-meta">
                 <div>Prepared for<b>Nordhavn Coffee · Leadership</b></div>

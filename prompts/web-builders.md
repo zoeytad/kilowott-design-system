@@ -24,7 +24,7 @@ Build this on the **Kilowott brand kit v1.0**. First read https://brandkit.kilow
 
 **Content**
 - All example content is fictional. Client: **Nordhavn Coffee** (specialty coffee brand, US launch, SEO + paid social, 3.5× organic traffic in six months, sample figures). Person: **Ola Nordmann**, Senior Strategist, ola.nordmann@kilowott.com. No real third-party companies, people, logos, or testimonials.
-- Real Kilowott facts you may use: kilowott.com · contact page https://kilowott.com/contact-us/ · offices Fredrikstad · Sandnes · Goa · Dubai · tagline “Built for what comes next.”
+- Real Kilowott facts you may use: kilowott.com · contact page https://kilowott.com/contact-us/ · offices Fredrikstad · Sandnes · Goa · Dubai · tagline “Ahead, by design.”
 - Logo: `https://brandkit.kilowott.com/project/downloads/kilowott-logo.svg` (or `.k-logo` from kilowott.css). Don’t redraw it.
 
 **Before you answer:** count the reds (one), check the background is paper, check there are no exclamation marks or banned words, and check every name and number is fictional or a real Kilowott fact.

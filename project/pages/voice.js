@@ -321,8 +321,8 @@ window.renderVoice = function (root) {
   <!-- ============ HERO ============ -->
   <section class="vc-hero">
     <div class="container">
-      <span class="eyebrow eyebrow--accent">06 · Voice &amp; tone</span>
-      <h1>Scale faster. Deliver better. <em>Create impact.</em></h1>
+      <span class="eyebrow">Brand basics</span>
+      <h1>Ahead, by <em>design</em>.</h1>
       <p class="vc-hero__lede">
         Kilowott is a strategic partner that turns strategy and execution into measurable
         outcomes &mdash; while protecting margins, speed, and delivery confidence. The voice
@@ -563,10 +563,10 @@ window.renderVoice = function (root) {
           </div>
           <div class="vc-reg__cell">
             <div class="vc-reg__tick">Sharp &middot; thesis-first</div>
-            One sentence, one idea. Verbs up front. The website uses three-beat taglines &mdash; &ldquo;Scale faster. Deliver better. Create impact.&rdquo; &mdash; that pattern is the default.
+            One sentence, one idea. Verbs up front. The tagline sets the pattern: short, sentence case, one full stop.
           </div>
           <div class="vc-reg__cell" style="font-family: var(--font-display); font-size: 20px; letter-spacing: -0.01em; line-height: 1.25;">
-            &ldquo;Built for what comes next.&rdquo;
+            &ldquo;Ahead, by design.&rdquo;
           </div>
           <div class="vc-reg__cell">
             <div class="vc-reg__sub" style="margin-top:0;">4&ndash;9 words<br>per hero line</div>
@@ -821,7 +821,7 @@ window.renderVoice = function (root) {
       <div class="vc-lad">
         <div class="vc-lad__row">
           <div class="vc-lad__meta">4&ndash;9 words<b>Hero line</b></div>
-          <div class="vc-lad__body">One thought. One verb. Website hero, cover slide, ad creative. <em>Three-beat taglines are the default &mdash; &ldquo;Scale faster. Deliver better. Create impact.&rdquo;</em></div>
+          <div class="vc-lad__body">One thought. One verb. Website hero, cover slide, ad creative. <em>The tagline is the model &mdash; &ldquo;Ahead, by design.&rdquo;</em></div>
         </div>
         <div class="vc-lad__row">
           <div class="vc-lad__meta">10&ndash;14 words<b>Deck headline</b></div>

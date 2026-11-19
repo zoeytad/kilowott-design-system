@@ -45,7 +45,7 @@ If you produce HTML, link **https://brandkit.kilowott.com/project/kit/kilowott.c
 
 ## Copy (even in mocks)
 
-- Outcome-driven, specific, short. Three-beat headlines where they fit: “Scale faster. Deliver better. Create impact.”
+- Outcome-driven, specific, short. Tagline: “Ahead, by design.” Long form: “We build ahead so you can scale faster, deliver better and create impact.”
 - No exclamation marks. Sentence case. Unspaced em dash. Oxford comma. Curly quotes.
 - Avoid: leverage, empower, unlock, synergy, best-in-class, cutting-edge, at scale, seamless, end-to-end.
 - **Demo content is fictional:** Nordhavn Coffee (3.5× organic traffic in six months, sample figures) and Ola Nordmann. Never real third-party clients, people, logos, or testimonials.

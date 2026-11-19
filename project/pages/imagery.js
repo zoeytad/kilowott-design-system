@@ -370,7 +370,7 @@ window.renderImagery = function (root) {
   <!-- HERO -->
   <section class="im-hero">
     <div class="container">
-      <span class="eyebrow eyebrow--accent">08 · Imagery &amp; photography</span>
+      <span class="eyebrow">Brand basics</span>
       <h1>What a Kilowott <em>image</em> looks like.</h1>
       <p class="im-hero__lede">
         Photography is the fastest way to break the system &mdash; a single off-brand stock photo

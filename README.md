@@ -2,7 +2,7 @@
 
 Kilowott’s **agentic brand kit** (v1.0): the brand system for people and for AI agents. It is live at **https://brandkit.kilowott.com**.
 
-- **People:** open https://brandkit.kilowott.com/project/ to browse 20 tabs. They cover logo, colour, type, voice, imagery, foundations, icons, components, landing pages, dashboards, decks, email, signatures, newsletters, stationery, case studies, magazine, social, and posters and banners.
+- **People:** open https://brandkit.kilowott.com/project/ to browse 22 pages, grouped in a sidebar as Start, Brand basics, Make something, and Build for web. They cover logo, colour, type, voice, imagery, foundations, icons, components, landing pages, dashboards, decks, email, signatures, newsletters, stationery, case studies, magazine, social, and posters and banners.
 - **AI agents** (Claude Code, Cursor, ChatGPT, Claude Design, v0, Lovable…): start with **[AGENTS.md](AGENTS.md)** (https://brandkit.kilowott.com/AGENTS.md). For a web page, link one stylesheet: `https://brandkit.kilowott.com/project/kit/kilowott.css`. To load everything in one file, use https://brandkit.kilowott.com/llms-full.txt.
 
 ## Run locally
@@ -53,7 +53,7 @@ llms.txt               llmstxt.org index (root)
 llms-full.txt          Generated: AGENTS.md + KILOWOTT_BRAND.md + project/llms.txt
 KILOWOTT_BRAND.md      Brand reference: principles, tokens, type, logo, imagery, voice
 tokens.json            Generated W3C design tokens
-manifest.json          All 20 tabs (URL, purpose, contents, source) + kit files + component catalogue
+manifest.json          All 22 pages (URL, purpose, contents, source) + kit files + component catalogue
 prompts/               Ready-to-paste prompts: claude-code, claude-design, cowork, web-builders
 scripts/               build-tokens.mjs, check.mjs, kit-extras.css (hand-written part of kilowott.css)
 serve.json             Production server config: redirect, rewrites, Content-Type and CORS headers

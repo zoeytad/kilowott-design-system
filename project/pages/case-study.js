@@ -326,7 +326,7 @@ window.renderCaseStudy = function (root) {
   <!-- HERO (doc intro) -->
   <section class="cs-hero">
     <div class="container">
-      <span class="eyebrow eyebrow--accent">10 · Case study</span>
+      <span class="eyebrow">Case studies &amp; editorial</span>
       <h1>One template. <em>Every</em> engagement.</h1>
       <p class="cs-hero__lede">
         Situation &rarr; decision &rarr; result, in that order. Every claim pairs with a number; every

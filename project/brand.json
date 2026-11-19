@@ -15,8 +15,10 @@
     "manifest": "https://brandkit.kilowott.com/manifest.json"
   },
   "tagline": {
-    "primary": "Built for what comes next.",
-    "long": "Scale faster. Deliver better. Create impact."
+    "primary": "Ahead, by design.",
+    "long": "We build ahead so you can scale faster, deliver better and create impact.",
+    "middle": null,
+    "_rule": "Tagline first, then the middle line (not decided yet: use a placeholder), then the long form. Only the tagline gets serif display treatment. Never all caps. Retired: Built for what comes next."
   },
   "color": {
     "_rule": "60·30·5·5 = paper · ink · warm paper · red. Paper is the surface, not red. Default theme is light. Red is a single-accent spotlight, never a background. Hex values: see tokens.colors (generated).",

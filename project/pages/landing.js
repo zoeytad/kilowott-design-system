@@ -508,7 +508,7 @@ window.renderLanding = function (root) {
   <!-- ============ HERO ============ -->
   <section class="lp-hero">
     <div class="container">
-      <span class="eyebrow eyebrow--accent">14 · Landing pages</span>
+      <span class="eyebrow">Build for web</span>
       <h1>Pages that <em>ship</em>, not pages that decorate.</h1>
       <p class="lp-hero__lede">
         Six hero patterns and four marketing sections &mdash; the bricks for any landing page we put in the world. Fork

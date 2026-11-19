@@ -39,7 +39,7 @@ window.renderNewsletter = function (root) {
     accent:    '#E4022D',
     blocks: [
       { id: uid(), type: 'eyebrow',   text: 'Field notes · recent work' },
-      { id: uid(), type: 'heading',   text: 'Built for what <em>comes next</em>.' },
+      { id: uid(), type: 'heading',   text: 'Ahead, by <em>design</em>.' },
       { id: uid(), type: 'paragraph', text: 'A short note on a recent piece of work — SEO-led content strategy and targeted Meta ads for a premium Indian coffee brand entering the U.S. market. Real numbers, no rounding.' },
       { id: uid(), type: 'divider' },
       { id: uid(), type: 'heading2',  text: '<em>3.5×</em> organic traffic for Nordhavn Coffee.' },
@@ -48,7 +48,7 @@ window.renderNewsletter = function (root) {
       { id: uid(), type: 'button',    label: 'Read the case study', url: 'https://kilowott.com/contact-us/', style: 'ink' },
       { id: uid(), type: 'divider' },
       { id: uid(), type: 'stat',      number: '3.5×', caption: 'Organic traffic growth for Nordhavn Coffee — SEO + Meta ads, U.S. market entry.' },
-      { id: uid(), type: 'quote',     text: 'Scale faster. Deliver better. Create impact.', cite: 'Kilowott' },
+      { id: uid(), type: 'quote',     text: 'We finally show up where our customers are searching.', cite: 'Head of Growth, Nordhavn Coffee (sample quote)' },
       { id: uid(), type: 'divider' },
       { id: uid(), type: 'paragraph', text: 'Want to talk through a project? Pick a slot — link below — or reply to this email and we’ll route you to the right person.' },
       { id: uid(), type: 'button',    label: 'Book a call', url: 'https://kilowott.com/contact-us/', style: 'accent' },
@@ -298,7 +298,7 @@ window.renderNewsletter = function (root) {
   <!-- HERO -->
   <section class="nl-hero">
     <div class="container">
-      <span class="eyebrow eyebrow--accent">11 · Newsletter</span>
+      <span class="eyebrow">Email &amp; newsletters</span>
       <h1>Compose a <em>newsletter</em> in blocks.</h1>
       <p class="nl-hero__lede">
         Block composer for one-off newsletters and updates. Stack heading, paragraph,

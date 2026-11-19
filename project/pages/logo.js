@@ -291,7 +291,7 @@ window.renderLogo = function (root) {
   <!-- HERO -->
   <section class="lg-hero">
     <div class="lg-hero__text">
-      <span class="eyebrow eyebrow--accent">01 · Logo</span>
+      <span class="eyebrow">Brand basics</span>
       <h1 class="page-header__title" style="padding:0; border:0; margin-top:16px">The wordmark is the brand.</h1>
       <p class="page-header__lede">Kilowott is carried almost entirely by a single wordmark. That means every placement, every crop, every color is load-bearing. These rules keep it behaving consistently across decks, the site, social posts and partner collateral.</p>
       <div style="display:flex; gap:12px; margin-top: 32px;">

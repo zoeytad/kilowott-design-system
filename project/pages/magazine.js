@@ -616,7 +616,7 @@ window.renderMagazine = function (root) {
   <!-- HERO -->
   <section class="mg-hero">
     <div class="container">
-      <span class="eyebrow eyebrow--accent">14 · Magazine</span>
+      <span class="eyebrow">Case studies &amp; editorial</span>
       <h1>Framework, in the <em>house style</em>.</h1>
       <p class="mg-hero__lede">
         The Framework magazine redesigned in the Kilowott register &mdash; one cover, four article-spread variations

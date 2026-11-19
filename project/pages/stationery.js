@@ -443,7 +443,7 @@ window.renderStationery = function (root) {
   <!-- HERO -->
   <section class="st-hero">
     <div class="container">
-      <span class="eyebrow eyebrow--accent">13 · Stationery</span>
+      <span class="eyebrow">Make something</span>
       <h1>The kit that <em>arrives</em> in print.</h1>
       <p class="st-hero__lede">
         Business cards, letterhead, envelopes, compliments slips, notebooks, folders and stickers &mdash;
@@ -498,7 +498,7 @@ window.renderStationery = function (root) {
         <div class="st-card">
           <div class="st-card__stage">
             <div class="st-bc st-bc--alt">
-              <div class="st-bc__tag">Built for what comes next.</div>
+              <div class="st-bc__tag">Ahead, by design.</div>
               <div class="st-bc__url">kilowott.com</div>
             </div>
           </div>
@@ -544,7 +544,7 @@ window.renderStationery = function (root) {
               <div class="st-letter__sign-meta">Senior Brand Strategist · Kilowott</div>
               <div class="st-letter__foot">
                 <span>Kilowott LLP</span>
-                <span><em>Built for what comes next.</em></span>
+                <span><em>Ahead, by design.</em></span>
                 <span>kilowott.com</span>
               </div>
             </div>

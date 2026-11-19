@@ -303,7 +303,7 @@ window.renderType = function (root) {
   <!-- HERO -->
   <section class="ty-hero">
     <div class="container">
-      <span class="eyebrow eyebrow--accent">03 · Typography</span>
+      <span class="eyebrow">Brand basics</span>
       <h1 class="ty-hero__headline">Serif for <em>soul</em>,<br>sans for substance.</h1>
       <div class="ty-hero__caption">
         <span>Editorial pairing · Newsreader + DM Sans</span>

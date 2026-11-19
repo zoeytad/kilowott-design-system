@@ -20,7 +20,7 @@
      <noscript> block, and machine-readable resources below give them
      enough to render brand-correct.
      ============================================================ -->
-<meta name="description" content="Kilowott Design System v1.0 — editorial brand register. Newsreader serif + DM Sans + JetBrains Mono. Paper / Ink / Warm / Red 60·30·5·5 palette (#FFFFFF · #0B0F14 · #F6F4F0 · #E4022D). Light theme by default. Built for what comes next.">
+<meta name="description" content="Kilowott Design System v1.0 — editorial brand register. Newsreader serif + DM Sans + JetBrains Mono. Paper / Ink / Warm / Red 60·30·5·5 palette (#FFFFFF · #0B0F14 · #F6F4F0 · #E4022D). Light theme by default. Ahead, by design.">
 <meta name="keywords" content="Kilowott, design system, brand kit, agentic brand kit, editorial, Newsreader, DM Sans, JetBrains Mono, design tokens, llms.txt">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light">
@@ -74,7 +74,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="styles/tokens.css?v=2">
-<link rel="stylesheet" href="styles/shell.css?v=4">
+<link rel="stylesheet" href="styles/shell.css?v=5">
 
 <script>
   // Edit-mode-available protocol registered FIRST
@@ -112,96 +112,33 @@
   </ul>
 </section>
 
-<!-- ============ TOP BAR ============ -->
-<header class="topbar">
-  <div class="topbar__inner">
-    <a class="topbar__brand" href="#overview" aria-label="Kilowott"></a>
-
-    <span class="topbar__here" id="topbar-here" aria-live="polite"></span>
-
-    <button class="topbar__search" id="topbar-search" type="button" aria-label="Search the brand kit (⌘K)">
-      <i data-lucide="search"></i><span class="topbar__search-label">Search</span><kbd>⌘K</kbd>
-    </button>
-    <button class="topbar__menu" id="topbar-menu" aria-label="Open menu" aria-expanded="false">
-      <span class="topbar__menu-label">Index</span>
-      <i data-lucide="menu"></i>
-    </button>
+<!-- ============ MOBILE TOP BAR ============ -->
+<div class="kb-mtop">
+  <a class="kb-mtop__brand" href="#overview" aria-label="Kilowott brand kit home"><span class="kb-logo"></span></a>
+  <div class="kb-mtop__btns">
+    <button class="kb-icon-btn" type="button" data-kb-search aria-label="Search the brand kit"><i data-lucide="search"></i></button>
+    <button class="kb-icon-btn" type="button" id="kb-menu-open" aria-label="Open menu" aria-expanded="false" aria-controls="kb-side"><i data-lucide="menu"></i></button>
   </div>
-</header>
+</div>
+<div class="kb-scrim" id="kb-scrim"></div>
 
-<!-- ============ NAV DRAWER ============ -->
-<aside class="drawer" id="drawer" hidden aria-label="Navigation">
-  <div class="drawer__scrim" id="drawer-scrim"></div>
-  <div class="drawer__panel">
-    <div class="drawer__head">
-      <div class="drawer__title">
-        <span class="eyebrow eyebrow--accent">Kilowott Design System &middot; v1.0</span>
-        <h2 class="drawer__h">Pick a <em>surface</em>.</h2>
-      </div>
-      <button class="drawer__close" id="drawer-close" aria-label="Close menu">
-        <i data-lucide="x"></i>
-      </button>
-    </div>
-
-    <nav class="drawer__nav" id="tabs" aria-label="Sections">
-      <div class="drawer__col">
-        <div class="drawer__cat">Brand</div>
-        <a class="tab drawer__link" href="#overview"   data-tab="overview">Overview<span>Principles · direction</span></a>
-        <a class="tab drawer__link" href="#logo"       data-tab="logo">Logo<span>Mark · clear space · bolt</span></a>
-        <a class="tab drawer__link" href="#color"      data-tab="color">Color<span>Palette · ratios · a11y</span></a>
-        <a class="tab drawer__link" href="#type"       data-tab="type">Type<span>Newsreader + DM Sans</span></a>
-        <a class="tab drawer__link" href="#voice"      data-tab="voice">Voice<span>Tone · vocab · mechanics</span></a>
-        <a class="tab drawer__link" href="#imagery"    data-tab="imagery">Imagery<span>Photography · treatments</span></a>
-      </div>
-
-      <div class="drawer__col">
-        <div class="drawer__cat">System</div>
-        <a class="tab drawer__link" href="#foundations" data-tab="foundations">Foundations<span>Spacing · grid · motion · tokens</span></a>
-        <a class="tab drawer__link" href="#icons"       data-tab="icons">Icons<span>Lucide · 1,500+ glyphs</span></a>
-        <a class="tab drawer__link" href="#components"  data-tab="components">Components<span>Parts bin · UI states</span></a>
-      </div>
-
-      <div class="drawer__col">
-        <div class="drawer__cat">Surfaces</div>
-        <a class="tab drawer__link" href="#landing"    data-tab="landing">Landing<span>6 hero patterns + sections</span></a>
-        <a class="tab drawer__link" href="#dashboards" data-tab="dashboards">Dashboards<span>KPI · tables · charts · shells</span></a>
-        <a class="tab drawer__link" href="#deck"       data-tab="deck">Deck<span>15 canonical slide layouts</span></a>
-        <a class="tab drawer__link" href="#case-study" data-tab="case-study">Case study<span>Situation → decision → result</span></a>
-        <a class="tab drawer__link" href="#magazine"   data-tab="magazine">Magazine<span>Framework cover + spreads</span></a>
-        <a class="tab drawer__link" href="#social"     data-tab="social">Social<span>Real platform simulations</span></a>
-        <a class="tab drawer__link" href="#posters"    data-tab="posters">Posters &amp; banners<span>Print · OOH · web ads · events</span></a>
-      </div>
-
-      <div class="drawer__col">
-        <div class="drawer__cat">Communications</div>
-        <a class="tab drawer__link" href="#email"      data-tab="email">Email<span>Transactional + newsletter</span></a>
-        <a class="tab drawer__link" href="#signature"  data-tab="signature">Signature<span>Generator · paste into Gmail</span></a>
-        <a class="tab drawer__link" href="#newsletter" data-tab="newsletter">Newsletter<span>Block composer · paste into Gmail</span></a>
-        <a class="tab drawer__link" href="#stationery" data-tab="stationery">Stationery<span>Cards · letterhead · print kit</span></a>
-      </div>
-    </nav>
-
-    <div class="drawer__foot">
-      <span>Press <kbd>Esc</kbd> or tap outside to close</span>
-      <span>v1.0 &middot; Editorial register &middot; <a href="../KILOWOTT_BRAND.md" target="_blank" rel="noopener">Brand reference <i data-lucide="arrow-right"></i></a></span>
-    </div>
+<!-- ============ SIDEBAR NAVIGATION (links built by app.js from one list) ============ -->
+<aside class="kb-side" id="kb-side" aria-label="Brand kit navigation">
+  <div class="kb-side__head">
+    <a class="kb-side__brand" href="#overview"><span class="kb-logo" aria-label="Kilowott"></span><span class="kb-side__kit">Brand kit &middot; v1.0</span></a>
+    <button class="kb-side__close" type="button" id="kb-menu-close" aria-label="Close menu"><i data-lucide="x"></i></button>
+  </div>
+  <button class="kb-side__search" type="button" id="topbar-search" data-kb-search aria-label="Search the brand kit (⌘K)"><i data-lucide="search"></i>Search the kit<kbd>⌘K</kbd></button>
+  <nav class="kb-nav" id="tabs" aria-label="Sections"></nav>
+  <div class="kb-side__foot">
+    Fredrikstad &middot; Sandnes &middot; Goa &middot; Dubai<br>
+    <a href="https://kilowott.com">kilowott.com</a> &middot; <a href="../AGENTS.md">For AI agents</a>
   </div>
 </aside>
 
-<!-- Swap in the real logo as IMG to avoid SVG use issues -->
-<style>
-  .topbar__brand svg { display: none; }
-  .topbar__brand::before {
-    content: "";
-    width: 110px; height: 18px;
-    background: currentColor;
-    -webkit-mask: url(assets/kilowott-logo.svg) no-repeat center/contain;
-            mask: url(assets/kilowott-logo.svg) no-repeat center/contain;
-  }
-</style>
-
 <!-- ============ MAIN ============ -->
 <main id="main">
+  <div class="kb-pagebar" id="kb-pagebar"></div>
 
   <!-- ============================================================
        AI / NO-JS BRAND SUMMARY
@@ -222,7 +159,7 @@
     </style>
     <article class="nojs-fallback" itemscope itemtype="https://schema.org/CreativeWork">
       <h1 itemprop="name">Kilowott Design System <em>v1.0</em></h1>
-      <p itemprop="description"><strong>Built for what comes next.</strong> Editorial brand register — calm by default, red earns its place. JavaScript is required for the interactive kit; this fallback is for bots, AI scrapers, and JS-disabled clients.</p>
+      <p itemprop="description"><strong>Ahead, by design.</strong> Editorial brand register — calm by default, red earns its place. JavaScript is required for the interactive kit; this fallback is for bots, AI scrapers, and JS-disabled clients.</p>
 
       <h2>For AI agents</h2>
       <ul>
@@ -252,7 +189,7 @@
 
       <h2>Company facts — real</h2>
       <ul>
-        <li><strong>Tagline:</strong> Built for what comes next. (Long: Scale faster. Deliver better. Create impact.)</li>
+        <li><strong>Tagline:</strong> Ahead, by design. (Long: We build ahead so you can scale faster, deliver better and create impact.)</li>
         <li><strong>Offices:</strong> Fredrikstad · Sandnes · Goa (Porvorim) · Dubai</li>
         <li><strong>Website:</strong> kilowott.com · <strong>Contact:</strong> kilowott.com/contact-us/</li>
       </ul>
@@ -307,13 +244,15 @@
   <div id="page-voice" class="page" hidden></div>
   <div id="page-social" class="page" hidden></div>
   <div id="page-posters" class="page" hidden></div>
+  <div id="page-downloads" class="page" hidden></div>
+  <div id="page-developers" class="page" hidden></div>
 </main>
 
 <!-- ============ FOOTER ============ -->
 <footer class="footer">
   <div class="container footer__inner">
     <span>Kilowott · Design System</span>
-    <span>Last updated — April 2026</span>
+    <span>Last updated &mdash; November 2026</span>
   </div>
 </footer>
 
@@ -374,29 +313,32 @@
 <script src="https://unpkg.com/lucide@1.66.0/dist/umd/lucide.min.js"></script>
 
 <!-- ============ PAGE MODULES ============ -->
-<script src="pages/overview.js?v=9"></script>
-<script src="pages/logo.js?v=6"></script>
-<script src="pages/color.js?v=6"></script>
-<script src="pages/type.js?v=6"></script>
-<script src="pages/foundations.js?v=7"></script>
-<script src="pages/icons.js?v=4"></script>
-<script src="pages/components.js?v=7"></script>
-<script src="pages/landing.js?v=3"></script>
-<script src="pages/dashboards.js?v=9"></script>
-<script src="pages/deck.js?v=13"></script>
-<script src="pages/email.js?v=4"></script>
-<script src="pages/signature.js?v=6"></script>
-<script src="pages/newsletter.js?v=5"></script>
-<script src="pages/stationery.js?v=3"></script>
-<script src="pages/case-study.js?v=4"></script>
-<script src="pages/magazine.js?v=4"></script>
-<script src="pages/imagery.js?v=11"></script>
-<script src="pages/voice.js?v=5"></script>
-<script src="pages/social.js?v=5"></script>
-<script src="pages/posters.js?v=3"></script>
+<script src="pages/overview.js?v=11"></script>
+<script src="pages/logo.js?v=7"></script>
+<script src="pages/color.js?v=7"></script>
+<script src="pages/type.js?v=7"></script>
+<script src="pages/foundations.js?v=8"></script>
+<script src="pages/icons.js?v=5"></script>
+<script src="pages/components.js?v=8"></script>
+<script src="pages/landing.js?v=4"></script>
+<script src="pages/dashboards.js?v=10"></script>
+<script src="pages/deck.js?v=14"></script>
+<script src="pages/email.js?v=5"></script>
+<script src="pages/signature.js?v=7"></script>
+<script src="pages/newsletter.js?v=6"></script>
+<script src="pages/stationery.js?v=4"></script>
+<script src="pages/case-study.js?v=5"></script>
+<script src="pages/magazine.js?v=5"></script>
+<script src="pages/imagery.js?v=12"></script>
+<script src="pages/voice.js?v=6"></script>
+<script src="pages/social.js?v=6"></script>
+<script src="pages/posters.js?v=4"></script>
+<script src="pages/downloads.js?v=1"></script>
+<script src="pages/developers.js?v=1"></script>
+<script src="guide.js?v=1"></script>
 
 <!-- ============ APP LOGIC ============ -->
-<script src="app.js?v=11"></script>
+<script src="app.js?v=12"></script>
 
 </body>
 </html>

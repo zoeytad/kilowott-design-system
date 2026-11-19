@@ -179,23 +179,42 @@
   "pages": [
     {
       "id": "overview",
-      "tab": "Overview",
-      "category": "Brand",
+      "tab": "Home",
+      "category": "Start",
       "url": "https://brandkit.kilowott.com/project/#overview",
       "source": "https://brandkit.kilowott.com/project/pages/overview.js",
       "file": "project/pages/overview.js",
-      "purpose": "Orientation: what the kit is and where to start",
+      "purpose": "Start here: search, the eight most common tasks, the brand in 60 seconds, the most-used files",
       "contents": [
-        "four brand principles",
-        "what is in the kit",
-        "three where-to-start routes"
+        "search (⌘K)",
+        "eight task tiles",
+        "the brand in 60 seconds",
+        "most-used files",
+        "four principles"
       ],
-      "use_when": "First visit, briefing a new agent or teammate"
+      "use_when": "First visit, or when you are not sure where something is"
+    },
+    {
+      "id": "downloads",
+      "tab": "Downloads",
+      "category": "Start",
+      "url": "https://brandkit.kilowott.com/project/#downloads",
+      "source": "https://brandkit.kilowott.com/project/pages/downloads.js",
+      "file": "project/pages/downloads.js",
+      "purpose": "Every file in the kit in one place",
+      "contents": [
+        "logo SVG and bolt mark",
+        "colour swatches (ASE, GPL, JSON)",
+        "deck template and starter page",
+        "kilowott.css, Tailwind, Sass, tokens, Figma tokens",
+        "AGENTS.md, llms-full.txt, brand.json"
+      ],
+      "use_when": "You need a file, not a rule"
     },
     {
       "id": "logo",
       "tab": "Logo",
-      "category": "Brand",
+      "category": "Brand basics",
       "url": "https://brandkit.kilowott.com/project/#logo",
       "source": "https://brandkit.kilowott.com/project/pages/logo.js",
       "file": "project/pages/logo.js",
@@ -216,8 +235,8 @@
     },
     {
       "id": "color",
-      "tab": "Color",
-      "category": "Brand",
+      "tab": "Colour",
+      "category": "Brand basics",
       "url": "https://brandkit.kilowott.com/project/#color",
       "source": "https://brandkit.kilowott.com/project/pages/color.js",
       "file": "project/pages/color.js",
@@ -236,7 +255,7 @@
     {
       "id": "type",
       "tab": "Type",
-      "category": "Brand",
+      "category": "Brand basics",
       "url": "https://brandkit.kilowott.com/project/#type",
       "source": "https://brandkit.kilowott.com/project/pages/type.js",
       "file": "project/pages/type.js",
@@ -251,9 +270,207 @@
       "use_when": "Setting type on any surface"
     },
     {
+      "id": "imagery",
+      "tab": "Imagery",
+      "category": "Brand basics",
+      "url": "https://brandkit.kilowott.com/project/#imagery",
+      "source": "https://brandkit.kilowott.com/project/pages/imagery.js",
+      "file": "project/pages/imagery.js",
+      "purpose": "Photography rules and library",
+      "contents": [
+        "four image principles",
+        "five categories",
+        "colour treatment",
+        "crop ratios",
+        "common mistakes",
+        "placeholders",
+        "approved library",
+        "sourcing and rights"
+      ],
+      "use_when": "Choosing, treating, or cropping photos"
+    },
+    {
+      "id": "voice",
+      "tab": "Voice",
+      "category": "Brand basics",
+      "url": "https://brandkit.kilowott.com/project/#voice",
+      "source": "https://brandkit.kilowott.com/project/pages/voice.js",
+      "file": "project/pages/voice.js",
+      "purpose": "How Kilowott writes",
+      "contents": [
+        "four voice principles",
+        "four service lines",
+        "tone dial",
+        "register shifts by context",
+        "same idea twice (before/after)",
+        "words we use / avoid",
+        "mechanics and house style",
+        "length ladder"
+      ],
+      "use_when": "Writing any copy"
+    },
+    {
+      "id": "social",
+      "tab": "Social media · organic posts",
+      "category": "Make something",
+      "url": "https://brandkit.kilowott.com/project/#social",
+      "source": "https://brandkit.kilowott.com/project/pages/social.js",
+      "file": "project/pages/social.js",
+      "purpose": "Social platform templates",
+      "contents": [
+        "LinkedIn feed and document carousel",
+        "X posts and threads",
+        "Facebook",
+        "Instagram feed, carousel, story, reel",
+        "cover banners"
+      ],
+      "use_when": "Social posts, carousels, stories, covers"
+    },
+    {
+      "id": "posters",
+      "tab": "Posters & ads",
+      "category": "Make something",
+      "url": "https://brandkit.kilowott.com/project/#posters",
+      "source": "https://brandkit.kilowott.com/project/pages/posters.js",
+      "file": "project/pages/posters.js",
+      "purpose": "Print, out-of-home, and digital ads",
+      "contents": [
+        "print posters A3 / A2 / A1 / 18×24in",
+        "roll-up 850×2000 mm",
+        "event backdrop",
+        "48-sheet billboard",
+        "flyer",
+        "event badge",
+        "IAB display ads",
+        "Meta / LinkedIn ad set",
+        "Open Graph 1200×630",
+        "YouTube thumbnail",
+        "email hero",
+        "4 archetypes: Statement, Stat, Photo-led, Event"
+      ],
+      "use_when": "Posters, banners, display ads, OG images, event material",
+      "spec": "JSON in script#posters-spec inside project/pages/posters.js"
+    },
+    {
+      "id": "deck",
+      "tab": "Presentations",
+      "category": "Make something",
+      "url": "https://brandkit.kilowott.com/project/#deck",
+      "source": "https://brandkit.kilowott.com/project/pages/deck.js",
+      "file": "project/pages/deck.js",
+      "purpose": "Slide system, 1920×1080",
+      "contents": [
+        "15 layouts",
+        "four rules, every deck",
+        "canvas and specs",
+        "PowerPoint template download"
+      ],
+      "use_when": "Presentations and pitch decks",
+      "download": "https://brandkit.kilowott.com/project/downloads/kilowott-deck-template.pptx"
+    },
+    {
+      "id": "email",
+      "tab": "Email & newsletters · templates",
+      "category": "Make something",
+      "url": "https://brandkit.kilowott.com/project/#email",
+      "source": "https://brandkit.kilowott.com/project/pages/email.js",
+      "file": "project/pages/email.js",
+      "purpose": "HTML email templates (.em-*)",
+      "contents": [
+        "five email rules",
+        "transactional receipt",
+        "welcome / milestone",
+        "quarterly newsletter",
+        "email specs (600px, inline styles, hex only)"
+      ],
+      "use_when": "Transactional and marketing email"
+    },
+    {
+      "id": "newsletter",
+      "tab": "Email & newsletters · composer",
+      "category": "Make something",
+      "url": "https://brandkit.kilowott.com/project/#newsletter",
+      "source": "https://brandkit.kilowott.com/project/pages/newsletter.js",
+      "file": "project/pages/newsletter.js",
+      "purpose": "Newsletter block composer",
+      "contents": [
+        "11 block types",
+        "header fields (subject, preheader, issue)",
+        "export email-safe HTML or plain text"
+      ],
+      "use_when": "Newsletters pasted into Gmail or an ESP"
+    },
+    {
+      "id": "signature",
+      "tab": "Email signature",
+      "category": "Make something",
+      "url": "https://brandkit.kilowott.com/project/#signature",
+      "source": "https://brandkit.kilowott.com/project/pages/signature.js",
+      "file": "project/pages/signature.js",
+      "purpose": "Email signature generator",
+      "contents": [
+        "three layouts (Classic, Compact, Editorial)",
+        "field editor",
+        "copy Gmail-ready HTML"
+      ],
+      "use_when": "Email signatures"
+    },
+    {
+      "id": "stationery",
+      "tab": "Print & stationery",
+      "category": "Make something",
+      "url": "https://brandkit.kilowott.com/project/#stationery",
+      "source": "https://brandkit.kilowott.com/project/pages/stationery.js",
+      "file": "project/pages/stationery.js",
+      "purpose": "Print stationery (.st-*)",
+      "contents": [
+        "business card 88×54mm",
+        "letterhead A4",
+        "compliments slip",
+        "DL envelope",
+        "A5 notebook",
+        "pocket folder",
+        "sticker",
+        "print specs (CMYK, stock, finishing)"
+      ],
+      "use_when": "Business cards, letterhead, print kit"
+    },
+    {
+      "id": "case-study",
+      "tab": "Case studies & editorial · case study",
+      "category": "Make something",
+      "url": "https://brandkit.kilowott.com/project/#case-study",
+      "source": "https://brandkit.kilowott.com/project/pages/case-study.js",
+      "file": "project/pages/case-study.js",
+      "purpose": "Case-study template (.cs-*)",
+      "contents": [
+        "seven rules",
+        "full rendered template: situation → decision → result",
+        "checklist"
+      ],
+      "use_when": "Case studies and proof pages"
+    },
+    {
+      "id": "magazine",
+      "tab": "Case studies & editorial · magazine",
+      "category": "Make something",
+      "url": "https://brandkit.kilowott.com/project/#magazine",
+      "source": "https://brandkit.kilowott.com/project/pages/magazine.js",
+      "file": "project/pages/magazine.js",
+      "purpose": "Framework magazine (.mg-*)",
+      "contents": [
+        "cover",
+        "article spreads (opener, profile, by-the-numbers, divider)",
+        "five pillars per issue",
+        "print specs",
+        "three rules"
+      ],
+      "use_when": "Editorial long-form and print publications"
+    },
+    {
       "id": "foundations",
       "tab": "Foundations",
-      "category": "System",
+      "category": "Build for web",
       "url": "https://brandkit.kilowott.com/project/#foundations",
       "source": "https://brandkit.kilowott.com/project/pages/foundations.js",
       "file": "project/pages/foundations.js",
@@ -269,26 +486,9 @@
       "use_when": "Layout and spacing decisions"
     },
     {
-      "id": "icons",
-      "tab": "Icons",
-      "category": "System",
-      "url": "https://brandkit.kilowott.com/project/#icons",
-      "source": "https://brandkit.kilowott.com/project/pages/icons.js",
-      "file": "project/pages/icons.js",
-      "purpose": "Lucide icon system",
-      "contents": [
-        "house rules",
-        "how to use",
-        "sizes",
-        "in-context examples",
-        "69-icon curated starter set in 6 categories (Lucide library has 1,500+)"
-      ],
-      "use_when": "Choosing or placing icons"
-    },
-    {
       "id": "components",
       "tab": "Components",
-      "category": "System",
+      "category": "Build for web",
       "url": "https://brandkit.kilowott.com/project/#components",
       "source": "https://brandkit.kilowott.com/project/pages/components.js",
       "file": "project/pages/components.js",
@@ -317,9 +517,26 @@
       "use_when": "Any UI element; check here before inventing one"
     },
     {
+      "id": "icons",
+      "tab": "Icons",
+      "category": "Build for web",
+      "url": "https://brandkit.kilowott.com/project/#icons",
+      "source": "https://brandkit.kilowott.com/project/pages/icons.js",
+      "file": "project/pages/icons.js",
+      "purpose": "Lucide icon system",
+      "contents": [
+        "house rules",
+        "how to use",
+        "sizes",
+        "in-context examples",
+        "69-icon curated starter set in 6 categories (Lucide library has 1,500+)"
+      ],
+      "use_when": "Choosing or placing icons"
+    },
+    {
       "id": "landing",
-      "tab": "Landing",
-      "category": "Surfaces",
+      "tab": "Landing pages",
+      "category": "Build for web",
       "url": "https://brandkit.kilowott.com/project/#landing",
       "source": "https://brandkit.kilowott.com/project/pages/landing.js",
       "file": "project/pages/landing.js",
@@ -343,7 +560,7 @@
     {
       "id": "dashboards",
       "tab": "Dashboards",
-      "category": "Surfaces",
+      "category": "Build for web",
       "url": "https://brandkit.kilowott.com/project/#dashboards",
       "source": "https://brandkit.kilowott.com/project/pages/dashboards.js",
       "file": "project/pages/dashboards.js",
@@ -366,202 +583,19 @@
       "use_when": "Product UI, analytics, internal tools"
     },
     {
-      "id": "deck",
-      "tab": "Deck",
-      "category": "Surfaces",
-      "url": "https://brandkit.kilowott.com/project/#deck",
-      "source": "https://brandkit.kilowott.com/project/pages/deck.js",
-      "file": "project/pages/deck.js",
-      "purpose": "Slide system, 1920×1080",
+      "id": "developers",
+      "tab": "Developers & AI",
+      "category": "Build for web",
+      "url": "https://brandkit.kilowott.com/project/#developers",
+      "source": "https://brandkit.kilowott.com/project/pages/developers.js",
+      "file": "project/pages/developers.js",
+      "purpose": "Getting the brand into code and AI tools",
       "contents": [
-        "15 layouts",
-        "four rules, every deck",
-        "canvas and specs",
-        "PowerPoint template download"
+        "copy-paste prompt for AI tools",
+        "tokens by format (CSS, Tailwind v3/v4, Sass, DTCG, Figma, dark theme)",
+        "machine-readable files"
       ],
-      "use_when": "Presentations and pitch decks",
-      "download": "https://brandkit.kilowott.com/project/downloads/kilowott-deck-template.pptx"
-    },
-    {
-      "id": "email",
-      "tab": "Email",
-      "category": "Communications",
-      "url": "https://brandkit.kilowott.com/project/#email",
-      "source": "https://brandkit.kilowott.com/project/pages/email.js",
-      "file": "project/pages/email.js",
-      "purpose": "HTML email templates (.em-*)",
-      "contents": [
-        "five email rules",
-        "transactional receipt",
-        "welcome / milestone",
-        "quarterly newsletter",
-        "email specs (600px, inline styles, hex only)"
-      ],
-      "use_when": "Transactional and marketing email"
-    },
-    {
-      "id": "signature",
-      "tab": "Signature",
-      "category": "Communications",
-      "url": "https://brandkit.kilowott.com/project/#signature",
-      "source": "https://brandkit.kilowott.com/project/pages/signature.js",
-      "file": "project/pages/signature.js",
-      "purpose": "Email signature generator",
-      "contents": [
-        "three layouts (Classic, Compact, Editorial)",
-        "field editor",
-        "copy Gmail-ready HTML"
-      ],
-      "use_when": "Email signatures"
-    },
-    {
-      "id": "newsletter",
-      "tab": "Newsletter",
-      "category": "Communications",
-      "url": "https://brandkit.kilowott.com/project/#newsletter",
-      "source": "https://brandkit.kilowott.com/project/pages/newsletter.js",
-      "file": "project/pages/newsletter.js",
-      "purpose": "Newsletter block composer",
-      "contents": [
-        "11 block types",
-        "header fields (subject, preheader, issue)",
-        "export email-safe HTML or plain text"
-      ],
-      "use_when": "Newsletters pasted into Gmail or an ESP"
-    },
-    {
-      "id": "stationery",
-      "tab": "Stationery",
-      "category": "Communications",
-      "url": "https://brandkit.kilowott.com/project/#stationery",
-      "source": "https://brandkit.kilowott.com/project/pages/stationery.js",
-      "file": "project/pages/stationery.js",
-      "purpose": "Print stationery (.st-*)",
-      "contents": [
-        "business card 88×54mm",
-        "letterhead A4",
-        "compliments slip",
-        "DL envelope",
-        "A5 notebook",
-        "pocket folder",
-        "sticker",
-        "print specs (CMYK, stock, finishing)"
-      ],
-      "use_when": "Business cards, letterhead, print kit"
-    },
-    {
-      "id": "case-study",
-      "tab": "Case study",
-      "category": "Surfaces",
-      "url": "https://brandkit.kilowott.com/project/#case-study",
-      "source": "https://brandkit.kilowott.com/project/pages/case-study.js",
-      "file": "project/pages/case-study.js",
-      "purpose": "Case-study template (.cs-*)",
-      "contents": [
-        "seven rules",
-        "full rendered template: situation → decision → result",
-        "checklist"
-      ],
-      "use_when": "Case studies and proof pages"
-    },
-    {
-      "id": "magazine",
-      "tab": "Magazine",
-      "category": "Surfaces",
-      "url": "https://brandkit.kilowott.com/project/#magazine",
-      "source": "https://brandkit.kilowott.com/project/pages/magazine.js",
-      "file": "project/pages/magazine.js",
-      "purpose": "Framework magazine (.mg-*)",
-      "contents": [
-        "cover",
-        "article spreads (opener, profile, by-the-numbers, divider)",
-        "five pillars per issue",
-        "print specs",
-        "three rules"
-      ],
-      "use_when": "Editorial long-form and print publications"
-    },
-    {
-      "id": "imagery",
-      "tab": "Imagery",
-      "category": "Brand",
-      "url": "https://brandkit.kilowott.com/project/#imagery",
-      "source": "https://brandkit.kilowott.com/project/pages/imagery.js",
-      "file": "project/pages/imagery.js",
-      "purpose": "Photography rules and library",
-      "contents": [
-        "four image principles",
-        "five categories",
-        "colour treatment",
-        "crop ratios",
-        "common mistakes",
-        "placeholders",
-        "approved library",
-        "sourcing and rights"
-      ],
-      "use_when": "Choosing, treating, or cropping photos"
-    },
-    {
-      "id": "voice",
-      "tab": "Voice",
-      "category": "Brand",
-      "url": "https://brandkit.kilowott.com/project/#voice",
-      "source": "https://brandkit.kilowott.com/project/pages/voice.js",
-      "file": "project/pages/voice.js",
-      "purpose": "How Kilowott writes",
-      "contents": [
-        "four voice principles",
-        "four service lines",
-        "tone dial",
-        "register shifts by context",
-        "same idea twice (before/after)",
-        "words we use / avoid",
-        "mechanics and house style",
-        "length ladder"
-      ],
-      "use_when": "Writing any copy"
-    },
-    {
-      "id": "social",
-      "tab": "Social",
-      "category": "Surfaces",
-      "url": "https://brandkit.kilowott.com/project/#social",
-      "source": "https://brandkit.kilowott.com/project/pages/social.js",
-      "file": "project/pages/social.js",
-      "purpose": "Social platform templates",
-      "contents": [
-        "LinkedIn feed and document carousel",
-        "X posts and threads",
-        "Facebook",
-        "Instagram feed, carousel, story, reel",
-        "cover banners"
-      ],
-      "use_when": "Social posts, carousels, stories, covers"
-    },
-    {
-      "id": "posters",
-      "tab": "Posters & banners",
-      "category": "Surfaces",
-      "url": "https://brandkit.kilowott.com/project/#posters",
-      "source": "https://brandkit.kilowott.com/project/pages/posters.js",
-      "file": "project/pages/posters.js",
-      "purpose": "Print, out-of-home, and digital ads",
-      "contents": [
-        "print posters A3 / A2 / A1 / 18×24in",
-        "roll-up 850×2000 mm",
-        "event backdrop",
-        "48-sheet billboard",
-        "flyer",
-        "event badge",
-        "IAB display ads",
-        "Meta / LinkedIn ad set",
-        "Open Graph 1200×630",
-        "YouTube thumbnail",
-        "email hero",
-        "4 archetypes: Statement, Stat, Photo-led, Event"
-      ],
-      "use_when": "Posters, banners, display ads, OG images, event material",
-      "spec": "JSON in script#posters-spec inside project/pages/posters.js"
+      "use_when": "Building a web page or app, or briefing an AI tool"
     }
   ],
   "primitives": {
@@ -919,7 +953,7 @@
     ]
   },
   "voice": {
-    "positioning": "Scale faster. Deliver better. Create impact.",
+    "positioning": "We build ahead so you can scale faster, deliver better and create impact.",
     "principles": [
       "Outcome-driven",
       "Strategic & specific",

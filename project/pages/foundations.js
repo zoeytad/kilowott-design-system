@@ -153,7 +153,7 @@ window.renderFoundations = function (root) {
   <!-- HERO -->
   <section class="fd-hero">
     <div class="container">
-      <span class="eyebrow eyebrow--accent">04 · Foundations</span>
+      <span class="eyebrow">Build for web</span>
       <h1>Spacing, grid, radii, shadows &mdash; the <em>scaffolding</em>.</h1>
       <p class="fd-hero__lede">These are the invisible rules that make everything feel like Kilowott. An 8-point base keeps layouts tight and rhythm predictable. A 12-column grid gives designers and developers a shared vocabulary.</p>
     </div>
