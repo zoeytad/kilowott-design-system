@@ -13,8 +13,10 @@
                 one italic red word.
      event      Warm-paper ground. Date (display), place, headline in ink,
                 red CTA button. Red goes to the CTA only.
-   One red element per surface, always. Logo = wordmark, bottom-left
-   (bottom-right on Event), min 80 px / 20 mm wide, clear space = K height.
+   One red element per surface, always. Logo = wordmark, bottom-left, min
+   80 px / 20 mm wide, clear space = K height. With a button: logo left,
+   button right, centred on one line; in towers too narrow for that row the
+   logo moves to the top-left corner and the button stays bottom-left.
 
    LAYOUT MODES (by width / height ratio r)
      strip r>2.6 · landscape 1.3–2.6 · square 0.9–1.3 · portrait 0.6–0.9 · tower <0.6
@@ -162,7 +164,7 @@
       notes: 'One row: logo, message, button.' },
     { id: 'iab-160x600', name: 'Wide skyscraper', group: 'display', unit: 'px', w: 160, h: 600, safe: S(0), minPx: 11,
       arch: ALL, def: 'photo', cta: true, file: 'PNG · JPG · HTML5 · ≤ 150 KB initial load',
-      notes: 'One column: eyebrow, headline, button, logo.' },
+      notes: 'One column: logo at the top, then eyebrow and headline, button at the bottom.' },
     { id: 'iab-300x600', name: 'Half page', group: 'display', unit: 'px', w: 300, h: 600, safe: S(0), minPx: 11,
       arch: ALL, def: 'event', cta: true, file: 'PNG · JPG · HTML5 · ≤ 150 KB initial load', notes: 'Tower with room for a full Event layout.' },
     { id: 'iab-970x250', name: 'Billboard (display)', group: 'display', unit: 'px', w: 970, h: 250, safe: S(0), minPx: 11,
@@ -395,24 +397,38 @@
       return f.h;
     }
 
+    /* Sign-off: the logo and the button never touch.
+       1. Row: logo bottom-left, button bottom-right, both centred on one line.
+       2. Too narrow for a row (towers): the logo goes to the top-left corner and
+          the button stays bottom-left, so each owns its own end of the layout.
+       Clear space between the logo and anything else is at least 2x the logo height. */
+    let ctTop = box.y; // content starts here (moves down when the logo takes the top)
+    const clear = Math.max(g * 2, logoH * 2);
     function footer(o) {
       const bottom = box.y + box.h;
-      const lx = o.side === 'right' ? box.x + box.w - logoW : box.x;
-      logo(lx, bottom - logoH, logoW, pal.logo);
       let top = bottom - logoH;
       if (o.btn && showBtn) {
         if (btnW(btnS) > box.w && btnW(minF) <= box.w) btnS = minF;
         const bw = btnW(btnS), bh = btnS * BTN_H;
-        if (logoW + g * 2 + bw <= box.w) {
-          button(o.side === 'right' ? box.x : box.x + box.w - bw, bottom - bh, btnS);
+        if (logoW + clear + bw <= box.w) {
+          button(box.x + box.w - bw, bottom - bh, btnS);
+          logo(box.x, bottom - bh / 2 - logoH / 2, logoW, pal.logo);
           top = Math.min(top, bottom - bh);
         } else if (bw <= box.w) {
-          button(o.side === 'right' ? box.x + box.w - bw : box.x, top - g * 1.5 - bh, btnS);
-          top = top - g * 1.5 - bh;
-        } else L.warns.push('The button dropped out: the call to action is wider than the column at the minimum size. Shorten it.');
-      } else if (o.url) {
+          logo(box.x, box.y, logoW, pal.logo);
+          ctTop = box.y + logoH + clear;
+          button(box.x, bottom - bh, btnS);
+          top = bottom - bh;
+        } else {
+          logo(box.x, bottom - logoH, logoW, pal.logo);
+          L.warns.push('The button dropped out: the call to action is wider than the column at the minimum size. Shorten it.');
+        }
+        return top;
+      }
+      logo(box.x, bottom - logoH, logoW, pal.logo);
+      if (o.url) {
         const f = fixed(toks('kilowott.com'), stUrl, sm, box.w - logoW - g * 2, 1);
-        if (f.ok) place(f, stUrl, o.side === 'right' ? box.x : box.x + box.w, bottom - sm * ASC, o.side === 'right' ? 'start' : 'end');
+        if (f.ok) place(f, stUrl, box.x + box.w, bottom - sm * ASC, 'end');
       }
       return top;
     }
@@ -515,17 +531,17 @@
       const top = box.y;
       if (arch === 'statement') {
         bgFull(pal.bg);
-        const eh = eyebrow(c.eyebrow, box.x, top, box.w * .7, pal.fg);
-        const ft = footer({ side: 'left', btn: true, url: isPrint });
-        const aT = top + (eh ? eh + g * 2 : 0), aB = ft - g * 2;
+        const ft = footer({ btn: true, url: isPrint });
+        const eh = eyebrow(c.eyebrow, box.x, ctTop, box.w * .7, pal.fg);
+        const aT = ctTop + (eh ? eh + g * 2 : 0), aB = ft - g * 2;
         const f = fit(headTk, stHead, box.w * .8, aB - aT, { max: P.head * s, min: minF * 1.5, lh: 1.02, maxLines: P.lines });
         if (!f.ok) miss('The headline hit the minimum size and still doesn’t fit. Shorten it.');
         place(f, stHead, box.x, aT + (aB - aT - f.h) / 2); L.headSize = f.size;
       } else if (arch === 'stat') {
         bgFull(pal.bg);
-        const eh = eyebrow(c.eyebrow, box.x, top, box.w * .7, pal.muted);
-        const ft = footer({ side: 'left', btn: true, url: isPrint });
-        const aT = top + (eh ? eh + g * 2 : 0), aB = ft - g * 2, ah = aB - aT;
+        const ft = footer({ btn: true, url: isPrint });
+        const eh = eyebrow(c.eyebrow, box.x, ctTop, box.w * .7, pal.muted);
+        const aT = ctTop + (eh ? eh + g * 2 : 0), aB = ft - g * 2, ah = aB - aT;
         const nf = fit(toks(c.stat), stNum, box.w * .5 - g, ah, { max: P.stat * s, min: minF * 2, lh: .9, maxLines: 1 });
         place(nf, stNum, box.x, aT + (ah - nf.h) / 2); L.headSize = nf.size;
         const rx = box.x + box.w * .54, rw = box.w * .46;
@@ -539,7 +555,7 @@
         bgFull('ink');
         image(PHOTO[c.photo] || c.photo || PHOTO.workshop, -b, -b, W + 2 * b, H + 2 * b);
         if (!opts.noScrim) grad(-b, -b, W * .92 + b, H + 2 * b, 'right', 'ink', [[0, .94], [.7, .8], [1, 0]]);
-        const ft = footer({ side: 'left', btn: false, url: false });
+        const ft = footer({ btn: false, url: false });
         const colW = box.w * .56;
         const bw = showBtn ? btnW(btnS) : 0, bh = showBtn ? btnS * BTN_H : 0;
         const ebTk = toks(c.eyebrow, '', true);
@@ -555,13 +571,18 @@
       } else { // event
         bgFull(pal.bg);
         const eh = eyebrow(c.eyebrow, box.x, top, box.w * .46, pal.fg);
-        const ft = footer({ side: 'left', btn: false, url: false });
+        const ft = footer({ btn: false, url: false });
         const aT = top + (eh ? eh + g * 2 : 0), aB = ft - g * 2;
         const df = fit(toks(c.date), stDate, box.w * .46, aB - aT, { max: P.head * s * 1.5, min: minF * 2, lh: .96, maxLines: 3 });
         place(df, stDate, box.x, aT); L.headSize = df.size;
         const rx = box.x + box.w * .52, rw = box.w * .48, bottom = box.y + box.h;
         let y = bottom;
-        if (showBtn) { const bh = btnS * BTN_H; y -= bh; button(rx, y, btnS); y -= g * 2.5; }
+        if (showBtn) {
+          const bh = btnS * BTN_H; y -= bh; button(rx, y, btnS); y -= g * 2.5;
+          // logo and button share the bottom line: centre the logo on the button
+          const lg = L.prims.find(p => p.type === 'logo');
+          if (lg) { lg.y = bottom - bh / 2 - logoH / 2; L.logoRect.y = lg.y; }
+        }
         const pf = fixed(toks(c.place, '', true), stPlace, Math.max(minF, sm), rw, 2);
         y -= pf.h; place(pf, stPlace, rx, y); y -= g * 1.5;
         const stH = Object.assign({}, stHead, { emColor: 'ink' });
@@ -579,19 +600,19 @@
     const thin = Math.max(s * .0018, fmt.unit === 'px' ? 1 : .25);
     if (arch === 'statement') {
       bgFull(pal.bg);
-      const eh = eyebrow(c.eyebrow, box.x, top, box.w, pal.fg, mode === 'tall' ? 3 : 2);
-      const ft = footer({ side: 'left', btn: true, url: isPrint });
+      const ft = footer({ btn: true, url: isPrint });
+      const eh = eyebrow(c.eyebrow, box.x, ctTop, box.w, pal.fg, mode === 'tall' ? 3 : 2);
       let aB = ft - g * 2;
       if (!tiny && mode !== 'tall') { const ry = ft - g * 1.8; rule(box.x, ry, box.x + box.w, ry, pal.rule, thin); aB = ry - g * 2.2; }
-      const aT = top + (eh ? eh + g * 2 : 0);
+      const aT = ctTop + (eh ? eh + g * 2 : 0);
       const f = fit(headTk, stHead, box.w, aB - aT, { max: P.head * s, min: minF * 1.5, lh: 1.02, maxLines: P.lines });
       if (!f.ok) miss('The headline hit the minimum size and still doesn’t fit. Shorten it.');
       place(f, stHead, box.x, mode === 'tall' ? aT + (aB - aT - f.h) / 2 : aB - f.h); L.headSize = f.size;
     } else if (arch === 'stat') {
       bgFull(pal.bg);
-      const eh = eyebrow(c.eyebrow, box.x, top, box.w, pal.muted, mode === 'tall' ? 3 : 2);
-      const ft = footer({ side: 'left', btn: true, url: isPrint });
-      const aT = top + (eh ? eh + g * 2 : 0), aB = ft - g * 2.5, ah = aB - aT;
+      const ft = footer({ btn: true, url: isPrint });
+      const eh = eyebrow(c.eyebrow, box.x, ctTop, box.w, pal.muted, mode === 'tall' ? 3 : 2);
+      const aT = ctTop + (eh ? eh + g * 2 : 0), aB = ft - g * 2.5, ah = aB - aT;
       const srcF = fixed(toks(c.source ? 'Source: ' + c.source : ''), stSrc, Math.max(srcFloor, sm * .62), box.w, mode === 'tall' ? 5 : 3);
       const lf = fit(toks(c.headline, c.em), stLabel, box.w, ah * .4, { max: P.head * s * .5, min: minF * 1.1, lh: 1.12, maxLines: mode === 'tall' ? 6 : 4 });
       const nAvail = ah - lf.h - srcF.h - g * 3;
@@ -605,12 +626,16 @@
       bgFull('ink');
       image(PHOTO[c.photo] || c.photo || PHOTO.workshop, -b, -b, W + 2 * b, H + 2 * b);
       // headline may climb to 42% down the content box; the scrim is >= 80% ink from there down
-      const limit = Math.max(top, box.y + box.h * (tiny ? .25 : .42));
+      const iScrim = L.prims.length;
+      const ft = footer({ btn: true, url: isPrint });
+      const limit = Math.max(ctTop, box.y + box.h * (tiny ? .25 : .42));
       if (!opts.noScrim) {
         const y0 = Math.max(-b, limit - H * .28), hh = H + b - y0, oL = Math.min(.95, (H + b - limit) / hh);
-        grad(-b, y0, W + 2 * b, hh, 'up', 'ink', [[0, .94], [oL, .8], [1, 0]]);
+        const sc = [{ type: 'grad', x: -b, y: y0, w: W + 2 * b, h: hh, dir: 'up', color: 'ink', stops: [[0, .94], [oL, .8], [1, 0]] }];
+        // logo moved to the top corner: a short ink fade behind it keeps it legible on bright photos
+        if (ctTop > box.y) sc.push({ type: 'grad', x: -b, y: -b, w: W + 2 * b, h: ctTop + clear + b, dir: 'up', color: 'ink', stops: [[0, 0], [1, .7]] });
+        L.prims.splice(iScrim, 0, ...sc);
       }
-      const ft = footer({ side: 'left', btn: true, url: isPrint });
       const aB = ft - g * 2.5;
       const ebTk = tiny ? [] : toks(c.eyebrow, '', true);
       const ebF = ebTk.length ? fixed(ebTk, { family: 'sans', weight: 500, ls: .14 }, sm, box.w - sm * 2.6, mode === 'tall' ? 3 : 2, 1.35) : { h: 0, ok: true };
@@ -622,9 +647,9 @@
       if (ebH) eyebrow(c.eyebrow, box.x, y - ebH, box.w, 'paper', mode === 'tall' ? 3 : 2);
     } else { // event
       bgFull(pal.bg);
-      const eh = eyebrow(c.eyebrow, box.x, top, box.w, pal.fg, mode === 'tall' ? 3 : 2);
-      const dT = top + (eh ? eh + g * 2 : 0);
-      const ft = footer({ side: 'right', btn: true, url: false });
+      const ft = footer({ btn: true, url: false });
+      const eh = eyebrow(c.eyebrow, box.x, ctTop, box.w, pal.fg, mode === 'tall' ? 3 : 2);
+      const dT = ctTop + (eh ? eh + g * 2 : 0);
       const pf = fixed(toks(c.place, '', true), stPlace, Math.max(minF, sm * 1.05), box.w, 2);
       let y = ft - g * 2.5 - pf.h;
       place(pf, stPlace, box.x, y);
@@ -832,7 +857,7 @@
       units: 'Print formats in millimetres (mm); digital formats in pixels (px). safeZone is measured inward from the trim edge. minFont is the smallest permitted type size in the format unit.',
       layoutModes: { strip: 'width/height > 2.6', landscape: '1.3–2.6', square: '0.9–1.3', portrait: '0.6–0.9', tower: '< 0.6' },
       grid: { margin: '7.5% of the short edge (portrait, square), 8.5% (landscape), 9% (tower), 20% of height (strip)', columns: { portrait: 6, square: 6, tower: 4, landscape: 12, strip: 12 }, gutter: '35% of the margin' },
-      logo: { asset: 'project/assets/kilowott-logo.svg', placement: 'bottom-left; bottom-right on Event (the CTA takes bottom-left)', width: '24% of the short edge on portrait posters, 34% on landscape', minimum: { px: 80, mm: 20, below: 'use the bolt mark' }, clearSpace: 'height of the K on all sides' },
+      logo: { asset: 'project/assets/kilowott-logo.svg', placement: 'bottom-left. With a button: logo left and button right on one shared centre line; if that row does not fit (towers), logo top-left and button bottom-left. Logo and button never stack.', width: '24% of the short edge on portrait posters, 34% on landscape', minimum: { px: 80, mm: 20, below: 'use the bolt mark' }, clearSpace: 'height of the K on all sides' },
       color: {
         red: { token: '--k-red', hex: '#E4022D', cmyk: 'C0 M100 Y87 K5', pantone: 'Pantone 186 C (nearest)', status: 'approximate — confirm with printer', rule: 'one red element per surface' },
         ink: { token: '--k-ink', hex: '#0B0F14', cmyk: 'C60 M50 Y50 K100 rich black for solids; K100 only for type under 24 pt', status: 'approximate — confirm with printer' },
@@ -866,7 +891,7 @@
     { h: 'One red, always.', b: 'One spotlight per surface: the italic emphasis word, the stat, or the CTA button. Never two. Never a red ground, a red headline, or red body text.' },
     { h: 'One poster, one message.', b: 'Eight words or fewer for the headline; seven on billboards, roll-ups, and backdrops. A second message is a second poster.' },
     { h: 'Size type for the distance.', b: 'Cap height at least the viewing distance divided by 250. The layout engine never sets type below the format’s floor; it drops the button or flags the copy instead. Source lines are footnotes and may sit at 60% of the floor, never under 8&nbsp;pt or 11&nbsp;px.' },
-    { h: 'Logo bottom-left, with room.', b: 'Wordmark bottom-left (bottom-right on Event). Clear space equals the height of the K. Never under 80&nbsp;px or 20&nbsp;mm wide; use the bolt instead.' },
+    { h: 'Logo bottom-left, with room.', b: 'Wordmark bottom-left. With a button, the logo sits left and the button right, centred on one line. When the row won&rsquo;t fit, the logo moves to the top-left corner; the two never stack. Clear space equals the height of the K. Never under 80&nbsp;px or 20&nbsp;mm wide; use the bolt instead.' },
     { h: 'Never stretch a photo.', b: 'Cover-crop to the frame and move the crop, never the proportions. Keep faces clear of the trim and the safe-zone edge.' },
     { h: 'Scrim under every word on a photo.', b: 'Type over photography sits on an ink scrim of at least 78% under the text. Paper type then clears 7:1 even over a white sky.' },
   ];
@@ -1135,7 +1160,7 @@
         <div><b>Margins</b>7.5% of the short edge on portrait and square, 8.5% on landscape, 9% on towers. On A3 that&rsquo;s 22&nbsp;mm.</div>
         <div><b>Grid</b>Six columns portrait, four on towers, twelve on landscape and strips. Gutter is 35% of the margin.</div>
         <div><b>Type</b>Newsreader for the headline, stat, and date. DM Sans for eyebrows and buttons. JetBrains Mono for source lines and URLs.</div>
-        <div><b>Logo</b>Wordmark at 24% of the short edge, bottom-left. Clear space equals the K height. On Event it moves right so the CTA can lead.</div>
+        <div><b>Logo</b>Wordmark at 24% of the short edge, bottom-left. Clear space equals the K height. With a button, logo left and button right, centred on one line.</div>
       </div>
     </div>
   </section>
@@ -1196,7 +1221,7 @@
           </div>
           <div class="po-x__notes">
             <div><b>Strips (wider than 2.6:1)</b>One row: logo, message, button. The eyebrow, rule, source line, and URL drop out. Type is sized from the height.</div>
-            <div><b>Towers (narrower than 0.6:1)</b>One column: eyebrow, headline, button, logo. The headline breaks into short lines and is sized from the width, centred in the free space.</div>
+            <div><b>Towers (narrower than 0.6:1)</b>One column: logo at the top, eyebrow and headline, button at the bottom. The headline breaks into short lines and is sized from the width, centred in the free space.</div>
             <div><b>When it won&rsquo;t fit</b>The engine shrinks type to the format&rsquo;s floor (11&nbsp;px here), then drops the button, then flags the copy as too long. It never goes below the floor.</div>
           </div>
         </div>
