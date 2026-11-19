@@ -316,15 +316,16 @@
       "url": "https://brandkit.kilowott.com/project/#social",
       "source": "https://brandkit.kilowott.com/project/pages/social.js",
       "file": "project/pages/social.js",
-      "purpose": "Social platform templates",
+      "purpose": "How to make a Kilowott social post: where to post, six post types with copy formulas, a post editor, and the posts inside each platform feed",
       "contents": [
-        "LinkedIn feed and document carousel",
-        "X posts and threads",
-        "Facebook",
-        "Instagram feed, carousel, story, reel",
-        "cover banners"
+        "where we post (LinkedIn first, Instagram second, X and Facebook reuse)",
+        "six post types: proof, point of view, people and culture, hiring, event, end card",
+        "LinkedIn document carousel (six slides)",
+        "post editor with PNG export (4:5, 1:1, 9:16, 1.91:1)",
+        "feed previews: LinkedIn, Instagram (feed, carousel, Story, grid), X, Facebook",
+        "profile kit: avatar, cover banners, bios"
       ],
-      "use_when": "Social posts, carousels, stories, covers"
+      "use_when": "Making any organic social post; paid ad sizes are on Posters & ads"
     },
     {
       "id": "posters",

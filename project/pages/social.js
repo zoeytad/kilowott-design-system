@@ -1,1074 +1,447 @@
 /* ============================================================
-   SOCIAL — realistic platform simulations
-   LinkedIn · X · Facebook · Instagram (feed/reel/carousel/story)
-   Each mock renders inside accurate platform chrome so you can see
-   exactly how a Kilowott post will look in the wild. Content uses
-   Kilowott's own facts (real offices, tagline) plus the fictional Nordhavn Coffee case
-   (3.5×, sample figures) and brand photos from /assets/photos/.
+   SOCIAL MEDIA — how to make a Kilowott post.
+   Six post types (each a designed image + copy formula), a LinkedIn
+   document carousel, an editor with PNG export, the posts inside each
+   platform's feed, and the profile kit. Post images are drawn by the
+   poster layout engine (window.KWPosters, pages/posters.js), so organic
+   posts and paid ads share margins, type, and the one-red rule.
+   Demo content is fictional: Nordhavn Coffee, Ola Nordmann, sample role
+   and event. Platform chrome uses the platforms' own colours.
    ============================================================ */
 
 window.renderSocial = function (root) {
-  // System font stacks per platform, for accurate chrome
-  const FONT_LI = `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif`;
-  const FONT_X  = `"TwitterChirp", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif`;
-  const FONT_FB = `"SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif`;
-  const FONT_IG = `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif`;
-
-  // Reusable photo paths — all real, in /assets/photos/
-  const PHOTO = {
-    teamLaugh:    'assets/photos/team-laughing-meeting.jpg',
-    teamFocused:  'assets/photos/team-focused-laptop.jpg',
-    teamWorkshop: 'assets/photos/team-seated-workshop.jpg',
-    teamGroup:    'assets/photos/team-portrait-group.jpg',
-    teamStanding: 'assets/photos/team-standing-discussion.jpg',
-    pairWarm:     'assets/photos/pair-working-warm.jpg',
-    leader:       'assets/photos/portrait-leader-window.jpg',
-    portraitTab:  'assets/photos/portrait-woman-tablet.jpg',
-    portraitPhone:'assets/photos/portrait-woman-phone.jpg',
-    nordic:       'assets/photos/landscape-nordic.jpg',
-    loungeWarm:   'assets/photos/lounge-coworking-warm.jpg',
-    loungeDisc:   'assets/photos/lounge-discussion.jpg',
-    atmoWarm:     'assets/photos/textural-atmosphere-warm.jpg',
-    atmoCool:     'assets/photos/textural-atmosphere-cool.jpg',
-  };
-
-  // Avatar = Kilowott bolt mark (black bolt on white) — the canonical profile
-  // logo used on LinkedIn / company social pages. Source: Kilowott LinkedIn CDN.
-  const AVATAR = `<img src="assets/kilowott-bolt.jpg" alt="Kilowott" style="width:100%;height:100%;display:block;object-fit:cover;background:#fff;">`;
-
   root.innerHTML = `
   <style>
-    /* ---- HERO ---- */
-    .so-hero { padding: var(--s-9) 0 var(--s-7); border-bottom: 1px solid var(--rule); }
-    .so-hero h1 {
-      font-family: var(--font-display); font-weight: 400;
-      font-size: var(--fs-d2); line-height: 1.04; letter-spacing: -0.02em;
-      margin-top: 20px; max-width: 22ch;
-    }
-    .so-hero h1 em { font-style: italic; color: var(--accent); }
-    .so-hero__lede { margin-top: 22px; max-width: 62ch; color: var(--fg-2); font-size: 1.0625rem; line-height: 1.6; }
 
-    /* ---- PLATFORM SECTION HEAD ---- */
-    .so-plat {
-      display: flex; align-items: baseline; gap: 16px;
-      margin-bottom: var(--s-6);
-    }
-    .so-plat__icon {
-      width: 36px; height: 36px; border-radius: 8px;
-      display: inline-flex; align-items: center; justify-content: center;
-      color: #fff;
-      flex-shrink: 0;
-    }
-    .so-plat__icon svg { width: 20px; height: 20px; }
-    .so-plat__h {
-      font-family: var(--font-display);
-      font-size: var(--fs-d3); line-height: 1.1; letter-spacing: -0.02em;
-    }
-    .so-plat__sub {
-      margin-left: auto;
-      font-family: var(--font-mono); font-size: 11px;
-      letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-2);
-    }
 
-    /* ---- MOCK GRID ---- */
-    .so-grid {
-      display: grid; gap: var(--s-5);
-      grid-template-columns: repeat(2, 1fr);
-    }
-    .so-grid--3 { grid-template-columns: repeat(3, 1fr); }
-    .so-grid--4 { grid-template-columns: repeat(4, 1fr); }
-    @media (max-width: 1100px) { .so-grid--4, .so-grid--3 { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 720px)  { .so-grid, .so-grid--3, .so-grid--4 { grid-template-columns: 1fr; } }
+  .sm-hero { padding: 64px 0 40px; }
+  .sm-hero h1 { font-family: var(--font-display); font-weight: 400; font-size: var(--fs-d2); letter-spacing: -.025em; line-height: 1.02; margin: 16px 0; max-width: 16ch; }
+  .sm-hero h1 em { font-style: italic; color: var(--accent); }
+  .sm-hero p { color: var(--fg-2); font-size: 1.125rem; line-height: 1.55; max-width: 60ch; margin: 0; }
 
-    .so-card {
-      border: 1px solid var(--rule); border-radius: var(--r-3);
-      overflow: hidden; background: var(--bg-2);
-    }
-    .so-card__stage {
-      padding: 32px 28px;
-      display: flex; align-items: flex-start; justify-content: center;
-      min-height: 200px;
-    }
-    .so-card__cap {
-      padding: 14px 20px;
-      border-top: 1px solid var(--rule);
-      font-size: 13px; color: var(--fg-2); line-height: 1.5;
-      background: var(--bg);
-    }
-    .so-card__cap b { color: var(--fg); font-weight: 500; }
+  .sm-sec { padding: 56px 0; border-top: 1px solid var(--rule); scroll-margin-top: 16px; }
+  .sm-sec__head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 48px; margin-bottom: 32px; align-items: end; }
+  .sm-sec__head h2 { font-family: var(--font-display); font-weight: 400; font-size: 2.25rem; letter-spacing: -.02em; line-height: 1.05; margin: 10px 0 0; }
+  .sm-sec__head p { color: var(--fg-2); line-height: 1.6; margin: 0; max-width: 60ch; }
+  .sm-muted { color: var(--fg-2); }
+  .sm-mono { font-family: var(--font-mono); font-size: 12px; letter-spacing: .02em; }
+  .sm-h3 { font-weight: 500; font-size: var(--fs-body); margin: 0; }
 
-    /* ============================================================
-       LINKEDIN — accurate post chrome
-       ============================================================ */
-    .li-post {
-      width: 100%; max-width: 552px;
-      background: #FFFFFF; color: rgba(0,0,0,0.9);
-      border: 1px solid rgba(0,0,0,0.08);
-      border-radius: 8px;
-      font-family: ${FONT_LI};
-      font-size: 14px; line-height: 1.5;
-      box-shadow: 0 0 0 1px rgba(0,0,0,0.08);
-    }
-    .li-post__head { display: flex; align-items: flex-start; gap: 8px; padding: 12px 16px; }
-    .li-post__avatar { width: 48px; height: 48px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
-    .li-post__author { flex: 1; min-width: 0; }
-    .li-post__name {
-      font-weight: 600; color: rgba(0,0,0,0.9); font-size: 14px;
-      display: flex; align-items: center; gap: 4px;
-    }
-    .li-post__name::after {
-      content: "✓"; display: inline-flex; align-items: center; justify-content: center;
-      width: 14px; height: 14px; background: #0A66C2; color: #fff;
-      border-radius: 50%; font-size: 9px; font-weight: 700;
-    }
-    .li-post__follow {
-      color: rgba(0,0,0,0.6); font-size: 12px; margin-top: 1px;
-      max-width: 380px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-    }
-    .li-post__meta { color: rgba(0,0,0,0.6); font-size: 12px; margin-top: 2px; display: flex; align-items: center; gap: 4px; }
-    .li-post__meta svg { width: 12px; height: 12px; }
-    .li-post__more { padding: 6px; border-radius: 50%; color: rgba(0,0,0,0.6); cursor: default; }
-    .li-post__body { padding: 0 16px 12px; color: rgba(0,0,0,0.9); white-space: pre-line; word-wrap: break-word; }
-    .li-post__body b { font-weight: 600; }
-    .li-post__more-link { color: rgba(0,0,0,0.6); font-weight: 600; cursor: default; }
-    .li-post__media { width: 100%; display: block; }
-    .li-post__media img { width: 100%; display: block; }
-    .li-post__counts {
-      display: flex; align-items: center; gap: 4px;
-      padding: 8px 16px; font-size: 12px; color: rgba(0,0,0,0.6);
-      border-bottom: 1px solid rgba(0,0,0,0.08);
-    }
-    .li-post__reacts { display: inline-flex; }
-    .li-post__react {
-      width: 16px; height: 16px; border-radius: 50%;
-      border: 1.5px solid #fff; margin-left: -3px;
-      display: inline-flex; align-items: center; justify-content: center;
-      font-size: 9px; color: #fff;
-    }
-    .li-post__react:first-child { margin-left: 0; }
-    .li-post__react--like { background: #0A66C2; }
-    .li-post__react--celeb { background: #6DAE4F; }
-    .li-post__react--love { background: #DF704D; }
-    .li-post__bar {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      padding: 4px 8px;
-    }
-    .li-post__btn {
-      display: flex; align-items: center; justify-content: center; gap: 6px;
-      padding: 10px 4px; font-size: 13px; font-weight: 600;
-      color: rgba(0,0,0,0.6);
-      border-radius: 4px;
-    }
-    .li-post__btn svg { width: 18px; height: 18px; }
+  /* rules */
 
-    /* LinkedIn carousel/document */
-    .li-doc {
-      width: 100%; max-width: 552px;
-      background: #FFFFFF; border: 1px solid rgba(0,0,0,0.08);
-      border-radius: 8px; font-family: ${FONT_LI};
-      box-shadow: 0 0 0 1px rgba(0,0,0,0.08);
-    }
-    .li-doc__viewer {
-      position: relative; aspect-ratio: 1/1;
-      background: #0B0F14;
-      display: grid; place-items: center;
-      overflow: hidden;
-    }
-    .li-doc__slide {
-      width: 100%; height: 100%;
-      display: flex; flex-direction: column; justify-content: space-between;
-      padding: 36px 36px 28px;
-      color: #fff;
-    }
-    .li-doc__eyebrow {
-      font-size: 11px; letter-spacing: 0.18em;
-      text-transform: uppercase;
-      display: inline-flex; align-items: center; gap: 10px;
-    }
-    .li-doc__eyebrow::before { content: ""; width: 18px; height: 1px; background: var(--accent); }
-    .li-doc__h {
-      font-family: 'Newsreader', Georgia, serif;
-      font-size: 42px; line-height: 1.04; letter-spacing: -0.02em;
-      font-weight: 400;
-    }
-    .li-doc__h em { font-style: italic; color: var(--accent); }
-    .li-doc__pgcount {
-      position: absolute; right: 12px; bottom: 12px;
-      background: rgba(0,0,0,0.7); color: #fff;
-      font-size: 12px; padding: 4px 10px; border-radius: 4px;
-      font-weight: 500;
-    }
-    .li-doc__nav-l, .li-doc__nav-r {
-      position: absolute; top: 50%; transform: translateY(-50%);
-      width: 36px; height: 36px; border-radius: 50%;
-      background: rgba(0,0,0,0.6); color: #fff;
-      display: grid; place-items: center;
-      font-size: 16px;
-    }
-    .li-doc__nav-l { left: 8px; }
-    .li-doc__nav-r { right: 8px; }
+  /* platforms */
+  .sm-plats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+  .sm-plat { border: 1px solid var(--rule); border-radius: var(--r-3); padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+  .sm-plat--lead { background: var(--bg-2); }
+  .sm-plat__top { display: flex; justify-content: space-between; align-items: baseline; }
+  .sm-plat__name { font-family: var(--font-display); font-size: 1.5rem; letter-spacing: -.01em; }
+  .sm-plat__role { font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--fg-2); }
+  .sm-plat dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 6px 12px; font-size: 13px; }
+  .sm-plat dt { color: var(--fg-2); }
+  .sm-plat dd { margin: 0; }
 
-    /* ============================================================
-       X (TWITTER) — accurate dark/light chrome
-       ============================================================ */
-    .x-post {
-      width: 100%; max-width: 540px;
-      background: #FFFFFF; color: #0F1419;
-      border: 1px solid #EFF3F4;
-      border-radius: 16px;
-      font-family: ${FONT_X};
-      font-size: 15px; line-height: 1.3125;
-      padding: 12px 16px;
-    }
-    .x-post--dark { background: #000; color: #E7E9EA; border-color: #2F3336; }
-    .x-post__head { display: flex; align-items: flex-start; gap: 12px; }
-    .x-post__avatar { width: 40px; height: 40px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
-    .x-post__id { flex: 1; min-width: 0; }
-    .x-post__line {
-      display: flex; align-items: center; gap: 4px; font-size: 15px;
-      flex-wrap: wrap;
-    }
-    .x-post__name { font-weight: 700; color: inherit; }
-    .x-post__name::after {
-      content: "✓"; display: inline-flex; align-items: center; justify-content: center;
-      width: 17px; height: 17px; background: #1D9BF0; color: #fff;
-      border-radius: 50%; font-size: 11px; font-weight: 700;
-      margin-left: 3px; vertical-align: middle;
-    }
-    .x-post__handle { color: #536471; font-weight: 400; }
-    .x-post--dark .x-post__handle { color: #71767B; }
-    .x-post__sep { color: #536471; }
-    .x-post--dark .x-post__sep { color: #71767B; }
-    .x-post__time { color: #536471; }
-    .x-post--dark .x-post__time { color: #71767B; }
-    .x-post__more { margin-left: auto; color: #536471; }
-    .x-post--dark .x-post__more { color: #71767B; }
-    .x-post__body { margin-top: 4px; color: inherit; word-wrap: break-word; white-space: pre-line; }
-    .x-post__body a { color: #1D9BF0; }
-    .x-post__media {
-      margin-top: 12px; border-radius: 16px; overflow: hidden;
-      border: 1px solid #EFF3F4;
-    }
-    .x-post--dark .x-post__media { border-color: #2F3336; }
-    .x-post__media img { width: 100%; display: block; }
-    .x-post__bar {
-      display: grid; grid-template-columns: repeat(5, 1fr);
-      margin-top: 12px;
-    }
-    .x-post__btn {
-      display: flex; align-items: center; gap: 6px;
-      color: #536471; font-size: 13px;
-    }
-    .x-post--dark .x-post__btn { color: #71767B; }
-    .x-post__btn svg { width: 18px; height: 18px; }
+  /* post types */
+  .sm-types { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  .sm-type { border: 1px solid var(--rule); border-radius: var(--r-3); overflow: hidden; display: flex; flex-direction: column; background: var(--bg); }
+  .sm-type__stage { background: var(--bg-2); padding: 20px; display: grid; place-items: center; }
+  .sm-type__stage .sm-art { width: 100%; max-width: 300px; }
+  .sm-art .po-svg { display: block; width: 100%; height: auto; box-shadow: var(--shadow-1); }
+  .sm-type__body { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  .sm-type__num { font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; color: var(--fg-2); }
+  .sm-type__name { font-family: var(--font-display); font-size: 1.5rem; letter-spacing: -.01em; margin: 0; }
+  .sm-type__use { font-size: 13px; color: var(--fg-2); margin: 0; line-height: 1.5; }
+  .sm-formula { margin: 4px 0 0; padding: 0; list-style: none; display: grid; gap: 6px; font-size: 13px; counter-reset: f; }
+  .sm-formula li { display: grid; grid-template-columns: 64px 1fr; gap: 8px; }
+  .sm-formula b { font-family: var(--font-mono); font-weight: 500; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--fg-2); padding-top: 2px; }
+  .sm-caption { background: var(--bg-2); border-radius: var(--r-2); padding: 12px 14px; font-size: 13px; line-height: 1.55; white-space: pre-line; }
+  .sm-caption__lbl { font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--fg-2); display: block; margin-bottom: 6px; }
+  .sm-type__foot { margin-top: auto; padding-top: 6px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .btn .lucide { width: 14px; height: 14px; }
 
-    /* X thread */
-    .x-thread { display: flex; flex-direction: column; gap: 0; }
-    .x-thread .x-post {
-      border-radius: 0; border-bottom: 1px solid #EFF3F4;
-      border-left: 0; border-right: 0; border-top: 0;
-    }
-    .x-thread .x-post:first-child { border-top: 1px solid #EFF3F4; border-radius: 16px 16px 0 0; }
-    .x-thread .x-post:last-child { border-bottom: 1px solid #EFF3F4; border-radius: 0 0 16px 16px; }
-    .x-thread__connector {
-      width: 2px; background: #CFD9DE; margin-left: 35px; height: 12px;
-      margin-top: -2px; margin-bottom: -2px; position: relative; z-index: 1;
-    }
+  /* carousel */
+  .sm-strip { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(200px, 1fr); gap: 12px; overflow-x: auto; padding-bottom: 8px; }
+  .sm-strip figure { margin: 0; }
+  .sm-strip figcaption { font-size: 12px; color: var(--fg-2); margin-top: 8px; }
+  .sm-strip figcaption b { color: var(--fg); font-weight: 500; display: block; }
 
-    /* ============================================================
-       FACEBOOK — accurate card chrome
-       ============================================================ */
-    .fb-post {
-      width: 100%; max-width: 552px;
-      background: #FFFFFF; color: #050505;
-      border-radius: 8px; font-family: ${FONT_FB};
-      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-      font-size: 15px; line-height: 1.3333;
-    }
-    .fb-post__head { display: flex; align-items: center; gap: 8px; padding: 12px 16px; }
-    .fb-post__avatar { width: 40px; height: 40px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
-    .fb-post__author { flex: 1; min-width: 0; }
-    .fb-post__name {
-      font-weight: 600; font-size: 15px; color: #050505;
-      display: flex; align-items: center; gap: 4px;
-    }
-    .fb-post__name::after {
-      content: "✓"; display: inline-flex; align-items: center; justify-content: center;
-      width: 14px; height: 14px; background: #1877F2; color: #fff;
-      border-radius: 50%; font-size: 9px; font-weight: 700;
-    }
-    .fb-post__meta { color: #65676B; font-size: 13px; display: flex; align-items: center; gap: 4px; }
-    .fb-post__meta svg { width: 12px; height: 12px; }
-    .fb-post__body { padding: 0 16px 12px; color: #050505; }
-    .fb-post__media img { width: 100%; display: block; }
-    .fb-post__counts {
-      display: flex; align-items: center; gap: 4px;
-      padding: 10px 16px; font-size: 13px; color: #65676B;
-    }
-    .fb-post__reacts { display: inline-flex; align-items: center; }
-    .fb-post__react {
-      width: 18px; height: 18px; border-radius: 50%;
-      border: 1.5px solid #fff; margin-left: -4px;
-      display: inline-flex; align-items: center; justify-content: center;
-      color: #fff; font-size: 10px;
-    }
-    .fb-post__react:first-child { margin-left: 0; }
-    .fb-post__react--like { background: #1877F2; }
-    .fb-post__react--love { background: #F33E58; }
-    .fb-post__react--care { background: #F7B125; }
-    .fb-post__bar {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      padding: 4px 8px; border-top: 1px solid #CED0D4;
-      margin: 0 8px;
-    }
-    .fb-post__btn {
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-      padding: 8px 4px; font-size: 14px; font-weight: 600;
-      color: #65676B; border-radius: 6px;
-    }
-    .fb-post__btn svg { width: 18px; height: 18px; }
+  /* editor */
+  .sm-ed { display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: 32px; align-items: start; }
+  .sm-ed__form { border: 1px solid var(--rule); border-radius: var(--r-3); padding: 20px; display: grid; gap: 14px; }
+  .sm-ed__form label { display: grid; gap: 6px; font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--fg-2); }
+  .sm-ed__form input, .sm-ed__form select, .sm-ed__form textarea { font: inherit; font-family: var(--font-sans); font-size: var(--fs-sm); text-transform: none; letter-spacing: 0; color: var(--fg); background: var(--bg); border: 1px solid var(--rule); border-radius: var(--r-2); padding: 9px 10px; }
+  .sm-ed__form textarea { min-height: 64px; resize: vertical; }
+  .sm-ed__form input:focus, .sm-ed__form select:focus, .sm-ed__form textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: transparent; }
+  .sm-seg { display: flex; flex-wrap: wrap; gap: 6px; }
+  .sm-seg button { font: inherit; font-size: 13px; padding: 6px 12px; border-radius: var(--r-pill); border: 1px solid var(--rule); background: var(--bg); color: var(--fg); cursor: pointer; }
+  .sm-seg button[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+  .sm-ed__stage { background: var(--bg-2); border-radius: var(--r-3); padding: 32px; display: grid; place-items: center; min-height: 480px; }
+  .sm-ed__stage .sm-art { width: 100%; }
+  .sm-ed__meta { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 12px; font-size: 13px; color: var(--fg-2); }
+  .sm-ed__warn { margin: 8px 0 0; padding: 0; list-style: none; font-size: 13px; color: var(--warning); }
 
-    /* ============================================================
-       INSTAGRAM — feed post + reel + carousel + story
-       ============================================================ */
-    .ig-post {
-      width: 100%; max-width: 470px;
-      background: #FFFFFF; color: #262626;
-      border: 1px solid #DBDBDB;
-      border-radius: 8px;
-      font-family: ${FONT_IG};
-      font-size: 14px; line-height: 1.4;
-    }
-    .ig-post__head { display: flex; align-items: center; gap: 12px; padding: 14px 16px; }
-    .ig-post__avatar {
-      width: 32px; height: 32px; border-radius: 50%; overflow: hidden;
-      padding: 2px; background: linear-gradient(45deg, #FED373, #F15245, #D92E7F, #9B36B7, #515ECF);
-    }
-    .ig-post__avatar > div {
-      width: 100%; height: 100%; border-radius: 50%; overflow: hidden;
-      border: 2px solid #fff;
-    }
-    .ig-post__user { flex: 1; }
-    .ig-post__name {
-      font-weight: 600; font-size: 14px; color: #262626;
-      display: flex; align-items: center; gap: 4px;
-    }
-    .ig-post__name::after {
-      content: "✓"; display: inline-flex; align-items: center; justify-content: center;
-      width: 14px; height: 14px; background: #2196F3; color: #fff;
-      border-radius: 50%; font-size: 9px; font-weight: 700;
-    }
-    .ig-post__location { font-size: 12px; color: #262626; margin-top: 1px; }
-    .ig-post__more { color: #262626; }
-    .ig-post__media {
-      position: relative;
-      aspect-ratio: 1/1; overflow: hidden;
-      background: #FAFAFA;
-    }
-    .ig-post__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .ig-post__dots {
-      position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
-      display: flex; gap: 4px;
-    }
-    .ig-post__dot { width: 6px; height: 6px; border-radius: 50%; background: #FFF; opacity: 0.6; }
-    .ig-post__dot.is-active { opacity: 1; background: #0095F6; }
-    .ig-post__multi {
-      position: absolute; top: 12px; right: 12px;
-      background: rgba(0,0,0,0.6); color: #fff;
-      font-size: 12px; padding: 4px 10px; border-radius: 99px;
-      display: inline-flex; align-items: center; gap: 4px;
-    }
-    .ig-post__bar {
-      display: flex; align-items: center; padding: 8px 12px;
-    }
-    .ig-post__bar svg { width: 24px; height: 24px; stroke-width: 1.6; color: #262626; }
-    .ig-post__bar > * { padding: 6px; }
-    .ig-post__bar > *:last-child { margin-left: auto; padding-right: 6px; }
-    .ig-post__likes { padding: 0 16px 6px; font-weight: 600; font-size: 14px; color: #262626; }
-    .ig-post__caption { padding: 0 16px 6px; font-size: 14px; color: #262626; }
-    .ig-post__caption b { font-weight: 600; }
-    .ig-post__see { color: #8E8E8E; }
-    .ig-post__time { padding: 0 16px 14px; font-size: 10px; text-transform: uppercase; color: #8E8E8E; letter-spacing: 0.4px; }
+  /* feed previews */
 
-    /* IG Reel — 9:16 vertical */
-    .ig-reel {
-      position: relative;
-      width: 100%; max-width: 280px;
-      aspect-ratio: 9/16;
-      background: #000; overflow: hidden;
-      border-radius: 12px;
-      font-family: ${FONT_IG};
-      color: #fff;
-    }
-    .ig-reel__media { position: absolute; inset: 0; }
-    .ig-reel__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .ig-reel__media::after {
-      content: ""; position: absolute; inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 22%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.65) 100%);
-    }
-    .ig-reel__top {
-      position: absolute; top: 0; left: 0; right: 0;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 14px 16px; z-index: 2;
-    }
-    .ig-reel__top-l { display: flex; gap: 16px; font-weight: 600; font-size: 16px; }
-    .ig-reel__top-l span:first-child { opacity: 0.6; }
-    .ig-reel__right {
-      position: absolute; right: 8px; bottom: 110px; z-index: 2;
-      display: flex; flex-direction: column; gap: 18px; align-items: center;
-      color: #fff;
-    }
-    .ig-reel__action { display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 11px; font-weight: 600; }
-    .ig-reel__action svg { width: 26px; height: 26px; stroke-width: 2.2; }
-    .ig-reel__bottom {
-      position: absolute; left: 0; right: 60px; bottom: 0; z-index: 2;
-      padding: 14px 16px;
-    }
-    .ig-reel__user { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
-    .ig-reel__user-avatar {
-      width: 28px; height: 28px; border-radius: 50%;
-      border: 1.5px solid #fff; overflow: hidden;
-    }
-    .ig-reel__user-name { font-weight: 600; font-size: 14px; display: inline-flex; align-items: center; gap: 6px; }
-    .ig-reel__follow {
-      border: 1px solid #fff; padding: 3px 10px;
-      border-radius: 6px; font-size: 12px; font-weight: 600;
-    }
-    .ig-reel__caption { font-size: 13px; line-height: 1.4; max-width: 90%; }
-    .ig-reel__audio {
-      display: flex; align-items: center; gap: 6px;
-      margin-top: 8px; font-size: 12px;
-    }
-    .ig-reel__audio svg { width: 12px; height: 12px; }
 
-    /* IG Story — 9:16 with progress bar */
-    .ig-story {
-      position: relative;
-      width: 100%; max-width: 280px;
-      aspect-ratio: 9/16;
-      background: #000; overflow: hidden;
-      border-radius: 12px;
-      font-family: ${FONT_IG};
-      color: #fff;
-    }
-    .ig-story__media { position: absolute; inset: 0; }
-    .ig-story__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .ig-story__media::after {
-      content: ""; position: absolute; inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 65%, rgba(0,0,0,0.5) 100%);
-    }
-    .ig-story__bars {
-      position: absolute; top: 8px; left: 8px; right: 8px;
-      display: flex; gap: 4px; z-index: 2;
-    }
-    .ig-story__bar {
-      flex: 1; height: 2px; background: rgba(255,255,255,0.4); border-radius: 1px;
-    }
-    .ig-story__bar.is-progress { background: #fff; }
-    .ig-story__bar.is-active::after {
-      content: ""; display: block;
-      width: 60%; height: 100%; background: #fff; border-radius: 1px;
-    }
-    .ig-story__head {
-      position: absolute; top: 18px; left: 14px; right: 14px;
-      display: flex; align-items: center; gap: 10px; z-index: 2;
-    }
-    .ig-story__avatar {
-      width: 32px; height: 32px; border-radius: 50%; overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.4);
-    }
-    .ig-story__user { font-weight: 600; font-size: 14px; display: flex; align-items: center; gap: 4px; }
-    .ig-story__time { font-weight: 400; opacity: 0.8; font-size: 13px; margin-left: 4px; }
-    .ig-story__center {
-      position: absolute; top: 28%; left: 0; right: 0; padding: 0 28px;
-      text-align: center; z-index: 2;
-    }
-    .ig-story__center h3 {
-      font-family: 'Newsreader', Georgia, serif;
-      font-size: 30px; line-height: 1.05; letter-spacing: -0.01em; font-weight: 400;
-      color: #fff;
-    }
-    .ig-story__center h3 em { font-style: italic; color: #FF6B82; }
-    .ig-story__sticker {
-      display: inline-block; margin-top: 16px;
-      background: #fff; color: #0B0F14;
-      font-weight: 700; font-size: 14px;
-      padding: 8px 16px; border-radius: 6px;
-      transform: rotate(-2deg);
-    }
-    .ig-story__bottom {
-      position: absolute; left: 12px; right: 12px; bottom: 14px; z-index: 2;
-      display: flex; align-items: center; gap: 10px;
-    }
-    .ig-story__reply {
-      flex: 1;
-      border: 1px solid rgba(255,255,255,0.5); border-radius: 24px;
-      padding: 10px 14px; font-size: 13px;
-      color: rgba(255,255,255,0.85);
-    }
-    .ig-story__icons { display: flex; gap: 12px; }
-    .ig-story__icons svg { width: 22px; height: 22px; stroke-width: 2; }
+  /* platform previews (third-party chrome: platform hex colours allowed) */
+  .sm-ptabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 24px; }
+  .sm-ptabs button { font: inherit; font-size: 14px; padding: 8px 16px; border-radius: var(--r-pill); border: 1px solid var(--rule); background: var(--bg); color: var(--fg); cursor: pointer; }
+  .sm-ptabs button[aria-selected="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+  .sm-ppanel { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; align-items: start; }
+  .sm-ppanel[hidden] { display: none; }
+  .sm-pv { display: flex; flex-direction: column; gap: 10px; }
+  .sm-pv__cap { font-size: 13px; color: var(--fg-2); line-height: 1.5; }
+  .sm-pv__cap b { color: var(--fg); font-weight: 500; }
+  .sm-pf { background: #fff; color: #0f1419; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif; overflow: hidden; }
+  .sm-pf .po-svg { display: block; width: 100%; height: auto; }
+  .sm-pf__head { display: flex; gap: 10px; align-items: center; padding: 12px 14px 8px; }
+  .sm-pf__av { width: 40px; height: 40px; flex: none; overflow: hidden; border: 1px solid #e6e6e6; }
+  .sm-pf__av img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .sm-pf__name { font-weight: 600; font-size: 14px; line-height: 1.2; }
+  .sm-pf__sub { font-size: 12px; color: #666; line-height: 1.3; }
+  .sm-pf__body { padding: 0 14px 10px; font-size: 14px; line-height: 1.45; }
+  .sm-pf__more { color: #666; }
+  .sm-pf__bar { display: flex; justify-content: space-around; padding: 8px; border-top: 1px solid #ececec; font-size: 13px; font-weight: 600; color: #666; }
+  .sm-pf__count { display: flex; justify-content: space-between; padding: 6px 14px; font-size: 12px; color: #666; }
+  /* LinkedIn */
+  .sm-pf--li { border: 1px solid #e0dfdc; border-radius: 10px; }
+  .sm-pf--li .sm-pf__av { width: 48px; height: 48px; border-radius: 4px; }
+  /* document viewer */
+  .sm-doc { position: relative; background: #f3f2ef; }
+  .sm-doc__nav { position: absolute; top: 50%; transform: translateY(-50%); width: 34px; height: 34px; border-radius: 50%; border: 0; background: rgba(0,0,0,.6); color: #fff; font-size: 18px; cursor: pointer; display: grid; place-items: center; }
+  .sm-doc__nav--l { left: 8px; } .sm-doc__nav--r { right: 8px; }
+  .sm-doc__count { position: absolute; right: 10px; top: 10px; background: rgba(0,0,0,.6); color: #fff; font-size: 12px; padding: 3px 8px; border-radius: 12px; }
+  .sm-doc__title { padding: 8px 14px; font-size: 13px; font-weight: 600; border-top: 1px solid #ececec; }
+  /* Instagram */
+  .sm-pf--ig { border: 1px solid #dbdbdb; border-radius: 8px; }
+  .sm-pf--ig .sm-pf__av { width: 32px; height: 32px; border-radius: 50%; }
+  .sm-pf--ig .sm-pf__icons { display: flex; gap: 14px; padding: 10px 14px 4px; font-size: 13px; color: #262626; }
+  .sm-pf--ig .sm-pf__icons .lucide { width: 22px; height: 22px; stroke-width: 1.75; }
+  .sm-pf--ig .sm-pf__icons .sp { margin-left: auto; }
+  .sm-dots { display: flex; justify-content: center; gap: 4px; padding: 8px 0 0; }
+  .sm-dots i { width: 6px; height: 6px; border-radius: 50%; background: #c7c7c7; display: block; }
+  .sm-dots i.on { background: #0095f6; }
+  .sm-story { position: relative; border-radius: 14px; overflow: hidden; background: #000; max-width: 300px; width: 100%; }
+  .sm-story .po-svg, .sm-pf .po-svg, .sm-art .po-svg { display: block; width: 100%; height: auto; max-height: none; max-width: none; }
+  .sm-story::before, .sm-story::after { content: ""; position: absolute; left: 0; right: 0; height: 64px; z-index: 1; pointer-events: none; }
+  .sm-story::before { top: 0; background: linear-gradient(rgba(0,0,0,.35), transparent); }
+  .sm-story::after { bottom: 0; background: linear-gradient(transparent, rgba(0,0,0,.35)); }
+  .sm-story__bars { position: absolute; top: 8px; left: 8px; right: 8px; display: flex; gap: 3px; z-index: 2; }
+  .sm-story__bars i { flex: 1; height: 2px; background: rgba(255,255,255,.4); border-radius: 2px; }
+  .sm-story__bars i.on { background: #fff; }
+  .sm-story__user { position: absolute; top: 18px; left: 10px; display: flex; gap: 8px; align-items: center; color: #fff; font-size: 13px; font-weight: 600; z-index: 2; font-family: -apple-system, system-ui, sans-serif; }
+  .sm-story__user img { width: 28px; height: 28px; border-radius: 50%; }
+  .sm-story__reply { position: absolute; bottom: 10px; left: 10px; right: 10px; border: 1px solid rgba(255,255,255,.6); border-radius: 22px; color: rgba(255,255,255,.85); font-size: 13px; padding: 9px 14px; z-index: 2; font-family: -apple-system, system-ui, sans-serif; }
+  .sm-ig-prof { max-width: 420px; }
+  .sm-ig-prof .sm-pf__head { padding: 14px; gap: 14px; }
+  .sm-ig-prof .sm-pf__av { width: 64px; height: 64px; border-radius: 50%; }
+  .sm-ig-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  /* X */
+  .sm-pf--x { border: 1px solid #eff3f4; border-radius: 0; display: grid; grid-template-columns: 40px 1fr; gap: 10px; padding: 12px 14px; }
+  .sm-pf--x .sm-pf__av { border-radius: 50%; }
+  .sm-pf--x .sm-pf__line { font-size: 14px; } .sm-pf--x .sm-pf__line span { color: #536471; font-weight: 400; }
+  .sm-pf--x .sm-pf__text { font-size: 15px; line-height: 1.4; margin: 2px 0 10px; }
+  .sm-pf--x .sm-pf__media { border: 1px solid #cfd9de; border-radius: 16px; overflow: hidden; }
+  .sm-pf--x .sm-pf__xbar { display: flex; justify-content: space-between; color: #536471; font-size: 13px; padding: 10px 6px 0; }
+  /* Facebook */
+  .sm-pf--fb { border-radius: 8px; box-shadow: 0 1px 2px rgba(0,0,0,.2); }
+  .sm-pf--fb .sm-pf__av { border-radius: 50%; }
 
-    /* ---- BANNERS ---- */
-    .so-banner {
-      position: relative; overflow: hidden;
-      border-radius: 8px;
-      color: #fff;
-      display: flex; align-items: center; padding: 0 48px;
-    }
-    .so-banner--li { aspect-ratio: 1584/396; background: #0B0F14; }
-    .so-banner--x  { aspect-ratio: 1500/500;  background: #0B0F14; }
-    .so-banner--fb { aspect-ratio: 820/312;   background: #0B0F14; }
-    .so-banner__bg { position: absolute; inset: 0; }
-    .so-banner__bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.55; }
-    .so-banner__bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(11,15,20,0.9) 0%, rgba(11,15,20,0.55) 60%, rgba(11,15,20,0.2) 100%); }
-    .so-banner__inner { position: relative; z-index: 1; max-width: 60%; }
-    .so-banner__eyebrow {
-      font-family: var(--font-sans); font-size: 11px; font-weight: 500;
-      letter-spacing: 0.22em; text-transform: uppercase; color: #fff;
-      display: inline-flex; align-items: center; gap: 10px;
-    }
-    .so-banner__eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--accent); }
-    .so-banner__h {
-      font-family: var(--font-display); font-weight: 400;
-      font-size: clamp(28px, 4vw, 56px); line-height: 1.03;
-      letter-spacing: -0.02em; margin-top: 10px;
-    }
-    .so-banner__h em { font-style: italic; color: var(--accent); }
+  /* profile kit */
+  .sm-kit { display: grid; gap: 16px; }
+  .sm-kit__row { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 24px; align-items: center; padding: 16px 0; border-top: 1px solid var(--rule); }
+  .sm-kit__row:first-child { border-top: 0; }
+  .sm-kit__row .sm-art .po-svg { box-shadow: none; outline: 1px solid var(--rule); }
+  .sm-avatar { width: 96px; height: 96px; border-radius: 50%; overflow: hidden; outline: 1px solid var(--rule); }
+  .sm-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .sm-bios { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .sm-bio { border: 1px solid var(--rule); border-radius: var(--r-3); padding: 16px; font-size: 13px; line-height: 1.55; }
+  .sm-bio b { display: block; font-weight: 500; margin-bottom: 4px; font-size: var(--fs-sm); }
+  .sm-bio span { font-family: var(--font-mono); font-size: 11px; color: var(--fg-2); display: block; margin-top: 8px; }
 
-    /* ---- HOWTO ---- */
-    .so-howto { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-5); margin-top: var(--s-7); }
-    @media (max-width: 900px) { .so-howto { grid-template-columns: 1fr; } }
-    .so-step { border: 1px solid var(--rule); border-radius: var(--r-3); padding: 22px; background: var(--bg); }
-    .so-step__num { font-family: var(--font-display); font-size: 28px; line-height: 1; color: var(--accent); letter-spacing: -0.02em; margin-bottom: 10px; font-style: italic; }
-    .so-step__h { font-family: var(--font-display); font-size: 19px; line-height: 1.2; letter-spacing: -0.01em; color: var(--fg); margin-bottom: 8px; }
-    .so-step__b { font-size: 13px; color: var(--fg-2); line-height: 1.55; }
+
+  @media (max-width: 1000px) {
+    .sm-types { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .sm-plats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .sm-ed, .sm-sec__head { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  }
+  @media (max-width: 640px) {
+    .sm-types, .sm-plats, .sm-bios { grid-template-columns: minmax(0, 1fr); }
+    .sm-kit__row { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+    .sm-ed__stage { padding: 16px; min-height: 0; }
+  }
+
   </style>
+  <section class="sm-hero"><div class="container">
+    <span class="eyebrow">Social media</span>
+    <h1>One idea per post, <em>proven</em>.</h1>
+    <p>Six post types cover almost everything Kilowott shares. Pick the type, follow its copy formula, and make the image in the editor below. LinkedIn comes first; the other platforms reuse the same posts.</p>
+  </div></section>
+  <div class="container">
 
-  <!-- HERO -->
-  <section class="so-hero">
-    <div class="container">
-      <span class="eyebrow">Social media</span>
-      <h1>Real <em>previews</em>, not abstract posters.</h1>
-      <p class="so-hero__lede">
-        Every layout below is rendered inside accurate platform chrome &mdash; LinkedIn, X, Facebook, Instagram feed, reel, carousel and story. So before you ship, you know exactly how a Kilowott post looks in the wild. Sample content uses the fictional Nordhavn Coffee case (sample figures) (3.5&times; organic traffic) and brand photography from <code style="font-family:var(--font-mono);font-size:13px;">/assets/photos/</code>.
-      </p>
+  
+
+  <section class="sm-sec" id="sm-where">
+    <div class="sm-sec__head"><div><span class="eyebrow">Where we post</span><h2>LinkedIn first.</h2></div><p>Kilowott sells to businesses, so LinkedIn carries the proof and the point of view. Instagram shows the people. X and Facebook reuse the LinkedIn post with shorter copy. Cadence is a suggestion to confirm with the team.</p></div>
+    <div class="sm-plats">
+      <div class="sm-plat sm-plat--lead"><div class="sm-plat__top"><span class="sm-plat__name">LinkedIn</span><span class="sm-plat__role">Primary</span></div><dl><dt>Carries</dt><dd>Proof, point of view, carousels, hiring</dd><dt>Sizes</dt><dd>4:5 · 1:1 · 1.91:1</dd><dt>Cadence</dt><dd>2–3 posts a week</dd></dl></div>
+      <div class="sm-plat"><div class="sm-plat__top"><span class="sm-plat__name">Instagram</span><span class="sm-plat__role">Second</span></div><dl><dt>Carries</dt><dd>People, culture, events, end cards</dd><dt>Sizes</dt><dd>4:5 · 1:1 · 9:16</dd><dt>Cadence</dt><dd>1–2 posts, Stories as they happen</dd></dl></div>
+      <div class="sm-plat"><div class="sm-plat__top"><span class="sm-plat__name">X</span><span class="sm-plat__role">Reuse</span></div><dl><dt>Carries</dt><dd>The LinkedIn post, cut to one line and a link</dd><dt>Sizes</dt><dd>1.91:1 · 1:1</dd><dt>Cadence</dt><dd>When LinkedIn posts</dd></dl></div>
+      <div class="sm-plat"><div class="sm-plat__top"><span class="sm-plat__name">Facebook</span><span class="sm-plat__role">Reuse</span></div><dl><dt>Carries</dt><dd>Hiring, events, the LinkedIn post</dd><dt>Sizes</dt><dd>1:1 · 1.91:1</dd><dt>Cadence</dt><dd>When there’s news</dd></dl></div>
     </div>
   </section>
 
-  <!-- ============================================================
-       LINKEDIN
-       ============================================================ -->
-  <section class="section">
-    <div class="container">
-      <div class="so-plat">
-        <div class="so-plat__icon" style="background:#0A66C2;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg></div>
-        <h2 class="so-plat__h">LinkedIn</h2>
-        <span class="so-plat__sub">Feed · 552px · 1200×627 image</span>
-      </div>
+  <section class="sm-sec" id="sm-types">
+    <div class="sm-sec__head"><div><span class="eyebrow">Six post types</span><h2>Pick the type, then the words.</h2></div><p>Each type has a fixed layout and a copy formula. Images are shown at 4:5, the size that takes the most room in a mobile feed. Open any of them in the editor to change the words or size.</p></div>
+    <div class="sm-types" id="sm-types-grid"></div>
+  </section>
 
-      <div class="so-grid">
-        <div class="so-card">
-          <div class="so-card__stage">
-            ${linkedInPost({
-              name: 'Kilowott',
-              follow: 'Strategic partner for agencies and growing brands · 4,800 followers',
-              time: '3d',
-              body: 'When a premium Indian coffee brand asked us to help them break into the U.S. market, we led with SEO content strategy and Meta ads.\n\nThe results, six months in:\n• 3.5× organic traffic\n• Domain Authority: 1 → 20\n• 256,000 search impressions\n• Engaged sessions up 98%\n\nOne engagement, two levers, measurable result.',
-              image: PHOTO.atmoWarm,
-              alt: 'Coffee brand reference photography',
-              reactCount: '247',
-              comments: '38',
-              reposts: '14'
-            })}
-          </div>
-          <div class="so-card__cap"><b>Feed post</b> &middot; image + body. Headline carries the stat, first 3 lines fit before the &ldquo;...more&rdquo; collapse, hashtags omitted on purpose.</div>
-        </div>
+  <section class="sm-sec" id="sm-carousel">
+    <div class="sm-sec__head"><div><span class="eyebrow">Document carousel</span><h2>Six slides, one story.</h2></div><p>LinkedIn’s document post is the best way to tell a case. Upload the slides as one PDF. The cover must work alone; every slide after it makes one point. Five to eight slides, never more.</p></div>
+    <div class="sm-strip" id="sm-strip"></div>
+  </section>
 
-        <div class="so-card">
-          <div class="so-card__stage">
-            ${linkedInDoc()}
-          </div>
-          <div class="so-card__cap"><b>Document carousel</b> &middot; PDF-style document, swipeable slides. Cover slide does the heavy lifting &mdash; the next 4 expand the case.</div>
-        </div>
+  <section class="sm-sec" id="sm-editor">
+    <div class="sm-sec__head"><div><span class="eyebrow">Make a post</span><h2>Edit, check, download.</h2></div><p>Choose a post type and a size, change the words, and download a PNG at full resolution. The layout keeps the margins, type sizes, and the one red moment for you, and warns when copy runs long.</p></div>
+    <div class="sm-ed">
+      <form class="sm-ed__form" id="sm-ed-form" autocomplete="off" onsubmit="return false">
+        <label>Post type<select id="sm-ed-type"></select></label>
+        <div><span class="sm-mono sm-muted" style="display:block;margin-bottom:6px;font-size:11px;letter-spacing:.06em">SIZE</span><div class="sm-seg" id="sm-ed-size"></div></div>
+        <div id="sm-ed-fields" style="display:grid;gap:14px"></div>
+        <button class="btn btn--primary" type="button" id="sm-ed-png"><i data-lucide="download"></i>Download PNG</button>
+        <span class="sm-muted" style="font-size:12px" id="sm-ed-out" aria-live="polite"></span>
+      </form>
+      <div>
+        <div class="sm-ed__stage"><div class="sm-art" id="sm-ed-art"></div></div>
+        <div class="sm-ed__meta"><span id="sm-ed-dim"></span><span>Alt text: describe the photo and repeat the headline.</span></div>
+        <ul class="sm-ed__warn" id="sm-ed-warn"></ul>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       X (TWITTER)
-       ============================================================ -->
-  <section class="section">
-    <div class="container">
-      <div class="so-plat">
-        <div class="so-plat__icon" style="background:#000;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
-        <h2 class="so-plat__h">X</h2>
-        <span class="so-plat__sub">Single post · thread · light + dark</span>
-      </div>
+  <section class="sm-sec" id="sm-feed">
+    <div class="sm-sec__head"><div><span class="eyebrow">In the feed</span><h2>How it reads in passing.</h2></div><p>The same posts inside each platform, at the size people actually see them. Check the first lines of copy before the “…more” cut, and that nothing important sits under the platform’s own buttons. Platform chrome and numbers are sample data.</p></div>
+    <div class="sm-ptabs" role="tablist" aria-label="Platform">
+      <button role="tab" aria-selected="true" data-p="li">LinkedIn</button>
+      <button role="tab" aria-selected="false" data-p="ig">Instagram</button>
+      <button role="tab" aria-selected="false" data-p="x">X</button>
+      <button role="tab" aria-selected="false" data-p="fb">Facebook</button>
+    </div>
+    <div class="sm-ppanel" data-panel="li" id="sm-panel-li"></div>
+    <div class="sm-ppanel" data-panel="ig" id="sm-panel-ig" hidden></div>
+    <div class="sm-ppanel" data-panel="x" id="sm-panel-x" hidden></div>
+    <div class="sm-ppanel" data-panel="fb" id="sm-panel-fb" hidden></div>
+  </section>
 
-      <div class="so-grid so-grid--3">
-        <div class="so-card">
-          <div class="so-card__stage">
-            ${xPost({
-              name: 'Kilowott', handle: '@kilowott', time: '6h',
-              body: 'Ahead, by design.\n\nWe just wrote up how SEO content + targeted paid social pushed Nordhavn Coffee 3.5× on organic traffic — full breakdown linked.',
-              image: null, replies: '12', reposts: '47', likes: '218', views: '14.2K'
-            })}
-          </div>
-          <div class="so-card__cap"><b>Text post</b> &middot; under 280 chars. Tagline first, claim second, link last.</div>
-        </div>
-
-        <div class="so-card">
-          <div class="so-card__stage">
-            ${xPost({
-              name: 'Kilowott', handle: '@kilowott', time: '2d',
-              body: 'Domain Authority: 1 → 20.\nOrganic users: +111%.\nEngaged sessions: +98%.\n\nNot rounding. Sample numbers from a sample engagement.',
-              image: PHOTO.teamFocused, replies: '23', reposts: '89', likes: '512', views: '38.6K'
-            })}
-          </div>
-          <div class="so-card__cap"><b>Stat post with image</b> &middot; numbers stacked, photo carries the team, no logo on the image itself.</div>
-        </div>
-
-        <div class="so-card">
-          <div class="so-card__stage" style="display:block;padding:24px;">
-            ${xThread()}
-          </div>
-          <div class="so-card__cap"><b>Thread</b> &middot; three connected posts unpacking the case study. Posts 2 + 3 inherit the author header, no avatar repeat.</div>
+  <section class="sm-sec" id="sm-profile">
+    <div class="sm-sec__head"><div><span class="eyebrow">Profile kit</span><h2>Same on every platform.</h2></div><p>The bolt is the avatar everywhere. Cover banners carry the tagline and nothing else. Bios lead with the tagline and list the offices.</p></div>
+    <div class="sm-kit">
+      <div class="sm-kit__row"><div><p class="sm-h3">Avatar</p><span class="sm-muted" style="font-size:13px">Bolt mark, 400 × 400</span></div><div class="sm-avatar"><img src="assets/kilowott-bolt.jpg" alt="Kilowott bolt mark"></div></div>
+      <div class="sm-kit__row"><div><p class="sm-h3">LinkedIn cover</p><span class="sm-muted" style="font-size:13px">1584 × 396</span></div><div class="sm-art" id="sm-cov-li"></div></div>
+      <div class="sm-kit__row"><div><p class="sm-h3">X header</p><span class="sm-muted" style="font-size:13px">1500 × 500</span></div><div class="sm-art" id="sm-cov-x" style="max-width:780px"></div></div>
+      <div class="sm-kit__row"><div><p class="sm-h3">Facebook cover</p><span class="sm-muted" style="font-size:13px">820 × 312</span></div><div class="sm-art" id="sm-cov-fb" style="max-width:620px"></div></div>
+      <div class="sm-kit__row"><div><p class="sm-h3">Bios</p><span class="sm-muted" style="font-size:13px">Copy and paste</span></div>
+        <div class="sm-bios">
+          <div class="sm-bio"><b>LinkedIn tagline</b>Ahead, by design. Strategy and execution for growing brands and agencies.<span>Fits the 120-character headline</span></div>
+          <div class="sm-bio"><b>Instagram bio</b>Ahead, by design.<br>Fredrikstad · Sandnes · Goa · Dubai<br>kilowott.com<span>Three lines, no emoji</span></div>
+          <div class="sm-bio"><b>X bio</b>Ahead, by design. We build ahead so you can scale faster, deliver better and create impact.<span>Long form, under 160 characters</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       FACEBOOK
-       ============================================================ -->
-  <section class="section">
-    <div class="container">
-      <div class="so-plat">
-        <div class="so-plat__icon" style="background:#1877F2;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></div>
-        <h2 class="so-plat__h">Facebook</h2>
-        <span class="so-plat__sub">Page post · 552px · square or 1.91:1</span>
-      </div>
+  </div>`;
 
-      <div class="so-grid">
-        <div class="so-card">
-          <div class="so-card__stage">
-            ${fbPost({
-              name: 'Kilowott', time: '2 hrs',
-              body: 'A premium Indian coffee brand asked us to help them break into the U.S. market — six months later, organic traffic is 3.5× and Domain Authority moved from 1 to 20. Read the full breakdown 👇',
-              image: PHOTO.loungeWarm, alt: 'Team in warm lounge',
-              reacts: '186', comments: '24', shares: '11'
-            })}
-          </div>
-          <div class="so-card__cap"><b>Page post</b> &middot; emoji used sparingly, link cue at the end, photo frames the team.</div>
-        </div>
-
-        <div class="so-card">
-          <div class="so-card__stage">
-            ${fbPost({
-              name: 'Kilowott', time: '5 days',
-              body: 'We&apos;re hiring a Brand Strategist to join the team in Sandnes. If you can write a brand line that earns its keep, send us your work — link in comments.',
-              image: PHOTO.teamWorkshop, alt: 'Workshop seated team',
-              reacts: '94', comments: '31', shares: '8'
-            })}
-          </div>
-          <div class="so-card__cap"><b>Hiring post</b> &middot; voice-led, photo of working environment, asks for samples not r&eacute;sum&eacute;s.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       INSTAGRAM — feed + carousel + reel + story
-       ============================================================ -->
-  <section class="section">
-    <div class="container">
-      <div class="so-plat">
-        <div class="so-plat__icon" style="background:linear-gradient(45deg,#FED373,#F15245,#D92E7F,#9B36B7,#515ECF);"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07c-1.28.06-2.15.26-2.91.55a5.87 5.87 0 00-2.13 1.39A5.87 5.87 0 00.62 4.14C.33 4.9.13 5.77.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.28.26 2.15.55 2.91.3.79.7 1.46 1.39 2.13.67.69 1.34 1.09 2.13 1.39.76.29 1.63.49 2.91.55C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.28-.06 2.15-.26 2.91-.55a5.87 5.87 0 002.13-1.39 5.87 5.87 0 001.39-2.13c.29-.76.49-1.63.55-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.28-.26-2.15-.55-2.91a5.87 5.87 0 00-1.39-2.13A5.87 5.87 0 0019.86.62C19.1.33 18.23.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1018.16 12 6.16 6.16 0 0012 5.84zM12 16a4 4 0 110-8 4 4 0 010 8zm6.41-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg></div>
-        <h2 class="so-plat__h">Instagram</h2>
-        <span class="so-plat__sub">Feed · carousel · reel · story</span>
-      </div>
-
-      <div class="so-grid">
-        <div class="so-card">
-          <div class="so-card__stage">
-            ${igPost({
-              user: 'kilowott', location: 'Sandnes, Norway',
-              image: PHOTO.teamLaugh, alt: 'Team laughing in meeting',
-              isCarousel: false,
-              likes: '1,284', user2: 'kilowott',
-              caption: 'New work shipped. Nordhavn Coffee — 3.5× organic traffic, six months in. Link in bio for the full breakdown.',
-              time: '2 days ago'
-            })}
-          </div>
-          <div class="so-card__cap"><b>Feed post</b> &middot; 1:1 square. Caption opens with the work, ends with the link cue.</div>
-        </div>
-
-        <div class="so-card">
-          <div class="so-card__stage">
-            ${igPost({
-              user: 'kilowott', location: 'Goa, India',
-              image: PHOTO.teamGroup, alt: 'Team portrait',
-              isCarousel: true, slideCurrent: 1, slideTotal: 5,
-              likes: '947', user2: 'kilowott',
-              caption: 'Five frames from the Q2 partner workshop in Goa. Swipe →',
-              time: '5 days ago'
-            })}
-          </div>
-          <div class="so-card__cap"><b>Carousel</b> &middot; 1/5 indicator top right, dot row centered. Each slide can stand alone.</div>
-        </div>
-      </div>
-
-      <div class="so-grid so-grid--3" style="margin-top: var(--s-5);">
-        <div class="so-card">
-          <div class="so-card__stage">
-            ${igReel({
-              image: PHOTO.portraitTab,
-              caption: 'How we got Nordhavn Coffee to 3.5× organic traffic — in 30 seconds.',
-              likes: '14.2K', comments: '208', shares: '1,406',
-              audio: 'kilowott · Original audio'
-            })}
-          </div>
-          <div class="so-card__cap"><b>Reel</b> &middot; 9:16. Hook in caption, audio attribution, action rail right side.</div>
-        </div>
-
-        <div class="so-card">
-          <div class="so-card__stage">
-            ${igStory({
-              image: PHOTO.atmoWarm,
-              user: 'kilowott', time: '4h',
-              h: 'Ahead, by <em>design</em>.',
-              sticker: 'NEW WORK SHIPPED'
-            })}
-          </div>
-          <div class="so-card__cap"><b>Story</b> &middot; 9:16. Five-bar progress at top, tagline center, sticker badge, swipe-up replaced by reply bar.</div>
-        </div>
-
-        <div class="so-card">
-          <div class="so-card__stage">
-            ${igStory({
-              image: PHOTO.leader,
-              user: 'kilowott', time: '1h',
-              h: '<em>3.5×</em> organic traffic.',
-              sticker: 'NORDHAVN COFFEE',
-              progressIdx: 2
-            })}
-          </div>
-          <div class="so-card__cap"><b>Story · stat frame</b> &middot; one number, one client name, one image. The rest is restraint.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       BANNERS — header art for each platform
-       ============================================================ -->
-  <section class="section">
-    <div class="container">
-      <div class="so-plat">
-        <div class="so-plat__icon" style="background:#0B0F14;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="12" rx="2"/></svg></div>
-        <h2 class="so-plat__h">Cover banners</h2>
-        <span class="so-plat__sub">LinkedIn 1584×396 · X 1500×500 · Facebook 820×312</span>
-      </div>
-
-      <div style="display:grid; gap: var(--s-5);">
-        <div class="so-banner so-banner--li">
-          <div class="so-banner__bg"><img src="${PHOTO.nordic}" alt=""></div>
-          <div class="so-banner__inner">
-            <span class="so-banner__eyebrow">LinkedIn page · 1584×396</span>
-            <div class="so-banner__h">Ahead, by <em>design</em>.</div>
-          </div>
-        </div>
-
-        <div class="so-banner so-banner--x">
-          <div class="so-banner__bg"><img src="${PHOTO.atmoCool}" alt=""></div>
-          <div class="so-banner__inner">
-            <span class="so-banner__eyebrow">X header · 1500×500</span>
-            <div class="so-banner__h">Ahead, by <em>design</em>.</div>
-          </div>
-        </div>
-
-        <div class="so-banner so-banner--fb">
-          <div class="so-banner__bg"><img src="${PHOTO.loungeDisc}" alt=""></div>
-          <div class="so-banner__inner">
-            <span class="so-banner__eyebrow">Facebook page · 820×312</span>
-            <div class="so-banner__h">Strategy + execution &mdash; <em>measurable</em>.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOW TO USE -->
-  <section class="section">
-    <div class="container">
-      <div class="so-howto">
-        <div class="so-step">
-          <div class="so-step__num">01</div>
-          <div class="so-step__h">Use the chrome to QA.</div>
-          <p class="so-step__b">These are pixel-accurate previews. Read them like an actual feed &mdash; first 3 lines, dot menu, like bar. If something feels off here, it&rsquo;ll feel off when shipped.</p>
-        </div>
-        <div class="so-step">
-          <div class="so-step__num">02</div>
-          <div class="so-step__h">Photos from the kit.</div>
-          <p class="so-step__b">Every photo above lives in <code>/assets/photos/</code> and follows the imagery rules &mdash; warm, candid, faces and tools, no stock-actor handshakes.</p>
-        </div>
-        <div class="so-step">
-          <div class="so-step__num">03</div>
-          <div class="so-step__h">Sample metrics, sample URLs.</div>
-          <p class="so-step__b">Sample copy uses the fictional Nordhavn Coffee case (sample figures: 3.5&times; organic traffic in six months). Swap in your numbers when you compose &mdash; never round.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  `;
-
-  // Hydrate Lucide icons after innerHTML set (called by app.js too, but rerun to be safe)
-  if (window.lucide && typeof window.lucide.createIcons === 'function') {
-    try { window.lucide.createIcons({ root }); } catch (e) {}
+  if (!window.KWPosters || !window.KWPosters.build) {
+    root.insertAdjacentHTML('beforeend', '<div class="container"><p>The post designs need pages/posters.js, which did not load.</p></div>');
+    return;
   }
-
-  // ============================================================
-  // PLATFORM POST BUILDERS
-  // ============================================================
-
-  function linkedInPost(p) {
-    return `
-    <div class="li-post">
-      <div class="li-post__head">
-        <div class="li-post__avatar">${AVATAR}</div>
-        <div class="li-post__author">
-          <div class="li-post__name">${p.name}</div>
-          <div class="li-post__follow">${p.follow}</div>
-          <div class="li-post__meta">${p.time} · <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm0 12.5A5.5 5.5 0 1113.5 8 5.5 5.5 0 018 13.5zm.5-9H7v4l3.5 2.1.7-1.2L8.5 7.5z"/></svg></div>
+(async function () {
+    const root = document.getElementById("page-social");
+    const K = window.KWPosters;
+    await K.fontsReady();
+    if (K.clearMeasure) K.clearMeasure(); // re-measure text now the web fonts are in
+    const F = Object.fromEntries(K.FORMATS.map(f => [f.id, f]));
+    const P = p => 'assets/photos/' + p + '.jpg';
+    const SIZES = [
+      { id: 'feed-1080x1350', t: '4:5' }, { id: 'feed-1080', t: '1:1' },
+      { id: 'story-1080x1920', t: '9:16' }, { id: 'li-1200x627', t: '1.91:1' } ];
+  
+    /* ---------- the six post types (+ end card) ---------- */
+    const TYPES = [
+      { id: 'proof', n: '01', t: 'Proof', arch: 'stat', use: 'A result from client work. One number, one line, one source.',
+        c: { eyebrow: 'Case study · Nordhavn Coffee', stat: '3.5×', headline: 'organic traffic in six months, from a standing start.', em: '', source: 'Nordhavn Coffee US launch, Jan–Jun 2026 · sample figures' },
+        formula: [['Hook', 'The result, in the first line'], ['Proof', 'What changed and how long it took'], ['Next', 'Where to read more']],
+        cap: 'Nordhavn Coffee came to the US with no search footprint. Six months later, organic traffic is up 3.5×.\n\nWe led with SEO content and used paid social to test which products to push. Full case in the comments.' },
+      { id: 'pov', n: '02', t: 'Point of view', arch: 'statement', use: 'One opinion we can defend. Sharp enough to argue with.',
+        c: { eyebrow: 'Point of view', headline: 'Most rebrands fix the logo and skip the offer.', em: 'skip the offer' },
+        formula: [['Hook', 'The opinion, stated plainly'], ['Why', 'One example or number behind it'], ['Next', 'A question that invites replies']],
+        cap: 'Most rebrands fix the logo and skip the offer.\n\nIf customers can’t say what you sell in one line, a new mark won’t help. Start with the sentence, then design around it.\n\nWhat did your last rebrand change first?' },
+      { id: 'people', n: '03', t: 'People and culture', arch: 'photo', use: 'Real team members, real work. Name and role on the image.',
+        c: { eyebrow: 'Ola Nordmann · Senior Strategist', headline: 'Good strategy fits on one page.', em: 'one page', photo: P('portrait-leader-window') },
+        formula: [['Who', 'Name, role, office'], ['What', 'One thing they believe or did'], ['Next', 'Nothing, or a link to their work']],
+        cap: 'Meet Ola Nordmann, Senior Strategist in Sandnes.\n\nOla’s rule: if the strategy doesn’t fit on one page, it isn’t finished yet.' },
+      { id: 'hiring', n: '04', t: 'Hiring', arch: 'statement', use: 'An open role. Say what the job is, where, and how to apply.',
+        c: { eyebrow: 'We’re hiring · Sandnes', headline: 'Senior Strategist, brand and growth.', em: 'brand and growth' },
+        formula: [['Role', 'Title and office in the first line'], ['Work', 'Two lines on what they’ll do'], ['Apply', 'Link, and ask for work samples']],
+        cap: 'We’re hiring a Senior Strategist in Sandnes. (Sample role for the kit.)\n\nYou’ll shape positioning for growing brands and turn it into campaigns that ship. Send us two pieces of work you’re proud of. Link in the comments.' },
+      { id: 'event', n: '05', t: 'Event', arch: 'event', use: 'Talks, workshops, launches. Date and place do the work.',
+        c: { eyebrow: 'Kilowott Signal Summit', date: '12 March 2027', place: 'Fredrikstad · Norway', headline: 'A day on search, social, and the signal in between.', em: 'signal' },
+        formula: [['What', 'Event name and one-line promise'], ['When', 'Date, time, place'], ['Next', 'How to get a seat']],
+        cap: 'Kilowott Signal Summit, 12 March 2027 in Fredrikstad. (Sample event.)\n\nA day on search, social, and the signal in between. Seats are limited; registration link in the comments.' },
+      { id: 'endcard', n: '06', t: 'End card', arch: 'statement', use: 'Closes Reels, videos, and carousels. Tagline only.',
+        c: { eyebrow: '', headline: 'Ahead, by design.', em: 'design' },
+        formula: [['Use', 'Last frame of every video and carousel'], ['Hold', '2 seconds on video'], ['Copy', 'The tagline. Nothing else.']],
+        cap: 'No caption of its own: it ends someone else’s post.' },
+    ];
+    const T = Object.fromEntries(TYPES.map(x => [x.id, x]));
+  
+    // organic posts are images: the platform supplies any button, so none is drawn
+    const svg = (fmt, arch, c) => K.toSVG(K.build(F[fmt] || fmt, arch, c, { noCta: true }), {});
+  
+    /* types grid */
+    document.getElementById('sm-types-grid').innerHTML = TYPES.map(x => `
+      <article class="sm-type" id="sm-type-${x.id}">
+        <div class="sm-type__stage"><div class="sm-art">${svg('feed-1080x1350', x.arch, x.c)}</div></div>
+        <div class="sm-type__body">
+          <span class="sm-type__num">${x.n}</span><h3 class="sm-type__name">${x.t}</h3><p class="sm-type__use">${x.use}</p>
+          <ul class="sm-formula">${x.formula.map(f => `<li><b>${f[0]}</b><span>${f[1]}</span></li>`).join('')}</ul>
+          <div class="sm-caption"><span class="sm-caption__lbl">Example caption</span>${x.cap.replace(/</g, '&lt;')}</div>
+          <div class="sm-type__foot"><a class="btn btn--sm" href="#social/sm-editor" data-edit="${x.id}"><i data-lucide="pencil"></i>Open in editor</a></div>
         </div>
-        <div class="li-post__more">⋯</div>
-      </div>
-      <div class="li-post__body">${p.body}<br><span class="li-post__more-link">…more</span></div>
-      <div class="li-post__media"><img src="${p.image}" alt="${p.alt || ''}"></div>
-      <div class="li-post__counts" style="padding-top:12px;">
-        <div class="li-post__reacts">
-          <div class="li-post__react li-post__react--like">👍</div>
-          <div class="li-post__react li-post__react--celeb">🎉</div>
-          <div class="li-post__react li-post__react--love">❤️</div>
-        </div>
-        <span style="margin-left:6px;">${p.reactCount}</span>
-        <span style="margin-left:auto;">${p.comments} comments · ${p.reposts} reposts</span>
-      </div>
-      <div class="li-post__bar">
-        <div class="li-post__btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v12"/><path d="M15 5.88L14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z"/></svg>Like</div>
-        <div class="li-post__btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Comment</div>
-        <div class="li-post__btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>Repost</div>
-        <div class="li-post__btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>Send</div>
-      </div>
-    </div>`;
-  }
-
-  function linkedInDoc() {
-    return `
-    <div class="li-doc">
-      <div class="li-post__head">
-        <div class="li-post__avatar">${AVATAR}</div>
-        <div class="li-post__author">
-          <div class="li-post__name">Kilowott</div>
-          <div class="li-post__follow">Strategic partner for agencies and growing brands</div>
-          <div class="li-post__meta">1w · Document</div>
-        </div>
-        <div class="li-post__more">⋯</div>
-      </div>
-      <div class="li-doc__viewer">
-        <div class="li-doc__slide">
-          <div>
-            <div class="li-doc__eyebrow">Case study · Nordhavn Coffee</div>
-          </div>
-          <div>
-            <div class="li-doc__h">A premium coffee brand,<br><em>3.5× organic</em> in the U.S.</div>
-          </div>
-          <div style="font-family:'DM Sans',sans-serif;font-size:14px;color:rgba(255,255,255,0.7);letter-spacing:0.04em;">Swipe →</div>
-        </div>
-        <div class="li-doc__nav-l">‹</div>
-        <div class="li-doc__nav-r">›</div>
-        <div class="li-doc__pgcount">1 / 5</div>
-      </div>
-      <div class="li-post__bar" style="border-top: 1px solid rgba(0,0,0,0.08);">
-        <div class="li-post__btn">Like</div>
-        <div class="li-post__btn">Comment</div>
-        <div class="li-post__btn">Repost</div>
-        <div class="li-post__btn">Send</div>
-      </div>
-    </div>`;
-  }
-
-  function xPost(p, opts = {}) {
-    const dark = opts.dark ? ' x-post--dark' : '';
-    const noChrome = opts.noChrome;
-    const mediaHtml = p.image
-      ? `<div class="x-post__media"><img src="${p.image}" alt=""></div>`
-      : '';
-    return `
-    <div class="x-post${dark}" ${noChrome ? 'style="border:0;border-radius:0;padding:0 0 12px;"' : ''}>
-      <div class="x-post__head">
-        <div class="x-post__avatar">${AVATAR}</div>
-        <div class="x-post__id">
-          <div class="x-post__line">
-            <span class="x-post__name">${p.name}</span>
-            <span class="x-post__handle">${p.handle}</span>
-            <span class="x-post__sep">·</span>
-            <span class="x-post__time">${p.time}</span>
-            <span class="x-post__more" style="margin-left:auto;">⋯</span>
-          </div>
-          <div class="x-post__body">${p.body}</div>
-          ${mediaHtml}
-          <div class="x-post__bar">
-            <div class="x-post__btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>${p.replies}</div>
-            <div class="x-post__btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>${p.reposts}</div>
-            <div class="x-post__btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>${p.likes}</div>
-            <div class="x-post__btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>${p.views || ''}</div>
-            <div class="x-post__btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></div>
-          </div>
-        </div>
-      </div>
-    </div>`;
-  }
-
-  function xThread() {
-    return `
-    <div class="x-thread">
-      ${xPost({ name: 'Kilowott', handle: '@kilowott', time: '6h',
-        body: '1/3 — How we got Nordhavn Coffee 3.5× on organic traffic in six months.\n\nTL;DR: SEO content + paid social, paired. Not either/or.',
-        replies: '8', reposts: '34', likes: '142', views: '12K' })}
-      ${xPost({ name: 'Kilowott', handle: '@kilowott', time: '6h',
-        body: '2/3 — Domain Authority moved 1 → 20 in six months.\n\nThat doesn\'t happen on content alone. The Meta ads built brand awareness fast enough that backlinks followed.',
-        replies: '4', reposts: '21', likes: '98', views: '8.4K' })}
-      ${xPost({ name: 'Kilowott', handle: '@kilowott', time: '6h',
-        body: '3/3 — The lesson: stop arguing over which channel "works."\n\nThe channels work together. Engineer the loop, not just the touchpoint.\n\nFull breakdown: kilowott.com/contact-us/',
-        replies: '6', reposts: '17', likes: '88', views: '7.2K' })}
-    </div>`;
-  }
-
-  function fbPost(p) {
-    return `
-    <div class="fb-post">
-      <div class="fb-post__head">
-        <div class="fb-post__avatar">${AVATAR}</div>
-        <div class="fb-post__author">
-          <div class="fb-post__name">${p.name}</div>
-          <div class="fb-post__meta">${p.time} · <svg viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="7" stroke="currentColor" fill="none" stroke-width="1.5"/><path d="M8 1c2 2 2 12 0 14M8 1c-2 2-2 12 0 14M1 8h14" stroke="currentColor" fill="none" stroke-width="1"/></svg></div>
-        </div>
-      </div>
-      <div class="fb-post__body">${p.body}</div>
-      <div class="fb-post__media"><img src="${p.image}" alt="${p.alt || ''}"></div>
-      <div class="fb-post__counts">
-        <div class="fb-post__reacts">
-          <div class="fb-post__react fb-post__react--like">👍</div>
-          <div class="fb-post__react fb-post__react--love">❤</div>
-          <div class="fb-post__react fb-post__react--care">🤗</div>
-        </div>
-        <span style="margin-left:4px;">${p.reacts}</span>
-        <span style="margin-left:auto;">${p.comments} comments &nbsp; ${p.shares} shares</span>
-      </div>
-      <div class="fb-post__bar">
-        <div class="fb-post__btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v12"/><path d="M15 5.88L14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z"/></svg>Like</div>
-        <div class="fb-post__btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Comment</div>
-        <div class="fb-post__btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>Share</div>
-      </div>
-    </div>`;
-  }
-
-  function igPost(p) {
-    const dotsHtml = p.isCarousel
-      ? `<div class="ig-post__dots">${[1,2,3,4,5].map(i => `<div class="ig-post__dot ${i === p.slideCurrent ? 'is-active' : ''}"></div>`).join('')}</div>`
-      : '';
-    const multiBadge = p.isCarousel
-      ? `<div class="ig-post__multi"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="13" height="13" rx="1"/><path d="M21 7v13a1 1 0 0 1-1 1H7"/></svg>${p.slideCurrent}/${p.slideTotal}</div>`
-      : '';
-    return `
-    <div class="ig-post">
-      <div class="ig-post__head">
-        <div class="ig-post__avatar"><div>${AVATAR}</div></div>
-        <div class="ig-post__user">
-          <div class="ig-post__name">${p.user}</div>
-          ${p.location ? `<div class="ig-post__location">${p.location}</div>` : ''}
-        </div>
-        <div class="ig-post__more">⋯</div>
-      </div>
-      <div class="ig-post__media">
-        <img src="${p.image}" alt="${p.alt || ''}">
-        ${multiBadge}
-        ${dotsHtml}
-      </div>
-      <div class="ig-post__bar">
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></span>
-      </div>
-      <div class="ig-post__likes">${p.likes} likes</div>
-      <div class="ig-post__caption"><b>${p.user2}</b> ${p.caption} <span class="ig-post__see">more</span></div>
-      <div class="ig-post__time">${p.time}</div>
-    </div>`;
-  }
-
-  function igReel(p) {
-    return `
-    <div class="ig-reel">
-      <div class="ig-reel__media"><img src="${p.image}" alt=""></div>
-      <div class="ig-reel__top">
-        <div class="ig-reel__top-l">
-          <span>Following</span>
-          <span style="opacity:1;">For you</span>
-        </div>
-        <span style="font-size:20px;">📷</span>
-      </div>
-      <div class="ig-reel__right">
-        <div class="ig-reel__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>${p.likes}</div>
-        <div class="ig-reel__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>${p.comments}</div>
-        <div class="ig-reel__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>${p.shares}</div>
-        <div class="ig-reel__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></div>
-        <div style="width:32px;height:32px;border-radius:6px;overflow:hidden;border:2px solid #fff;background:#222;"><img src="${p.image}" alt="Reel audio cover art" style="width:100%;height:100%;object-fit:cover;"></div>
-      </div>
-      <div class="ig-reel__bottom">
-        <div class="ig-reel__user">
-          <div class="ig-reel__user-avatar">${AVATAR}</div>
-          <div class="ig-reel__user-name">kilowott <span class="ig-reel__follow">Follow</span></div>
-        </div>
-        <div class="ig-reel__caption">${p.caption}</div>
-        <div class="ig-reel__audio">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-          ${p.audio}
-        </div>
-      </div>
-    </div>`;
-  }
-
-  function igStory(p) {
-    const idx = p.progressIdx || 1;
-    const bars = [1,2,3,4,5].map(i => {
-      let cls = '';
-      if (i < idx) cls = 'is-progress';
-      else if (i === idx) cls = 'is-active';
-      return `<div class="ig-story__bar ${cls}"></div>`;
-    }).join('');
-    return `
-    <div class="ig-story">
-      <div class="ig-story__media"><img src="${p.image}" alt=""></div>
-      <div class="ig-story__bars">${bars}</div>
-      <div class="ig-story__head">
-        <div class="ig-story__avatar">${AVATAR}</div>
-        <div class="ig-story__user">${p.user} <span class="ig-story__time">${p.time}</span></div>
-        <div style="margin-left:auto;display:flex;gap:14px;font-size:18px;">▶<span style="font-size:22px;">⋯</span></div>
-      </div>
-      <div class="ig-story__center">
-        <h3>${p.h}</h3>
-        ${p.sticker ? `<div class="ig-story__sticker">${p.sticker}</div>` : ''}
-      </div>
-      <div class="ig-story__bottom">
-        <div class="ig-story__reply">Reply to ${p.user}…</div>
-        <div class="ig-story__icons">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-        </div>
-      </div>
-    </div>`;
-  }
+      </article>`).join('');
+  
+    /* carousel strip */
+    const SLIDES = [
+      ['Cover', 'statement', { eyebrow: 'Case study · Nordhavn Coffee', headline: 'How a coffee brand grew organic traffic 3.5×.', em: 'organic traffic' }],
+      ['The situation', 'statement', { eyebrow: '01 · The situation', headline: 'A strong product with no search footprint in the US.', em: '' }],
+      ['The decision', 'statement', { eyebrow: '02 · The decision', headline: 'SEO content first. Paid social to test what sells.', em: '' }],
+      ['The result', 'stat', { eyebrow: '03 · The result', stat: '3.5×', headline: 'organic traffic in six months.', em: '', source: 'Jan–Jun 2026 · sample figures' }],
+      ['What we’d change', 'statement', { eyebrow: '04 · What we’d change', headline: 'Start the paid tests a month earlier.', em: '' }],
+      ['End card', 'statement', { eyebrow: '', headline: 'Ahead, by design.', em: 'design' }],
+    ];
+    document.getElementById('sm-strip').innerHTML = SLIDES.map((s, i) => `<figure><div class="sm-art">${svg('feed-1080x1350', s[1], s[2])}</div><figcaption><b>${i + 1} · ${s[0]}</b>${i === 0 ? 'Works alone in the feed' : i === SLIDES.length - 1 ? 'Tagline only' : 'One point per slide'}</figcaption></figure>`).join('');
+  
+    /* ---------- feeds: the same posts inside each platform ---------- */
+    const AV = '<img src="assets/kilowott-bolt.jpg" alt="Kilowott">';
+    const ic = n => `<i data-lucide="${n}"></i>`;
+    const PEOPLE_ALT = Object.assign({}, T.people.c);
+    const pv = (cap, inner) => `<div class="sm-pv">${inner}<div class="sm-pv__cap">${cap}</div></div>`;
+  
+    // LinkedIn
+    const liHead = (meta) => `<div class="sm-pf__head"><div class="sm-pf__av">${AV}</div><div><div class="sm-pf__name">Kilowott</div><div class="sm-pf__sub">Strategy and execution for growing brands</div><div class="sm-pf__sub">${meta}</div></div></div>`;
+    document.getElementById('sm-panel-li').innerHTML =
+      pv('<b>Proof post · 4:5.</b> The first two lines show before “…more”, so the result goes first.',
+        `<div class="sm-pf sm-pf--li">${liHead('2d · Edited')}<div class="sm-pf__body">Nordhavn Coffee came to the US with no search footprint. Six months later, organic traffic is up 3.5×. <span class="sm-pf__more">…more</span></div>${svg('feed-1080x1350', 'stat', T.proof.c)}<div class="sm-pf__count"><span>247 reactions</span><span>38 comments · 14 reposts</span></div><div class="sm-pf__bar"><span>Like</span><span>Comment</span><span>Repost</span><span>Send</span></div></div>`) +
+      pv('<b>Document carousel · 4:5 slides as one PDF.</b> Use the arrows: each slide makes one point.',
+        `<div class="sm-pf sm-pf--li">${liHead('1w · Document')}<div class="sm-pf__body">How Nordhavn Coffee grew organic traffic 3.5×, and what we’d change. Six slides. <span class="sm-pf__more">…more</span></div><div class="sm-doc" data-doc="li"><div class="doc__stage"></div><button class="sm-doc__nav sm-doc__nav--l" aria-label="Previous slide">‹</button><button class="sm-doc__nav sm-doc__nav--r" aria-label="Next slide">›</button><span class="sm-doc__count"></span></div><div class="sm-doc__title">Nordhavn Coffee case · 6 pages</div><div class="sm-pf__bar"><span>Like</span><span>Comment</span><span>Repost</span><span>Send</span></div></div>`) +
+      pv('<b>Point of view · 1.91:1.</b> The wide size suits a link post or a quick opinion.',
+        `<div class="sm-pf sm-pf--li">${liHead('4d')}<div class="sm-pf__body">Most rebrands fix the logo and skip the offer. What did your last rebrand change first? <span class="sm-pf__more">…more</span></div>${svg('li-1200x627', 'statement', T.pov.c)}<div class="sm-pf__count"><span>112 reactions</span><span>41 comments</span></div><div class="sm-pf__bar"><span>Like</span><span>Comment</span><span>Repost</span><span>Send</span></div></div>`);
+  
+    // Instagram
+    const igHead = (sub) => `<div class="sm-pf__head"><div class="sm-pf__av">${AV}</div><div><div class="sm-pf__name">kilowott</div>${sub ? `<div class="sm-pf__sub">${sub}</div>` : ''}</div></div>`;
+    const igIcons = `<div class="sm-pf__icons">${ic('heart')}${ic('message-circle')}${ic('send')}<span class="sp">${ic('bookmark')}</span></div>`;
+    document.getElementById('sm-panel-ig').innerHTML =
+      pv('<b>Feed post · 4:5.</b> Name and role on the image; the caption adds one line.',
+        `<div class="sm-pf sm-pf--ig">${igHead('Sandnes, Norway')}${svg('feed-1080x1350', 'photo', PEOPLE_ALT)}${igIcons}<div class="sm-pf__body"><b>1,284 likes</b><br><b>kilowott</b> Meet Ola Nordmann, Senior Strategist in Sandnes. <span class="sm-pf__more">more</span></div></div>`) +
+      pv('<b>Carousel · 4:5.</b> Swipe with the arrows. The last frame is the end card.',
+        `<div class="sm-pf sm-pf--ig">${igHead('')}<div class="sm-doc" data-doc="ig"><div class="doc__stage"></div><button class="sm-doc__nav sm-doc__nav--l" aria-label="Previous slide">‹</button><button class="sm-doc__nav sm-doc__nav--r" aria-label="Next slide">›</button><span class="sm-doc__count"></span></div><div class="sm-dots" data-dots="ig"></div>${igIcons}<div class="sm-pf__body"><b>kilowott</b> The Nordhavn Coffee case in six frames. <span class="sm-pf__more">more</span></div></div>`) +
+      pv('<b>Story · 9:16.</b> Keep type out of the top 250 px and bottom 340 px: the platform covers them.',
+        `<div class="sm-story"><div class="sm-story__bars"><i class="on"></i><i></i><i></i></div><div class="sm-story__user"><img src="assets/kilowott-bolt.jpg" alt="">kilowott <span style="font-weight:400;opacity:.7">4h</span></div>${svg('story-1080x1920', 'event', T.event.c)}<div class="sm-story__reply">Send message</div></div>`) +
+      pv('<b>Profile grid · 1:1 crops.</b> Alternate photo-led and type-led tiles so the grid reads as one brand.',
+        `<div class="sm-pf sm-pf--ig sm-ig-prof"><div class="sm-pf__head"><div class="sm-pf__av">${AV}</div><div><div class="sm-pf__name">kilowott</div><div class="sm-pf__sub" style="color:#262626">Ahead, by design.<br>Fredrikstad · Sandnes · Goa · Dubai<br>kilowott.com</div></div></div><div class="sm-ig-grid" id="sm-ig-grid"></div></div>`);
+    const GRID = [
+      ['stat', T.proof.c], ['photo', { eyebrow: 'Goa studio', headline: 'Workshop week.', em: 'week', photo: P('team-seated-workshop') }], ['statement', T.pov.c],
+      ['photo', T.people.c], ['statement', T.endcard.c], ['photo', { eyebrow: 'Fredrikstad', headline: 'New office, same view.', em: 'view', photo: P('landscape-nordic') }],
+      ['event', T.event.c], ['photo', { eyebrow: 'Team', headline: 'Sandnes, Monday morning.', em: 'Monday', photo: P('team-laughing-meeting') }], ['statement', T.hiring.c],
+    ];
+    document.getElementById('sm-ig-grid').innerHTML = GRID.map(g => svg('feed-1080', g[0], g[1])).join('');
+  
+    // X
+    const xPost = (time, text, media, n) => `<div class="sm-pf sm-pf--x"><div class="sm-pf__av">${AV}</div><div><div class="sm-pf__line"><b>Kilowott</b> <span>@kilowott · ${time}</span></div><div class="sm-pf__text">${text}</div><div class="sm-pf__media">${media}</div><div class="sm-pf__xbar"><span>${n[0]}</span><span>${n[1]}</span><span>${n[2]}</span><span>${n[3]}</span></div></div></div>`;
+    document.getElementById('sm-panel-x').innerHTML =
+      pv('<b>Post with image · 1.91:1.</b> One line and a link. The image carries the claim.',
+        xPost('4h', 'Most rebrands fix the logo and skip the offer. Start with the sentence. kilowott.com', svg('li-1200x627', 'statement', T.pov.c), ['12 replies', '31 reposts', '204 likes', '9.1K views'])) +
+      pv('<b>Proof · 1:1.</b> The number does the work; the text says where to read more.',
+        xPost('1d', 'Nordhavn Coffee: organic traffic up 3.5× in six months. Sample case, full breakdown on kilowott.com', svg('feed-1080', 'stat', T.proof.c), ['8 replies', '22 reposts', '140 likes', '6.4K views']));
+  
+    // Facebook
+    const fbHead = (time) => `<div class="sm-pf__head"><div class="sm-pf__av">${AV}</div><div><div class="sm-pf__name">Kilowott</div><div class="sm-pf__sub">${time} · Public</div></div></div>`;
+    document.getElementById('sm-panel-fb').innerHTML =
+      pv('<b>Event · 1:1.</b> Date and place on the image; the registration link goes in the post.',
+        `<div class="sm-pf sm-pf--fb">${fbHead('2 hrs')}<div class="sm-pf__body">Kilowott Signal Summit, 12 March 2027 in Fredrikstad. Registration link below. (Sample event.)</div>${svg('feed-1080', 'event', T.event.c)}<div class="sm-pf__count"><span>86 reactions</span><span>12 comments · 9 shares</span></div><div class="sm-pf__bar"><span>Like</span><span>Comment</span><span>Share</span></div></div>`) +
+      pv('<b>Hiring · 1.91:1.</b> Role and office first; ask for work samples, not CVs.',
+        `<div class="sm-pf sm-pf--fb">${fbHead('5 days')}<div class="sm-pf__body">We’re hiring a Senior Strategist in Sandnes. Send us two pieces of work you’re proud of. (Sample role.)</div>${svg('li-1200x627', 'statement', T.hiring.c)}<div class="sm-pf__count"><span>54 reactions</span><span>19 comments</span></div><div class="sm-pf__bar"><span>Like</span><span>Comment</span><span>Share</span></div></div>`);
+  
+    // carousel viewers
+    document.querySelectorAll('[data-doc]').forEach(d => {
+      // each viewer gets its own SVGs: shared mask ids break when one copy is hidden
+      const set = SLIDES.map(x => svg('feed-1080x1350', x[1], x[2])); let i = 0;
+      const stage = d.querySelector('.doc__stage'), count = d.querySelector('.sm-doc__count');
+      const dots = document.querySelector(`[data-dots="${d.dataset.doc}"]`);
+      const draw = () => { stage.innerHTML = set[i]; count.textContent = `${i + 1} / ${set.length}`; if (dots) dots.innerHTML = set.map((_, k) => `<i class="${k === i ? 'on' : ''}"></i>`).join(''); };
+      d.querySelector('.sm-doc__nav--l').addEventListener('click', () => { i = (i + set.length - 1) % set.length; draw(); });
+      d.querySelector('.sm-doc__nav--r').addEventListener('click', () => { i = (i + 1) % set.length; draw(); });
+      draw();
+    });
+  
+    // platform tabs
+    document.querySelectorAll('.sm-ptabs [data-p]').forEach(b => b.addEventListener('click', () => {
+      document.querySelectorAll('.sm-ptabs [data-p]').forEach(x => x.setAttribute('aria-selected', String(x === b)));
+      document.querySelectorAll('.sm-ppanel').forEach(p => { p.hidden = p.dataset.panel !== b.dataset.p; });
+    }));
+  
+    /* covers: custom strip formats on the same engine */
+    const cov = (id, w, h) => ({ id, name: id, group: 'social', unit: 'px', w, h, safe: { t: 0, r: 0, b: 0, l: 0 }, minPx: 24, arch: ['statement'] });
+    document.getElementById('sm-cov-li').innerHTML = svg(cov('cover-li', 1584, 396), 'statement', T.endcard.c);
+    document.getElementById('sm-cov-x').innerHTML = svg(cov('cover-x', 1500, 500), 'statement', T.endcard.c);
+    document.getElementById('sm-cov-fb').innerHTML = svg(cov('cover-fb', 820, 312), 'statement', T.endcard.c);
+  
+    /* ---------- editor ---------- */
+    const FIELDS = {
+      stat: [['eyebrow', 'Eyebrow'], ['stat', 'Number'], ['headline', 'Label', 1], ['source', 'Source and time window']],
+      statement: [['eyebrow', 'Eyebrow'], ['headline', 'Headline', 1], ['em', 'Italic phrase (the red moment)']],
+      photo: [['eyebrow', 'Name · role, or place'], ['headline', 'Headline', 1], ['em', 'Italic phrase'], ['photo', 'Photo']],
+      event: [['eyebrow', 'Event name'], ['date', 'Date'], ['place', 'Place'], ['headline', 'One-line promise', 1], ['em', 'Italic word']],
+    };
+    const PHOTOS = ['portrait-leader-window', 'team-seated-workshop', 'team-laughing-meeting', 'team-standing-discussion', 'pair-working-warm', 'team-focused-laptop', 'lounge-discussion', 'landscape-nordic'];
+    const ed = { type: 'proof', size: 'feed-1080x1350', c: {} };
+    TYPES.forEach(x => { ed.c[x.id] = Object.assign({}, x.c); });
+    const sel = document.getElementById('sm-ed-type');
+    sel.innerHTML = TYPES.map(x => `<option value="${x.id}">${x.n} · ${x.t}</option>`).join('');
+    const sizeEl = document.getElementById('sm-ed-size');
+    sizeEl.innerHTML = SIZES.map(s => `<button type="button" data-size="${s.id}">${s.t}</button>`).join('');
+    const fieldsEl = document.getElementById('sm-ed-fields');
+    function drawFields() {
+      const x = T[ed.type], c = ed.c[ed.type];
+      fieldsEl.innerHTML = FIELDS[x.arch].map(f => f[0] === 'photo'
+        ? `<label>${f[1]}<select data-f="photo">${PHOTOS.map(p => `<option value="${P(p)}"${c.photo === P(p) ? ' selected' : ''}>${p.replace(/-/g, ' ')}</option>`).join('')}</select></label>`
+        : f[2] ? `<label>${f[1]}<textarea data-f="${f[0]}">${(c[f[0]] || '').replace(/</g, '&lt;')}</textarea></label>`
+               : `<label>${f[1]}<input data-f="${f[0]}" value="${(c[f[0]] || '').replace(/"/g, '&quot;')}"></label>`).join('');
+      fieldsEl.querySelectorAll('[data-f]').forEach(el => el.addEventListener('input', () => { ed.c[ed.type][el.dataset.f] = el.value; drawArt(); }));
+    }
+    function layout() { return K.build(F[ed.size], T[ed.type].arch, ed.c[ed.type], { noCta: true }); }
+    function drawArt() {
+      const L = layout();
+      const art = document.getElementById('sm-ed-art');
+      art.innerHTML = K.toSVG(L, {});
+      const f = F[ed.size];
+      art.style.maxWidth = (f.h > f.w ? Math.round(440 * f.w / f.h * 1.25) : 640) + 'px';
+      document.getElementById('sm-ed-dim').textContent = `${f.w} × ${f.h} px · ${SIZES.find(s => s.id === ed.size).t}`;
+      document.getElementById('sm-ed-warn').innerHTML = L.warns.map(w => `<li>${w}</li>`).join('');
+      sizeEl.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.size === ed.size)));
+    }
+    sel.addEventListener('change', () => { ed.type = sel.value; drawFields(); drawArt(); });
+    sizeEl.addEventListener('click', e => { const b = e.target.closest('[data-size]'); if (!b) return; ed.size = b.dataset.size; drawArt(); });
+    document.querySelectorAll('[data-edit]').forEach(a => a.addEventListener('click', () => { ed.type = a.dataset.edit; sel.value = ed.type; drawFields(); drawArt(); }));
+    document.getElementById('sm-ed-png').addEventListener('click', async () => {
+      const out = document.getElementById('sm-ed-out'); out.textContent = 'Rendering…';
+      try {
+        const cv = await K.toCanvas(layout(), 1);
+        cv.toBlob(b => { const u = URL.createObjectURL(b), a = document.createElement('a'); a.href = u; a.download = `kilowott-${ed.type}-${F[ed.size].w}x${F[ed.size].h}.png`; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(u), 4000); out.textContent = 'Downloaded.'; });
+      } catch (e) { out.textContent = 'Export failed: ' + e.message; }
+    });
+    drawFields(); drawArt();
+    if (window.lucide) lucide.createIcons({ root: root });
+  })();
+  
 };

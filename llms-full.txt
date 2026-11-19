@@ -225,7 +225,7 @@ The sidebar groups the pages by task: **Start** (Home, Downloads) · **Brand bas
 | Magazine (`#magazine`) | Framework cover, article spreads, five pillars, print specs | Editorial long-form |
 | Imagery (`#imagery`) | Four principles, five categories, grades, crops, mistakes, placeholders, approved library, sourcing | Choosing or treating photos |
 | Voice (`#voice`) | Principles, service lines, tone dial, registers, before/after, vocab, mechanics, length ladder | Writing anything |
-| Social (`#social`) | LinkedIn, X, Facebook, Instagram simulations; cover banners | Social assets |
+| Social media (`#social`) | Where to post (LinkedIn first), six post types with copy formulas (proof, point of view, people, hiring, event, end card), LinkedIn document carousel, post editor with PNG export, feed previews for LinkedIn, Instagram, X, Facebook, profile kit | Any social post |
 | Posters & banners (`#posters`) | Print posters (A3/A2/A1/18×24in), roll-up 850×2000mm, backdrop, 48-sheet billboard, flyer, event badge; IAB display ads, Meta/LinkedIn ad set, OG 1200×630, YouTube thumbnail, email hero; 4 archetypes (Statement, Stat, Photo-led, Event) | Posters, ads, banners, OG images |
 
 ---
@@ -787,8 +787,8 @@ Order: header · hero · four outcomes · aside · situation · decision · pull
 ### Magazine (`#magazine`, prefix `.mg-*`)
 Framework, Kilowott’s own magazine. Trim A4 210×297mm. Cover 300gsm, body 120gsm FSC, perfect-bound; bleed 3mm, safety 5mm; display 30–110pt cover, 22–38pt spreads; body 9–10pt; mono 7–9pt; two-column grid, 24mm gutter. Spreads: opener, profile, by-the-numbers, section divider. Rules: one register; real people and numbers only in live issues (the kit shows fictional ones); photo on the verso, type on the recto.
 
-### Social (`#social`, prefixes `.so-*`, `.li-*`, `.x-*`, `.fb-*`, `.ig-*`)
-LinkedIn feed image 1200×627 and document carousel · X under 280 characters, threads · Facebook square or 1.91:1 · Instagram 1:1 feed, carousels, 9:16 stories and reels · cover banners LinkedIn 1584×396, X 1500×500, Facebook 820×312. Posts 60–120 words, proof-led. Metrics shown are sample data.
+### Social (`#social`, prefix `.sm-*`; post images drawn by `window.KWPosters`)
+LinkedIn first (proof, point of view, document carousels, hiring), Instagram second (people, culture, events), X and Facebook reuse the LinkedIn post. Six post types, each a fixed layout plus a copy formula: **Proof** (Stat archetype: one number, label, source), **Point of view** (Statement: one opinion, one italic phrase), **People and culture** (Photo-led: name and role on the image), **Hiring** (Statement: role and office), **Event** (Event archetype), **End card** (tagline only, last frame of video and carousels). Sizes: 4:5 1080×1350 (default), 1:1, 9:16 1080×1920 (keep type out of the top 250px and bottom 340px), 1.91:1 1200×627. Document carousel: five to eight 4:5 slides as one PDF; cover works alone, one point per slide. Copy: outcome in the first line (before “…more”), every number sourced with a time window, three hashtags at most, no emoji, no exclamation marks, alt text on every image. Organic post images carry no button (the platform adds one). Covers: LinkedIn 1584×396, X 1500×500, Facebook 820×312, tagline only. Avatar: bolt mark. Metrics shown are sample data.
 
 ### Posters & banners (`#posters`)
 Print: A3, A2, A1, 18×24in posters · roll-up 850×2000mm · event backdrop · 48-sheet billboard · flyer · event badge. Digital: IAB display ads · Meta / LinkedIn ad set · Open Graph 1200×630 · YouTube thumbnail · email hero. Four archetypes: **Statement** (serif headline, one italic red word), **Stat** (one big number), **Photo-led** (real photography, type in clear space), **Event** (date, place, name). The machine-readable spec (sizes, safe areas, type sizes per format) is the JSON in `script#posters-spec` inside https://brandkit.kilowott.com/project/pages/posters.js.

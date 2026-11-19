@@ -899,6 +899,11 @@
   /* ============================================================
      PAGE
      ============================================================ */
+  // The layout engine is shared: the Social page builds its post images with it.
+  // Exposed at load so other pages can use it before Posters has rendered.
+  window.KWPosters = Object.assign(window.KWPosters || {}, { FORMATS, ARCHETYPES, CONTENT, build, toSVG, toCanvas, fontsReady,
+    clearMeasure: () => MCACHE.clear() });
+
   window.renderPosters = function (root) {
     const mounts = [];
     const fmtGroups = g => FORMATS.filter(f => f.group === g);

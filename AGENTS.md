@@ -214,7 +214,7 @@ The sidebar groups the pages by task: **Start** (Home, Downloads) · **Brand bas
 | Magazine (`#magazine`) | Framework cover, article spreads, five pillars, print specs | Editorial long-form |
 | Imagery (`#imagery`) | Four principles, five categories, grades, crops, mistakes, placeholders, approved library, sourcing | Choosing or treating photos |
 | Voice (`#voice`) | Principles, service lines, tone dial, registers, before/after, vocab, mechanics, length ladder | Writing anything |
-| Social (`#social`) | LinkedIn, X, Facebook, Instagram simulations; cover banners | Social assets |
+| Social media (`#social`) | Where to post (LinkedIn first), six post types with copy formulas (proof, point of view, people, hiring, event, end card), LinkedIn document carousel, post editor with PNG export, feed previews for LinkedIn, Instagram, X, Facebook, profile kit | Any social post |
 | Posters & banners (`#posters`) | Print posters (A3/A2/A1/18×24in), roll-up 850×2000mm, backdrop, 48-sheet billboard, flyer, event badge; IAB display ads, Meta/LinkedIn ad set, OG 1200×630, YouTube thumbnail, email hero; 4 archetypes (Statement, Stat, Photo-led, Event) | Posters, ads, banners, OG images |
 
 ---
