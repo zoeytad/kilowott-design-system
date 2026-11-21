@@ -48,7 +48,7 @@
 10. **Demo content is fictional.** Use the shared demo client **Nordhavn Coffee** (specialty coffee brand, US launch, SEO + paid social, **3.5× organic traffic in six months** — sample figures, domain `nordhavn-coffee.example`) and the placeholder person **Ola Nordmann**, Senior Strategist, ola.nordmann@kilowott.com, +47 000 00 000. Never real third-party people, companies, logos, testimonials, personal phone numbers, or personal booking links (no HubSpot or Calendly personal URLs).
 11. **Company facts are real** and may be used as-is: Kilowott · https://kilowott.com · contact page https://kilowott.com/contact-us/ · offices Fredrikstad · Sandnes · Goa · Dubai · company phone lines and socials in `project/brand.json` → `facts`. Don't invent offices, clients, awards, or numbers.
 12. **Imagery:** real photography, no AI-generated images in external work, no stock clichés (handshakes, hard hats, people lined up against a wall). Photos in `project/assets/photos/` are cleared for kit use. `project/uploads/` holds licensed Shutterstock originals: an internal reference library for Kilowott use only. Do not redistribute them or hotlink them from non-Kilowott work.
-13. **Logo:** use the SVG wordmark; never redraw, stretch, recolour outside ink/paper, or add effects.
+13. **Logo:** use the supplied wordmark files; navy (`#021032`, `var(--logo)`) on paper and warm paper, white on ink and red. Never redraw, stretch, recolour, or add effects. Navy is for the logo only, not for text or surfaces.
 
 ---
 
@@ -95,7 +95,8 @@ All paths are relative to `https://brandkit.kilowott.com/`. Text and JSON files 
 | [`project/kit/tokens.scss`](https://brandkit.kilowott.com/project/kit/tokens.scss) | Sass variables and maps |
 | [`project/kit/figma-tokens.json`](https://brandkit.kilowott.com/project/kit/figma-tokens.json) | Tokens Studio for Figma (light + dark sets) |
 | [`project/styles/tokens.css`](https://brandkit.kilowott.com/project/styles/tokens.css) | Canonical token source (everything above is generated from it) |
-| [`project/downloads/kilowott-logo.svg`](https://brandkit.kilowott.com/project/downloads/kilowott-logo.svg) | Wordmark, vector |
+| [`project/downloads/kilowott-logo.svg`](https://brandkit.kilowott.com/project/downloads/kilowott-logo.svg) | Wordmark, navy `#021032`, vector. The default logo file |
+| [`project/downloads/logo/`](https://brandkit.kilowott.com/project/downloads/kilowott-logo-pack.zip) | Full logo set: `kilowott-logo-{navy,white,black}.svg`, `kilowott-logo-navy.pdf`, `kilowott-logo-{navy,white,black}-{300,600,1200,2400}.png` (transparent), two 1200×630 link-preview cards. Every URL with its use is listed in `project/brand.json` → `logo.wordmark.files`; the link here is the zip |
 | [`project/assets/kilowott-bolt.jpg`](https://brandkit.kilowott.com/project/assets/kilowott-bolt.jpg) | Bolt mark, 100×100 JPG only (see §8) |
 | [`project/downloads/kilowott-colors.ase`](https://brandkit.kilowott.com/project/downloads/kilowott-colors.ase) | Adobe swatches (Illustrator, InDesign, Photoshop) |
 | [`project/downloads/kilowott-colors.gpl`](https://brandkit.kilowott.com/project/downloads/kilowott-colors.gpl) | GIMP / Inkscape / Krita palette |
@@ -128,6 +129,7 @@ All paths are relative to `https://brandkit.kilowott.com/`. Text and JSON files 
 | `--k-muted` | `#5B6573` | secondary text on paper |
 | `--k-muted-dark` | `#8A95A5` | secondary text on ink |
 | `--k-red-hover` | `#B40224` | pressed / hover state for red fills |
+| `--k-navy` | `#021032` | logo navy: the wordmark on paper, nothing else |
 
 ### State colours (product UI only, never marketing)
 
@@ -163,6 +165,7 @@ All paths are relative to `https://brandkit.kilowott.com/`. Text and JSON files 
 | `--danger` | `#E4022D` (`--accent`) | `#E4022D` (`--accent`) | state: danger = brand red |
 | `--danger-soft` | `#FCE5EA` (`--k-red-soft`) | `#FCE5EA` (`--k-red-soft`) | state: danger tint |
 | `--link` | `#8A021B` (`--accent-ink`) | `#FCE5EA` (`--accent-ink`) | text links, inline code, small red text |
+| `--logo` | `#021032` (`--k-navy`) | `#FFFFFF` (`--k-paper`) | the wordmark: navy on paper, white on ink |
 
 **Fonts:** `--font-display` "Newsreader", ui-serif, Georgia, serif · `--font-sans` "DM Sans", ui-sans-serif, system-ui, sans-serif · `--font-mono` "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace
 
@@ -300,7 +303,7 @@ One red moment: the italic *compounds*. The CTA is ink, the stats are ink. If yo
 4. Tokens only (except email/print/swatches). Works with `data-theme="dark"` if it is a product surface.
 5. Copy passes voice: no exclamation marks, no banned words, sentence case, numbers sourced.
 6. All people, clients, quotes, and numbers are fictional (Nordhavn Coffee, Ola Nordmann) unless they are Kilowott company facts.
-7. Icons are Lucide at 1.5 stroke. Logo is the SVG wordmark with clear space.
+7. Icons are Lucide at 1.5 stroke. Logo is the supplied wordmark file, navy on light or white on dark, with clear space.
 8. Focus states are visible; contrast is AA (see the contrast table in `KILOWOTT_BRAND.md` §2).
 
 ---
@@ -309,7 +312,7 @@ One red moment: the italic *compounds*. The CTA is ink, the stats are ink. If yo
 
 - Static SPA, no build step for the site: `project/index.html` + `project/app.js` (hash router) + `project/pages/<tab>.js` (each defines `window.render<Tab>(root)`) + `project/styles/tokens.css` + `project/styles/shell.css`.
 - Run locally: `python3 -m http.server 8723` from the repo root, open http://localhost:8723/project/.
-- **Tokens:** edit only `project/styles/tokens.css`, then `npm run build:tokens`. Never hand-edit generated files (`tokens.json`, `llms-full.txt`, `project/kit/*` except `starter/`, the `tokens` key in `project/brand.json`, `<!-- tokens:start -->` blocks, `project/downloads/kilowott-colors.*`, `project/downloads/kilowott-logo.svg`).
+- **Tokens:** edit only `project/styles/tokens.css`, then `npm run build:tokens`. Never hand-edit generated files (`tokens.json`, `llms-full.txt`, `project/kit/*` except `starter/`, the `tokens` key in `project/brand.json`, `<!-- tokens:start -->` blocks, `project/downloads/kilowott-colors.*`, `project/downloads/kilowott-logo.svg`, `project/downloads/logo/*.svg`).
 - **Before pushing:** `npm run check` (syntax, generated files in sync, contrast claims, manifest vs router, links, escape bugs). CI runs the same on every push and PR.
 - Inside template strings, CSS escapes must be doubled: write `\\201C`, not `\201C`.
 - Push to `main` deploys to https://brandkit.kilowott.com (Railway). See `DEPLOY.md`.

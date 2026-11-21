@@ -114,7 +114,49 @@
       "file": "project/downloads/kilowott-logo.svg",
       "url": "https://brandkit.kilowott.com/project/downloads/kilowott-logo.svg",
       "format": "svg",
-      "purpose": "Wordmark, vector"
+      "purpose": "Wordmark, navy #021032, vector. The default logo file"
+    },
+    {
+      "file": "project/downloads/logo/kilowott-logo-white.svg",
+      "url": "https://brandkit.kilowott.com/project/downloads/logo/kilowott-logo-white.svg",
+      "format": "svg",
+      "purpose": "Wordmark, white, vector. For ink, red, and dark photos"
+    },
+    {
+      "file": "project/downloads/logo/kilowott-logo-black.svg",
+      "url": "https://brandkit.kilowott.com/project/downloads/logo/kilowott-logo-black.svg",
+      "format": "svg",
+      "purpose": "Wordmark, black, vector. One-colour print only"
+    },
+    {
+      "file": "project/downloads/logo/kilowott-logo-navy.pdf",
+      "url": "https://brandkit.kilowott.com/project/downloads/logo/kilowott-logo-navy.pdf",
+      "format": "pdf",
+      "purpose": "Wordmark, navy, vector PDF for print and Office"
+    },
+    {
+      "file": "project/downloads/logo/kilowott-logo-navy-1200.png",
+      "url": "https://brandkit.kilowott.com/project/downloads/logo/kilowott-logo-navy-1200.png",
+      "format": "png 1200×157",
+      "purpose": "Wordmark, navy, transparent PNG (also 300, 600, 2400)"
+    },
+    {
+      "file": "project/downloads/logo/kilowott-logo-white-1200.png",
+      "url": "https://brandkit.kilowott.com/project/downloads/logo/kilowott-logo-white-1200.png",
+      "format": "png 1200×157",
+      "purpose": "Wordmark, white, transparent PNG (also 300, 600, 2400)"
+    },
+    {
+      "file": "project/downloads/logo/kilowott-logo-card-navy-on-white-1200x630.png",
+      "url": "https://brandkit.kilowott.com/project/downloads/logo/kilowott-logo-card-navy-on-white-1200x630.png",
+      "format": "png 1200×630",
+      "purpose": "Link-preview card, navy logo on white (also white-on-navy)"
+    },
+    {
+      "file": "project/downloads/kilowott-logo-pack.zip",
+      "url": "https://brandkit.kilowott.com/project/downloads/kilowott-logo-pack.zip",
+      "format": "zip",
+      "purpose": "Every logo file in one archive. Full list: project/brand.json → logo.wordmark.files"
     },
     {
       "file": "project/assets/kilowott-bolt.jpg",
@@ -771,7 +813,7 @@
     },
     "logo": {
       "class": ".k-logo",
-      "rule": "CSS mask + currentColor; 110×18 default."
+      "rule": "CSS mask filled with var(--logo): navy on paper, white on ink; 110×18 default."
     }
   },
   "icon-set": {

@@ -117,13 +117,159 @@
     "wordmark": {
       "svg": "https://brandkit.kilowott.com/project/assets/kilowott-logo.svg",
       "download": "https://brandkit.kilowott.com/project/downloads/kilowott-logo.svg",
+      "pack": "https://brandkit.kilowott.com/project/downloads/kilowott-logo-pack.zip",
       "viewBox": "0 0 313 41",
-      "treatment": "One SVG, recoloured via CSS mask + currentColor (see .k-logo in kit/kilowott.css).",
+      "aspect_ratio": "313:41",
+      "colour": {
+        "on_light": "#021032 (--k-navy, var(--logo))",
+        "on_dark": "#FFFFFF",
+        "rule": "Navy on paper and warm paper; white on ink and red. Navy is for the logo only: never for text, surfaces, or UI."
+      },
+      "treatment": "On the web: one SVG as a CSS mask filled with var(--logo) (see .k-logo in kit/kilowott.css). Anywhere else: pick the navy or white file from `files`.",
+      "pick": "SVG first. PDF for print and Office. PNG only where vectors are not accepted; choose the width at least 2x the displayed width.",
       "minimum_size": {
         "screen_px": 80,
         "print_mm": 20
       },
-      "clear_space": "Equal to the cap height of the K on all sides"
+      "clear_space": "Equal to the cap height of the K on all sides",
+      "files": [
+        {
+          "url": "https://brandkit.kilowott.com/project/downloads/logo/kilowott-logo-navy.svg",
+          "format": "svg",
+          "colour": "#021032",
+          "use": "Default. Paper and warm paper backgrounds. Web, documents, print."
+        },
+        {
+          "url": "https://brandkit.kilowott.com/project/downloads/logo/kilowott-logo-white.svg",
+          "format": "svg",
+          "colour": "#FFFFFF",
+          "use": "Ink, red, and dark photo backgrounds."
+        },
+        {
+          "url": "https://brandkit.kilowott.com/project/downloads/logo/kilowott-logo-black.svg",
+          "format": "svg",
+          "colour": "#000000",
+          "use": "One-colour print only (stamp, fax, engraving). Never on screen."
+        },
+        {
+          "url": "https://brandkit.kilowott.com/project/downloads/logo/kilowott-logo-navy.pdf",
+          "format": "pdf (vector)",
+          "colour": "#021032",
+          "use": "Print and Office documents that cannot place SVG."
+        },
+        {
+          "url": "https://brandkit.kilowott.com/project/downloads/logo/kilowott-logo-navy-300.png",
+          "format": "png (transparent)",
+          "colour": "#021032",
+          "use": "Light backgrounds where SVG is not supported (email, slides, social tools).",
+          "width_px": 300,
+          "height_px": 39
+        },
+        {
+          "url": "https://brandkit.kilowott.com/project/downloads/logo/kilowott-logo-navy-600.png",
+          "format": "png (transparent)",
+          "colour": "#021032",
+          "use": "Light backgrounds where SVG is not supported (email, slides, social tools).",
+          "width_px": 600,
+          "height_px": 79
+        },
+        {
+          "url": "https://brandkit.kilowott.com/project/downloads/logo/kilowott-logo-navy-1200.png",
+          "format": "png (transparent)",
+          "colour": "#021032",
+          "use": "Light backgrounds where SVG is not supported (email, slides, social tools).",
+          "width_px": 1200,
+          "height_px": 157
+        },
+        {
+          "url": "https://brandkit.kilowott.com/project/downloads/logo/kilowott-logo-navy-2400.png",
+          "format": "png (transparent)",
+          "colour": "#021032",
+          "use": "Light backgrounds where SVG is not supported (email, slides, social tools).",
+          "width_px": 2400,
+          "height_px": 314
+        },
+        {
+          "url": "https://brandkit.kilowott.com/project/downloads/logo/kilowott-logo-white-300.png",
+          "format": "png (transparent)",
+          "colour": "#FFFFFF",
+          "use": "Dark backgrounds where SVG is not supported.",
+          "width_px": 300,
+          "height_px": 39
+        },
+        {
+          "url": "https://brandkit.kilowott.com/project/downloads/logo/kilowott-logo-white-600.png",
+          "format": "png (transparent)",
+          "colour": "#FFFFFF",
+          "use": "Dark backgrounds where SVG is not supported.",
+          "width_px": 600,
+          "height_px": 79
+        },
+        {
+          "url": "https://brandkit.kilowott.com/project/downloads/logo/kilowott-logo-white-1200.png",
+          "format": "png (transparent)",
+          "colour": "#FFFFFF",
+          "use": "Dark backgrounds where SVG is not supported.",
+          "width_px": 1200,
+          "height_px": 157
+        },
+        {
+          "url": "https://brandkit.kilowott.com/project/downloads/logo/kilowott-logo-white-2400.png",
+          "format": "png (transparent)",
+          "colour": "#FFFFFF",
+          "use": "Dark backgrounds where SVG is not supported.",
+          "width_px": 2400,
+          "height_px": 314
+        },
+        {
+          "url": "https://brandkit.kilowott.com/project/downloads/logo/kilowott-logo-black-300.png",
+          "format": "png (transparent)",
+          "colour": "#000000",
+          "use": "One-colour print only.",
+          "width_px": 300,
+          "height_px": 39
+        },
+        {
+          "url": "https://brandkit.kilowott.com/project/downloads/logo/kilowott-logo-black-600.png",
+          "format": "png (transparent)",
+          "colour": "#000000",
+          "use": "One-colour print only.",
+          "width_px": 600,
+          "height_px": 79
+        },
+        {
+          "url": "https://brandkit.kilowott.com/project/downloads/logo/kilowott-logo-black-1200.png",
+          "format": "png (transparent)",
+          "colour": "#000000",
+          "use": "One-colour print only.",
+          "width_px": 1200,
+          "height_px": 157
+        },
+        {
+          "url": "https://brandkit.kilowott.com/project/downloads/logo/kilowott-logo-black-2400.png",
+          "format": "png (transparent)",
+          "colour": "#000000",
+          "use": "One-colour print only.",
+          "width_px": 2400,
+          "height_px": 314
+        },
+        {
+          "url": "https://brandkit.kilowott.com/project/downloads/logo/kilowott-logo-card-navy-on-white-1200x630.png",
+          "format": "png",
+          "colour": "#021032 on #FFFFFF",
+          "use": "Link preview / Open Graph image, light.",
+          "width_px": 1200,
+          "height_px": 630
+        },
+        {
+          "url": "https://brandkit.kilowott.com/project/downloads/logo/kilowott-logo-card-white-on-navy-1200x630.png",
+          "format": "png",
+          "colour": "#FFFFFF on #021032",
+          "use": "Link preview / Open Graph image, dark.",
+          "width_px": 1200,
+          "height_px": 630
+        }
+      ]
     },
     "bolt": {
       "image": "https://brandkit.kilowott.com/project/assets/kilowott-bolt.jpg",
@@ -454,6 +600,16 @@
           ],
           "css_var": "--k-red-hover",
           "role": "pressed / hover state for red fills"
+        },
+        "navy": {
+          "hex": "#021032",
+          "rgb": [
+            2,
+            16,
+            50
+          ],
+          "css_var": "--k-navy",
+          "role": "logo navy: the wordmark on paper, nothing else"
         }
       },
       "state": {
@@ -634,6 +790,12 @@
           "value": "#8A021B",
           "maps_to": "--accent-ink",
           "use": "text links, inline code, small red text"
+        },
+        "logo": {
+          "css_var": "--logo",
+          "value": "#021032",
+          "maps_to": "--k-navy",
+          "use": "the wordmark: navy on paper, white on ink"
         }
       },
       "dark": {
@@ -723,6 +885,11 @@
           "css_var": "--link",
           "value": "#FCE5EA",
           "maps_to": "--accent-ink"
+        },
+        "logo": {
+          "css_var": "--logo",
+          "value": "#FFFFFF",
+          "maps_to": "--k-paper"
         }
       }
     },

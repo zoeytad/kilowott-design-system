@@ -16,7 +16,7 @@ window.renderOverview = function (root) {
     { t: 'Build a web page',    d: 'Stylesheet, starter page, sections',   i: 'layout-template',      to: 'developers' },
   ];
   const FILES = [
-    { f: 'SVG',  t: 'Logo wordmark',         d: 'The vector wordmark. Ink or paper only.',              h: 'downloads/kilowott-logo.svg',           i: 'badge' },
+    { f: 'SVG',  t: 'Logo wordmark',         d: 'The vector wordmark. Navy on paper, white on ink.',              h: 'downloads/kilowott-logo.svg',           i: 'badge' },
     { f: 'PPTX', t: 'Presentation template', d: '15 slide layouts for PowerPoint and Keynote.',          h: 'downloads/kilowott-deck-template.pptx', i: 'presentation' },
     { f: 'ASE',  t: 'Colour swatches',       d: 'Adobe swatches for Illustrator, InDesign, Photoshop.', h: 'downloads/kilowott-colors.ase',         i: 'palette' },
   ];

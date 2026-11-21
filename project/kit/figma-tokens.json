@@ -71,6 +71,11 @@
           "value": "#B40224",
           "type": "color",
           "description": "pressed / hover state for red fills"
+        },
+        "navy": {
+          "value": "#021032",
+          "type": "color",
+          "description": "logo navy: the wordmark on paper, nothing else"
         }
       },
       "state": {
@@ -442,6 +447,11 @@
         "value": "{semantic.accent-ink}",
         "type": "color",
         "description": "text links, inline code, small red text"
+      },
+      "logo": {
+        "value": "{color.brand.navy}",
+        "type": "color",
+        "description": "the wordmark: navy on paper, white on ink"
       }
     }
   },
@@ -541,6 +551,11 @@
         "value": "{semantic.accent-ink}",
         "type": "color",
         "description": "text links, inline code, small red text"
+      },
+      "logo": {
+        "value": "{color.brand.paper}",
+        "type": "color",
+        "description": "the wordmark: navy on paper, white on ink"
       }
     }
   },

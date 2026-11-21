@@ -74,7 +74,7 @@ window.renderEmail = function (root) {
 
     .em-logo {
       width: 120px; height: 18px;
-      background: #0B0F14;
+      background: #021032;
       -webkit-mask: url(assets/kilowott-logo.svg) no-repeat left center / contain;
               mask: url(assets/kilowott-logo.svg) no-repeat left center / contain;
       margin-bottom: 28px;

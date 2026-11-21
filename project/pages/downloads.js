@@ -7,7 +7,13 @@
 window.renderDownloads = function (root) {
   const G = [
     { h: 'Logo', p: 'Use the SVG wherever you can. The bolt mark is for avatars and spaces under 80 px.', items: [
-      ['SVG', 'Wordmark', 'Vector wordmark. Recolour to ink or paper only.', 'downloads/kilowott-logo.svg', 'badge'],
+      ['SVG', 'Wordmark, navy', 'The main logo. Vector. For paper and warm paper.', 'downloads/kilowott-logo.svg', 'badge'],
+      ['SVG', 'Wordmark, white', 'Vector. For ink, red, and dark photos.', 'downloads/logo/kilowott-logo-white.svg', 'badge'],
+      ['SVG', 'Wordmark, black', 'Vector. One-colour print only (stamps, fax, engraving).', 'downloads/logo/kilowott-logo-black.svg', 'badge'],
+      ['PNG', 'Wordmark, navy', '1200 px wide, transparent. Also 300, 600, 2400 in the zip.', 'downloads/logo/kilowott-logo-navy-1200.png', 'image'],
+      ['PNG', 'Wordmark, white', '1200 px wide, transparent. Also 300, 600, 2400 in the zip.', 'downloads/logo/kilowott-logo-white-1200.png', 'image'],
+      ['PDF', 'Wordmark, navy', 'Vector PDF for print and Office documents.', 'downloads/logo/kilowott-logo-navy.pdf', 'file-text'],
+      ['ZIP', 'Logo pack', 'Every logo file: SVG, PDF, PNG in four sizes, two link-preview cards.', 'downloads/kilowott-logo-pack.zip', 'package'],
       ['JPG', 'Bolt mark', '100 × 100 px. There is no vector bolt yet.', 'assets/kilowott-bolt.jpg', 'zap'] ] },
     { h: 'Colour', p: 'The same palette in the format your tool reads.', items: [
       ['ASE', 'Adobe swatches', 'Illustrator, InDesign, Photoshop.', 'downloads/kilowott-colors.ase', 'palette'],

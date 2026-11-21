@@ -41,6 +41,7 @@ Use the CSS custom properties, never raw hex, in CSS. Prefer the **semantic** to
 | `--k-muted` | `#5B6573` | secondary text on paper |
 | `--k-muted-dark` | `#8A95A5` | secondary text on ink |
 | `--k-red-hover` | `#B40224` | pressed / hover state for red fills |
+| `--k-navy` | `#021032` | logo navy: the wordmark on paper, nothing else |
 
 ### State colours (product UI only, never marketing)
 
@@ -76,6 +77,7 @@ Use the CSS custom properties, never raw hex, in CSS. Prefer the **semantic** to
 | `--danger` | `#E4022D` (`--accent`) | `#E4022D` (`--accent`) | state: danger = brand red |
 | `--danger-soft` | `#FCE5EA` (`--k-red-soft`) | `#FCE5EA` (`--k-red-soft`) | state: danger tint |
 | `--link` | `#8A021B` (`--accent-ink`) | `#FCE5EA` (`--accent-ink`) | text links, inline code, small red text |
+| `--logo` | `#021032` (`--k-navy`) | `#FFFFFF` (`--k-paper`) | the wordmark: navy on paper, white on ink |
 
 ### Contrast (WCAG 2.2, computed from the hex values)
 
@@ -223,16 +225,19 @@ Spec: 24×24, stroke 1.5 (1.25 at 48px), round caps, `currentColor`. Sizes 16 ·
 
 ## 7. Logo
 
-- **Wordmark (primary):** `project/assets/kilowott-logo.svg` (viewBox `0 0 313 41`). Download: https://brandkit.kilowott.com/project/downloads/kilowott-logo.svg. One SVG on every surface, recoloured with a CSS mask and `currentColor`:
+- **Wordmark (primary):** `project/assets/kilowott-logo.svg` (viewBox `0 0 313 41`). Download: https://brandkit.kilowott.com/project/downloads/kilowott-logo.svg.
+- **Colour:** navy `#021032` (`--k-navy`, used through `var(--logo)`) on paper and warm paper; white on ink and red. Navy is for the logo only: never for text, surfaces, or UI. Black exists for one-colour print only.
+- **Files:** `project/downloads/logo/` holds `kilowott-logo-{navy,white,black}.svg`, `kilowott-logo-navy.pdf`, transparent PNGs `kilowott-logo-{navy,white,black}-{300,600,1200,2400}.png`, and two 1200×630 link-preview cards. Everything in one zip: https://brandkit.kilowott.com/project/downloads/kilowott-logo-pack.zip. Use SVG first, PDF for print and Office, PNG only where vectors are not accepted (pick a width at least twice the displayed width).
+- **On the web:** one SVG as a CSS mask, filled with `var(--logo)` (navy in the light theme, white in the dark theme). On an ink or red band inside a light page, set white yourself:
 
 ```css
-.k-logo { width: 110px; height: 18px; aspect-ratio: 313 / 41; background: currentColor;
+.k-logo { width: 110px; height: 18px; aspect-ratio: 313 / 41; background: currentColor; color: var(--logo);
   -webkit-mask: url(assets/kilowott-logo.svg) no-repeat center / contain;
           mask: url(assets/kilowott-logo.svg) no-repeat center / contain; }
 ```
 
 - **Clear space** = height of the K on all sides. **Sizes:** hero ≥240px / 60mm, standard 120–240px, minimum 80px / 20mm (below that, use the bolt).
-- **Placements:** paper (default), ink, warm paper, red (rare). Never stretch, rotate, add shadows, or place on busy images. Never redraw or re-typeset.
+- **Placements:** navy on paper (default) and warm paper; white on ink and red (rare). Never stretch, rotate, add shadows, or place on busy images. Never redraw or re-typeset.
 - **Bolt mark (companion):** `project/assets/kilowott-bolt.jpg`, black bolt on white. Avatars, favicons, app icons, watermarks. Never replaces the wordmark where the wordmark fits. Black on white or white on ink only (`filter: invert(1)`); never red, gradient, or two-tone. **Known gap:** the bolt exists only as a 100×100 JPG. There is no vector. Don't trace or fake one; ask the Kilowott brand team.
 
 ---

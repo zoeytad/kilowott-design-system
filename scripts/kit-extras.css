@@ -52,10 +52,12 @@
 }
 /* [data-theme="dark"] set on a child element (not <html>) also needs --link re-pointed */
 [data-theme="dark"] { --link: var(--accent-ink); --danger: var(--accent); }
+.section--ink .k-logo { color: var(--k-paper); }
 
-/* ---------- Logo: one SVG, recoloured via currentColor ---------- */
+/* ---------- Logo: one SVG, navy on paper and white on ink via --logo ---------- */
 .k-logo {
   display: inline-block;
+  color: var(--logo);
   width: 110px; height: 18px;
   aspect-ratio: 313 / 41;
   background: currentColor;

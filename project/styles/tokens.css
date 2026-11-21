@@ -22,6 +22,7 @@
   --k-muted:      #5B6573;   /* secondary text on paper */
   --k-muted-dark: #8A95A5;   /* secondary text on ink */
   --k-red-hover:  #B40224;   /* pressed / hover state for red fills */
+  --k-navy:       #021032;   /* logo navy: the wordmark on paper, nothing else */
 
   /* ---------- STATE (product UI only — never marketing) ---------- */
   /* All four pass WCAG AA (≥4.5:1) as text on --k-paper and --k-paper-2. */
@@ -54,6 +55,8 @@
   /* Text links and inline code use --accent-ink, not --accent:
      red-ink is 10:1 on paper; brand red is only 4.8:1 and fails on warm paper. */
   --link:         var(--accent-ink);
+  /* The wordmark: navy on paper, white on ink. */
+  --logo:         var(--k-navy);
 
   /* ---------- TYPE ---------- */
   --font-display: "Newsreader", ui-serif, Georgia, serif;
@@ -130,6 +133,7 @@
   --rule:        #2B3544;
   --rule-strong: #3B4656;
   --accent-ink:  var(--k-red-soft);   /* red-ink is unreadable on ink; soft red reads 16:1 */
+  --logo:        var(--k-paper);
   --success:      #5BC27A;
   --success-soft: rgba(91,194,122,0.12);
   --warning:      #E0A43A;

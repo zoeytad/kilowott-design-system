@@ -47,6 +47,7 @@ const SEMANTIC_ROLES = {
   rule: 'soft divider',
   'rule-strong': 'strong rule / button border',
   link: 'text links, inline code, small red text',
+  logo: 'the wordmark: navy on paper, white on ink',
   success: 'state: success (product UI only)',
   'success-soft': 'state: success tint',
   warning: 'state: warning (product UI only)',
@@ -622,7 +623,13 @@ export function buildAll() {
   files.set('project/downloads/kilowott-colors.ase', buildAse(M));
   files.set('project/downloads/kilowott-colors.gpl', buildGpl(M));
   files.set('project/downloads/kilowott-colors.json', buildSwatchJson(M));
-  files.set('project/downloads/kilowott-logo.svg', fs.readFileSync(path.join(ROOT, 'project/assets/kilowott-logo.svg')));
+  const logoSvg = fs.readFileSync(path.join(ROOT, 'project/assets/kilowott-logo.svg'), 'utf8');
+  const logoNavy = normHex(M.light.get('--k-navy'));
+  if (!logoSvg.includes(`fill="${logoNavy}"`)) throw new Error(`project/assets/kilowott-logo.svg must be filled with --k-navy (${logoNavy})`);
+  files.set('project/downloads/kilowott-logo.svg', logoSvg);
+  files.set('project/downloads/logo/kilowott-logo-navy.svg', logoSvg);
+  files.set('project/downloads/logo/kilowott-logo-white.svg', logoSvg.replace(`fill="${logoNavy}"`, 'fill="#FFFFFF"'));
+  files.set('project/downloads/logo/kilowott-logo-black.svg', logoSvg.replace(`fill="${logoNavy}"`, 'fill="#000000"'));
   return { files, model: M };
 }
 

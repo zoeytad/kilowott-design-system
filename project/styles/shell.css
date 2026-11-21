@@ -3,8 +3,9 @@
    ============================================================ */
 :root { --kb-side: 264px; --kb-mtop: 56px; }
 
-/* Logo — one SVG, recoloured via currentColor */
+/* Logo — one SVG, navy on paper and white on ink via --logo */
 .kb-logo {
+  color: var(--logo);
   display: inline-block; height: 16px; aspect-ratio: 313 / 41;
   background: currentColor;
   -webkit-mask: url(../assets/kilowott-logo.svg) no-repeat left center / contain;

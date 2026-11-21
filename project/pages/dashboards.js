@@ -742,7 +742,7 @@ window.renderDashboards = function (root) {
     .db-side__logo {
       width: 96px; height: 14px;
       background: currentColor;
-      color: var(--fg);
+      color: var(--logo);
       -webkit-mask: url(assets/kilowott-logo.svg) no-repeat left center / contain;
               mask: url(assets/kilowott-logo.svg) no-repeat left center / contain;
     }

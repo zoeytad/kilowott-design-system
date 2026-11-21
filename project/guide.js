@@ -21,13 +21,13 @@
 
   const RULES = {
     logo: { files: ['logoSvg', 'bolt'],
-      do: ['Use the supplied SVG: ink on light grounds, paper on dark.',
+      do: ['Use the supplied files: navy on light grounds, white on dark.',
            'Leave clear space equal to the height of the K on every side.',
            'Keep it at least 80 px wide on screen or 20 mm in print. Smaller than that, use the bolt.',
            'Place it bottom-left. With a button: logo left, button right, on one line.'],
       no: ['Redraw it, type it out, or rebuild it in a font.',
            'Stretch, rotate, outline, or add a shadow.',
-           'Colour it red or anything other than ink or paper.',
+           'Colour it anything other than navy (on light) or white (on dark).',
            'Stack it on a button or drop it onto a busy photo.'] },
     color: { files: ['ase', 'gpl', 'colJson'],
       do: ['Paper first: 60 paper, 30 ink, 5 warm paper, 5 red.',

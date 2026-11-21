@@ -28,6 +28,7 @@ module.exports = {
           "muted": "#5B6573",
           "muted-dark": "#8A95A5",
           "red-hover": "#B40224",
+          "navy": "#021032",
           "success": "#1A7F35",
           "success-soft": "#E8F3EB",
           "warning": "#9A6200",
@@ -53,7 +54,8 @@ module.exports = {
         "info-soft": "var(--info-soft, #E6EDF5)",
         "danger": "var(--danger, #E4022D)",
         "danger-soft": "var(--danger-soft, #FCE5EA)",
-        "link": "var(--link, #8A021B)"
+        "link": "var(--link, #8A021B)",
+        "logo": "var(--logo, #021032)"
       },
       "fontFamily": {
         "display": [

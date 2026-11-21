@@ -31,7 +31,7 @@ window.renderLogo = function (root) {
     }
     .lg-hero__logo {
       width: 70%; max-width: 420px;
-      color: var(--fg);
+      color: var(--logo);
       -webkit-mask: url(assets/kilowott-logo.svg) no-repeat center/contain;
               mask: url(assets/kilowott-logo.svg) no-repeat center/contain;
       aspect-ratio: 313/41;
@@ -49,7 +49,7 @@ window.renderLogo = function (root) {
     .lg-anatomy__logo {
       width: 100%; max-width: 520px; margin: 0 auto;
       aspect-ratio: 313/41;
-      background: var(--fg);
+      background: var(--logo);
       -webkit-mask: url(assets/kilowott-logo.svg) no-repeat center/contain;
               mask: url(assets/kilowott-logo.svg) no-repeat center/contain;
     }
@@ -179,7 +179,7 @@ window.renderLogo = function (root) {
     }
     .lg-clear__logo {
       width: 300px; aspect-ratio: 313/41;
-      background: var(--fg);
+      background: var(--logo);
       -webkit-mask: url(assets/kilowott-logo.svg) no-repeat center/contain;
               mask: url(assets/kilowott-logo.svg) no-repeat center/contain;
     }
@@ -208,7 +208,7 @@ window.renderLogo = function (root) {
     .lg-size:last-child { border-right: 0; }
     @media (max-width: 900px) { .lg-size { border-right: 0; border-bottom: 1px solid var(--rule); } }
     .lg-size__logo {
-      background: var(--fg);
+      background: var(--logo);
       -webkit-mask: url(assets/kilowott-logo.svg) no-repeat center/contain;
               mask: url(assets/kilowott-logo.svg) no-repeat center/contain;
       aspect-ratio: 313/41;
@@ -244,7 +244,7 @@ window.renderLogo = function (root) {
       font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
     }
     .lg-var--paper { background: #fff; }
-    .lg-var--paper .lg-var__logo { background: #0B0F14; }
+    .lg-var--paper .lg-var__logo { background: #021032; }
     .lg-var--paper .lg-var__cap { color: #5B6573; }
 
     .lg-var--ink { background: #0B0F14; }
@@ -256,7 +256,7 @@ window.renderLogo = function (root) {
     .lg-var--red .lg-var__cap { color: rgba(255,255,255,0.7); }
 
     .lg-var--warm { background: #F6F4F0; }
-    .lg-var--warm .lg-var__logo { background: #0B0F14; }
+    .lg-var--warm .lg-var__logo { background: #021032; }
     .lg-var--warm .lg-var__cap { color: #5B6573; }
 
     /* Don'ts */
@@ -293,10 +293,10 @@ window.renderLogo = function (root) {
     <div class="lg-hero__text">
       <span class="eyebrow">Brand basics</span>
       <h1 class="page-header__title" style="padding:0; border:0; margin-top:16px">The wordmark is the brand.</h1>
-      <p class="page-header__lede">Kilowott is carried almost entirely by a single wordmark. That means every placement, every crop, every color is load-bearing. These rules keep it behaving consistently across decks, the site, social posts and partner collateral.</p>
+      <p class="page-header__lede">Kilowott is carried almost entirely by a single wordmark. That means every placement, every crop, every color is load-bearing. It is navy on light surfaces and white on dark ones. These rules keep it behaving consistently across decks, the site, social posts and partner collateral.</p>
       <div style="display:flex; gap:12px; margin-top: 32px;">
         <a class="btn btn--primary" href="assets/kilowott-logo.svg" download>Download SVG<span class="btn__arrow"><i data-lucide="arrow-right"></i></span></a>
-        <a class="btn" href="#color">Color rules</a>
+        <a class="btn" href="#downloads">All logo files</a>
       </div>
     </div>
     <div class="lg-hero__canvas">
@@ -416,13 +416,13 @@ window.renderLogo = function (root) {
     <div class="container">
       <div class="section-head">
         <h2 class="section-head__title">Approved placements</h2>
-        <p class="section-head__body">Four sanctioned canvases. Anything else &mdash; photo backgrounds, patterned or gradient surfaces, or low-contrast colors &mdash; needs a solid color tint behind the mark.</p>
+        <p class="section-head__body">Four sanctioned canvases. Navy (<span class="mono">#021032</span>) on paper and warm paper; white on ink and red. Anything else &mdash; photo backgrounds, patterned or gradient surfaces, or low-contrast colors &mdash; needs a solid color tint behind the mark.</p>
       </div>
       <div class="lg-variants">
-        <div class="lg-var lg-var--paper"><div class="lg-var__logo"></div><span class="lg-var__cap">01 · Paper</span></div>
-        <div class="lg-var lg-var--ink"><div class="lg-var__logo"></div><span class="lg-var__cap">02 · Ink</span></div>
-        <div class="lg-var lg-var--red"><div class="lg-var__logo"></div><span class="lg-var__cap">03 · Red (rare)</span></div>
-        <div class="lg-var lg-var--warm"><div class="lg-var__logo"></div><span class="lg-var__cap">04 · Warm paper</span></div>
+        <div class="lg-var lg-var--paper"><div class="lg-var__logo"></div><span class="lg-var__cap">01 · Navy on paper</span></div>
+        <div class="lg-var lg-var--ink"><div class="lg-var__logo"></div><span class="lg-var__cap">02 · White on ink</span></div>
+        <div class="lg-var lg-var--red"><div class="lg-var__logo"></div><span class="lg-var__cap">03 · White on red (rare)</span></div>
+        <div class="lg-var lg-var--warm"><div class="lg-var__logo"></div><span class="lg-var__cap">04 · Navy on warm paper</span></div>
       </div>
     </div>
   </section>
@@ -432,7 +432,7 @@ window.renderLogo = function (root) {
     <div class="container">
       <div class="section-head">
         <h2 class="section-head__title">Implementation &mdash; topbar &amp; surfaces</h2>
-        <p class="section-head__body">The mark is shipped as a single SVG and recolored via CSS mask + <span class="mono">currentColor</span>. One asset, every surface. No PNG sprites, no inline SVG duplication, no theme-specific files.</p>
+        <p class="section-head__body">On the web the mark is one SVG, coloured by CSS mask and the <span class="mono">--logo</span> token: navy on paper, white on ink. For everything else (documents, email, social, print) use the ready-made navy and white files on the Downloads page.</p>
       </div>
 
       <div class="grid grid-2" style="gap: var(--s-7);">
@@ -440,14 +440,14 @@ window.renderLogo = function (root) {
           <span class="eyebrow">Topbar spec</span>
           <div style="margin-top: 16px; padding: var(--s-6); background: var(--bg-2); border: 1px solid var(--rule); border-radius: var(--r-3);">
             <div style="display:flex; align-items:center; gap:16px; padding:12px 20px; background: var(--bg); border:1px solid var(--rule); border-radius: var(--r-2);">
-              <div style="width: 110px; height: 18px; background: currentColor; color: var(--fg); -webkit-mask: url(assets/kilowott-logo.svg) no-repeat center/contain; mask: url(assets/kilowott-logo.svg) no-repeat center/contain;"></div>
+              <div style="width: 110px; height: 18px; background: currentColor; color: var(--logo); -webkit-mask: url(assets/kilowott-logo.svg) no-repeat center/contain; mask: url(assets/kilowott-logo.svg) no-repeat center/contain;"></div>
               <span class="mono" style="margin-left:auto; font-size:11px; color: var(--fg-2); letter-spacing: 0.08em; text-transform: uppercase;">110 &times; 18</span>
             </div>
             <ul style="list-style:none; padding:0; margin: 20px 0 0; display:grid; gap:8px; font-size: var(--fs-sm); color: var(--fg-2);">
               <li><b style="color:var(--fg)">Size:</b> 110&nbsp;&times;&nbsp;18&nbsp;px (aspect 313:41 preserved via <span class="mono">aspect-ratio</span>)</li>
-              <li><b style="color:var(--fg)">Color:</b> inherits <span class="mono">currentColor</span> &mdash; set <span class="mono">color</span> on parent, not the mark</li>
+              <li><b style="color:var(--fg)">Color:</b> <span class="mono">var(--logo)</span> &mdash; navy <span class="mono">#021032</span> on paper</li>
               <li><b style="color:var(--fg)">Clear space:</b> min 16&nbsp;px left/right, vertically centered in 56&nbsp;px topbar</li>
-              <li><b style="color:var(--fg)">Dark mode:</b> no asset swap &mdash; parent flips <span class="mono">color: var(--fg)</span></li>
+              <li><b style="color:var(--fg)">Dark mode:</b> no asset swap &mdash; <span class="mono">--logo</span> flips to white</li>
             </ul>
           </div>
         </div>
@@ -455,25 +455,24 @@ window.renderLogo = function (root) {
         <div>
           <span class="eyebrow">Technique</span>
           <p style="margin-top: 12px; color: var(--fg-2); font-size: var(--fs-sm); max-width: 60ch;">
-            The logo is a CSS mask, not an <span class="mono">&lt;img&gt;</span>. Background defaults to <span class="mono">currentColor</span>, so the mark takes the parent&rsquo;s text color. Switch theme, switch section, switch mood &mdash; the logo follows. One SVG, zero duplication.
+            The logo is a CSS mask, not an <span class="mono">&lt;img&gt;</span>. It is filled with the <span class="mono">--logo</span> token: navy in the light theme, white in the dark theme. On an ink or red band inside a light page, set white yourself.
           </p>
           <pre style="margin-top: 16px; padding: var(--s-6); background: var(--bg-2); border: 1px solid var(--rule); border-radius: var(--r-3); font-family: var(--font-mono); font-size: 12px; line-height: 1.6; color: var(--fg); overflow-x: auto; white-space: pre; max-width: 100%;"><span style="color: var(--fg-2);">/* Topbar logo &mdash; 110&times;18, any color */</span>
 .topbar__logo {
   width: 110px;
   height: 18px;
   aspect-ratio: 313 / 41;
-  background: currentColor;
+  background: var(--logo);
   -webkit-mask: url(assets/kilowott-logo.svg)
                 no-repeat center / contain;
           mask: url(assets/kilowott-logo.svg)
                 no-repeat center / contain;
 }
-<span style="color: var(--fg-2);">/* parent sets the color */</span>
-.topbar        { color: var(--fg); }
-.topbar--ink   { color: #FFFFFF; }
-.topbar--red   { color: var(--accent); }</pre>
+<span style="color: var(--fg-2);">/* on ink or red bands: white */</span>
+.topbar--ink .topbar__logo { background: #FFFFFF; }
+.topbar--red .topbar__logo { background: #FFFFFF; }</pre>
           <p style="margin-top: 16px; font-size: 13px; color: var(--fg-2);">
-            <b style="color: var(--fg)">Why not <span class="mono">&lt;img&gt;</span>?</b> Image tags need per-theme asset swaps and can&rsquo;t inherit color. Mask + <span class="mono">currentColor</span> = one file, any context, no JS.
+            <b style="color: var(--fg)">Why not <span class="mono">&lt;img&gt;</span>?</b> Image tags need a file swap per theme. Mask + <span class="mono">--logo</span> = one file, both themes, no JS.
           </p>
         </div>
       </div>

@@ -141,6 +141,7 @@ window.renderDeck = function (root) {
       position: absolute; top: 48px; left: 56px;
       display: flex; align-items: center;
       width: 120px; height: 22px;
+      color: var(--k-navy);
     }
     .dk-chrome-logo::before {
       content: ""; width: 100%; height: 100%;

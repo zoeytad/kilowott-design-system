@@ -75,6 +75,7 @@ If your output looks neon, dark by default, gradient-heavy, or has more than one
 | `--k-muted` | `#5B6573` | secondary text on paper |
 | `--k-muted-dark` | `#8A95A5` | secondary text on ink |
 | `--k-red-hover` | `#B40224` | pressed / hover state for red fills |
+| `--k-navy` | `#021032` | logo navy: the wordmark on paper, nothing else |
 
 ### State colours (product UI only, never marketing)
 
@@ -110,6 +111,7 @@ If your output looks neon, dark by default, gradient-heavy, or has more than one
 | `--danger` | `#E4022D` (`--accent`) | `#E4022D` (`--accent`) | state: danger = brand red |
 | `--danger-soft` | `#FCE5EA` (`--k-red-soft`) | `#FCE5EA` (`--k-red-soft`) | state: danger tint |
 | `--link` | `#8A021B` (`--accent-ink`) | `#FCE5EA` (`--accent-ink`) | text links, inline code, small red text |
+| `--logo` | `#021032` (`--k-navy`) | `#FFFFFF` (`--k-paper`) | the wordmark: navy on paper, white on ink |
 
 ### Contrast (WCAG 2.2, computed from the hex values)
 
@@ -234,7 +236,7 @@ Print: A3, A2, A1, 18×24in posters · roll-up 850×2000mm · event backdrop · 
 Principles: real over rendered (no AI imagery externally), human gaze, warm not saturated, space for type. Categories: people, environment, product UI (2× retina minimum), abstract / textural, diagrams (1.2px stroke, mono labels 10–12px, 4px radius). Grades: house (desaturate −12, warmth +8), ink/red duotone for heroes, warm mono. Crops: 16:9, 21:9, 3:2, 4:5, 1:1, 9:16. Mistakes to avoid: stock hard hats, AI gradients, people lined up against a wall, sunset handshake, glossy mock-ups, post-it brainstorms. Cleared photos: `assets/photos/`. `uploads/` = licensed Shutterstock originals, internal reference library for Kilowott use only, do not redistribute.
 
 ### Logo (`#logo`)
-Wordmark SVG via CSS mask + currentColor, 110×18px in a 56px topbar with 16px clear space. Clear space = cap-K height. Hero ≥240px / 60mm, standard 120–240px, minimum 80px / 20mm. Bolt for avatars and favicons (16–1024px) and watermarks (24–48px, 60–80% opacity). The bolt exists only as a 100×100 JPG.
+Wordmark colour: navy #021032 (`var(--logo)`) on paper and warm paper, white on ink and red; navy is for the logo only. On the web: SVG via CSS mask filled with `var(--logo)`, 110×18px in a 56px topbar with 16px clear space. Clear space = cap-K height. Hero ≥240px / 60mm, standard 120–240px, minimum 80px / 20mm. Bolt for avatars and favicons (16–1024px) and watermarks (24–48px, 60–80% opacity). The bolt exists only as a 100×100 JPG.
 
 ### Voice (`#voice`)
 Four principles (outcome-driven; strategic and specific; confident, not loud; human, not corporate), four service lines (Kilowott for Brands, for Agencies, Intelligence, Workforce), the tone dial, registers by context, vocabulary, mechanics, and the length ladder. Full text in KILOWOTT_BRAND.md §9.

@@ -17,6 +17,7 @@ Columns: 4
  91 101 115	Kilowott Muted (--k-muted) #5B6573
 138 149 165	Kilowott Muted dark (--k-muted-dark) #8A95A5
 180   2  36	Kilowott Red hover (--k-red-hover) #B40224
+  2  16  50	Kilowott Navy (--k-navy) #021032
  26 127  53	Kilowott Success (--k-success) #1A7F35
 232 243 235	Kilowott Success soft (--k-success-soft) #E8F3EB
 154  98   0	Kilowott Warning (--k-warning) #9A6200

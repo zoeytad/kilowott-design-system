@@ -173,6 +173,18 @@
       "group": "Kilowott brand"
     },
     {
+      "name": "Kilowott Navy",
+      "token": "--k-navy",
+      "hex": "#021032",
+      "rgb": [
+        2,
+        16,
+        50
+      ],
+      "role": "logo navy: the wordmark on paper, nothing else",
+      "group": "Kilowott brand"
+    },
+    {
       "name": "Kilowott Success",
       "token": "--k-success",
       "hex": "#1A7F35",

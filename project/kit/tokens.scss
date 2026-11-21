@@ -17,6 +17,7 @@ $k-rule-soft: #E2DED6; // soft divider on paper
 $k-muted: #5B6573; // secondary text on paper
 $k-muted-dark: #8A95A5; // secondary text on ink
 $k-red-hover: #B40224; // pressed / hover state for red fills
+$k-navy: #021032; // logo navy: the wordmark on paper, nothing else
 
 // ---------- State colours (product UI only) ----------
 $k-success: #1A7F35; // success text, icons, dots · 5.1:1 on paper
@@ -46,6 +47,7 @@ $info-soft: $k-info-soft; // state: info tint
 $danger: $accent; // state: danger = brand red
 $danger-soft: $k-red-soft; // state: danger tint
 $link: $accent-ink; // Text links and inline code use --accent-ink, not --accent: red-ink is 10:1 on paper; brand red is only 4.8:1 and fails on warm paper.
+$logo: $k-navy; // The wordmark: navy on paper, white on ink.
 
 // ---------- Type ----------
 $font-display: "Newsreader", ui-serif, Georgia, serif;
@@ -120,6 +122,7 @@ $kilowott-brand: (
   "muted": #5B6573,
   "muted-dark": #8A95A5,
   "red-hover": #B40224,
+  "navy": #021032,
 );
 
 $kilowott-state: (
@@ -151,6 +154,7 @@ $kilowott-theme-light: (
   "danger": $accent,
   "danger-soft": $k-red-soft,
   "link": $accent-ink,
+  "logo": $k-navy,
 );
 
 $kilowott-theme-dark: (
@@ -173,6 +177,7 @@ $kilowott-theme-dark: (
   "danger": $accent,
   "danger-soft": $k-red-soft,
   "link": $accent-ink,
+  "logo": $k-paper,
 );
 
 $kilowott-spacing: (
