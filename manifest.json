@@ -159,6 +159,18 @@
       "purpose": "Every logo file in one archive. Full list: project/brand.json → logo.wordmark.files"
     },
     {
+      "file": "project/downloads/favicon/favicon.svg",
+      "url": "https://brandkit.kilowott.com/project/downloads/favicon/favicon.svg",
+      "format": "svg",
+      "purpose": "Favicon: white bolt on Kilowott Red (also .ico and PNG 16–512, Apple touch icon, maskable icon, web manifest in the same folder)"
+    },
+    {
+      "file": "project/downloads/kilowott-favicon-pack.zip",
+      "url": "https://brandkit.kilowott.com/project/downloads/kilowott-favicon-pack.zip",
+      "format": "zip",
+      "purpose": "Every favicon file in one archive. Full list: project/brand.json → logo.favicon.files"
+    },
+    {
       "file": "project/assets/kilowott-bolt.jpg",
       "url": "https://brandkit.kilowott.com/project/assets/kilowott-bolt.jpg",
       "format": "jpg 100×100",

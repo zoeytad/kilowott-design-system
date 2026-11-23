@@ -348,7 +348,7 @@ window.renderLogo = function (root) {
           <div class="lg-bolt__sample lg-bolt__sample--rounded"><img src="assets/kilowott-bolt.jpg" alt="Kilowott bolt"></div>
           <div class="lg-bolt__cap">
             <b>Favicon &amp; app icon</b>
-            16&times;16 up to 1024&times;1024. Rounded-square mask on iOS / Android, square on browser tabs. Same bolt, no separate file.
+            16&times;16 up to 1024&times;1024. Rounded-square mask on iOS / Android, square on browser tabs. The ready-made set is the white bolt on Kilowott Red in <span class="mono">downloads/favicon/</span>.
           </div>
         </div>
 
@@ -372,7 +372,7 @@ window.renderLogo = function (root) {
       <div class="lg-bolt__rules">
         <div class="lg-bolt__rule"><b style="color:var(--fg)">Use the bolt when</b> the surface is square, the wordmark won&rsquo;t read at the size, or the brand needs to register at a glance &mdash; profile pic, app icon, favicon, watermark.</div>
         <div class="lg-bolt__rule"><b style="color:var(--fg)">Don&rsquo;t replace the wordmark</b> with the bolt on letterheads, decks, websites, signage or anywhere the full mark fits comfortably. The bolt is a companion, not a shortcut.</div>
-        <div class="lg-bolt__rule"><b style="color:var(--fg)">Don&rsquo;t recolor.</b> Black on white, or white on ink. No red bolt, no gradient bolt, no two-tone bolt. The wordmark already carries the color story.</div>
+        <div class="lg-bolt__rule"><b style="color:var(--fg)">Don&rsquo;t recolor.</b> Black on white, or white on ink. No red bolt, no gradient bolt, no two-tone bolt. The one exception is the favicon and app icon: a white bolt on a Kilowott Red tile.</div>
         <div class="lg-bolt__rule"><b style="color:var(--fg)">File:</b> <span class="mono">assets/kilowott-bolt.jpg</span> &middot; 100&times;100 source &middot; canonical version sourced from the Kilowott LinkedIn company logo.</div>
       </div>
     </div>

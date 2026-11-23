@@ -14,6 +14,9 @@ window.renderDownloads = function (root) {
       ['PNG', 'Wordmark, white', '1200 px wide, transparent. Also 300, 600, 2400 in the zip.', 'downloads/logo/kilowott-logo-white-1200.png', 'image'],
       ['PDF', 'Wordmark, navy', 'Vector PDF for print and Office documents.', 'downloads/logo/kilowott-logo-navy.pdf', 'file-text'],
       ['ZIP', 'Logo pack', 'Every logo file: SVG, PDF, PNG in four sizes, two link-preview cards.', 'downloads/kilowott-logo-pack.zip', 'package'],
+      ['SVG', 'Favicon', 'White bolt on red. Vector, for modern browsers.', 'downloads/favicon/favicon.svg', 'zap'],
+      ['ICO', 'Favicon', '16, 32 and 48 px in one file, for older browsers.', 'downloads/favicon/favicon.ico', 'zap'],
+      ['ZIP', 'Favicon pack', 'SVG, ICO, PNG from 16 to 512 px, Apple touch icon, maskable icon, web manifest.', 'downloads/kilowott-favicon-pack.zip', 'package'],
       ['JPG', 'Bolt mark', '100 × 100 px. There is no vector bolt yet.', 'assets/kilowott-bolt.jpg', 'zap'] ] },
     { h: 'Colour', p: 'The same palette in the format your tool reads.', items: [
       ['ASE', 'Adobe swatches', 'Illustrator, InDesign, Photoshop.', 'downloads/kilowott-colors.ase', 'palette'],

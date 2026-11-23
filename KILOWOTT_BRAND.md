@@ -238,7 +238,7 @@ Spec: 24×24, stroke 1.5 (1.25 at 48px), round caps, `currentColor`. Sizes 16 ·
 
 - **Clear space** = height of the K on all sides. **Sizes:** hero ≥240px / 60mm, standard 120–240px, minimum 80px / 20mm (below that, use the bolt).
 - **Placements:** navy on paper (default) and warm paper; white on ink and red (rare). Never stretch, rotate, add shadows, or place on busy images. Never redraw or re-typeset.
-- **Bolt mark (companion):** `project/assets/kilowott-bolt.jpg`, black bolt on white. Avatars, favicons, app icons, watermarks. Never replaces the wordmark where the wordmark fits. Black on white or white on ink only (`filter: invert(1)`); never red, gradient, or two-tone. **Known gap:** the bolt exists only as a 100×100 JPG. There is no vector. Don't trace or fake one; ask the Kilowott brand team.
+- **Bolt mark (companion):** `project/assets/kilowott-bolt.jpg`, black bolt on white. Avatars, favicons, app icons, watermarks. Never replaces the wordmark where the wordmark fits. Black on white or white on ink only (`filter: invert(1)`); never red, gradient, or two-tone. **Favicon and app icon (the one exception):** white bolt on a Kilowott Red tile, ready-made in `project/downloads/favicon/` (`favicon.svg`, `favicon.ico`, PNG 16–512, `apple-touch-icon.png`, `icon-maskable-512x512.png`, `site.webmanifest`); use those files, don’t rebuild them. **Known gap:** the bolt exists only as a 100×100 JPG. There is no vector. Don't trace or fake one; ask the Kilowott brand team.
 
 ---
 

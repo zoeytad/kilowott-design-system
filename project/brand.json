@@ -53,7 +53,7 @@
       "Red alongside another colour accent on the same surface",
       "More than one red emphasis word per headline",
       "Dark-by-default pages (the brand is paper-led, not ink-led)",
-      "Recolouring the bolt mark (black on white or white on ink only)"
+      "Recolouring the bolt mark (black on white or white on ink only; the favicon set, white bolt on red, is the one exception)"
     ],
     "alt_accents": {
       "_rule": "Sub-brand or campaign use only. They REPLACE red as the single accent, never sit beside it.",
@@ -276,6 +276,68 @@
       "format": "JPG, 100×100 px — raster only. No vector exists; do not trace or fake one.",
       "use": "Square companion mark: avatars, favicons, app icons, watermarks. Never replaces the wordmark where the wordmark fits.",
       "colour": "Black bolt on white; white on ink via filter: invert(1). Never red, gradient, or two-tone."
+    },
+    "favicon": {
+      "treatment": "White bolt on a Kilowott Red (#E4022D) tile. The only place the bolt sits on red. Use the supplied files; do not rebuild or recolour.",
+      "pack": "https://brandkit.kilowott.com/project/downloads/kilowott-favicon-pack.zip",
+      "html": "<link rel=\"icon\" href=\"/favicon.ico\" sizes=\"48x48\"><link rel=\"icon\" href=\"/favicon.svg\" type=\"image/svg+xml\"><link rel=\"apple-touch-icon\" href=\"/apple-touch-icon.png\"><link rel=\"manifest\" href=\"/site.webmanifest\">",
+      "files": [
+        {
+          "url": "https://brandkit.kilowott.com/project/downloads/favicon/favicon.svg",
+          "format": "svg",
+          "use": "Browser tab, modern browsers. Rounded tile."
+        },
+        {
+          "url": "https://brandkit.kilowott.com/project/downloads/favicon/favicon.ico",
+          "format": "ico 16/32/48",
+          "use": "Browser tab fallback; serve at /favicon.ico."
+        },
+        {
+          "url": "https://brandkit.kilowott.com/project/downloads/favicon/favicon-16x16.png",
+          "format": "png 16",
+          "use": "Browser tab."
+        },
+        {
+          "url": "https://brandkit.kilowott.com/project/downloads/favicon/favicon-32x32.png",
+          "format": "png 32",
+          "use": "Browser tab, retina."
+        },
+        {
+          "url": "https://brandkit.kilowott.com/project/downloads/favicon/favicon-48x48.png",
+          "format": "png 48",
+          "use": "Shortcuts, search results."
+        },
+        {
+          "url": "https://brandkit.kilowott.com/project/downloads/favicon/favicon-96x96.png",
+          "format": "png 96",
+          "use": "Shortcuts, search results."
+        },
+        {
+          "url": "https://brandkit.kilowott.com/project/downloads/favicon/favicon-192x192.png",
+          "format": "png 192",
+          "use": "Android home screen (web manifest)."
+        },
+        {
+          "url": "https://brandkit.kilowott.com/project/downloads/favicon/favicon-512x512.png",
+          "format": "png 512",
+          "use": "Android splash, PWA (web manifest)."
+        },
+        {
+          "url": "https://brandkit.kilowott.com/project/downloads/favicon/apple-touch-icon.png",
+          "format": "png 180, square, no transparency",
+          "use": "iOS home screen. iOS rounds the corners itself."
+        },
+        {
+          "url": "https://brandkit.kilowott.com/project/downloads/favicon/icon-maskable-512x512.png",
+          "format": "png 512, square, bolt inside the safe zone",
+          "use": "Android adaptive icon (purpose: maskable)."
+        },
+        {
+          "url": "https://brandkit.kilowott.com/project/downloads/favicon/site.webmanifest",
+          "format": "json",
+          "use": "Web app manifest listing the 192, 512 and maskable icons."
+        }
+      ]
     }
   },
   "facts": {
